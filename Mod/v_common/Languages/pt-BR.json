@@ -58,7 +58,15 @@
   "ui.android_no_cultivation": "Androides e robôs não têm meridianos e não podem cultivar.",
   "ui.can_awaken": "Tem aptidão para cultivar, mas ainda não despertou.",
   "ui.cannot_cultivate": "Não tem raiz espiritual e não pode cultivar.",
-  "ui.coming_soon": "Em breve: rupturas, árvore de habilidades e passivas.",
+  "ui.coming_soon": "Em breve: árvore de habilidades, passivas e rupturas para estágios mais altos.",
   "ui.awaken_button": "Despertar cultivo",
-  "ui.meditation_hint": "Ganha Qi no lazer, e muito mais na Almofada de Meditação (Meditation Cushion, no menu de construção)."
+  "ui.meditation_hint": "Ganha Qi no lazer, e muito mais na Almofada de Meditação (Meditation Cushion, no menu de construção).",
+  "ui.qi_boost": "Bônus de pílula: absorção de Qi +{0}% (faltam {1} h)",
+  "ui.break_bonus": "Bônus de pílula: chance de ruptura +{0}% (faltam {1} h)",
+  "ui.foundation_ready": "No auge do Refinamento de Qi: use uma Pílula do Estabelecimento da Fundação (Foundation Establishment Elixir) para romper.",
+  "pill.no_cultivation": "Ainda não despertou o cultivo: a pílula não tem efeito de cultivo.",
+  "pill.qi": "Qi +{0}",
+  "pill.qi_boost": "Absorção de Qi +{0}% por {1} h",
+  "pill.break_bonus": "Chance de ruptura +{0}% por {1} h",
+  "pill.foundation_not_ready": "Ainda não está no auge do Refinamento de Qi: sem ruptura."
 }

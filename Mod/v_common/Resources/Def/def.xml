@@ -40,5 +40,1653 @@
       <Item Name="CN">打坐修炼用的蒲团。已经觉醒修炼的人在这里冥想，吸收灵气的速度远快于其他娱乐。</Item>
       <Item Name="EN">A cushion for seated meditation. Awakened cultivators who meditate here absorb Qi much faster than with any other recreation.</Item>
     </ModDefRow>
+
+    <!-- ===================== Fase 1: alquimia (gerado por tools/gen_phase1.py) ===================== -->
+    <!-- Bancadas: cópias da 药品加工台 (B_Manufacture 51, sem energia). ProductID usa o ID completo das nossas receitas. -->
+    <ModDefRow Name="F_ManufactureDef" DependID="51">
+      <Item Name="ID">96901</Item>
+      <Item Name="Name">小型炼丹炉</Item>
+      <Item Name="Desc">一个方便携带的小型炼丹炉，可以炼制三品丹药。更高品阶的丹药需要太乙炼丹炉。</Item>
+      <Item Name="RawIcon">wuxia_little_cauldron.png</Item>
+      <Item Name="Width">1</Item>
+      <Item Name="Height">1</Item>
+      <Item Name="Materials">12_15_20|12_6_10</Item>
+      <Item Name="ProductID">pauloraz3n.wuxia_96531|pauloraz3n.wuxia_96532|pauloraz3n.wuxia_96533|pauloraz3n.wuxia_96534|pauloraz3n.wuxia_96535|pauloraz3n.wuxia_96536</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ManufactureDef" DependID="51">
+      <Item Name="ID">96902</Item>
+      <Item Name="Name">太乙炼丹炉</Item>
+      <Item Name="Desc">一台大型标准炼丹炉，可以炼制各品丹药，包括效果极强的一品丹药和丹魄真火。</Item>
+      <Item Name="RawIcon">wuxia_taiyi_cauldron.png</Item>
+      <Item Name="Width">3</Item>
+      <Item Name="Height">3</Item>
+      <Item Name="Materials">12_15_80|12_6_30|12_23_1</Item>
+      <Item Name="ProductID">pauloraz3n.wuxia_96531|pauloraz3n.wuxia_96532|pauloraz3n.wuxia_96533|pauloraz3n.wuxia_96534|pauloraz3n.wuxia_96535|pauloraz3n.wuxia_96536|pauloraz3n.wuxia_96541|pauloraz3n.wuxia_96542|pauloraz3n.wuxia_96543|pauloraz3n.wuxia_96544|pauloraz3n.wuxia_96545|pauloraz3n.wuxia_96546|pauloraz3n.wuxia_96547|pauloraz3n.wuxia_96548|pauloraz3n.wuxia_96549</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ManufactureDef" DependID="51">
+      <Item Name="ID">96903</Item>
+      <Item Name="Name">制药工作台</Item>
+      <Item Name="Desc">一张用来制备药材和药粉的工作台：丹辅、金砂、灵石、各种药材和药散都在这里制作。</Item>
+      <Item Name="RawIcon">wuxia_elixir_workbench.png</Item>
+      <Item Name="Width">3</Item>
+      <Item Name="Height">1</Item>
+      <Item Name="Materials">12_15_30|12_87_20</Item>
+      <Item Name="ProductID">pauloraz3n.wuxia_96501|pauloraz3n.wuxia_96502|pauloraz3n.wuxia_96503|pauloraz3n.wuxia_96504|pauloraz3n.wuxia_96505|pauloraz3n.wuxia_96506|pauloraz3n.wuxia_96507|pauloraz3n.wuxia_96508|pauloraz3n.wuxia_96509|pauloraz3n.wuxia_96510|pauloraz3n.wuxia_96511|pauloraz3n.wuxia_96512|pauloraz3n.wuxia_96513|pauloraz3n.wuxia_96514|pauloraz3n.wuxia_96521|pauloraz3n.wuxia_96522|pauloraz3n.wuxia_96523</Item>
+    </ModDefRow>
+
+    <!-- Materiais: cópias do 再生组织 (T_Material 92). -->
+    <ModDefRow Name="T_MaterialDef" DependID="92">
+      <Item Name="ID">96101</Item>
+      <Item Name="Name">丹辅</Item>
+      <Item Name="Feature">药材</Item>
+      <Item Name="Desc">制作大部分药丸所需的材料，充当粘合剂和调味剂，让药材的药效不至于过于强烈。</Item>
+      <Item Name="Obtain">制药工作台</Item>
+      <Item Name="Price">30</Item>
+      <Item Name="D_value2">30</Item>
+      <Item Name="RawIcon">wuxia_drug_base.png</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MaterialDef" DependID="92">
+      <Item Name="ID">96102</Item>
+      <Item Name="Name">金砂</Item>
+      <Item Name="Feature">药材</Item>
+      <Item Name="Desc">将黄金磨碎成砂粉，一种具有药效的金属药材。对修炼者来说，金砂能稳固丹药的药性。</Item>
+      <Item Name="Obtain">制药工作台</Item>
+      <Item Name="Price">200</Item>
+      <Item Name="D_value2">200</Item>
+      <Item Name="RawIcon">wuxia_gold_sand.png</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MaterialDef" DependID="92">
+      <Item Name="ID">96103</Item>
+      <Item Name="Name">象牙粉</Item>
+      <Item Name="Feature">药材</Item>
+      <Item Name="Desc">一种具有药效的动物药材，有吸附杂质的神奇作用，复杂的丹药需要用它来辅助。</Item>
+      <Item Name="Obtain">制药工作台</Item>
+      <Item Name="Price">100</Item>
+      <Item Name="D_value2">100</Item>
+      <Item Name="RawIcon">wuxia_tusk_powder.png</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MaterialDef" DependID="92">
+      <Item Name="ID">96104</Item>
+      <Item Name="Name">灵芝</Item>
+      <Item Name="Feature">药材</Item>
+      <Item Name="Desc">一种具有药效的土属性药材，营养极其丰富，常用于调和刺激性的药材。</Item>
+      <Item Name="Obtain">制药工作台</Item>
+      <Item Name="Price">60</Item>
+      <Item Name="D_value2">60</Item>
+      <Item Name="RawIcon">wuxia_lingzhi.png</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MaterialDef" DependID="92">
+      <Item Name="ID">96105</Item>
+      <Item Name="Name">紫雾菇</Item>
+      <Item Name="Feature">药材</Item>
+      <Item Name="Desc">一种具有药效的水属性药材，蕴含丰富的营养，一些特殊丹药会用到。</Item>
+      <Item Name="Obtain">制药工作台</Item>
+      <Item Name="Price">60</Item>
+      <Item Name="D_value2">60</Item>
+      <Item Name="RawIcon">wuxia_dusky_mushroom.png</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MaterialDef" DependID="92">
+      <Item Name="ID">96106</Item>
+      <Item Name="Name">车前子</Item>
+      <Item Name="Feature">药材</Item>
+      <Item Name="Desc">一种具有药效的木属性药材，能促进伤口愈合，并带有轻微的杀菌效果。</Item>
+      <Item Name="Obtain">制药工作台</Item>
+      <Item Name="Price">40</Item>
+      <Item Name="D_value2">40</Item>
+      <Item Name="RawIcon">wuxia_plantain_seed.png</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MaterialDef" DependID="92">
+      <Item Name="ID">96107</Item>
+      <Item Name="Name">雪莲</Item>
+      <Item Name="Feature">药材</Item>
+      <Item Name="Desc">一种具有药效的水属性药材，药效极其强烈，能清热解毒。</Item>
+      <Item Name="Obtain">制药工作台</Item>
+      <Item Name="Price">80</Item>
+      <Item Name="D_value2">80</Item>
+      <Item Name="RawIcon">wuxia_snow_lotus.png</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MaterialDef" DependID="92">
+      <Item Name="ID">96108</Item>
+      <Item Name="Name">提灯果</Item>
+      <Item Name="Feature">药材</Item>
+      <Item Name="Desc">一种具有药效的火属性药材，如同灯笼一般散发淡淡光芒，药效十分温和。</Item>
+      <Item Name="Obtain">制药工作台</Item>
+      <Item Name="Price">60</Item>
+      <Item Name="D_value2">60</Item>
+      <Item Name="RawIcon">wuxia_lantern_berries.png</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MaterialDef" DependID="92">
+      <Item Name="ID">96109</Item>
+      <Item Name="Name">银芯参</Item>
+      <Item Name="Feature">药材</Item>
+      <Item Name="Desc">一种具有药效的金属性药材，生长时间越长，银色越多，药效也越强。</Item>
+      <Item Name="Obtain">制药工作台</Item>
+      <Item Name="Price">60</Item>
+      <Item Name="D_value2">60</Item>
+      <Item Name="RawIcon">wuxia_silver_ginseng.png</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MaterialDef" DependID="92">
+      <Item Name="ID">96110</Item>
+      <Item Name="Name">火龙芽</Item>
+      <Item Name="Feature">药材</Item>
+      <Item Name="Desc">一种具有药效的火属性药材，味道奇辣无比，蕴含极其猛烈的刺激性元素。</Item>
+      <Item Name="Obtain">制药工作台</Item>
+      <Item Name="Price">70</Item>
+      <Item Name="D_value2">70</Item>
+      <Item Name="RawIcon">wuxia_dragon_shoot.png</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MaterialDef" DependID="92">
+      <Item Name="ID">96111</Item>
+      <Item Name="Name">灵石</Item>
+      <Item Name="Feature">药材</Item>
+      <Item Name="Desc">一颗灵气固化而成的半透明石头，完全耐火。炼制高品丹药时用来提供灵气。</Item>
+      <Item Name="Obtain">制药工作台</Item>
+      <Item Name="Price">150</Item>
+      <Item Name="D_value2">150</Item>
+      <Item Name="RawIcon">wuxia_spirit_stone.png</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MaterialDef" DependID="92">
+      <Item Name="ID">96112</Item>
+      <Item Name="Name">丹魄真火</Item>
+      <Item Name="Feature">药材</Item>
+      <Item Name="Desc">丹魄真火，也被称为先天之火。炼制二品和一品丹药都离不开它。</Item>
+      <Item Name="Obtain">太乙炼丹炉</Item>
+      <Item Name="Price">500</Item>
+      <Item Name="D_value2">500</Item>
+      <Item Name="RawIcon">wuxia_spirit_fire.png</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MaterialDef" DependID="92">
+      <Item Name="ID">96113</Item>
+      <Item Name="Name">菌狗胆石</Item>
+      <Item Name="Feature">药材</Item>
+      <Item Name="Desc">一种具有奇妙药效的金属性动物药材，在胆囊内逐渐形成。</Item>
+      <Item Name="Obtain">制药工作台</Item>
+      <Item Name="Price">120</Item>
+      <Item Name="D_value2">120</Item>
+      <Item Name="RawIcon">wuxia_jungou_bezoar.png</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MaterialDef" DependID="92">
+      <Item Name="ID">96114</Item>
+      <Item Name="Name">玃如茸角</Item>
+      <Item Name="Feature">药材</Item>
+      <Item Name="Desc">一种具有奇妙药效的木属性动物药材，来自长寿而聪颖的玃如。</Item>
+      <Item Name="Obtain">制药工作台</Item>
+      <Item Name="Price">150</Item>
+      <Item Name="D_value2">150</Item>
+      <Item Name="RawIcon">wuxia_pilose_antler.png</Item>
+    </ModDefRow>
+
+    <!-- Pílulas: cópias do 治疗叶片 (T_Medicine 0). SubType 1/2 = cura que a IA usa sozinha;
+         SubType 9 = pílula de cultivo/bônus, só pelo botão direito (efeito no WuxiaMod.dll, veja PillEffects). -->
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96001</Item>
+      <Item Name="SubType">9</Item>
+      <Item Name="Name">【三品】归灵丸</Item>
+      <Item Name="Desc">三品药丸，蕴含浓缩灵气，味道甜甜的。服用后立即获得50点灵气。</Item>
+      <Item Name="Price">400</Item>
+      <Item Name="D_value1">400</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">0</Item>
+      <Item Name="RecoverTime">1</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">0</Item>
+      <Item Name="RawIcon">wuxia_pill_guiling.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">灵气+50</Item>
+      <Item Name="Show_value5">修炼丹药</Item>
+      <Item Name="D_value3">立即</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96002</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="Name">【三品】保血丸</Item>
+      <Item Name="Desc">三品药丸，味道微苦，可以增强血液循环，加速治愈。24小时内接受治疗的恢复效果+50%。</Item>
+      <Item Name="Price">350</Item>
+      <Item Name="D_value1">350</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">15</Item>
+      <Item Name="RecoverTime">12</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">2</Item>
+      <Item Name="RawIcon">wuxia_pill_baoxue.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">每小时意识回复15</Item>
+      <Item Name="Show_value5">缓释自愈型</Item>
+      <Item Name="D_value3">24小时</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96003</Item>
+      <Item Name="SubType">9</Item>
+      <Item Name="Name">【三品】凌云丸</Item>
+      <Item Name="Desc">三品药丸，味道奇甜无比，宛若蜜糖。3小时内移动速度+50%。</Item>
+      <Item Name="Price">350</Item>
+      <Item Name="D_value1">350</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">0</Item>
+      <Item Name="RecoverTime">1</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">0</Item>
+      <Item Name="RawIcon">wuxia_pill_lingyun.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">移动速度+50%</Item>
+      <Item Name="Show_value5">修炼丹药</Item>
+      <Item Name="D_value3">3小时</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96004</Item>
+      <Item Name="SubType">9</Item>
+      <Item Name="Name">【三品】三石散</Item>
+      <Item Name="Desc">三品药散，一种灰色药粉，武行间非常推崇。4小时内格斗伤害+30%，近战闪避+20%。</Item>
+      <Item Name="Price">350</Item>
+      <Item Name="D_value1">350</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">0</Item>
+      <Item Name="RecoverTime">1</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">0</Item>
+      <Item Name="RawIcon">wuxia_pill_sanshi.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">格斗伤害+30%</Item>
+      <Item Name="Show_value5">修炼丹药</Item>
+      <Item Name="D_value3">4小时</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96005</Item>
+      <Item Name="SubType">9</Item>
+      <Item Name="Name">【三品】固元散</Item>
+      <Item Name="Desc">三品药散，以金砂为主要材料。8小时内灵气吸收+25%，突破成功率+10%，适合在突破前服用。</Item>
+      <Item Name="Price">350</Item>
+      <Item Name="D_value1">350</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">0</Item>
+      <Item Name="RecoverTime">1</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">0</Item>
+      <Item Name="RawIcon">wuxia_pill_guyuan.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">突破成功率+10%</Item>
+      <Item Name="Show_value5">修炼丹药</Item>
+      <Item Name="D_value3">8小时</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96006</Item>
+      <Item Name="SubType">9</Item>
+      <Item Name="Name">【三品】百粮丸</Item>
+      <Item Name="Desc">三品药丸，味道极苦微酸，可以消除饥饿。服用后吃饱，72小时内不会饥饿。</Item>
+      <Item Name="Price">350</Item>
+      <Item Name="D_value1">350</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">0</Item>
+      <Item Name="RecoverTime">1</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">0</Item>
+      <Item Name="RawIcon">wuxia_pill_bailiang.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">72小时不会饥饿</Item>
+      <Item Name="Show_value5">修炼丹药</Item>
+      <Item Name="D_value3">72小时</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96007</Item>
+      <Item Name="SubType">9</Item>
+      <Item Name="Name">【三品】清风膏</Item>
+      <Item Name="Desc">三品药膏，气味清凉，味道极苦，可以清除疲劳。服用后恢复50点精力，18小时内不消耗精力。</Item>
+      <Item Name="Price">400</Item>
+      <Item Name="D_value1">400</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">0</Item>
+      <Item Name="RecoverTime">1</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">0</Item>
+      <Item Name="RawIcon">wuxia_pill_qingfeng.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">18小时不消耗精力</Item>
+      <Item Name="Show_value5">修炼丹药</Item>
+      <Item Name="D_value3">18小时</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96008</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="Name">【三品】跌打膏</Item>
+      <Item Name="Desc">三品药膏，一种棕黑的膏药，敷在伤口上，有比草药更好的治疗效果。</Item>
+      <Item Name="Price">250</Item>
+      <Item Name="D_value1">250</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">15</Item>
+      <Item Name="RecoverTime">15</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">1</Item>
+      <Item Name="RawIcon">wuxia_pill_dieda.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">每小时意识回复15</Item>
+      <Item Name="Show_value5">缓释自愈型</Item>
+      <Item Name="D_value3">15小时</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96009</Item>
+      <Item Name="SubType">9</Item>
+      <Item Name="Name">【二品】玄寒丸</Item>
+      <Item Name="Desc">二品丹药，味道清凉微苦，可以抵御酷热。14小时内可承受的温度上限+25℃。</Item>
+      <Item Name="Price">800</Item>
+      <Item Name="D_value1">800</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">0</Item>
+      <Item Name="RecoverTime">1</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">0</Item>
+      <Item Name="RawIcon">wuxia_pill_xuanhan.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">温度上限+25℃</Item>
+      <Item Name="Show_value5">修炼丹药</Item>
+      <Item Name="D_value3">14小时</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96010</Item>
+      <Item Name="SubType">9</Item>
+      <Item Name="Name">【二品】炙风丸</Item>
+      <Item Name="Desc">二品丹药，味道辛辣微甜，热力渗入四肢，使人能抵御严寒。14小时内可承受的温度下限-25℃。</Item>
+      <Item Name="Price">800</Item>
+      <Item Name="D_value1">800</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">0</Item>
+      <Item Name="RecoverTime">1</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">0</Item>
+      <Item Name="RawIcon">wuxia_pill_zhifeng.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">温度下限-25℃</Item>
+      <Item Name="Show_value5">修炼丹药</Item>
+      <Item Name="D_value3">14小时</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96011</Item>
+      <Item Name="SubType">9</Item>
+      <Item Name="Name">【二品】灵玉丸</Item>
+      <Item Name="Desc">二品药丸，用灵石提炼而成。立即获得150点灵气，6小时内灵气吸收+50%。</Item>
+      <Item Name="Price">900</Item>
+      <Item Name="D_value1">900</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">0</Item>
+      <Item Name="RecoverTime">1</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">0</Item>
+      <Item Name="RawIcon">wuxia_pill_lingyu.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">灵气+150</Item>
+      <Item Name="Show_value5">修炼丹药</Item>
+      <Item Name="D_value3">6小时</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96012</Item>
+      <Item Name="SubType">9</Item>
+      <Item Name="Name">【二品】金血丸</Item>
+      <Item Name="Desc">二品药丸，在体表形成一层柔韧的气膜护体。6小时内承受伤害-50%，但移动速度-50%。</Item>
+      <Item Name="Price">900</Item>
+      <Item Name="D_value1">900</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">0</Item>
+      <Item Name="RecoverTime">1</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">0</Item>
+      <Item Name="RawIcon">wuxia_pill_jinxue.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">承受伤害-50%</Item>
+      <Item Name="Show_value5">修炼丹药</Item>
+      <Item Name="D_value3">6小时</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96013</Item>
+      <Item Name="SubType">2</Item>
+      <Item Name="Name">【二品】回春散</Item>
+      <Item Name="Desc">二品药散，一种淡绿色的药粉，可以增强对各种疾病的免疫力。48小时内接受治疗的恢复效果+50%。</Item>
+      <Item Name="Price">800</Item>
+      <Item Name="D_value1">800</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">0</Item>
+      <Item Name="RecoverTime">48</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">6</Item>
+      <Item Name="RawIcon">wuxia_pill_huichun.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">免疫力回复6</Item>
+      <Item Name="Show_value5">免疫增强型</Item>
+      <Item Name="D_value3">48小时</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96014</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="Name">【一品】生肌理髓丹</Item>
+      <Item Name="Desc">一品丹药，可以在12小时内大大增强愈合能力，接受治疗的恢复效果+200%。</Item>
+      <Item Name="Price">3200</Item>
+      <Item Name="D_value1">3200</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">60</Item>
+      <Item Name="RecoverTime">12</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">4</Item>
+      <Item Name="RawIcon">wuxia_pill_shengji.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">每小时意识回复60</Item>
+      <Item Name="Show_value5">缓释自愈型</Item>
+      <Item Name="D_value3">12小时</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96015</Item>
+      <Item Name="SubType">9</Item>
+      <Item Name="Name">【一品】修罗魔喰丹</Item>
+      <Item Name="Desc">一品丹药，24小时内强行激发潜力：格斗伤害+100%，近战闪避+50%，但全局效率-50%。</Item>
+      <Item Name="Price">2800</Item>
+      <Item Name="D_value1">2800</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">0</Item>
+      <Item Name="RecoverTime">1</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">0</Item>
+      <Item Name="RawIcon">wuxia_pill_xiuluo.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">格斗伤害+100%</Item>
+      <Item Name="Show_value5">修炼丹药</Item>
+      <Item Name="D_value3">24小时</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96016</Item>
+      <Item Name="SubType">9</Item>
+      <Item Name="Name">【一品】天灵宝玉丹</Item>
+      <Item Name="Desc">一品丹药，在10天内极大地提升灵气的吸收效率（+150%）。</Item>
+      <Item Name="Price">3800</Item>
+      <Item Name="D_value1">3800</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">0</Item>
+      <Item Name="RecoverTime">1</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">0</Item>
+      <Item Name="RawIcon">wuxia_pill_tianling.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">灵气吸收+150%</Item>
+      <Item Name="Show_value5">修炼丹药</Item>
+      <Item Name="D_value3">240小时</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96017</Item>
+      <Item Name="SubType">9</Item>
+      <Item Name="Name">【一品】通玄筑基丹</Item>
+      <Item Name="Desc">一品丹药，凝气境突破至筑基境的必备之物。凝气圆满时服用会立即尝试突破；否则24小时内灵气吸收+25%。</Item>
+      <Item Name="Price">3000</Item>
+      <Item Name="D_value1">3000</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">0</Item>
+      <Item Name="RecoverTime">1</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">0</Item>
+      <Item Name="RawIcon">wuxia_pill_tongxuan.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">筑基突破</Item>
+      <Item Name="Show_value5">修炼丹药</Item>
+      <Item Name="D_value3">24小时</Item>
+    </ModDefRow>
+
+    <!-- Receitas. Materials/OutMaterial usam o ID curto (tipo_ID_qtd); o WuxiaMod.dll registra os IDs curtos. -->
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96501</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">13_2_4</Item>
+      <Item Name="OutMaterial">12_96101_5</Item>
+      <Item Name="Workload">19</Item>
+      <Item Name="Name">丹辅（土豆）</Item>
+      <Item Name="Desc">用土豆制作丹辅。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：材料</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96502</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">13_0_4</Item>
+      <Item Name="OutMaterial">12_96101_5</Item>
+      <Item Name="Workload">19</Item>
+      <Item Name="Name">丹辅（小麦）</Item>
+      <Item Name="Desc">用小麦制作丹辅。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：材料</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96503</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_23_1</Item>
+      <Item Name="OutMaterial">12_96102_5</Item>
+      <Item Name="Workload">19</Item>
+      <Item Name="Name">金砂</Item>
+      <Item Name="Desc">用金锭制作金砂。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：材料</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96504</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_73_1</Item>
+      <Item Name="OutMaterial">12_96103_10</Item>
+      <Item Name="Workload">19</Item>
+      <Item Name="Name">象牙粉</Item>
+      <Item Name="Desc">用生物腺体制作象牙粉。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：材料</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96505</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">13_4_3|29_0_1</Item>
+      <Item Name="OutMaterial">12_96104_2</Item>
+      <Item Name="Workload">8</Item>
+      <Item Name="Name">灵芝</Item>
+      <Item Name="Desc">用蘑菇、治疗叶片制作灵芝。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：材料</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96506</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">13_4_4</Item>
+      <Item Name="OutMaterial">12_96105_2</Item>
+      <Item Name="Workload">8</Item>
+      <Item Name="Name">紫雾菇</Item>
+      <Item Name="Desc">用蘑菇制作紫雾菇。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：材料</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96507</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">29_0_2</Item>
+      <Item Name="OutMaterial">12_96106_3</Item>
+      <Item Name="Workload">6</Item>
+      <Item Name="Name">车前子</Item>
+      <Item Name="Desc">用治疗叶片制作车前子。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：材料</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96508</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">29_5_2</Item>
+      <Item Name="OutMaterial">12_96107_2</Item>
+      <Item Name="Workload">8</Item>
+      <Item Name="Name">雪莲</Item>
+      <Item Name="Desc">用杀菌根系制作雪莲。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：材料</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96509</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">13_3_4</Item>
+      <Item Name="OutMaterial">12_96108_2</Item>
+      <Item Name="Workload">6</Item>
+      <Item Name="Name">提灯果</Item>
+      <Item Name="Desc">用浆果制作提灯果。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：材料</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96510</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">13_2_3|29_5_1</Item>
+      <Item Name="OutMaterial">12_96109_2</Item>
+      <Item Name="Workload">8</Item>
+      <Item Name="Name">银芯参</Item>
+      <Item Name="Desc">用土豆、杀菌根系制作银芯参。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：材料</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96511</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">29_6_2</Item>
+      <Item Name="OutMaterial">12_96110_2</Item>
+      <Item Name="Workload">8</Item>
+      <Item Name="Name">火龙芽</Item>
+      <Item Name="Desc">用麻痹花蕊制作火龙芽。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：材料</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96512</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_13_5|12_96104_1</Item>
+      <Item Name="OutMaterial">12_96111_1</Item>
+      <Item Name="Workload">19</Item>
+      <Item Name="Name">灵石</Item>
+      <Item Name="Desc">用硅矿石、灵芝制作灵石。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：材料</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96513</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_73_1</Item>
+      <Item Name="OutMaterial">12_96113_4</Item>
+      <Item Name="Workload">19</Item>
+      <Item Name="Name">菌狗胆石</Item>
+      <Item Name="Desc">用生物腺体制作菌狗胆石。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：材料</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96514</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_92_4</Item>
+      <Item Name="OutMaterial">12_96114_1</Item>
+      <Item Name="Workload">19</Item>
+      <Item Name="Name">玃如茸角</Item>
+      <Item Name="Desc">用再生组织制作玃如茸角。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：材料</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96521</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">29_0_1|12_96109_1</Item>
+      <Item Name="OutMaterial">29_96004_1</Item>
+      <Item Name="Workload">8</Item>
+      <Item Name="Name">【三品】三石散</Item>
+      <Item Name="Desc">用治疗叶片、银芯参炼制【三品】三石散。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96522</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">29_0_1|12_96105_1</Item>
+      <Item Name="OutMaterial">29_96005_1</Item>
+      <Item Name="Workload">8</Item>
+      <Item Name="Name">【三品】固元散</Item>
+      <Item Name="Desc">用治疗叶片、紫雾菇炼制【三品】固元散。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96523</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">29_0_1|12_96106_2|12_96111_1</Item>
+      <Item Name="OutMaterial">29_96013_1</Item>
+      <Item Name="Workload">8</Item>
+      <Item Name="Name">【二品】回春散</Item>
+      <Item Name="Desc">用治疗叶片、车前子、灵石炼制【二品】回春散。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96531</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">29_0_1|12_96106_2</Item>
+      <Item Name="OutMaterial">29_96008_1</Item>
+      <Item Name="Workload">8</Item>
+      <Item Name="Name">【三品】跌打膏</Item>
+      <Item Name="Desc">用治疗叶片、车前子炼制【三品】跌打膏。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96532</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_96106_2|12_96101_1</Item>
+      <Item Name="OutMaterial">29_96002_1</Item>
+      <Item Name="Workload">8</Item>
+      <Item Name="Name">【三品】保血丸</Item>
+      <Item Name="Desc">用车前子、丹辅炼制【三品】保血丸。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96533</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_96101_1|12_96108_1</Item>
+      <Item Name="OutMaterial">29_96003_1</Item>
+      <Item Name="Workload">8</Item>
+      <Item Name="Name">【三品】凌云丸</Item>
+      <Item Name="Desc">用丹辅、提灯果炼制【三品】凌云丸。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96534</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_96101_1|12_96104_1</Item>
+      <Item Name="OutMaterial">29_96001_1</Item>
+      <Item Name="Workload">24</Item>
+      <Item Name="Name">【三品】归灵丸</Item>
+      <Item Name="Desc">用丹辅、灵芝炼制【三品】归灵丸。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96535</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_96104_1|29_0_1</Item>
+      <Item Name="OutMaterial">29_96007_1</Item>
+      <Item Name="Workload">11</Item>
+      <Item Name="Name">【三品】清风膏</Item>
+      <Item Name="Desc">用灵芝、治疗叶片炼制【三品】清风膏。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96536</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_96101_1|12_96107_3|12_96109_3</Item>
+      <Item Name="OutMaterial">29_96006_3</Item>
+      <Item Name="Workload">24</Item>
+      <Item Name="Name">【三品】百粮丸</Item>
+      <Item Name="Desc">用丹辅、雪莲、银芯参炼制【三品】百粮丸。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96541</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_96111_2|12_10_10</Item>
+      <Item Name="OutMaterial">12_96112_1</Item>
+      <Item Name="Workload">24</Item>
+      <Item Name="Name">丹魄真火</Item>
+      <Item Name="Desc">用灵石、原木炼制丹魄真火。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：材料</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96542</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_96103_3|12_96107_5|12_96112_1|12_96101_1</Item>
+      <Item Name="OutMaterial">29_96009_3</Item>
+      <Item Name="Workload">24</Item>
+      <Item Name="Name">【二品】玄寒丸</Item>
+      <Item Name="Desc">用象牙粉、雪莲、丹魄真火、丹辅炼制【二品】玄寒丸。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96543</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_96103_3|12_96110_5|12_96112_1|12_96101_1</Item>
+      <Item Name="OutMaterial">29_96010_3</Item>
+      <Item Name="Workload">24</Item>
+      <Item Name="Name">【二品】炙风丸</Item>
+      <Item Name="Desc">用象牙粉、火龙芽、丹魄真火、丹辅炼制【二品】炙风丸。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96544</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_96112_1|12_96104_5|12_96111_7|12_96101_1</Item>
+      <Item Name="OutMaterial">29_96011_3</Item>
+      <Item Name="Workload">24</Item>
+      <Item Name="Name">【二品】灵玉丸</Item>
+      <Item Name="Desc">用丹魄真火、灵芝、灵石、丹辅炼制【二品】灵玉丸。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96545</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_96102_10|12_96112_1|12_96110_5|12_96109_5|12_96101_1</Item>
+      <Item Name="OutMaterial">29_96012_3</Item>
+      <Item Name="Workload">24</Item>
+      <Item Name="Name">【二品】金血丸</Item>
+      <Item Name="Desc">用金砂、丹魄真火、火龙芽、银芯参、丹辅炼制【二品】金血丸。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96546</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_96102_15|12_96106_10|12_96112_1|12_96113_2|12_96101_1</Item>
+      <Item Name="OutMaterial">29_96014_1</Item>
+      <Item Name="Workload">33</Item>
+      <Item Name="Name">【一品】生肌理髓丹</Item>
+      <Item Name="Desc">用金砂、车前子、丹魄真火、菌狗胆石、丹辅炼制【一品】生肌理髓丹。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96547</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_96102_15|12_96110_5|12_96112_1|12_96114_2|12_96101_1</Item>
+      <Item Name="OutMaterial">29_96015_1</Item>
+      <Item Name="Workload">33</Item>
+      <Item Name="Name">【一品】修罗魔喰丹</Item>
+      <Item Name="Desc">用金砂、火龙芽、丹魄真火、玃如茸角、丹辅炼制【一品】修罗魔喰丹。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96548</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_96105_5|12_96102_15|12_96112_1|12_96113_2|12_96101_1</Item>
+      <Item Name="OutMaterial">29_96016_1</Item>
+      <Item Name="Workload">33</Item>
+      <Item Name="Name">【一品】天灵宝玉丹</Item>
+      <Item Name="Desc">用紫雾菇、金砂、丹魄真火、菌狗胆石、丹辅炼制【一品】天灵宝玉丹。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96549</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_96107_3|12_96104_3|12_96108_3|12_96101_1</Item>
+      <Item Name="OutMaterial">29_96017_1</Item>
+      <Item Name="Workload">33</Item>
+      <Item Name="Name">【一品】通玄筑基丹</Item>
+      <Item Name="Desc">用雪莲、灵芝、提灯果、丹辅炼制【一品】通玄筑基丹。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+
+    <!-- Textos em inglês da Fase 1 -->
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_小型炼丹炉</Item>
+      <Item Name="CN">小型炼丹炉</Item>
+      <Item Name="EN">Small Alchemy Cauldron</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一个方便携带的小型炼丹炉，可以炼制三品丹药。更高品阶的丹药需要太乙炼丹炉。</Item>
+      <Item Name="CN">一个方便携带的小型炼丹炉，可以炼制三品丹药。更高品阶的丹药需要太乙炼丹炉。</Item>
+      <Item Name="EN">A small, portable alchemy cauldron for refining third-grade pills. Higher-grade pills need the Taiyi Cauldron.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_太乙炼丹炉</Item>
+      <Item Name="CN">太乙炼丹炉</Item>
+      <Item Name="EN">Taiyi Alchemy Cauldron</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一台大型标准炼丹炉，可以炼制各品丹药，包括效果极强的一品丹药和丹魄真火。</Item>
+      <Item Name="CN">一台大型标准炼丹炉，可以炼制各品丹药，包括效果极强的一品丹药和丹魄真火。</Item>
+      <Item Name="EN">A large standard alchemy cauldron. It refines pills of every grade, including the potent first-grade elixirs and Spirit Fire.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_制药工作台</Item>
+      <Item Name="CN">制药工作台</Item>
+      <Item Name="EN">Elixir Workbench</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一张用来制备药材和药粉的工作台：丹辅、金砂、灵石、各种药材和药散都在这里制作。</Item>
+      <Item Name="CN">一张用来制备药材和药粉的工作台：丹辅、金砂、灵石、各种药材和药散都在这里制作。</Item>
+      <Item Name="EN">A workbench for preparing herbs and powders: pill base, gold sand, spirit stones, medicinal herbs and powders are made here.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_丹辅</Item>
+      <Item Name="CN">丹辅</Item>
+      <Item Name="EN">Pill Base</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_药材</Item>
+      <Item Name="CN">药材</Item>
+      <Item Name="EN">Medicinal ingredient</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_制作大部分药丸所需的材料，充当粘合剂和调味剂，让药材的药效不至于过于强烈。</Item>
+      <Item Name="CN">制作大部分药丸所需的材料，充当粘合剂和调味剂，让药材的药效不至于过于强烈。</Item>
+      <Item Name="EN">Needed for most pills. It binds and flavors the herbs so their effect is not too harsh.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_金砂</Item>
+      <Item Name="CN">金砂</Item>
+      <Item Name="EN">Gold Sand</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_将黄金磨碎成砂粉，一种具有药效的金属药材。对修炼者来说，金砂能稳固丹药的药性。</Item>
+      <Item Name="CN">将黄金磨碎成砂粉，一种具有药效的金属药材。对修炼者来说，金砂能稳固丹药的药性。</Item>
+      <Item Name="EN">Gold ground into sand, a metallic medicinal ingredient. For cultivators it stabilizes the power of a pill.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_象牙粉</Item>
+      <Item Name="CN">象牙粉</Item>
+      <Item Name="EN">Tusk Powder</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一种具有药效的动物药材，有吸附杂质的神奇作用，复杂的丹药需要用它来辅助。</Item>
+      <Item Name="CN">一种具有药效的动物药材，有吸附杂质的神奇作用，复杂的丹药需要用它来辅助。</Item>
+      <Item Name="EN">An animal ingredient that draws out impurities. Complex pills need it.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_灵芝</Item>
+      <Item Name="CN">灵芝</Item>
+      <Item Name="EN">Lingzhi</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一种具有药效的土属性药材，营养极其丰富，常用于调和刺激性的药材。</Item>
+      <Item Name="CN">一种具有药效的土属性药材，营养极其丰富，常用于调和刺激性的药材。</Item>
+      <Item Name="EN">An earth-aspected medicinal mushroom. Very nourishing, often used to soften harsh ingredients.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_紫雾菇</Item>
+      <Item Name="CN">紫雾菇</Item>
+      <Item Name="EN">Dusky Mushroom</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一种具有药效的水属性药材，蕴含丰富的营养，一些特殊丹药会用到。</Item>
+      <Item Name="CN">一种具有药效的水属性药材，蕴含丰富的营养，一些特殊丹药会用到。</Item>
+      <Item Name="EN">A water-aspected medicinal mushroom, rich in nutrients and used in some special pills.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_车前子</Item>
+      <Item Name="CN">车前子</Item>
+      <Item Name="EN">Plantain Seed</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一种具有药效的木属性药材，能促进伤口愈合，并带有轻微的杀菌效果。</Item>
+      <Item Name="CN">一种具有药效的木属性药材，能促进伤口愈合，并带有轻微的杀菌效果。</Item>
+      <Item Name="EN">A wood-aspected medicinal seed. It helps wounds heal and is mildly antiseptic.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_雪莲</Item>
+      <Item Name="CN">雪莲</Item>
+      <Item Name="EN">Snow Lotus</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一种具有药效的水属性药材，药效极其强烈，能清热解毒。</Item>
+      <Item Name="CN">一种具有药效的水属性药材，药效极其强烈，能清热解毒。</Item>
+      <Item Name="EN">A water-aspected medicinal flower with a very strong effect. It clears heat and toxins.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_提灯果</Item>
+      <Item Name="CN">提灯果</Item>
+      <Item Name="EN">Lantern Berries</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一种具有药效的火属性药材，如同灯笼一般散发淡淡光芒，药效十分温和。</Item>
+      <Item Name="CN">一种具有药效的火属性药材，如同灯笼一般散发淡淡光芒，药效十分温和。</Item>
+      <Item Name="EN">Fire-aspected medicinal berries that glow like little lanterns. Their effect is gentle.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_银芯参</Item>
+      <Item Name="CN">银芯参</Item>
+      <Item Name="EN">Silver Ginseng</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一种具有药效的金属性药材，生长时间越长，银色越多，药效也越强。</Item>
+      <Item Name="CN">一种具有药效的金属性药材，生长时间越长，银色越多，药效也越强。</Item>
+      <Item Name="EN">A metal-aspected medicinal root. The older it is, the more silver it shows and the stronger it gets.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_火龙芽</Item>
+      <Item Name="CN">火龙芽</Item>
+      <Item Name="EN">Fire Dragon Shoot</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一种具有药效的火属性药材，味道奇辣无比，蕴含极其猛烈的刺激性元素。</Item>
+      <Item Name="CN">一种具有药效的火属性药材，味道奇辣无比，蕴含极其猛烈的刺激性元素。</Item>
+      <Item Name="EN">A fire-aspected medicinal shoot, fiercely spicy and full of stimulating essence.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_灵石</Item>
+      <Item Name="CN">灵石</Item>
+      <Item Name="EN">Spirit Stone</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一颗灵气固化而成的半透明石头，完全耐火。炼制高品丹药时用来提供灵气。</Item>
+      <Item Name="CN">一颗灵气固化而成的半透明石头，完全耐火。炼制高品丹药时用来提供灵气。</Item>
+      <Item Name="EN">A translucent stone of solidified Qi, completely fireproof. It supplies Qi when refining high-grade pills.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_丹魄真火</Item>
+      <Item Name="CN">丹魄真火</Item>
+      <Item Name="EN">Spirit Fire</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_丹魄真火，也被称为先天之火。炼制二品和一品丹药都离不开它。</Item>
+      <Item Name="CN">丹魄真火，也被称为先天之火。炼制二品和一品丹药都离不开它。</Item>
+      <Item Name="EN">Spirit Fire, also called innate fire. Second- and first-grade pills cannot be refined without it.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_菌狗胆石</Item>
+      <Item Name="CN">菌狗胆石</Item>
+      <Item Name="EN">Jungou Bezoar</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一种具有奇妙药效的金属性动物药材，在胆囊内逐渐形成。</Item>
+      <Item Name="CN">一种具有奇妙药效的金属性动物药材，在胆囊内逐渐形成。</Item>
+      <Item Name="EN">A metal-aspected animal ingredient with remarkable effects, formed slowly in the gallbladder.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_玃如茸角</Item>
+      <Item Name="CN">玃如茸角</Item>
+      <Item Name="EN">Pilose Antler</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一种具有奇妙药效的木属性动物药材，来自长寿而聪颖的玃如。</Item>
+      <Item Name="CN">一种具有奇妙药效的木属性动物药材，来自长寿而聪颖的玃如。</Item>
+      <Item Name="EN">A wood-aspected animal ingredient with remarkable effects, from the long-lived and clever Jueru.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_修炼丹药</Item>
+      <Item Name="CN">修炼丹药</Item>
+      <Item Name="EN">Cultivation pill</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_立即</Item>
+      <Item Name="CN">立即</Item>
+      <Item Name="EN">Instant</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_【三品】归灵丸</Item>
+      <Item Name="CN">【三品】归灵丸</Item>
+      <Item Name="EN">[3rd Grade] Spirit Return Pill</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_三品药丸，蕴含浓缩灵气，味道甜甜的。服用后立即获得50点灵气。</Item>
+      <Item Name="CN">三品药丸，蕴含浓缩灵气，味道甜甜的。服用后立即获得50点灵气。</Item>
+      <Item Name="EN">A third-grade pill full of condensed Qi, sweet to the taste. Grants 50 Qi at once.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_丹药功效</Item>
+      <Item Name="CN">丹药功效</Item>
+      <Item Name="EN">Pill effect</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_灵气+50</Item>
+      <Item Name="CN">灵气+50</Item>
+      <Item Name="EN">Qi +50</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_24小时</Item>
+      <Item Name="CN">24小时</Item>
+      <Item Name="EN">24 hours</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_【三品】保血丸</Item>
+      <Item Name="CN">【三品】保血丸</Item>
+      <Item Name="EN">[3rd Grade] Blood Saving Pill</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_三品药丸，味道微苦，可以增强血液循环，加速治愈。24小时内接受治疗的恢复效果+50%。</Item>
+      <Item Name="CN">三品药丸，味道微苦，可以增强血液循环，加速治愈。24小时内接受治疗的恢复效果+50%。</Item>
+      <Item Name="EN">A slightly bitter third-grade pill that strengthens circulation and speeds healing. Healing received +50% for 24 hours.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_每小时意识回复15</Item>
+      <Item Name="CN">每小时意识回复15</Item>
+      <Item Name="EN">Recovers 15 per hour</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_3小时</Item>
+      <Item Name="CN">3小时</Item>
+      <Item Name="EN">3 hours</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_【三品】凌云丸</Item>
+      <Item Name="CN">【三品】凌云丸</Item>
+      <Item Name="EN">[3rd Grade] Cloud Soaring Pill</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_三品药丸，味道奇甜无比，宛若蜜糖。3小时内移动速度+50%。</Item>
+      <Item Name="CN">三品药丸，味道奇甜无比，宛若蜜糖。3小时内移动速度+50%。</Item>
+      <Item Name="EN">A third-grade pill as sweet as honey. Move speed +50% for 3 hours.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_移动速度+50%</Item>
+      <Item Name="CN">移动速度+50%</Item>
+      <Item Name="EN">Move speed +50%</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_4小时</Item>
+      <Item Name="CN">4小时</Item>
+      <Item Name="EN">4 hours</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_【三品】三石散</Item>
+      <Item Name="CN">【三品】三石散</Item>
+      <Item Name="EN">[3rd Grade] Three Stones Powder</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_三品药散，一种灰色药粉，武行间非常推崇。4小时内格斗伤害+30%，近战闪避+20%。</Item>
+      <Item Name="CN">三品药散，一种灰色药粉，武行间非常推崇。4小时内格斗伤害+30%，近战闪避+20%。</Item>
+      <Item Name="EN">A gray third-grade powder prized by martial artists. Melee damage +30% and melee dodge +20% for 4 hours.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_格斗伤害+30%</Item>
+      <Item Name="CN">格斗伤害+30%</Item>
+      <Item Name="EN">Melee damage +30%</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_8小时</Item>
+      <Item Name="CN">8小时</Item>
+      <Item Name="EN">8 hours</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_【三品】固元散</Item>
+      <Item Name="CN">【三品】固元散</Item>
+      <Item Name="EN">[3rd Grade] Origin Fortifying Powder</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_三品药散，以金砂为主要材料。8小时内灵气吸收+25%，突破成功率+10%，适合在突破前服用。</Item>
+      <Item Name="CN">三品药散，以金砂为主要材料。8小时内灵气吸收+25%，突破成功率+10%，适合在突破前服用。</Item>
+      <Item Name="EN">A third-grade powder made mainly from gold sand. Qi absorption +25% and breakthrough chance +10% for 8 hours. Take it before a breakthrough.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_突破成功率+10%</Item>
+      <Item Name="CN">突破成功率+10%</Item>
+      <Item Name="EN">Breakthrough chance +10%</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_72小时</Item>
+      <Item Name="CN">72小时</Item>
+      <Item Name="EN">72 hours</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_【三品】百粮丸</Item>
+      <Item Name="CN">【三品】百粮丸</Item>
+      <Item Name="EN">[3rd Grade] Hundred Grains Pill</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_三品药丸，味道极苦微酸，可以消除饥饿。服用后吃饱，72小时内不会饥饿。</Item>
+      <Item Name="CN">三品药丸，味道极苦微酸，可以消除饥饿。服用后吃饱，72小时内不会饥饿。</Item>
+      <Item Name="EN">A very bitter third-grade pill that banishes hunger. Fills the stomach and stops hunger for 72 hours.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_72小时不会饥饿</Item>
+      <Item Name="CN">72小时不会饥饿</Item>
+      <Item Name="EN">No hunger for 72 hours</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_18小时</Item>
+      <Item Name="CN">18小时</Item>
+      <Item Name="EN">18 hours</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_【三品】清风膏</Item>
+      <Item Name="CN">【三品】清风膏</Item>
+      <Item Name="EN">[3rd Grade] Clear Breeze Balm</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_三品药膏，气味清凉，味道极苦，可以清除疲劳。服用后恢复50点精力，18小时内不消耗精力。</Item>
+      <Item Name="CN">三品药膏，气味清凉，味道极苦，可以清除疲劳。服用后恢复50点精力，18小时内不消耗精力。</Item>
+      <Item Name="EN">A cool-smelling, very bitter third-grade balm that clears fatigue. Restores 50 energy and stops energy loss for 18 hours.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_18小时不消耗精力</Item>
+      <Item Name="CN">18小时不消耗精力</Item>
+      <Item Name="EN">No energy loss for 18 hours</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_15小时</Item>
+      <Item Name="CN">15小时</Item>
+      <Item Name="EN">15 hours</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_【三品】跌打膏</Item>
+      <Item Name="CN">【三品】跌打膏</Item>
+      <Item Name="EN">[3rd Grade] Bruise Balm</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_三品药膏，一种棕黑的膏药，敷在伤口上，有比草药更好的治疗效果。</Item>
+      <Item Name="CN">三品药膏，一种棕黑的膏药，敷在伤口上，有比草药更好的治疗效果。</Item>
+      <Item Name="EN">A brown-black third-grade salve. Applied to wounds, it heals better than plain herbs.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_14小时</Item>
+      <Item Name="CN">14小时</Item>
+      <Item Name="EN">14 hours</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_【二品】玄寒丸</Item>
+      <Item Name="CN">【二品】玄寒丸</Item>
+      <Item Name="EN">[2nd Grade] Profound Cold Pill</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_二品丹药，味道清凉微苦，可以抵御酷热。14小时内可承受的温度上限+25℃。</Item>
+      <Item Name="CN">二品丹药，味道清凉微苦，可以抵御酷热。14小时内可承受的温度上限+25℃。</Item>
+      <Item Name="EN">A cool, slightly bitter second-grade pill that wards off heat. Maximum comfortable temperature +25°C for 14 hours.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_温度上限+25℃</Item>
+      <Item Name="CN">温度上限+25℃</Item>
+      <Item Name="EN">Max temperature +25°C</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_【二品】炙风丸</Item>
+      <Item Name="CN">【二品】炙风丸</Item>
+      <Item Name="EN">[2nd Grade] Scorching Wind Pill</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_二品丹药，味道辛辣微甜，热力渗入四肢，使人能抵御严寒。14小时内可承受的温度下限-25℃。</Item>
+      <Item Name="CN">二品丹药，味道辛辣微甜，热力渗入四肢，使人能抵御严寒。14小时内可承受的温度下限-25℃。</Item>
+      <Item Name="EN">A spicy-sweet second-grade pill whose heat spreads through the limbs to resist the cold. Minimum comfortable temperature -25°C for 14 hours.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_温度下限-25℃</Item>
+      <Item Name="CN">温度下限-25℃</Item>
+      <Item Name="EN">Min temperature -25°C</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_6小时</Item>
+      <Item Name="CN">6小时</Item>
+      <Item Name="EN">6 hours</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_【二品】灵玉丸</Item>
+      <Item Name="CN">【二品】灵玉丸</Item>
+      <Item Name="EN">[2nd Grade] Spirit Jade Pill</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_二品药丸，用灵石提炼而成。立即获得150点灵气，6小时内灵气吸收+50%。</Item>
+      <Item Name="CN">二品药丸，用灵石提炼而成。立即获得150点灵气，6小时内灵气吸收+50%。</Item>
+      <Item Name="EN">A second-grade pill refined from spirit stones. Grants 150 Qi at once and Qi absorption +50% for 6 hours.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_灵气+150</Item>
+      <Item Name="CN">灵气+150</Item>
+      <Item Name="EN">Qi +150</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_【二品】金血丸</Item>
+      <Item Name="CN">【二品】金血丸</Item>
+      <Item Name="EN">[2nd Grade] Golden Blood Pill</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_二品药丸，在体表形成一层柔韧的气膜护体。6小时内承受伤害-50%，但移动速度-50%。</Item>
+      <Item Name="CN">二品药丸，在体表形成一层柔韧的气膜护体。6小时内承受伤害-50%，但移动速度-50%。</Item>
+      <Item Name="EN">A second-grade pill that forms a tough film of Qi over the skin. Damage taken -50% but move speed -50% for 6 hours.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_承受伤害-50%</Item>
+      <Item Name="CN">承受伤害-50%</Item>
+      <Item Name="EN">Damage taken -50%</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_48小时</Item>
+      <Item Name="CN">48小时</Item>
+      <Item Name="EN">48 hours</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_【二品】回春散</Item>
+      <Item Name="CN">【二品】回春散</Item>
+      <Item Name="EN">[2nd Grade] Spring Return Powder</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_二品药散，一种淡绿色的药粉，可以增强对各种疾病的免疫力。48小时内接受治疗的恢复效果+50%。</Item>
+      <Item Name="CN">二品药散，一种淡绿色的药粉，可以增强对各种疾病的免疫力。48小时内接受治疗的恢复效果+50%。</Item>
+      <Item Name="EN">A pale green second-grade powder that strengthens immunity against disease. Healing received +50% for 48 hours.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_免疫力回复6</Item>
+      <Item Name="CN">免疫力回复6</Item>
+      <Item Name="EN">Immunity +6</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_12小时</Item>
+      <Item Name="CN">12小时</Item>
+      <Item Name="EN">12 hours</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_【一品】生肌理髓丹</Item>
+      <Item Name="CN">【一品】生肌理髓丹</Item>
+      <Item Name="EN">[1st Grade] Flesh Mending Marrow Elixir</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一品丹药，可以在12小时内大大增强愈合能力，接受治疗的恢复效果+200%。</Item>
+      <Item Name="CN">一品丹药，可以在12小时内大大增强愈合能力，接受治疗的恢复效果+200%。</Item>
+      <Item Name="EN">A first-grade elixir that greatly boosts healing for 12 hours. Healing received +200%.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_每小时意识回复60</Item>
+      <Item Name="CN">每小时意识回复60</Item>
+      <Item Name="EN">Recovers 60 per hour</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_【一品】修罗魔喰丹</Item>
+      <Item Name="CN">【一品】修罗魔喰丹</Item>
+      <Item Name="EN">[1st Grade] Asura Devouring Elixir</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一品丹药，24小时内强行激发潜力：格斗伤害+100%，近战闪避+50%，但全局效率-50%。</Item>
+      <Item Name="CN">一品丹药，24小时内强行激发潜力：格斗伤害+100%，近战闪避+50%，但全局效率-50%。</Item>
+      <Item Name="EN">A first-grade elixir that forces out hidden potential for 24 hours: melee damage +100% and melee dodge +50%, but global efficiency -50%.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_格斗伤害+100%</Item>
+      <Item Name="CN">格斗伤害+100%</Item>
+      <Item Name="EN">Melee damage +100%</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_240小时</Item>
+      <Item Name="CN">240小时</Item>
+      <Item Name="EN">240 hours</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_【一品】天灵宝玉丹</Item>
+      <Item Name="CN">【一品】天灵宝玉丹</Item>
+      <Item Name="EN">[1st Grade] Heavenly Spirit Jade Elixir</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一品丹药，在10天内极大地提升灵气的吸收效率（+150%）。</Item>
+      <Item Name="CN">一品丹药，在10天内极大地提升灵气的吸收效率（+150%）。</Item>
+      <Item Name="EN">A first-grade elixir that hugely raises Qi absorption (+150%) for 10 days.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_灵气吸收+150%</Item>
+      <Item Name="CN">灵气吸收+150%</Item>
+      <Item Name="EN">Qi absorption +150%</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_【一品】通玄筑基丹</Item>
+      <Item Name="CN">【一品】通玄筑基丹</Item>
+      <Item Name="EN">[1st Grade] Foundation Establishment Elixir</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一品丹药，凝气境突破至筑基境的必备之物。凝气圆满时服用会立即尝试突破；否则24小时内灵气吸收+25%。</Item>
+      <Item Name="CN">一品丹药，凝气境突破至筑基境的必备之物。凝气圆满时服用会立即尝试突破；否则24小时内灵气吸收+25%。</Item>
+      <Item Name="EN">A first-grade elixir required to break through from Qi Condensation to Foundation Establishment. Taken at the peak of Qi Condensation it attempts the breakthrough at once; otherwise Qi absorption +25% for 24 hours.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_筑基突破</Item>
+      <Item Name="CN">筑基突破</Item>
+      <Item Name="EN">Foundation breakthrough</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_丹辅（土豆）</Item>
+      <Item Name="CN">丹辅（土豆）</Item>
+      <Item Name="EN">Pill Base (potatoes)</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用土豆制作丹辅。</Item>
+      <Item Name="CN">用土豆制作丹辅。</Item>
+      <Item Name="EN">Make Pill Base from potatoes.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_丹辅（小麦）</Item>
+      <Item Name="CN">丹辅（小麦）</Item>
+      <Item Name="EN">Pill Base (wheat)</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用小麦制作丹辅。</Item>
+      <Item Name="CN">用小麦制作丹辅。</Item>
+      <Item Name="EN">Make Pill Base from wheat.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用金锭制作金砂。</Item>
+      <Item Name="CN">用金锭制作金砂。</Item>
+      <Item Name="EN">Make Gold Sand from gold ingot.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用生物腺体制作象牙粉。</Item>
+      <Item Name="CN">用生物腺体制作象牙粉。</Item>
+      <Item Name="EN">Make Tusk Powder from bio-gland.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用蘑菇、治疗叶片制作灵芝。</Item>
+      <Item Name="CN">用蘑菇、治疗叶片制作灵芝。</Item>
+      <Item Name="EN">Make Lingzhi from mushrooms, healing leaves.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用蘑菇制作紫雾菇。</Item>
+      <Item Name="CN">用蘑菇制作紫雾菇。</Item>
+      <Item Name="EN">Make Dusky Mushroom from mushrooms.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用治疗叶片制作车前子。</Item>
+      <Item Name="CN">用治疗叶片制作车前子。</Item>
+      <Item Name="EN">Make Plantain Seed from healing leaves.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用杀菌根系制作雪莲。</Item>
+      <Item Name="CN">用杀菌根系制作雪莲。</Item>
+      <Item Name="EN">Make Snow Lotus from antibacterial roots.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用浆果制作提灯果。</Item>
+      <Item Name="CN">用浆果制作提灯果。</Item>
+      <Item Name="EN">Make Lantern Berries from berries.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用土豆、杀菌根系制作银芯参。</Item>
+      <Item Name="CN">用土豆、杀菌根系制作银芯参。</Item>
+      <Item Name="EN">Make Silver Ginseng from potatoes, antibacterial roots.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用麻痹花蕊制作火龙芽。</Item>
+      <Item Name="CN">用麻痹花蕊制作火龙芽。</Item>
+      <Item Name="EN">Make Fire Dragon Shoot from paralysis stamens.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用硅矿石、灵芝制作灵石。</Item>
+      <Item Name="CN">用硅矿石、灵芝制作灵石。</Item>
+      <Item Name="EN">Make Spirit Stone from silicon ore, Lingzhi.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用生物腺体制作菌狗胆石。</Item>
+      <Item Name="CN">用生物腺体制作菌狗胆石。</Item>
+      <Item Name="EN">Make Jungou Bezoar from bio-gland.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用再生组织制作玃如茸角。</Item>
+      <Item Name="CN">用再生组织制作玃如茸角。</Item>
+      <Item Name="EN">Make Pilose Antler from regenerative tissue.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用治疗叶片、银芯参炼制【三品】三石散。</Item>
+      <Item Name="CN">用治疗叶片、银芯参炼制【三品】三石散。</Item>
+      <Item Name="EN">Refine [3rd Grade] Three Stones Powder from healing leaves, Silver Ginseng.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_分类：丹药</Item>
+      <Item Name="CN">分类：丹药</Item>
+      <Item Name="EN">Category: Pills</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用治疗叶片、紫雾菇炼制【三品】固元散。</Item>
+      <Item Name="CN">用治疗叶片、紫雾菇炼制【三品】固元散。</Item>
+      <Item Name="EN">Refine [3rd Grade] Origin Fortifying Powder from healing leaves, Dusky Mushroom.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用治疗叶片、车前子、灵石炼制【二品】回春散。</Item>
+      <Item Name="CN">用治疗叶片、车前子、灵石炼制【二品】回春散。</Item>
+      <Item Name="EN">Refine [2nd Grade] Spring Return Powder from healing leaves, Plantain Seed, Spirit Stone.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用治疗叶片、车前子炼制【三品】跌打膏。</Item>
+      <Item Name="CN">用治疗叶片、车前子炼制【三品】跌打膏。</Item>
+      <Item Name="EN">Refine [3rd Grade] Bruise Balm from healing leaves, Plantain Seed.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用车前子、丹辅炼制【三品】保血丸。</Item>
+      <Item Name="CN">用车前子、丹辅炼制【三品】保血丸。</Item>
+      <Item Name="EN">Refine [3rd Grade] Blood Saving Pill from Plantain Seed, Pill Base.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用丹辅、提灯果炼制【三品】凌云丸。</Item>
+      <Item Name="CN">用丹辅、提灯果炼制【三品】凌云丸。</Item>
+      <Item Name="EN">Refine [3rd Grade] Cloud Soaring Pill from Pill Base, Lantern Berries.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用丹辅、灵芝炼制【三品】归灵丸。</Item>
+      <Item Name="CN">用丹辅、灵芝炼制【三品】归灵丸。</Item>
+      <Item Name="EN">Refine [3rd Grade] Spirit Return Pill from Pill Base, Lingzhi.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用灵芝、治疗叶片炼制【三品】清风膏。</Item>
+      <Item Name="CN">用灵芝、治疗叶片炼制【三品】清风膏。</Item>
+      <Item Name="EN">Refine [3rd Grade] Clear Breeze Balm from Lingzhi, healing leaves.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用丹辅、雪莲、银芯参炼制【三品】百粮丸。</Item>
+      <Item Name="CN">用丹辅、雪莲、银芯参炼制【三品】百粮丸。</Item>
+      <Item Name="EN">Refine [3rd Grade] Hundred Grains Pill from Pill Base, Snow Lotus, Silver Ginseng.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用灵石、原木炼制丹魄真火。</Item>
+      <Item Name="CN">用灵石、原木炼制丹魄真火。</Item>
+      <Item Name="EN">Refine Spirit Fire from Spirit Stone, logs.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用象牙粉、雪莲、丹魄真火、丹辅炼制【二品】玄寒丸。</Item>
+      <Item Name="CN">用象牙粉、雪莲、丹魄真火、丹辅炼制【二品】玄寒丸。</Item>
+      <Item Name="EN">Refine [2nd Grade] Profound Cold Pill from Tusk Powder, Snow Lotus, Spirit Fire, Pill Base.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用象牙粉、火龙芽、丹魄真火、丹辅炼制【二品】炙风丸。</Item>
+      <Item Name="CN">用象牙粉、火龙芽、丹魄真火、丹辅炼制【二品】炙风丸。</Item>
+      <Item Name="EN">Refine [2nd Grade] Scorching Wind Pill from Tusk Powder, Fire Dragon Shoot, Spirit Fire, Pill Base.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用丹魄真火、灵芝、灵石、丹辅炼制【二品】灵玉丸。</Item>
+      <Item Name="CN">用丹魄真火、灵芝、灵石、丹辅炼制【二品】灵玉丸。</Item>
+      <Item Name="EN">Refine [2nd Grade] Spirit Jade Pill from Spirit Fire, Lingzhi, Spirit Stone, Pill Base.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用金砂、丹魄真火、火龙芽、银芯参、丹辅炼制【二品】金血丸。</Item>
+      <Item Name="CN">用金砂、丹魄真火、火龙芽、银芯参、丹辅炼制【二品】金血丸。</Item>
+      <Item Name="EN">Refine [2nd Grade] Golden Blood Pill from Gold Sand, Spirit Fire, Fire Dragon Shoot, Silver Ginseng, Pill Base.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用金砂、车前子、丹魄真火、菌狗胆石、丹辅炼制【一品】生肌理髓丹。</Item>
+      <Item Name="CN">用金砂、车前子、丹魄真火、菌狗胆石、丹辅炼制【一品】生肌理髓丹。</Item>
+      <Item Name="EN">Refine [1st Grade] Flesh Mending Marrow Elixir from Gold Sand, Plantain Seed, Spirit Fire, Jungou Bezoar, Pill Base.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用金砂、火龙芽、丹魄真火、玃如茸角、丹辅炼制【一品】修罗魔喰丹。</Item>
+      <Item Name="CN">用金砂、火龙芽、丹魄真火、玃如茸角、丹辅炼制【一品】修罗魔喰丹。</Item>
+      <Item Name="EN">Refine [1st Grade] Asura Devouring Elixir from Gold Sand, Fire Dragon Shoot, Spirit Fire, Pilose Antler, Pill Base.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用紫雾菇、金砂、丹魄真火、菌狗胆石、丹辅炼制【一品】天灵宝玉丹。</Item>
+      <Item Name="CN">用紫雾菇、金砂、丹魄真火、菌狗胆石、丹辅炼制【一品】天灵宝玉丹。</Item>
+      <Item Name="EN">Refine [1st Grade] Heavenly Spirit Jade Elixir from Dusky Mushroom, Gold Sand, Spirit Fire, Jungou Bezoar, Pill Base.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用雪莲、灵芝、提灯果、丹辅炼制【一品】通玄筑基丹。</Item>
+      <Item Name="CN">用雪莲、灵芝、提灯果、丹辅炼制【一品】通玄筑基丹。</Item>
+      <Item Name="EN">Refine [1st Grade] Foundation Establishment Elixir from Snow Lotus, Lingzhi, Lantern Berries, Pill Base.</Item>
+    </ModDefRow>
+    <!-- ===================== fim da Fase 1 ===================== -->
   </rows>
 </ModXmlDef>

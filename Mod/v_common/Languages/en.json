@@ -58,7 +58,15 @@
   "ui.android_no_cultivation": "Androids and robots have no meridians and cannot cultivate.",
   "ui.can_awaken": "Has the aptitude to cultivate, but has not awakened yet.",
   "ui.cannot_cultivate": "Has no spirit root and cannot cultivate.",
-  "ui.coming_soon": "Coming soon: breakthroughs, skill tree and passives.",
+  "ui.coming_soon": "Coming soon: skill tree, passives and breakthroughs to higher realms.",
   "ui.awaken_button": "Awaken cultivation",
-  "ui.meditation_hint": "Gains Qi during recreation, and much more on a Meditation Cushion (build menu)."
+  "ui.meditation_hint": "Gains Qi during recreation, and much more on a Meditation Cushion (build menu).",
+  "ui.qi_boost": "Pill bonus: Qi absorption +{0}% ({1} h left)",
+  "ui.break_bonus": "Pill bonus: breakthrough chance +{0}% ({1} h left)",
+  "ui.foundation_ready": "At the peak of Qi Condensation: take a Foundation Establishment Elixir to break through.",
+  "pill.no_cultivation": "Has not awakened cultivation: the pill has no cultivation effect.",
+  "pill.qi": "Qi +{0}",
+  "pill.qi_boost": "Qi absorption +{0}% for {1} h",
+  "pill.break_bonus": "Breakthrough chance +{0}% for {1} h",
+  "pill.foundation_not_ready": "Not at the peak of Qi Condensation yet: no breakthrough."
 }

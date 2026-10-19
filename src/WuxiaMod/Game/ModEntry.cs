@@ -59,6 +59,9 @@ namespace WuxiaMod.Game
                 // não o carregamento do mod inteiro.
                 HarmonyPatcher.PatchAll(HarmonyId);
 
+                // Tarefas periódicas: IDs curtos das receitas, textos em inglês, bônus das pílulas.
+                WuxiaRuntime.Create();
+
                 Initialized = true;
                 ModLog.Info($"Pronto. Idioma: {Loc.Current}.");
             }

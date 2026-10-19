@@ -284,11 +284,26 @@ namespace WuxiaMod.Game.Patches
                 sb.AppendLine($"<color=#BBBBBB><size=24>{Loc.T(realm.DescKey)}</size></color>");
                 sb.AppendLine($"<color=#{gold}>{Loc.T("ui.qi")}:</color> {state.Qi:0} / {realm.QiPerLevel:0}");
                 sb.AppendLine(Loc.T("ui.points", state.UnspentPoints));
+                AppendPillBonuses(sb, state);
                 sb.AppendLine($"<color=#BBBBBB><size=24>{Loc.T("ui.meditation_hint")}</size></color>");
             }
             sb.AppendLine();
             sb.AppendLine($"<color=#888888><size=22>{Loc.T("ui.coming_soon")}</size></color>");
             return sb.ToString();
+        }
+
+        private static void AppendPillBonuses(StringBuilder sb, CultivationState state)
+        {
+            long now = UserBean.getInstance().getTime();
+            double hour = WorldTimeTools.gameHour_to_mm(1f);
+            float qiBoost = state.ActiveQiBoost(now);
+            if (qiBoost > 0f)
+                sb.AppendLine($"<color=#88DD88>{Loc.T("ui.qi_boost", (qiBoost * 100f).ToString("0"), Math.Ceiling((state.QiBoostUntil - now) / hour))}</color>");
+            float breakBonus = state.ActiveBreakBonus(now);
+            if (breakBonus > 0f)
+                sb.AppendLine($"<color=#88DD88>{Loc.T("ui.break_bonus", (breakBonus * 100f).ToString("0"), Math.Ceiling((state.BreakBonusUntil - now) / hour))}</color>");
+            if (state.ReadyForBreakthrough && state.RealmOrder == 1)
+                sb.AppendLine($"<color=#FFCC66>{Loc.T("ui.foundation_ready")}</color>");
         }
 
         private static Transform FindChild(Transform root, string path) => root == null ? null : root.Find(path) ?? FindDeep(root, path);

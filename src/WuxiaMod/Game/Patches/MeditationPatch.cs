@@ -11,7 +11,8 @@ namespace WuxiaMod.Game.Patches
     ///
     /// Do Assembly-CSharp: Hero_Action_Play.logic roda a cada passo da ação;
     /// _state 2 = STATE_PLAYING; useBuild.buildDef é o F_Entertainment usado;
-    /// UserBean.getInstance().getTime() é o tempo de jogo em ms (para quando o jogo pausa).
+    /// UserBean.getInstance().getTime() é o tempo de jogo (para quando o jogo pausa);
+    /// uma hora de jogo = WorldTimeTools.gameHour_to_mm(1).
     /// </summary>
     [HarmonyPatch(typeof(Hero_Action_Play), "logic")]
     internal static class MeditationPatch
@@ -20,7 +21,9 @@ namespace WuxiaMod.Game.Patches
         public static float QiPerHourMeditation = 15f;
 
         private const sbyte StatePlaying = 2;
-        private const double MsPerHour = 3600000d;
+        // Uma hora de jogo em unidades de getTime(): o jogo usa gameHour_to_mm(1) = 60000
+        // (não 3.600.000 ms). Com 3.600.000 o Qi subia 60 vezes mais devagar.
+        private static readonly double MsPerHour = WorldTimeTools.gameHour_to_mm(1f);
 
         private sealed class LastTick { public long Time; }
         private static readonly ConditionalWeakTable<Hero_Action_Play, LastTick> Ticks = new ConditionalWeakTable<Hero_Action_Play, LastTick>();
@@ -48,6 +51,7 @@ namespace WuxiaMod.Game.Patches
                 var build = t.Field("useBuild").GetValue<BaseBuild>();
                 bool cushion = IsOurs(build?.buildDef);
                 float rate = cushion ? QiPerHourMeditation : QiPerHourRecreation;
+                rate *= 1f + state.ActiveQiBoost(now); // pílulas (PillEffects)
 
                 int levels = state.AddQi((float)(rate * hours));
                 if (levels > 0)

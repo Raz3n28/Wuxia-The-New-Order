@@ -21,7 +21,27 @@ Base do projeto. Já tem:
 - Núcleo do cultivo sem depender do jogo: raízes, estágios, Qi, níveis e ruptura.
 - Dados em JSON (`Mod/v_common/Data`) e textos em EN/PT-BR (`Mod/v_common/Languages`).
 
-Dentro do jogo: aba **Cultivo** na janela do personagem, mostrando a raiz espiritual e o estágio de cada colono, com o botão **Despertar cultivo** para quem tem raiz. O cultivo é salvo junto com cada save do jogo. Colonos despertos ganham Qi no lazer, e bem mais na **Almofada de Meditação** (taxas em `config.json`: `qiPerHourRecreation` e `qiPerHourMeditation`).
+Dentro do jogo: aba **Cultivo** na janela do personagem, mostrando a raiz espiritual e o estágio de cada colono, com o botão **Despertar cultivo** para quem tem raiz. O cultivo é salvo junto com cada save do jogo. Colonos despertos ganham Qi no lazer, e bem mais na **Almofada de Meditação** (taxas em `config.json`: `qiPerHourRecreation` e `qiPerHourMeditation`, por hora de jogo).
+
+### Alquimia (Fase 1, convertida do RimImmortal)
+
+Três construções novas, na mesma aba da Bancada de Remédios do jogo:
+
+| Construção | Tamanho | Faz |
+|---|---|---|
+| Caldeirão Alquímico Pequeno (Small Alchemy Cauldron) | 1x1 | Pílulas de 3º grau |
+| Caldeirão Alquímico Taiyi (Taiyi Alchemy Cauldron) | 3x3 | Pílulas de todos os graus e o Fogo Espiritual |
+| Bancada de Elixires (Elixir Workbench) | 3x1 | Base de pílula, areia de ouro, ervas, pedra espiritual e pós |
+
+Enquanto as plantas e animais do RimImmortal não chegam, as ervas e partes de animais são feitas na Bancada de Elixires a partir de itens do jogo (folhas, raízes, estames, cogumelos, frutas, batatas, ouro, glândulas).
+
+As pílulas são remédios: clique com o botão direito no item para usar. As de cura (Pomada de Contusão, Pílula Salva-Sangue, Pó do Retorno da Primavera, Elixir da Medula) a IA também usa sozinha. As outras só pelo botão direito:
+- Qi na hora (Pílula do Retorno Espiritual +50, Pílula de Jade Espiritual +150).
+- Bônus de cultivo por algumas horas: absorção de Qi e chance de ruptura (aparecem na aba Cultivo).
+- Bônus de atributo: velocidade, dano corpo a corpo, temperatura, fome, energia, dano recebido.
+- **Elixir do Estabelecimento da Fundação**: no nível 9 do Refinamento de Qi com o Qi cheio, tenta a ruptura para o Estabelecimento da Fundação (60% + bônus).
+
+Os números estão em `src/WuxiaMod/Game/PillEffects.cs`. As linhas do `def.xml` e os ícones da alquimia são gerados por `tools/gen_phase1.py` a partir dos arquivos do RimImmortal.
 
 ## Requisitos
 
@@ -67,4 +87,4 @@ As DLLs do jogo nunca entram no repositório.
 
 ## Créditos
 
-Algumas imagens e textos vêm do **RimImmortal** (RimWorld), do mesmo autor, usados com permissão.
+Imagens, nomes, textos e receitas da alquimia vêm do **RimImmortal** (RimWorld, Workshop 3296476341), do mesmo autor, usados com permissão.
