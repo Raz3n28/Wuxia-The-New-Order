@@ -21,7 +21,7 @@ Base do projeto. Já tem:
 - Núcleo do cultivo sem depender do jogo: raízes, estágios, Qi, níveis e ruptura.
 - Dados em JSON (`Mod/v_common/Data`) e textos em EN/PT-BR (`Mod/v_common/Languages`).
 
-Ainda não mexe em nada dentro do jogo: o mod carrega, lê os dados e escreve no `Player.log`.
+Ainda não mexe em nada dentro do jogo: o mod carrega, lê os dados e escreve no log.
 
 ## Requisitos
 
@@ -35,11 +35,13 @@ Ainda não mexe em nada dentro do jogo: o mod carrega, lê os dados e escreve no
 2. Rode `build.cmd`. A DLL sai em `Mod\v_common\Assemblies\WuxiaMod.dll`.
 3. Rode `install.cmd`. Ele copia o mod para `...\Outer Space\mods\WuxiaMod`.
 4. No jogo, ative o **Wuxia** no gerenciador de mods e reinicie.
-5. No `Player.log` (`%USERPROFILE%\AppData\LocalLow\CatStudio\Outer Space\`) devem aparecer linhas com `[Wuxia]`.
+5. O log do mod fica em `%USERPROFILE%\AppData\LocalLow\CatStudio\Outer Space\Wuxia The New Dawn\Logs\wuxia.log` (o da sessão anterior em `wuxia-prev.log`). Avisos e erros também aparecem no `Player.log` com a tag `[Wuxia]`.
+
+Tudo o que o mod gerar no seu PC fica na pasta `Wuxia The New Dawn`.
 
 ## Idioma
 
-`Mod/v_common/config.json`: `"language": "auto"` usa o idioma do Windows. Use `"en"` ou `"pt-BR"` para forçar.
+`Mod/v_common/config.json`: `"language": "auto"` usa o idioma do Windows (português se o Windows estiver em português, senão inglês). Use `"en"` ou `"pt-BR"` para forçar.
 
 Para adicionar textos, coloque a mesma chave em `en.json` e `pt-BR.json`. Se faltar no português, o mod mostra o inglês.
 

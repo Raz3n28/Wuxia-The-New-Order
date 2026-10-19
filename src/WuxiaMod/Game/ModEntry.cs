@@ -13,6 +13,12 @@ namespace WuxiaMod.Game
     {
         public const string HarmonyId = "pauloraz3n.wuxia";
 
+        /// <summary>Pasta do mod ao lado dos dados do jogo (LocalLow\CatStudio\Outer Space).</summary>
+        public const string UserFolderName = "Wuxia The New Dawn";
+
+        /// <summary>Pasta onde o mod grava tudo o que gera: Logs\ e, no futuro, dados próprios.</summary>
+        public static string UserDir { get; private set; }
+
         /// <summary>Pasta v_common do mod (tem Data/, Languages/, config.json).</summary>
         public static string VersionDir { get; private set; }
         public static bool Initialized { get; private set; }
@@ -22,6 +28,9 @@ namespace WuxiaMod.Game
         {
             if (Initialized) return;
             ModLog.Sink = UnityEngine.Debug.Log;
+            UserDir = Path.Combine(UnityEngine.Application.persistentDataPath, UserFolderName);
+            ModLog.OpenFile(Path.Combine(UserDir, "Logs"));
+            ModLog.Sink("[Wuxia] Log do mod em " + ModLog.LogFile);
             try
             {
                 VersionDir = !string.IsNullOrEmpty(versionDir) && Directory.Exists(Path.Combine(versionDir, "Data"))
@@ -72,9 +81,24 @@ namespace WuxiaMod.Game
         /// <summary>
         /// "auto": o jogo só tem chinês e inglês, e a tradução PT-BR pede o jogo
         /// em inglês, então não dá para saber pelo jogo. Usa o idioma do Windows.
-        /// Para forçar, ponha "en" ou "pt-BR" no config.json.
+        /// O CultureInfo do Mono do Unity costuma vir vazio/inglês, então pergunta
+        /// direto ao Windows. Para forçar, ponha "en" ou "pt-BR" no config.json.
         /// </summary>
-        private static string DetectLanguage() =>
-            System.Globalization.CultureInfo.CurrentUICulture.Name;
+        private static string DetectLanguage()
+        {
+            try
+            {
+                // Idioma primário do LANGID: 0x16 = português.
+                if ((GetUserDefaultUILanguage() & 0x3FF) == 0x16) return Loc.Portuguese;
+                return Loc.English;
+            }
+            catch (Exception)
+            {
+                return System.Globalization.CultureInfo.CurrentUICulture.Name;
+            }
+        }
+
+        [System.Runtime.InteropServices.DllImport("kernel32.dll")]
+        private static extern ushort GetUserDefaultUILanguage();
     }
 }
