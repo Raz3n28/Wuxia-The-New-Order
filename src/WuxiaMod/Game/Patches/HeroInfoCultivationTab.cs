@@ -53,15 +53,27 @@ namespace WuxiaMod.Game.Patches
             catch (Exception ex) { ModLog.Error(ex, "showTab"); }
         }
 
+        // Trocar de personagem: o jogo chama showTab(aba atual), que esconde a nossa.
+        // Se a nossa estava aberta, abre de novo para o novo personagem, como o jogo faz com as dele.
         [HarmonyPatch(typeof(Dialog_MainHeroInfo), "showHero")]
-        [HarmonyPostfix]
-        private static void ShowHero_Postfix(Dialog_MainHeroInfo __instance)
+        [HarmonyPrefix]
+        private static void ShowHero_Prefix(Dialog_MainHeroInfo __instance, out bool __state)
         {
+            __state = false;
             try
             {
                 var view = FindChild(__instance.transform, ViewName);
-                if (view != null && view.gameObject.activeSelf) Refresh(__instance);
+                __state = view != null && view.gameObject.activeSelf;
             }
+            catch (Exception ex) { ModLog.Error(ex, "showHero"); }
+        }
+
+        [HarmonyPatch(typeof(Dialog_MainHeroInfo), "showHero")]
+        [HarmonyPostfix]
+        private static void ShowHero_Postfix(Dialog_MainHeroInfo __instance, bool __state)
+        {
+            if (!__state) return;
+            try { SetOurTab(__instance, true); }
             catch (Exception ex) { ModLog.Error(ex, "showHero"); }
         }
 
