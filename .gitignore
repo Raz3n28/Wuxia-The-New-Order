@@ -9,3 +9,6 @@ GamePaths.props
 # Bibliotecas do jogo nunca entram no repositório
 Assembly-CSharp*.dll
 UnityEngine*.dll
+
+# Saída do build (inclui a cópia do 0Harmony.dll)
+Mod/v_common/Assemblies/*.dll

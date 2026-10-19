@@ -33,7 +33,8 @@
 
   <!-- Bibliotecas do jogo e o Harmony do Workshop: só existem no seu PC, nunca vão para o GitHub. -->
   <ItemGroup Condition="'$(HasGameRefs)' == 'true'">
-    <Reference Include="0Harmony"><HintPath>$(HarmonyDll)</HintPath><Private>false</Private></Reference>
+    <!-- 0Harmony.dll vai junto com o mod (<lib> no manifest): o jogo não garante que o mod Harmony carregue antes do nosso. -->
+    <Reference Include="0Harmony"><HintPath>$(HarmonyDll)</HintPath><Private>true</Private></Reference>
     <Reference Include="Assembly-CSharp"><HintPath>$(GameManagedDir)\Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="UnityEngine"><HintPath>$(GameManagedDir)\UnityEngine.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="UnityEngine.CoreModule"><HintPath>$(GameManagedDir)\UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>

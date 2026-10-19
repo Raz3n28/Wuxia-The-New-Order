@@ -10,8 +10,8 @@
   <versions>
     <ModMetaVersion>
       <version>v_common</version>
-      <!-- packageId do mod Harmony do Workshop -->
-      <dependencies>com.harmony</dependencies>
+      <!-- Levamos nossa própria cópia do Harmony: o jogo não respeita a ordem das dependências. -->
+      <lib>0Harmony.dll</lib>
       <main>WuxiaMod.dll</main>
     </ModMetaVersion>
   </versions>

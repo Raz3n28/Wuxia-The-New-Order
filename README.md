@@ -26,7 +26,7 @@ Ainda não mexe em nada dentro do jogo: o mod carrega, lê os dados e escreve no
 ## Requisitos
 
 - Order: The New Dawn.
-- Mod [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=3803065949) do Workshop (inscrito e ativo).
+- Inscrição no mod [Harmony](https://steamcommunity.com/sharedfiles/filedetails/?id=3803065949) do Workshop: o build copia o `0Harmony.dll` dele para dentro do nosso mod.
 - [.NET SDK](https://dotnet.microsoft.com/download) 8 ou mais novo, para compilar.
 
 ## Compilar e instalar
@@ -34,7 +34,7 @@ Ainda não mexe em nada dentro do jogo: o mod carrega, lê os dados e escreve no
 1. Se o jogo não estiver no caminho padrão da Steam, copie `GamePaths.props.example` para `GamePaths.props` e ajuste.
 2. Rode `build.cmd`. A DLL sai em `Mod\v_common\Assemblies\WuxiaMod.dll`.
 3. Rode `install.cmd`. Ele copia o mod para `...\Outer Space\mods\WuxiaMod`.
-4. No jogo, ative o **Harmony** e o **Wuxia** no gerenciador de mods e reinicie.
+4. No jogo, ative o **Wuxia** no gerenciador de mods e reinicie.
 5. No `Player.log` (`%USERPROFILE%\AppData\LocalLow\CatStudio\Outer Space\`) devem aparecer linhas com `[Wuxia]`.
 
 ## Idioma

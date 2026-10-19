@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using HarmonyLib;
 using WuxiaMod.Cultivation;
 using WuxiaMod.Json;
 using WuxiaMod.Localization;
@@ -16,7 +15,6 @@ namespace WuxiaMod.Game
 
         /// <summary>Pasta v_common do mod (tem Data/, Languages/, config.json).</summary>
         public static string VersionDir { get; private set; }
-        public static Harmony Harmony { get; private set; }
         public static bool Initialized { get; private set; }
         public static bool VerboseLog { get; private set; }
 
@@ -45,8 +43,9 @@ namespace WuxiaMod.Game
                 SpiritRootDatabase.Load(Path.Combine(VersionDir, "Data"));
                 RealmDatabase.Load(Path.Combine(VersionDir, "Data"));
 
-                Harmony = new Harmony(HarmonyId);
-                Harmony.PatchAll(Assembly.GetExecutingAssembly());
+                // Harmony fica em outra classe: se o 0Harmony.dll faltar, só os patches falham,
+                // não o carregamento do mod inteiro.
+                HarmonyPatcher.PatchAll(HarmonyId);
 
                 Initialized = true;
                 ModLog.Info($"Pronto. Idioma: {Loc.Current}.");

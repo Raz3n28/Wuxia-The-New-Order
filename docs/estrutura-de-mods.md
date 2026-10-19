@@ -43,6 +43,7 @@ Mods locais ficam em `...\Outer Space\mods\<Pasta>`; os do Workshop em `...\stea
 ```
 
 - **Nunca** deixe um elemento vazio (`<lib />`): o jogo tenta abrir a pasta Assemblies como arquivo e quebra o carregamento de todos os mods.
+- **`<dependencies>` não define a ordem de carregamento.** A ordem é a do `mod.dat` (ordem em que foram ativados). Se o nosso mod carregar antes do Harmony, dá `TypeLoadException ... 0Harmony`. Por isso levamos o `0Harmony.dll` como `<lib>`, igual ao Walk & Diagonal Build.
 - O `name` aparece igual em qualquer idioma, então vale escrever nos dois idiomas.
 
 ## Ponto de entrada (código)
