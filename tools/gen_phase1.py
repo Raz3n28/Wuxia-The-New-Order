@@ -332,6 +332,13 @@ for key, bid, cn, en, dcn, den, w, h, mats, tex, tint in BENCHES:
     if not tex: continue
     img = Image.open(os.path.join(RITEX, tex)).convert("RGBA")
     if tint: img = bronze(img)
-    fit(img, 40 * w, 40 * h).save(os.path.join(TEX_OUT, f"wuxia_{key}_cauldron.png"), optimize=True)
+    img = fit(img, 40 * w, 40 * h)
+    if w == 1:
+        # O menu de construção estica cada ícone até encher o quadro: sem a borda vazia,
+        # o caldeirão pequeno parecia maior que o Taiyi. No mapa a borda não aparece.
+        canvas = Image.new("RGBA", (80, 80), (0, 0, 0, 0))
+        canvas.paste(img, (20, 20), img)
+        img = canvas
+    img.save(os.path.join(TEX_OUT, f"wuxia_{key}_cauldron.png"), optimize=True)
 
 print("linhas:", len(BENCHES), len(MATS), len(PILLS), len(RECIPES), "textos:", len(lang))
