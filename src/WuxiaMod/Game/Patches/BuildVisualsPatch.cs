@@ -52,6 +52,28 @@ namespace WuxiaMod.Game.Patches
             }
         }
 
+        // ---------- ícone das construções sem imagem própria ----------
+
+        // A Bancada de Elixires usa o modelo da bancada de remédios do jogo. O ícone do
+        // jogo para ela (Icon_Builds) é outro desenho, que não bate com a bancada no mapa.
+        // Para as nossas construções sem RawIcon, o ícone passa a ser o próprio modelo
+        // (B_Manufacture, ação ModuleId, quadro 0), o mesmo que aparece construído.
+        [HarmonyPatch(typeof(PlayerStatic), nameof(PlayerStatic.getPlayerInfo))]
+        [HarmonyPostfix]
+        private static void PlayerInfo_Postfix(int type, string id, PlayerInfo __result)
+        {
+            try
+            {
+                if (type != 27 || __result == null) return;
+                var def = ImplDef<F_ManufactureDef>.getDataID(id);
+                if (def?.mod == null || def.mod.packageId != ModEntry.HarmonyId || def.RawIcon != null) return;
+                __result.iconPlayer = __result.player;
+                __result.iconActionID = __result.actionId;
+                __result.iconFrameID = __result.frameId;
+            }
+            catch (Exception ex) { ModLog.Error(ex, "ícone da construção"); }
+        }
+
         // ---------- prévia ----------
 
         [HarmonyPatch(typeof(BuildPlanMod), nameof(BuildPlanMod.casePaint))]
