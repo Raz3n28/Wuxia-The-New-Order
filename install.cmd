@@ -4,11 +4,7 @@ rem Uso: install.cmd ["pasta do jogo"]
 setlocal
 set GAME=%~1
 if "%GAME%"=="" set GAME=C:\Program Files (x86)\Steam\steamapps\common\Outer Space
-if not exist "%GAME%\Outer Space.exe" (
-  echo ERRO: jogo nao encontrado em %GAME%
-  echo Uso: install.cmd "C:\caminho\para\Outer Space"
-  goto fim
-)
+if not exist "%GAME%\Outer Space.exe" goto semJogo
 if not exist "%~dp0Mod\v_common\Assemblies\WuxiaMod.dll" (
   echo ERRO: a WuxiaMod.dll ainda nao existe. Rode build.cmd primeiro.
   goto fim
@@ -22,6 +18,11 @@ if errorlevel 1 goto semPermissao
 del /q "%DEST%\v_common\Assemblies\.gitkeep" 2>nul
 echo.
 echo Pronto. Abra o jogo, ative "Harmony" e "Wuxia" no gerenciador de mods e reinicie o jogo.
+goto fim
+
+:semJogo
+echo ERRO: jogo nao encontrado em "%GAME%"
+echo Uso: install.cmd "C:\caminho\para\Outer Space"
 goto fim
 
 :semPermissao
