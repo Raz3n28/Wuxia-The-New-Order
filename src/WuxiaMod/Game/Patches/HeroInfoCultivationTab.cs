@@ -284,6 +284,7 @@ namespace WuxiaMod.Game.Patches
                 sb.AppendLine($"<color=#BBBBBB><size=24>{Loc.T(realm.DescKey)}</size></color>");
                 sb.AppendLine($"<color=#{gold}>{Loc.T("ui.qi")}:</color> {state.Qi:0} / {realm.QiPerLevel:0}");
                 sb.AppendLine(Loc.T("ui.points", state.UnspentPoints));
+                sb.AppendLine($"<color=#BBBBBB><size=24>{Loc.T("ui.meditation_hint")}</size></color>");
             }
             sb.AppendLine();
             sb.AppendLine($"<color=#888888><size=22>{Loc.T("ui.coming_soon")}</size></color>");

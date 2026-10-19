@@ -1,4 +1,6 @@
 {
   "language": "auto",
-  "verboseLog": false
+  "verboseLog": false,
+  "qiPerHourRecreation": 3,
+  "qiPerHourMeditation": 15
 }

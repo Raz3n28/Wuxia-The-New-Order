@@ -46,6 +46,8 @@ namespace WuxiaMod.Game
                     var cfg = (Dictionary<string, object>)MiniJson.Parse(File.ReadAllText(configPath));
                     language = cfg.Str("language", "auto");
                     VerboseLog = cfg.Bool("verboseLog");
+                    Patches.MeditationPatch.QiPerHourRecreation = cfg.Float("qiPerHourRecreation", Patches.MeditationPatch.QiPerHourRecreation);
+                    Patches.MeditationPatch.QiPerHourMeditation = cfg.Float("qiPerHourMeditation", Patches.MeditationPatch.QiPerHourMeditation);
                 }
 
                 Loc.LoadAll(Path.Combine(VersionDir, "Languages"));

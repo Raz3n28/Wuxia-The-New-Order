@@ -58,6 +58,7 @@
   "ui.android_no_cultivation": "Androides e robôs não têm meridianos e não podem cultivar.",
   "ui.can_awaken": "Tem aptidão para cultivar, mas ainda não despertou.",
   "ui.cannot_cultivate": "Não tem raiz espiritual e não pode cultivar.",
-  "ui.coming_soon": "Em breve: meditação, rupturas, árvore de habilidades e passivas.",
-  "ui.awaken_button": "Despertar cultivo"
+  "ui.coming_soon": "Em breve: rupturas, árvore de habilidades e passivas.",
+  "ui.awaken_button": "Despertar cultivo",
+  "ui.meditation_hint": "Ganha Qi no lazer, e muito mais na Almofada de Meditação (Meditation Cushion, no menu de construção)."
 }

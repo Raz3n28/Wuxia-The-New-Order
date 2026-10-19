@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
 <!--
   Definições no formato do próprio jogo (o mesmo do "UI Example" oficial).
-  Por enquanto só um texto de teste. Itens, receitas e inimigos devem entrar
-  aqui quando mapearmos os nomes das tabelas (ModDefRow Name="...").
-  O jogo só tem colunas CN e EN; o português fica em v_common/Languages.
+  O jogo só tem colunas CN e EN; o português da nossa interface fica em v_common/Languages.
+
+  DependID copia uma linha existente do jogo e troca só os campos listados.
+  O jogo põe o packageId na frente do ID (9601 vira pauloraz3n.wuxia_9601).
+  Name e Desc em chinês; o inglês vem do LanguageDef com a chave "id_" + texto.
 -->
 <ModXmlDef xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <rows>
@@ -11,6 +13,28 @@
       <Item Name="Key">wuxia_mod_title</Item>
       <Item Name="CN">武侠：星辰修真</Item>
       <Item Name="EN">Wuxia: Stellar Cultivation</Item>
+    </ModDefRow>
+
+    <!--
+      Almofada de meditação: lazer (F_Entertainment) copiado da mesa de blocos (ID 0).
+      Colonos usam como qualquer lazer; quem já despertou o cultivo ganha bem mais Qi
+      aqui do que em outros lazeres (veja MeditationPatch e config.json).
+    -->
+    <ModDefRow Name="F_Entertainment" DependID="0">
+      <Item Name="ID">9601</Item>
+      <Item Name="Name">修炼蒲团</Item>
+      <Item Name="Desc">打坐修炼用的蒲团。已经觉醒修炼的人在这里冥想，吸收灵气的速度远快于其他娱乐。</Item>
+      <Item Name="RawIcon">wuxia_meditation_cushion.png</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_修炼蒲团</Item>
+      <Item Name="CN">修炼蒲团</Item>
+      <Item Name="EN">Meditation Cushion</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_打坐修炼用的蒲团。已经觉醒修炼的人在这里冥想，吸收灵气的速度远快于其他娱乐。</Item>
+      <Item Name="CN">打坐修炼用的蒲团。已经觉醒修炼的人在这里冥想，吸收灵气的速度远快于其他娱乐。</Item>
+      <Item Name="EN">A cushion for seated meditation. Awakened cultivators who meditate here absorb Qi much faster than with any other recreation.</Item>
     </ModDefRow>
   </rows>
 </ModXmlDef>

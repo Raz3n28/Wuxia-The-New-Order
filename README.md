@@ -21,7 +21,7 @@ Base do projeto. Já tem:
 - Núcleo do cultivo sem depender do jogo: raízes, estágios, Qi, níveis e ruptura.
 - Dados em JSON (`Mod/v_common/Data`) e textos em EN/PT-BR (`Mod/v_common/Languages`).
 
-Dentro do jogo: aba **Cultivo** na janela do personagem, mostrando a raiz espiritual e o estágio de cada colono, com o botão **Despertar cultivo** para quem tem raiz. O cultivo é salvo junto com cada save do jogo.
+Dentro do jogo: aba **Cultivo** na janela do personagem, mostrando a raiz espiritual e o estágio de cada colono, com o botão **Despertar cultivo** para quem tem raiz. O cultivo é salvo junto com cada save do jogo. Colonos despertos ganham Qi no lazer, e bem mais na **Almofada de Meditação** (taxas em `config.json`: `qiPerHourRecreation` e `qiPerHourMeditation`).
 
 ## Requisitos
 
