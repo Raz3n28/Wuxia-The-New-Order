@@ -79,7 +79,15 @@ O jogo lê linhas de tabelas pelo nome. Exemplo oficial (texto multilíngue):
 
 O jogo só tem as colunas CN e EN. O português do mod fica no nosso próprio sistema (`v_common/Languages`).
 
-**Pendente:** descobrir os nomes das outras tabelas (itens, receitas, construções, personagens, inimigos). Os mods de conteúdo (Mech Expansion, Robot Forge, Crematory) devem mostrar isso.
+Tabelas que o Mech Expansion usa (e que vamos usar para pílulas, Fornalha e Forja):
+
+| Tabela | Para quê |
+|---|---|
+| `T_MaterialDef` | Materiais e itens |
+| `F_ManufactureDef` | Bancadas de produção |
+| `F_ProductListDef` | Receitas das bancadas |
+| `R_BaseCharacter_Def` | Tipos de personagem/unidade |
+| `LanguageDef` | Textos (CN/EN) |
 
 ## Classes do jogo já conhecidas (dos mods com código aberto)
 
@@ -92,6 +100,9 @@ O jogo só tem as colunas CN e EN. O português do mod fica no nosso próprio si
 | `BaseAction`, `RolePlan.createPlan(id)` | Ações e planos da IA dos personagens |
 | `AI_DailyHero` | IA do dia a dia |
 | `ViewCover` | Tela inicial (o UI Example mexe nela) |
+| `Dialog_MainHeroInfo` | Janela do personagem. Abas em `TabPanel/Tab0..2` (`UISwitchButton`), telas `ViewInfo`, `EquipRoot`, `HealthRoot`; `showTab(i)`, `showHero(FWHeroBean)` |
+| `FWHeroBean` (: `FWRoleBean` : `FWCellUidItem`) | Dados do personagem: `uid`, `name`, `age`, `ability[]`, `isAndroid()` |
+| `UISwitchButton` | Botão de aba: `setSelectedState(on, disparaEvento)`, evento `onSelectedChange` |
 | `BaseMonoDialog`, `showModDialog` | Janelas de UI |
 | `TextureManager.loadImage(...)` | Carregar imagens do mod |
 | `MutiLanguage` | Sistema de idiomas do jogo |

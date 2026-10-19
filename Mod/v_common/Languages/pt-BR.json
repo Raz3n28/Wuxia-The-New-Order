@@ -54,5 +54,9 @@
   "root.void.name": "Raiz do Vazio",
   "root.void.desc": "Raríssima. Nasce perto da Fenda.",
   "root.heavenly.name": "Raiz Celestial",
-  "root.heavenly.desc": "Rara. Cultiva duas vezes mais rápido."
+  "root.heavenly.desc": "Rara. Cultiva duas vezes mais rápido.",
+  "ui.android_no_cultivation": "Androides e robôs não têm meridianos e não podem cultivar.",
+  "ui.can_awaken": "Tem aptidão para cultivar, mas ainda não despertou.",
+  "ui.cannot_cultivate": "Não tem raiz espiritual e não pode cultivar.",
+  "ui.coming_soon": "Em breve: meditação, rupturas, árvore de habilidades e passivas."
 }

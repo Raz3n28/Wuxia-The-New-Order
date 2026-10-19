@@ -54,5 +54,9 @@
   "root.void.name": "Void Root",
   "root.void.desc": "Very rare. Born near the Rift.",
   "root.heavenly.name": "Heavenly Root",
-  "root.heavenly.desc": "Rare. Cultivates twice as fast."
+  "root.heavenly.desc": "Rare. Cultivates twice as fast.",
+  "ui.android_no_cultivation": "Androids and robots have no meridians and cannot cultivate.",
+  "ui.can_awaken": "Has the aptitude to cultivate, but has not awakened yet.",
+  "ui.cannot_cultivate": "Has no spirit root and cannot cultivate.",
+  "ui.coming_soon": "Coming soon: meditation, breakthroughs, skill tree and passives."
 }

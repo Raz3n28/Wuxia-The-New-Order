@@ -21,7 +21,7 @@ Base do projeto. Já tem:
 - Núcleo do cultivo sem depender do jogo: raízes, estágios, Qi, níveis e ruptura.
 - Dados em JSON (`Mod/v_common/Data`) e textos em EN/PT-BR (`Mod/v_common/Languages`).
 
-Ainda não mexe em nada dentro do jogo: o mod carrega, lê os dados e escreve no log.
+Dentro do jogo: aba **Cultivo** na janela do personagem, mostrando a raiz espiritual e o estágio de cada colono.
 
 ## Requisitos
 

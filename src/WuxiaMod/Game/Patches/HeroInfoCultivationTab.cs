@@ -1,0 +1,228 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+using HarmonyLib;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+using WuxiaMod.Cultivation;
+using WuxiaMod.Localization;
+
+namespace WuxiaMod.Game.Patches
+{
+    /// <summary>
+    /// Adiciona a aba "Cultivo" na janela do personagem (Dialog_MainHeroInfo),
+    /// ao lado de Informação / Equipamento / Saúde.
+    ///
+    /// Como a janela do jogo funciona (lido do Assembly-CSharp):
+    /// - Awake pega as abas em "TabPanel/Tab0..2" (UISwitchButton) e as telas
+    ///   "ViewInfo", "EquipRoot" e "HealthRoot".
+    /// - showTab(i) liga a aba i e mostra a tela dela; showHero(hero) troca o personagem.
+    /// </summary>
+    [HarmonyPatch]
+    internal static class HeroInfoCultivationTab
+    {
+        private const string TabName = "TabWuxia";
+        private const string ViewName = "WuxiaCultivationView";
+
+        private static readonly Color Gold = new Color(0.90f, 0.75f, 0.35f);
+
+        [HarmonyPatch(typeof(Dialog_MainHeroInfo), "Awake")]
+        [HarmonyPostfix]
+        private static void Awake_Postfix(Dialog_MainHeroInfo __instance)
+        {
+            try
+            {
+                CreateTab(__instance);
+                CreateView(__instance);
+                ModLog.Info("Aba de cultivo criada na janela do personagem.");
+            }
+            catch (Exception ex)
+            {
+                ModLog.Error(ex, "Falha ao criar a aba de cultivo");
+            }
+        }
+
+        // Qualquer aba do jogo selecionada: esconde a nossa.
+        [HarmonyPatch(typeof(Dialog_MainHeroInfo), "showTab")]
+        [HarmonyPostfix]
+        private static void ShowTab_Postfix(Dialog_MainHeroInfo __instance)
+        {
+            try { SetOurTab(__instance, false); }
+            catch (Exception ex) { ModLog.Error(ex, "showTab"); }
+        }
+
+        [HarmonyPatch(typeof(Dialog_MainHeroInfo), "showHero")]
+        [HarmonyPostfix]
+        private static void ShowHero_Postfix(Dialog_MainHeroInfo __instance)
+        {
+            try
+            {
+                var view = FindChild(__instance.transform, ViewName);
+                if (view != null && view.gameObject.activeSelf) Refresh(__instance);
+            }
+            catch (Exception ex) { ModLog.Error(ex, "showHero"); }
+        }
+
+        // ---------- criação ----------
+
+        private static void CreateTab(Dialog_MainHeroInfo dialog)
+        {
+            if (FindChild(dialog.transform, "TabPanel/" + TabName) != null) return;
+
+            var tab1 = dialog.transform.Find("TabPanel/Tab1");
+            var tab2 = dialog.transform.Find("TabPanel/Tab2");
+            if (tab2 == null) throw new InvalidOperationException("TabPanel/Tab2 não encontrado");
+
+            var clone = UnityEngine.Object.Instantiate(tab2.gameObject, tab2.parent, false);
+            // O jogo identifica as abas pelo fim do nome ("0", "1", "2"); o nosso não termina em número.
+            clone.name = TabName;
+
+            // Sem layout automático no painel, posiciona depois da última aba com o mesmo espaçamento.
+            if (tab2.parent.GetComponent<LayoutGroup>() == null && tab1 != null)
+            {
+                var r1 = (RectTransform)tab1;
+                var r2 = (RectTransform)tab2;
+                ((RectTransform)clone.transform).anchoredPosition = r2.anchoredPosition + (r2.anchoredPosition - r1.anchoredPosition);
+            }
+
+            foreach (var label in clone.GetComponentsInChildren<TextMeshProUGUI>(true))
+                label.text = Loc.T("ui.cultivation");
+
+            var sw = clone.GetComponent<UISwitchButton>();
+            sw.onSelectedChange += (obj, flag) =>
+            {
+                try { SetOurTab(dialog, true); }
+                catch (Exception ex) { ModLog.Error(ex, "clique na aba de cultivo"); }
+            };
+            sw.setSelectedState(false, false);
+        }
+
+        private static void CreateView(Dialog_MainHeroInfo dialog)
+        {
+            if (FindChild(dialog.transform, ViewName) != null) return;
+
+            // Ocupa o mesmo espaço da tela de Saúde.
+            var health = (RectTransform)dialog.transform.Find("HealthRoot");
+            var go = new GameObject(ViewName, typeof(RectTransform));
+            var rect = (RectTransform)go.transform;
+            rect.SetParent(health.parent, false);
+            rect.anchorMin = health.anchorMin;
+            rect.anchorMax = health.anchorMax;
+            rect.pivot = health.pivot;
+            rect.anchoredPosition = health.anchoredPosition;
+            rect.sizeDelta = health.sizeDelta;
+            rect.SetSiblingIndex(health.GetSiblingIndex() + 1);
+
+            var bg = go.AddComponent<Image>();
+            bg.color = new Color(0.08f, 0.07f, 0.11f, 0.92f);
+
+            var textGo = new GameObject("Text", typeof(RectTransform));
+            var textRect = (RectTransform)textGo.transform;
+            textRect.SetParent(rect, false);
+            textRect.anchorMin = Vector2.zero;
+            textRect.anchorMax = Vector2.one;
+            textRect.offsetMin = new Vector2(40, 30);
+            textRect.offsetMax = new Vector2(-40, -30);
+
+            var text = textGo.AddComponent<TextMeshProUGUI>();
+            // Mesma fonte das abas, que já tem acentos e o estilo do jogo.
+            var sample = dialog.transform.Find("TabPanel/Tab0")?.GetComponentInChildren<TextMeshProUGUI>(true);
+            if (sample != null) text.font = sample.font;
+            text.fontSize = 30;
+            text.color = Color.white;
+            text.enableWordWrapping = true;
+            text.richText = true;
+            text.alignment = TextAlignmentOptions.TopLeft;
+
+            go.SetActive(false);
+        }
+
+        // ---------- troca de aba ----------
+
+        private static void SetOurTab(Dialog_MainHeroInfo dialog, bool selected)
+        {
+            var tab = FindChild(dialog.transform, "TabPanel/" + TabName);
+            var view = FindChild(dialog.transform, ViewName);
+            if (tab == null || view == null) return;
+
+            tab.GetComponent<UISwitchButton>().setSelectedState(selected, false);
+            view.gameObject.SetActive(selected);
+            if (!selected) return;
+
+            var t = Traverse.Create(dialog);
+            foreach (var other in t.Field("tabs").GetValue<List<UISwitchButton>>())
+                other.setSelectedState(false, false);
+            foreach (var field in new[] { "view_Info", "view_Equip", "view_Health" })
+            {
+                var comp = t.Field(field).GetValue<Component>();
+                if (comp != null) comp.gameObject.SetActive(false);
+            }
+            Refresh(dialog);
+        }
+
+        private static void Refresh(Dialog_MainHeroInfo dialog)
+        {
+            var view = FindChild(dialog.transform, ViewName);
+            var text = view?.GetComponentInChildren<TextMeshProUGUI>(true);
+            var hero = Traverse.Create(dialog).Field("heroBean").GetValue<FWHeroBean>();
+            if (text == null) return;
+            if (hero == null) { text.text = ""; return; }
+
+            bool android = false;
+            try { android = hero.isAndroid(); } catch { }
+            var state = CultivationRegistry.Get(hero.uid, !android);
+            text.text = Describe(hero.name, android, state);
+        }
+
+        private static string Describe(string heroName, bool android, CultivationState state)
+        {
+            string gold = ColorUtility.ToHtmlStringRGB(Gold);
+            var sb = new StringBuilder();
+            sb.AppendLine($"<size=42><color=#{gold}>{Loc.T("ui.cultivation")}</color></size>  <color=#AAAAAA>{heroName}</color>");
+            sb.AppendLine();
+
+            if (android)
+            {
+                sb.AppendLine(Loc.T("ui.android_no_cultivation"));
+                return sb.ToString();
+            }
+
+            var root = state.Root;
+            sb.AppendLine($"<color=#{gold}>{Loc.T("ui.spirit_root")}:</color> {(root != null ? Loc.T(root.NameKey) : "?")}");
+            if (root != null) sb.AppendLine($"<color=#BBBBBB><size=24>{Loc.T(root.DescKey)}</size></color>");
+            sb.AppendLine();
+
+            var realm = state.Realm;
+            if (realm == null)
+            {
+                sb.AppendLine($"<color=#{gold}>{Loc.T("ui.realm")}:</color> {Loc.T("ui.mortal")}");
+                sb.AppendLine(state.CanCultivate ? Loc.T("ui.can_awaken") : Loc.T("ui.cannot_cultivate"));
+            }
+            else
+            {
+                sb.AppendLine($"<color=#{gold}>{Loc.T("ui.realm")}:</color> {Loc.T(realm.NameKey)}  {Loc.T("ui.level", state.SubLevel, realm.SubLevels)}");
+                sb.AppendLine($"<color=#BBBBBB><size=24>{Loc.T(realm.DescKey)}</size></color>");
+                sb.AppendLine($"<color=#{gold}>{Loc.T("ui.qi")}:</color> {state.Qi:0} / {realm.QiPerLevel:0}");
+                sb.AppendLine(Loc.T("ui.points", state.UnspentPoints));
+            }
+            sb.AppendLine();
+            sb.AppendLine($"<color=#888888><size=22>{Loc.T("ui.coming_soon")}</size></color>");
+            return sb.ToString();
+        }
+
+        private static Transform FindChild(Transform root, string path) => root == null ? null : root.Find(path) ?? FindDeep(root, path);
+
+        private static Transform FindDeep(Transform root, string name)
+        {
+            if (name.Contains("/")) return null;
+            foreach (Transform child in root)
+            {
+                if (child.name == name) return child;
+                var found = FindDeep(child, name);
+                if (found != null) return found;
+            }
+            return null;
+        }
+    }
+}
