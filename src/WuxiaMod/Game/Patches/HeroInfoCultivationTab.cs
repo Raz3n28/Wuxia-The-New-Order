@@ -114,16 +114,17 @@ namespace WuxiaMod.Game.Patches
             rect.sizeDelta = health.sizeDelta;
             rect.SetSiblingIndex(health.GetSiblingIndex() + 1);
 
-            var bg = go.AddComponent<Image>();
-            bg.color = new Color(0.08f, 0.07f, 0.11f, 0.92f);
+            // Sem fundo próprio: a janela do jogo já tem. E nada aqui recebe clique,
+            // senão a tela cobre as abas e o X (a HealthRoot ocupa a janela toda).
 
             var textGo = new GameObject("Text", typeof(RectTransform));
             var textRect = (RectTransform)textGo.transform;
             textRect.SetParent(rect, false);
             textRect.anchorMin = Vector2.zero;
             textRect.anchorMax = Vector2.one;
-            textRect.offsetMin = new Vector2(40, 30);
-            textRect.offsetMax = new Vector2(-40, -30);
+            // Topo abaixo da linha das abas.
+            textRect.offsetMin = new Vector2(60, 40);
+            textRect.offsetMax = new Vector2(-60, -130);
 
             var text = textGo.AddComponent<TextMeshProUGUI>();
             // Mesma fonte das abas, que já tem acentos e o estilo do jogo.
@@ -134,6 +135,7 @@ namespace WuxiaMod.Game.Patches
             text.enableWordWrapping = true;
             text.richText = true;
             text.alignment = TextAlignmentOptions.TopLeft;
+            text.raycastTarget = false;
 
             go.SetActive(false);
         }
@@ -190,7 +192,7 @@ namespace WuxiaMod.Game.Patches
 
             var root = state.Root;
             sb.AppendLine($"<color=#{gold}>{Loc.T("ui.spirit_root")}:</color> {(root != null ? Loc.T(root.NameKey) : "?")}");
-            if (root != null) sb.AppendLine($"<color=#BBBBBB><size=24>{Loc.T(root.DescKey)}</size></color>");
+            if (root != null && root.CanCultivate) sb.AppendLine($"<color=#BBBBBB><size=24>{Loc.T(root.DescKey)}</size></color>");
             sb.AppendLine();
 
             var realm = state.Realm;
