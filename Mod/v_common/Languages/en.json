@@ -70,6 +70,7 @@
   "pill.break_bonus": "Breakthrough chance +{0}% for {1} h",
   "pill.foundation_not_ready": "Not at the peak of Qi Condensation yet: no breakthrough.",
   "ui.test_kit_button": "Test kit",
-  "test.kit_given": "Test kit: pills and ingredients on the ground, Qi at the peak of Qi Condensation.",
-  "test.no_root": "Test kit: items on the ground. This colonist has no spirit root and cannot cultivate."
+  "test.kit_given": "Test kit: pills, ingredients and building materials on the ground, Qi at the peak of Qi Condensation. In test mode, the mod's buildings are finished as soon as you place them.",
+  "test.no_root": "Test kit: items on the ground. This colonist has no spirit root and cannot cultivate.",
+  "ui.language_button": "Language: English"
 }

@@ -24,7 +24,7 @@ BENCHES = [
     ("bench", 96903, "制药工作台", "Elixir Workbench",
      "一张用来制备药材和药粉的工作台：丹辅、金砂、灵石、各种药材和药散都在这里制作。",
      "A workbench for preparing herbs and powders: pill base, gold sand, spirit stones, medicinal herbs and powders are made here.",
-     3, 1, "12_15_30|12_87_20", "Building/Production/ElixirsWorkbench/RI_Building_ElixirsWorkbench_south.png", False),
+     3, 1, "12_15_30|12_87_20", None, False),
 ]
 
 # ---------------------------------------------------------------- materiais
@@ -239,10 +239,18 @@ bench_recipes = {b[0]: [] for b in BENCHES}
 for rid, benches, *_ in RECIPES:
     for b in benches.split("+"): bench_recipes[b].append(f"{PKG}_{rid}")
 for key, bid, cn, en, dcn, den, w, h, mats, tex, tint in BENCHES:
+    # Sem textura (a Bancada de Elixires): usa o ícone e o modelo da bancada de remédios do jogo.
+    icon = [("RawIcon", f"wuxia_{key}_cauldron.png")] if tex else []
     out.append(row("F_ManufactureDef", 51, [
         ("ID", bid), ("Name", tr(cn, en)), ("Desc", tr(dcn, den)),
-        ("RawIcon", f"wuxia_{key}_cauldron.png" if key != "bench" else "wuxia_elixir_workbench.png"),
-        ("Width", w), ("Height", h), ("Materials", mats),
+        *icon,
+        ("Width", w), ("Height", h),
+        # Mark = casa onde o colono trabalha, contada em Width x Height (veja Produce_Base.getProduceOperatePoint).
+        # A cópia da bancada (3x1) trazia 4, que no caldeirão 1x1 punha a cadeira 4 casas para baixo.
+        # Altura 1: logo abaixo do meio (w*h + w//2). Mais alta: no meio da última fileira,
+        # porque a imagem do Taiyi não chega até ela e a cadeira ficava uma casa longe.
+        ("Mark", w * h + w // 2 if h == 1 else w * (h - 1) + w // 2),
+        ("Materials", mats),
         ("ProductID", "|".join(bench_recipes[key])),
     ]))
 
@@ -327,9 +335,16 @@ for m in MATS:
 for p in PILLS:
     fit(Image.open(os.path.join(RITEX, p[-1])), 64, 64).save(os.path.join(TEX_OUT, f"wuxia_pill_{p[0]}.png"), optimize=True)
 for key, bid, cn, en, dcn, den, w, h, mats, tex, tint in BENCHES:
+    if not tex: continue
     img = Image.open(os.path.join(RITEX, tex)).convert("RGBA")
     if tint: img = bronze(img)
-    name = f"wuxia_{key}_cauldron.png" if key != "bench" else "wuxia_elixir_workbench.png"
-    fit(img, 40 * w, 40 * h).save(os.path.join(TEX_OUT, name), optimize=True)
+    img = fit(img, 40 * w, 40 * h)
+    if w == 1:
+        # O menu de construção estica cada ícone até encher o quadro: sem a borda vazia,
+        # o caldeirão pequeno parecia maior que o Taiyi. No mapa a borda não aparece.
+        canvas = Image.new("RGBA", (80, 80), (0, 0, 0, 0))
+        canvas.paste(img, (20, 20), img)
+        img = canvas
+    img.save(os.path.join(TEX_OUT, f"wuxia_{key}_cauldron.png"), optimize=True)
 
 print("linhas:", len(BENCHES), len(MATS), len(PILLS), len(RECIPES), "textos:", len(lang))
