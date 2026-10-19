@@ -64,3 +64,7 @@ docs/                     design e pesquisa
 ```
 
 As DLLs do jogo nunca entram no repositório.
+
+## Créditos
+
+Algumas imagens e textos vêm do **RimImmortal** (RimWorld), do mesmo autor, usados com permissão.
