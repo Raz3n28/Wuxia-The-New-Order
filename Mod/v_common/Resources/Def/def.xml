@@ -17,6 +17,8 @@
 
     <!--
       Almofada de meditação: lazer (F_Entertainment) copiado da mesa de blocos (ID 0).
+      O RawIcon é desenhado no mapa no tamanho real: 128 px ficou com uns 3 quadrados,
+      então a imagem tem 40x40 para ocupar 1 quadrado.
       Colonos usam como qualquer lazer; quem já despertou o cultivo ganha bem mais Qi
       aqui do que em outros lazeres (veja MeditationPatch e config.json).
     -->
@@ -25,6 +27,8 @@
       <Item Name="Name">修炼蒲团</Item>
       <Item Name="Desc">打坐修炼用的蒲团。已经觉醒修炼的人在这里冥想，吸收灵气的速度远快于其他娱乐。</Item>
       <Item Name="RawIcon">wuxia_meditation_cushion.png</Item>
+      <Item Name="Width">1</Item>
+      <Item Name="Height">1</Item>
     </ModDefRow>
     <ModDefRow Name="LanguageDef">
       <Item Name="Key">id_修炼蒲团</Item>
