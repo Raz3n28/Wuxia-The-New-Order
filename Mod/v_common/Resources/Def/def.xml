@@ -67,7 +67,6 @@
       <Item Name="ID">96903</Item>
       <Item Name="Name">制药工作台</Item>
       <Item Name="Desc">一张用来制备药材和药粉的工作台：丹辅、金砂、灵石、各种药材和药散都在这里制作。</Item>
-      <Item Name="RawIcon">wuxia_elixir_workbench.png</Item>
       <Item Name="Width">3</Item>
       <Item Name="Height">1</Item>
       <Item Name="Materials">12_15_30|12_87_20</Item>

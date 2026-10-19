@@ -33,6 +33,7 @@ namespace WuxiaMod.Game
             added += Register<F_ProductListDef>();
             added += Register<F_ManufactureDef>();
             ApplyTexts<F_Entertainment>();
+            FixSortIds();
             added += RegisterLanguage();
             added += PillEffects.RegisterBuffFoods();
             if (added > 0 && (!_logged || ModEntry.VerboseLog))
@@ -70,6 +71,37 @@ namespace WuxiaMod.Game
                 }
             }
             return added;
+        }
+
+        private static readonly HashSet<object> Sorted = new HashSet<object>();
+
+        /// <summary>
+        /// O menu de construção ordena por SortId com um sort instável, e as nossas bancadas
+        /// copiam o SortId da bancada de remédios. Com SortId igual, os ícones e o item escolhido
+        /// podem sair em ordens diferentes (o Caldeirão Pequeno aparecia com a imagem do Taiyi).
+        /// Damos a cada uma um SortId único, depois de todas as bancadas do jogo.
+        /// </summary>
+        private static void FixSortIds()
+        {
+            var beans = ImplDef<F_ManufactureDef>.beans;
+            if (beans == null) return;
+            bool pending = false;
+            int max = int.MinValue;
+            foreach (var bean in beans)
+            {
+                if (bean == null) continue;
+                if (bean.mod?.packageId == ModEntry.HarmonyId) { if (!Sorted.Contains(bean)) pending = true; }
+                else if (bean.SortId > max) max = bean.SortId;
+            }
+            if (!pending) return;
+            // Ordem fixa pelo ID: Caldeirão Pequeno, Taiyi, Bancada de Elixires.
+            var ours = beans.FindAll(b => b?.mod?.packageId == ModEntry.HarmonyId);
+            ours.Sort((a, b) => string.CompareOrdinal(a.ID, b.ID));
+            foreach (var bean in ours)
+            {
+                bean.SortId = ++max;
+                Sorted.Add(bean);
+            }
         }
 
         /// <summary>Só os textos, para tabelas que não precisam do ID curto (a almofada de meditação).</summary>

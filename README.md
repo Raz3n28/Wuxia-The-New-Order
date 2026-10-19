@@ -31,7 +31,7 @@ Três construções novas, na mesma aba da Bancada de Remédios do jogo:
 |---|---|---|
 | Caldeirão Alquímico Pequeno (Small Alchemy Cauldron) | 1x1 | Pílulas de 3º grau |
 | Caldeirão Alquímico Taiyi (Taiyi Alchemy Cauldron) | 3x3 | Pílulas de todos os graus e o Fogo Espiritual |
-| Bancada de Elixires (Elixir Workbench) | 3x1 | Base de pílula, areia de ouro, ervas, pedra espiritual e pós |
+| Bancada de Elixires (Elixir Workbench) | 3x1 | Base de pílula, areia de ouro, ervas, pedra espiritual e pós (tem a aparência da Bancada de Remédios do jogo) |
 
 Enquanto as plantas e animais do RimImmortal não chegam, as ervas e partes de animais são feitas na Bancada de Elixires a partir de itens do jogo (folhas, raízes, estames, cogumelos, frutas, batatas, ouro, glândulas).
 
