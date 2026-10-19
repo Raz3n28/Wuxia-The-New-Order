@@ -103,6 +103,9 @@ Tabelas que o Mech Expansion usa (e que vamos usar para pílulas, Fornalha e For
 | `Dialog_MainHeroInfo` | Janela do personagem. Abas em `TabPanel/Tab0..2` (`UISwitchButton`), telas `ViewInfo`, `EquipRoot`, `HealthRoot`; `showTab(i)`, `showHero(FWHeroBean)` |
 | `FWHeroBean` (: `FWRoleBean` : `FWCellUidItem`) | Dados do personagem: `uid`, `name`, `age`, `ability[]`, `isAndroid()` |
 | `UISwitchButton` | Botão de aba: `setSelectedState(on, disparaEvento)`, evento `onSelectedChange` |
+| `UserBean.loadArchive(Archive)` | Carrega um save ou começa jogo novo (caminho comum) |
+| `Archive.saveSnapshotFile(...)` (6 args), `Archive.saveFile(nome, ...)` | Gravam o arquivo do save; `ArchiveInfo.name` é o nome do save |
+| `ArchiveInfo.delArchive()` | Apaga a pasta do save |
 | `BaseMonoDialog`, `showModDialog` | Janelas de UI |
 | `TextureManager.loadImage(...)` | Carregar imagens do mod |
 | `MutiLanguage` | Sistema de idiomas do jogo |

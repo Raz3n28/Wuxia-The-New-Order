@@ -4,4 +4,5 @@ Aqui ficam os patches que mexem em classes do jogo (tela do personagem, personag
 
 Tudo em `Game/` só compila quando o jogo e o Harmony do Workshop são encontrados (veja `GamePaths.props.example`).
 
-Ainda não há patches. O próximo passo é mapear as classes do jogo que vamos usar; veja `docs/estrutura-de-mods.md`.
+- `HeroInfoCultivationTab`: aba Cultivo na janela do personagem.
+- `SavePatches`: carrega e grava o cultivo junto com os saves do jogo.

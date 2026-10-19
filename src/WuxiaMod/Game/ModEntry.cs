@@ -30,6 +30,7 @@ namespace WuxiaMod.Game
             ModLog.Sink = UnityEngine.Debug.Log;
             UserDir = Path.Combine(UnityEngine.Application.persistentDataPath, UserFolderName);
             ModLog.OpenFile(Path.Combine(UserDir, "Logs"));
+            CultivationSave.Dir = Path.Combine(UserDir, "Saves");
             ModLog.Sink("[Wuxia] Log do mod em " + ModLog.LogFile);
             try
             {

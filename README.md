@@ -21,7 +21,7 @@ Base do projeto. Já tem:
 - Núcleo do cultivo sem depender do jogo: raízes, estágios, Qi, níveis e ruptura.
 - Dados em JSON (`Mod/v_common/Data`) e textos em EN/PT-BR (`Mod/v_common/Languages`).
 
-Dentro do jogo: aba **Cultivo** na janela do personagem, mostrando a raiz espiritual e o estágio de cada colono.
+Dentro do jogo: aba **Cultivo** na janela do personagem, mostrando a raiz espiritual e o estágio de cada colono, com o botão **Despertar cultivo** para quem tem raiz. O cultivo é salvo junto com cada save do jogo.
 
 ## Requisitos
 
@@ -37,7 +37,7 @@ Dentro do jogo: aba **Cultivo** na janela do personagem, mostrando a raiz espiri
 4. No jogo, ative o **Wuxia** no gerenciador de mods e reinicie.
 5. O log do mod fica em `%USERPROFILE%\AppData\LocalLow\CatStudio\Outer Space\Wuxia The New Dawn\Logs\wuxia.log` (o da sessão anterior em `wuxia-prev.log`). Avisos e erros também aparecem no `Player.log` com a tag `[Wuxia]`.
 
-Tudo o que o mod gerar no seu PC fica na pasta `Wuxia The New Dawn`.
+Tudo o que o mod gerar no seu PC fica na pasta `Wuxia The New Dawn`. O cultivo de cada save fica em `Saves\<nome do save>.json`; o arquivo de save do jogo não é alterado, então o save abre normalmente sem o mod.
 
 ## Idioma
 

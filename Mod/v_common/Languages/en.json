@@ -58,5 +58,6 @@
   "ui.android_no_cultivation": "Androids and robots have no meridians and cannot cultivate.",
   "ui.can_awaken": "Has the aptitude to cultivate, but has not awakened yet.",
   "ui.cannot_cultivate": "Has no spirit root and cannot cultivate.",
-  "ui.coming_soon": "Coming soon: meditation, breakthroughs, skill tree and passives."
+  "ui.coming_soon": "Coming soon: meditation, breakthroughs, skill tree and passives.",
+  "ui.awaken_button": "Awaken cultivation"
 }

@@ -24,6 +24,7 @@ namespace WuxiaMod.Game.Patches
     {
         private const string TabName = "TabWuxia";
         private const string ViewName = "WuxiaCultivationView";
+        private const string AwakenButtonName = "AwakenButton";
 
         private static readonly Color Gold = new Color(0.90f, 0.75f, 0.35f);
 
@@ -137,7 +138,65 @@ namespace WuxiaMod.Game.Patches
             text.alignment = TextAlignmentOptions.TopLeft;
             text.raycastTarget = false;
 
+            CreateAwakenButton(dialog, rect, text.font);
+
             go.SetActive(false);
+        }
+
+        /// <summary>Botão "Despertar cultivo", no canto de baixo da tela. Só ele recebe clique.</summary>
+        private static void CreateAwakenButton(Dialog_MainHeroInfo dialog, RectTransform parent, TMP_FontAsset font)
+        {
+            var go = new GameObject(AwakenButtonName, typeof(RectTransform));
+            var rect = (RectTransform)go.transform;
+            rect.SetParent(parent, false);
+            rect.anchorMin = rect.anchorMax = rect.pivot = Vector2.zero;
+            rect.anchoredPosition = new Vector2(60, 60);
+            rect.sizeDelta = new Vector2(360, 70);
+
+            var image = go.AddComponent<Image>();
+            image.color = new Color(0.45f, 0.33f, 0.10f, 0.95f);
+            var button = go.AddComponent<Button>();
+            button.targetGraphic = image;
+            var colors = button.colors;
+            colors.highlightedColor = new Color(1.3f, 1.3f, 1.3f);
+            colors.pressedColor = new Color(0.8f, 0.8f, 0.8f);
+            button.colors = colors;
+
+            var labelGo = new GameObject("Label", typeof(RectTransform));
+            var labelRect = (RectTransform)labelGo.transform;
+            labelRect.SetParent(rect, false);
+            labelRect.anchorMin = Vector2.zero;
+            labelRect.anchorMax = Vector2.one;
+            labelRect.offsetMin = labelRect.offsetMax = Vector2.zero;
+            var label = labelGo.AddComponent<TextMeshProUGUI>();
+            if (font != null) label.font = font;
+            label.fontSize = 28;
+            label.color = Color.white;
+            label.alignment = TextAlignmentOptions.Center;
+            label.raycastTarget = false;
+            label.text = Loc.T("ui.awaken_button");
+
+            button.onClick.AddListener(() =>
+            {
+                try { Awaken(dialog); }
+                catch (Exception ex) { ModLog.Error(ex, "despertar cultivo"); }
+            });
+            go.SetActive(false);
+        }
+
+        private static void Awaken(Dialog_MainHeroInfo dialog)
+        {
+            var hero = Traverse.Create(dialog).Field("heroBean").GetValue<FWHeroBean>();
+            if (hero == null || IsAndroid(hero)) return;
+            var state = CultivationRegistry.Get(hero.uid, true);
+            if (state.Awaken())
+                ModLog.Info($"{hero.name} (uid {hero.uid}) despertou o cultivo com {state.RootId}.");
+            Refresh(dialog);
+        }
+
+        private static bool IsAndroid(FWHeroBean hero)
+        {
+            try { return hero.isAndroid(); } catch { return false; }
         }
 
         // ---------- troca de aba ----------
@@ -166,15 +225,21 @@ namespace WuxiaMod.Game.Patches
         private static void Refresh(Dialog_MainHeroInfo dialog)
         {
             var view = FindChild(dialog.transform, ViewName);
-            var text = view?.GetComponentInChildren<TextMeshProUGUI>(true);
+            var text = view?.Find("Text")?.GetComponent<TextMeshProUGUI>();
+            var button = view?.Find(AwakenButtonName);
             var hero = Traverse.Create(dialog).Field("heroBean").GetValue<FWHeroBean>();
             if (text == null) return;
-            if (hero == null) { text.text = ""; return; }
+            if (hero == null)
+            {
+                text.text = "";
+                if (button != null) button.gameObject.SetActive(false);
+                return;
+            }
 
-            bool android = false;
-            try { android = hero.isAndroid(); } catch { }
+            bool android = IsAndroid(hero);
             var state = CultivationRegistry.Get(hero.uid, !android);
             text.text = Describe(hero.name, android, state);
+            if (button != null) button.gameObject.SetActive(!android && state.CanCultivate && state.RealmOrder == 0);
         }
 
         private static string Describe(string heroName, bool android, CultivationState state)
