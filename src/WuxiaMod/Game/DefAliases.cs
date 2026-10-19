@@ -15,8 +15,9 @@ namespace WuxiaMod.Game
     /// O jogo pode recriar esses dicionários (ao recarregar as definições),
     /// por isso o WuxiaRuntime chama Apply() de novo de tempos em tempos.
     ///
-    /// Também põe os textos em inglês das nossas linhas no LanguageDef e registra
-    /// as "comidas" escondidas que dão os bônus das pílulas (veja PillEffects).
+    /// Também põe os textos das nossas linhas no LanguageDef, troca os textos para o
+    /// idioma do mod (veja DefTexts) e registra as "comidas" escondidas que dão os
+    /// bônus das pílulas (veja PillEffects).
     /// </summary>
     internal static class DefAliases
     {
@@ -26,10 +27,12 @@ namespace WuxiaMod.Game
         public static void Apply()
         {
             int added = 0;
+            if (ImplDef<LanguageDef>.beans != null) DefTexts.ApplyLanguageRows(ImplDef<LanguageDef>.beans);
             added += Register<T_MaterialDef>();
             added += Register<T_MedicineDef>();
             added += Register<F_ProductListDef>();
             added += Register<F_ManufactureDef>();
+            ApplyTexts<F_Entertainment>();
             added += RegisterLanguage();
             added += PillEffects.RegisterBuffFoods();
             if (added > 0 && (!_logged || ModEntry.VerboseLog))
@@ -51,6 +54,7 @@ namespace WuxiaMod.Game
                 var bean = beans[i];
                 if (bean?.mod == null || bean.mod.packageId != ModEntry.HarmonyId || bean.ID == null) continue;
                 TestMode.ApplyFastWork(bean);
+                DefTexts.ApplyDef(bean);
                 if (!dict.ContainsKey(bean.ID)) { dict[bean.ID] = bean; added++; }
                 if (!bean.ID.StartsWith(prefix, StringComparison.Ordinal)) continue;
                 string shortId = bean.ID.Substring(prefix.Length);
@@ -66,6 +70,15 @@ namespace WuxiaMod.Game
                 }
             }
             return added;
+        }
+
+        /// <summary>Só os textos, para tabelas que não precisam do ID curto (a almofada de meditação).</summary>
+        private static void ApplyTexts<T>() where T : BaseDef
+        {
+            var beans = ImplDef<T>.beans;
+            if (beans == null) return;
+            for (int i = 0; i < beans.Count; i++)
+                if (beans[i]?.mod?.packageId == ModEntry.HarmonyId) DefTexts.ApplyDef(beans[i]);
         }
 
         private static FieldInfo _langDicts;

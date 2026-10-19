@@ -26,6 +26,7 @@ namespace WuxiaMod.Game.Patches
         private const string ViewName = "WuxiaCultivationView";
         private const string AwakenButtonName = "AwakenButton";
         private const string TestButtonName = "TestKitButton";
+        private const string LanguageButtonName = "LanguageButton";
 
         private static readonly Color Gold = new Color(0.90f, 0.75f, 0.35f);
 
@@ -164,15 +165,39 @@ namespace WuxiaMod.Game.Patches
             // Só com "testMode": true no config.json (veja TestMode).
             CreateButton(parent, font, TestButtonName, Loc.T("ui.test_kit_button"), new Vector2(440, 60),
                 new Color(0.20f, 0.35f, 0.55f, 0.95f), () => GiveTestKit(dialog));
+            // Idioma dos textos do mod (aba, itens, construções), seja qual for o idioma do jogo.
+            CreateButton(parent, font, LanguageButtonName, Loc.T("ui.language_button"), new Vector2(-60, 60),
+                new Color(0.30f, 0.30f, 0.30f, 0.95f), () => ToggleLanguage(dialog), rightCorner: true);
+        }
+
+        private static void ToggleLanguage(Dialog_MainHeroInfo dialog)
+        {
+            ModEntry.SetModLanguage(Loc.Current == Loc.Portuguese ? Loc.English : Loc.Portuguese);
+            var tab = FindChild(dialog.transform, "TabPanel/" + TabName);
+            if (tab != null)
+                foreach (var label in tab.GetComponentsInChildren<TextMeshProUGUI>(true))
+                    label.text = Loc.T("ui.cultivation");
+            var view = FindChild(dialog.transform, ViewName);
+            SetButtonText(view, AwakenButtonName, Loc.T("ui.awaken_button"));
+            SetButtonText(view, TestButtonName, Loc.T("ui.test_kit_button"));
+            SetButtonText(view, LanguageButtonName, Loc.T("ui.language_button"));
+            Refresh(dialog);
+        }
+
+        private static void SetButtonText(Transform view, string name, string text)
+        {
+            var label = view?.Find(name + "/Label")?.GetComponent<TextMeshProUGUI>();
+            if (label != null) label.text = text;
         }
 
         private static void CreateButton(RectTransform parent, TMP_FontAsset font, string name, string text,
-            Vector2 position, Color color, Action onClick)
+            Vector2 position, Color color, Action onClick, bool rightCorner = false)
         {
             var go = new GameObject(name, typeof(RectTransform));
             var rect = (RectTransform)go.transform;
             rect.SetParent(parent, false);
-            rect.anchorMin = rect.anchorMax = rect.pivot = Vector2.zero;
+            // Canto de baixo à esquerda, ou à direita (position.x negativo conta a partir da borda direita).
+            rect.anchorMin = rect.anchorMax = rect.pivot = rightCorner ? new Vector2(1, 0) : Vector2.zero;
             rect.anchoredPosition = position;
             rect.sizeDelta = new Vector2(360, 70);
 
@@ -259,6 +284,8 @@ namespace WuxiaMod.Game.Patches
             var text = view?.Find("Text")?.GetComponent<TextMeshProUGUI>();
             var button = view?.Find(AwakenButtonName);
             var testButton = view?.Find(TestButtonName);
+            var languageButton = view?.Find(LanguageButtonName);
+            if (languageButton != null) languageButton.gameObject.SetActive(true);
             var hero = Traverse.Create(dialog).Field("heroBean").GetValue<FWHeroBean>();
             if (text == null) return;
             if (hero == null)
