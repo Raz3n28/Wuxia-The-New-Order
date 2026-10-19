@@ -246,9 +246,10 @@ for key, bid, cn, en, dcn, den, w, h, mats, tex, tint in BENCHES:
         *icon,
         ("Width", w), ("Height", h),
         # Mark = casa onde o colono trabalha, contada em Width x Height (veja Produce_Base.getProduceOperatePoint).
-        # w*h + w//2 = logo abaixo do meio da construção. A cópia da bancada (3x1) trazia 4,
-        # que no caldeirão 1x1 punha a cadeira 4 casas para baixo.
-        ("Mark", w * h + w // 2),
+        # A cópia da bancada (3x1) trazia 4, que no caldeirão 1x1 punha a cadeira 4 casas para baixo.
+        # Altura 1: logo abaixo do meio (w*h + w//2). Mais alta: no meio da última fileira,
+        # porque a imagem do Taiyi não chega até ela e a cadeira ficava uma casa longe.
+        ("Mark", w * h + w // 2 if h == 1 else w * (h - 1) + w // 2),
         ("Materials", mats),
         ("ProductID", "|".join(bench_recipes[key])),
     ]))
