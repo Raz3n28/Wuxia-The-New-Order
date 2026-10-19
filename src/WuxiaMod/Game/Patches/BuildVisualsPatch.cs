@@ -74,6 +74,37 @@ namespace WuxiaMod.Game.Patches
             catch (Exception ex) { ModLog.Error(ex, "ícone da construção"); }
         }
 
+        // O quadro do modelo vem espelhado em relação ao que aparece no mapa (pilão à
+        // direita no ícone, à esquerda no mapa). Desenhamos o ícone com escala X = -1.
+        [HarmonyPatch(typeof(CommonIconUtils), nameof(CommonIconUtils.initPlayerNode),
+            new[] { typeof(UISpriteCatPlayer), typeof(int), typeof(string) })]
+        [HarmonyPrefix]
+        private static bool IconNode_Prefix(UISpriteCatPlayer player, int type, string id)
+        {
+            try
+            {
+                if (type != 27 || player == null) return true;
+                var def = ImplDef<F_ManufactureDef>.getDataID(id);
+                if (def?.mod == null || def.mod.packageId != ModEntry.HarmonyId || def.RawIcon != null) return true;
+                var info = PlayerStatic.getPlayerInfo(type, id);
+                var key = UISpriteCatPlayer.getKey(info.iconPlayer, "", null);
+                if (player.player == null || !key.Equals(player.player.key))
+                {
+                    var config = PlayerInitConfig.getPlayerConfig(info.iconPlayer);
+                    player.loadBin(info.iconPlayer, false, info.smooth, config == null || config.bilinear);
+                    player.SetMaterialDirty();
+                }
+                player.paintActionFrame(info.iconActionID, info.iconFrameID, 0f, 0f, 0f, true, -1f, 1f);
+                player.updatePaint();
+                return false;
+            }
+            catch (Exception ex)
+            {
+                ModLog.Error(ex, "ícone espelhado da construção");
+                return true;
+            }
+        }
+
         // ---------- prévia ----------
 
         [HarmonyPatch(typeof(BuildPlanMod), nameof(BuildPlanMod.casePaint))]
