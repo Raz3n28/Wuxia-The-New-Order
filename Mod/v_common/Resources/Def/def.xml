@@ -50,6 +50,7 @@
       <Item Name="RawIcon">wuxia_little_cauldron.png</Item>
       <Item Name="Width">1</Item>
       <Item Name="Height">1</Item>
+      <Item Name="Mark">1</Item>
       <Item Name="Materials">12_15_20|12_6_10</Item>
       <Item Name="ProductID">pauloraz3n.wuxia_96531|pauloraz3n.wuxia_96532|pauloraz3n.wuxia_96533|pauloraz3n.wuxia_96534|pauloraz3n.wuxia_96535|pauloraz3n.wuxia_96536</Item>
     </ModDefRow>
@@ -60,6 +61,7 @@
       <Item Name="RawIcon">wuxia_taiyi_cauldron.png</Item>
       <Item Name="Width">3</Item>
       <Item Name="Height">3</Item>
+      <Item Name="Mark">10</Item>
       <Item Name="Materials">12_15_80|12_6_30|12_23_1</Item>
       <Item Name="ProductID">pauloraz3n.wuxia_96531|pauloraz3n.wuxia_96532|pauloraz3n.wuxia_96533|pauloraz3n.wuxia_96534|pauloraz3n.wuxia_96535|pauloraz3n.wuxia_96536|pauloraz3n.wuxia_96541|pauloraz3n.wuxia_96542|pauloraz3n.wuxia_96543|pauloraz3n.wuxia_96544|pauloraz3n.wuxia_96545|pauloraz3n.wuxia_96546|pauloraz3n.wuxia_96547|pauloraz3n.wuxia_96548|pauloraz3n.wuxia_96549</Item>
     </ModDefRow>
@@ -69,6 +71,7 @@
       <Item Name="Desc">一张用来制备药材和药粉的工作台：丹辅、金砂、灵石、各种药材和药散都在这里制作。</Item>
       <Item Name="Width">3</Item>
       <Item Name="Height">1</Item>
+      <Item Name="Mark">4</Item>
       <Item Name="Materials">12_15_30|12_87_20</Item>
       <Item Name="ProductID">pauloraz3n.wuxia_96501|pauloraz3n.wuxia_96502|pauloraz3n.wuxia_96503|pauloraz3n.wuxia_96504|pauloraz3n.wuxia_96505|pauloraz3n.wuxia_96506|pauloraz3n.wuxia_96507|pauloraz3n.wuxia_96508|pauloraz3n.wuxia_96509|pauloraz3n.wuxia_96510|pauloraz3n.wuxia_96511|pauloraz3n.wuxia_96512|pauloraz3n.wuxia_96513|pauloraz3n.wuxia_96514|pauloraz3n.wuxia_96521|pauloraz3n.wuxia_96522|pauloraz3n.wuxia_96523</Item>
     </ModDefRow>

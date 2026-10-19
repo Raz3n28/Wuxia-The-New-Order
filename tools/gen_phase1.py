@@ -244,7 +244,12 @@ for key, bid, cn, en, dcn, den, w, h, mats, tex, tint in BENCHES:
     out.append(row("F_ManufactureDef", 51, [
         ("ID", bid), ("Name", tr(cn, en)), ("Desc", tr(dcn, den)),
         *icon,
-        ("Width", w), ("Height", h), ("Materials", mats),
+        ("Width", w), ("Height", h),
+        # Mark = casa onde o colono trabalha, contada em Width x Height (veja Produce_Base.getProduceOperatePoint).
+        # w*h + w//2 = logo abaixo do meio da construção. A cópia da bancada (3x1) trazia 4,
+        # que no caldeirão 1x1 punha a cadeira 4 casas para baixo.
+        ("Mark", w * h + w // 2),
+        ("Materials", mats),
         ("ProductID", "|".join(bench_recipes[key])),
     ]))
 
