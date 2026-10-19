@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+  Definições no formato do próprio jogo (o mesmo do "UI Example" oficial).
+  Por enquanto só um texto de teste. Itens, receitas e inimigos devem entrar
+  aqui quando mapearmos os nomes das tabelas (ModDefRow Name="...").
+  O jogo só tem colunas CN e EN; o português fica em v_common/Languages.
+-->
+<ModXmlDef xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <rows>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">wuxia_mod_title</Item>
+      <Item Name="CN">武侠：星辰修真</Item>
+      <Item Name="EN">Wuxia: Stellar Cultivation</Item>
+    </ModDefRow>
+  </rows>
+</ModXmlDef>

@@ -1,0 +1,9 @@
+<Project>
+  <!-- Copie este arquivo para GamePaths.props só se o jogo estiver fora do caminho padrão da Steam. -->
+  <PropertyGroup>
+    <GamePath>C:\Program Files (x86)\Steam\steamapps\common\Outer Space</GamePath>
+    <GameManagedDir>$(GamePath)\Outer Space_Data\Managed</GameManagedDir>
+    <!-- 0Harmony.dll do mod "Harmony" do Workshop (precisa estar inscrito nele). -->
+    <HarmonyDll>$(GamePath)\..\..\workshop\content\3080070\3803065949\v_common\Assemblies\0Harmony.dll</HarmonyDll>
+  </PropertyGroup>
+</Project>

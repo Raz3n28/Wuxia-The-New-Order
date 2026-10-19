@@ -1,0 +1,75 @@
+{
+  "_comment": "Raízes espirituais (aptidão). weight = chance relativa no sorteio.",
+  "roots": [
+    {
+      "id": "none",
+      "weight": 60,
+      "canCultivate": false,
+      "qiGainMultiplier": 0,
+      "element": null
+    },
+    {
+      "id": "mixed",
+      "weight": 25,
+      "canCultivate": true,
+      "qiGainMultiplier": 0.6,
+      "element": null
+    },
+    {
+      "id": "fire",
+      "weight": 2.4,
+      "canCultivate": true,
+      "qiGainMultiplier": 1.0,
+      "element": "fire"
+    },
+    {
+      "id": "water",
+      "weight": 2.4,
+      "canCultivate": true,
+      "qiGainMultiplier": 1.0,
+      "element": "water"
+    },
+    {
+      "id": "metal",
+      "weight": 2.4,
+      "canCultivate": true,
+      "qiGainMultiplier": 1.0,
+      "element": "metal"
+    },
+    {
+      "id": "wood",
+      "weight": 2.4,
+      "canCultivate": true,
+      "qiGainMultiplier": 1.0,
+      "element": "wood"
+    },
+    {
+      "id": "earth",
+      "weight": 2.4,
+      "canCultivate": true,
+      "qiGainMultiplier": 1.0,
+      "element": "earth"
+    },
+    {
+      "id": "thunder",
+      "weight": 1.2,
+      "canCultivate": true,
+      "qiGainMultiplier": 1.6,
+      "element": "thunder"
+    },
+    {
+      "id": "void",
+      "weight": 0.6,
+      "canCultivate": true,
+      "qiGainMultiplier": 1.8,
+      "element": "void"
+    },
+    {
+      "id": "heavenly",
+      "weight": 1.2,
+      "canCultivate": true,
+      "qiGainMultiplier": 2.0,
+      "element": null
+    }
+  ]
+}

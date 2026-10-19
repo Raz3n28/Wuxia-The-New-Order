@@ -1,0 +1,11 @@
+bin/
+obj/
+.vs/
+.idea/
+*.user
+*.suo
+GamePaths.props
+
+# Bibliotecas do jogo nunca entram no repositório
+Assembly-CSharp*.dll
+UnityEngine*.dll

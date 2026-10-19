@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Não deixe nenhum elemento vazio (ex.: <lib />): o jogo quebra o carregamento de TODOS os mods. -->
+<ModXmlManifest>
+  <packageId>pauloraz3n.wuxia</packageId>
+  <name>Wuxia: Cultivo Estelar / Stellar Cultivation</name>
+  <author>PauloRaz3n</author>
+  <icon>icon.png</icon>
+  <previewImage>preview.png</previewImage>
+  <desc>Cultivation (Wuxia/Xianxia) for Order: The New Dawn: spirit roots, 12 cultivation realms, alchemy, forging, sects and new enemies. / Cultivo Wuxia para Order: The New Dawn: raízes espirituais, 12 estágios de cultivo, alquimia, forja, seitas e inimigos novos.</desc>
+  <versions>
+    <ModMetaVersion>
+      <version>v_common</version>
+      <!-- packageId do mod Harmony do Workshop -->
+      <dependencies>com.harmony</dependencies>
+      <main>WuxiaMod.dll</main>
+    </ModMetaVersion>
+  </versions>
+</ModXmlManifest>

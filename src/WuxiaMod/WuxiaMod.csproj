@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Caminhos do jogo: o padrão abaixo é o da instalação normal da Steam.
+    Se o seu for diferente, copie GamePaths.props.example (na raiz) para
+    GamePaths.props e ajuste. O GamePaths.props não vai para o Git.
+  -->
+  <Import Project="..\..\GamePaths.props" Condition="Exists('..\..\GamePaths.props')" />
+
+  <PropertyGroup>
+    <!-- Mesmo alvo dos mods oficiais (Mod_Harmony.dll / Mod_UICustom.dll). -->
+    <TargetFramework>net471</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <AssemblyName>WuxiaMod</AssemblyName>
+    <RootNamespace>WuxiaMod</RootNamespace>
+    <Version>0.1.0</Version>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <!-- A DLL sai direto na pasta do mod, pronta para instalar. -->
+    <OutputPath>..\..\Mod\v_common\Assemblies\</OutputPath>
+    <DebugType>none</DebugType>
+
+    <GamePath Condition="'$(GamePath)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Outer Space</GamePath>
+    <GameManagedDir Condition="'$(GameManagedDir)' == ''">$(GamePath)\Outer Space_Data\Managed</GameManagedDir>
+    <HarmonyDll Condition="'$(HarmonyDll)' == ''">$(GamePath)\..\..\workshop\content\3080070\3803065949\v_common\Assemblies\0Harmony.dll</HarmonyDll>
+    <HasGameRefs Condition="Exists('$(GameManagedDir)\Assembly-CSharp.dll') And Exists('$(HarmonyDll)')">true</HasGameRefs>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!-- Bibliotecas do jogo e o Harmony do Workshop: só existem no seu PC, nunca vão para o GitHub. -->
+  <ItemGroup Condition="'$(HasGameRefs)' == 'true'">
+    <Reference Include="0Harmony"><HintPath>$(HarmonyDll)</HintPath><Private>false</Private></Reference>
+    <Reference Include="Assembly-CSharp"><HintPath>$(GameManagedDir)\Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine"><HintPath>$(GameManagedDir)\UnityEngine.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.CoreModule"><HintPath>$(GameManagedDir)\UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.UI"><HintPath>$(GameManagedDir)\UnityEngine.UI.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.UIModule"><HintPath>$(GameManagedDir)\UnityEngine.UIModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.IMGUIModule"><HintPath>$(GameManagedDir)\UnityEngine.IMGUIModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.TextRenderingModule"><HintPath>$(GameManagedDir)\UnityEngine.TextRenderingModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.ImageConversionModule"><HintPath>$(GameManagedDir)\UnityEngine.ImageConversionModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="UnityEngine.AssetBundleModule"><HintPath>$(GameManagedDir)\UnityEngine.AssetBundleModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Unity.TextMeshPro"><HintPath>$(GameManagedDir)\Unity.TextMeshPro.dll</HintPath><Private>false</Private></Reference>
+  </ItemGroup>
+
+  <!-- Sem o jogo instalado, compila só o núcleo (Cultivation, Json, Localization). -->
+  <ItemGroup Condition="'$(HasGameRefs)' != 'true'">
+    <Compile Remove="Game\**" />
+  </ItemGroup>
+
+  <Target Name="WarnNoGame" BeforeTargets="Build" Condition="'$(HasGameRefs)' != 'true'">
+    <Warning Text="Jogo ou Harmony não encontrados ($(GameManagedDir) / $(HarmonyDll)). Compilando só o núcleo; a DLL não vai carregar no jogo." />
+  </Target>
+
+</Project>
