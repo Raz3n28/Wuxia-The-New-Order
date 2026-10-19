@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using HarmonyLib;
 using UnityEngine;
 
@@ -14,6 +15,9 @@ namespace WuxiaMod.Game.Patches
     ///   que copiamos da bancada de remédios (DependID 51). Por isso ela virava a mesa do jogo.
     ///   Aqui, para as linhas nossas com RawIcon, desenhamos o RawIcon no lugar do modelo,
     ///   do mesmo jeito que a prévia (centrado, no tamanho do PNG).
+    /// - O jogo junta todos os RawIcon de mods numa textura só (ModIconCombine). O menu e a
+    ///   prévia leem pedaços diferentes dela, e o ícone do Caldeirão Pequeno saía com a imagem
+    ///   do Taiyi. As nossas construções ganham uma textura própria cada, sem atlas.
     /// - A prévia gira a imagem com a direção da construção; virada (180°) a imagem fica de
     ///   cabeça para baixo. Os caldeirões são quadrados, então mostramos sempre de pé.
     /// </summary>
@@ -25,6 +29,28 @@ namespace WuxiaMod.Game.Patches
 
         private static bool IsOurs(BaseDef def) =>
             def?.mod != null && def.mod.packageId == ModEntry.HarmonyId && def.Sprite_RawIcon != null;
+
+        // ---------- textura própria ----------
+
+        [HarmonyPatch(typeof(ModIconCombine), nameof(ModIconCombine.combineIcon))]
+        [HarmonyPostfix]
+        private static void CombineIcon_Postfix()
+        {
+            foreach (var def in ModIconCombine.additions)
+            {
+                if (!(def is F_ManufactureDef) && !(def is F_Entertainment)) continue;
+                if (def.mod?.packageId != ModEntry.HarmonyId || def.RawIcon == null) continue;
+                try
+                {
+                    var path = def.mod.getVersionPath("Resources/Textures/", def.RawIcon);
+                    var texture = new Texture2D(2, 2, TextureFormat.RGBA32, false) { filterMode = FilterMode.Point };
+                    if (!texture.LoadImage(File.ReadAllBytes(path))) continue;
+                    texture.wrapMode = TextureWrapMode.Clamp;
+                    def.Sprite_RawIcon = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+                }
+                catch (Exception ex) { ModLog.Error(ex, "imagem de " + def.ID); }
+            }
+        }
 
         // ---------- prévia ----------
 
