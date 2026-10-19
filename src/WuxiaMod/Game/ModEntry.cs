@@ -46,6 +46,7 @@ namespace WuxiaMod.Game
                     var cfg = (Dictionary<string, object>)MiniJson.Parse(File.ReadAllText(configPath));
                     language = cfg.Str("language", "auto");
                     VerboseLog = cfg.Bool("verboseLog");
+                    TestMode.Enabled = cfg.Bool("testMode");
                     Patches.MeditationPatch.QiPerHourRecreation = cfg.Float("qiPerHourRecreation", Patches.MeditationPatch.QiPerHourRecreation);
                     Patches.MeditationPatch.QiPerHourMeditation = cfg.Float("qiPerHourMeditation", Patches.MeditationPatch.QiPerHourMeditation);
                 }
@@ -63,7 +64,7 @@ namespace WuxiaMod.Game
                 WuxiaRuntime.Create();
 
                 Initialized = true;
-                ModLog.Info($"Pronto. Idioma: {Loc.Current}.");
+                ModLog.Info($"Pronto. Idioma: {Loc.Current}." + (TestMode.Enabled ? " MODO DE TESTE LIGADO." : ""));
             }
             catch (Exception ex)
             {

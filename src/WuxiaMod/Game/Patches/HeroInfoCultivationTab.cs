@@ -25,6 +25,7 @@ namespace WuxiaMod.Game.Patches
         private const string TabName = "TabWuxia";
         private const string ViewName = "WuxiaCultivationView";
         private const string AwakenButtonName = "AwakenButton";
+        private const string TestButtonName = "TestKitButton";
 
         private static readonly Color Gold = new Color(0.90f, 0.75f, 0.35f);
 
@@ -150,23 +151,33 @@ namespace WuxiaMod.Game.Patches
             text.alignment = TextAlignmentOptions.TopLeft;
             text.raycastTarget = false;
 
-            CreateAwakenButton(dialog, rect, text.font);
+            CreateButtons(dialog, rect, text.font);
 
             go.SetActive(false);
         }
 
-        /// <summary>Botão "Despertar cultivo", no canto de baixo da tela. Só ele recebe clique.</summary>
-        private static void CreateAwakenButton(Dialog_MainHeroInfo dialog, RectTransform parent, TMP_FontAsset font)
+        /// <summary>Botões no canto de baixo da tela. Só eles recebem clique.</summary>
+        private static void CreateButtons(Dialog_MainHeroInfo dialog, RectTransform parent, TMP_FontAsset font)
         {
-            var go = new GameObject(AwakenButtonName, typeof(RectTransform));
+            CreateButton(parent, font, AwakenButtonName, Loc.T("ui.awaken_button"), new Vector2(60, 60),
+                new Color(0.45f, 0.33f, 0.10f, 0.95f), () => Awaken(dialog));
+            // Só com "testMode": true no config.json (veja TestMode).
+            CreateButton(parent, font, TestButtonName, Loc.T("ui.test_kit_button"), new Vector2(440, 60),
+                new Color(0.20f, 0.35f, 0.55f, 0.95f), () => GiveTestKit(dialog));
+        }
+
+        private static void CreateButton(RectTransform parent, TMP_FontAsset font, string name, string text,
+            Vector2 position, Color color, Action onClick)
+        {
+            var go = new GameObject(name, typeof(RectTransform));
             var rect = (RectTransform)go.transform;
             rect.SetParent(parent, false);
             rect.anchorMin = rect.anchorMax = rect.pivot = Vector2.zero;
-            rect.anchoredPosition = new Vector2(60, 60);
+            rect.anchoredPosition = position;
             rect.sizeDelta = new Vector2(360, 70);
 
             var image = go.AddComponent<Image>();
-            image.color = new Color(0.45f, 0.33f, 0.10f, 0.95f);
+            image.color = color;
             var button = go.AddComponent<Button>();
             button.targetGraphic = image;
             var colors = button.colors;
@@ -186,14 +197,22 @@ namespace WuxiaMod.Game.Patches
             label.color = Color.white;
             label.alignment = TextAlignmentOptions.Center;
             label.raycastTarget = false;
-            label.text = Loc.T("ui.awaken_button");
+            label.text = text;
 
             button.onClick.AddListener(() =>
             {
-                try { Awaken(dialog); }
-                catch (Exception ex) { ModLog.Error(ex, "despertar cultivo"); }
+                try { onClick(); }
+                catch (Exception ex) { ModLog.Error(ex, "botão " + name); }
             });
             go.SetActive(false);
+        }
+
+        private static void GiveTestKit(Dialog_MainHeroInfo dialog)
+        {
+            var hero = Traverse.Create(dialog).Field("heroBean").GetValue<FWHeroBean>();
+            if (hero == null || IsAndroid(hero)) return;
+            TestMode.GiveKit(hero);
+            Refresh(dialog);
         }
 
         private static void Awaken(Dialog_MainHeroInfo dialog)
@@ -239,12 +258,14 @@ namespace WuxiaMod.Game.Patches
             var view = FindChild(dialog.transform, ViewName);
             var text = view?.Find("Text")?.GetComponent<TextMeshProUGUI>();
             var button = view?.Find(AwakenButtonName);
+            var testButton = view?.Find(TestButtonName);
             var hero = Traverse.Create(dialog).Field("heroBean").GetValue<FWHeroBean>();
             if (text == null) return;
             if (hero == null)
             {
                 text.text = "";
                 if (button != null) button.gameObject.SetActive(false);
+                if (testButton != null) testButton.gameObject.SetActive(false);
                 return;
             }
 
@@ -252,6 +273,7 @@ namespace WuxiaMod.Game.Patches
             var state = CultivationRegistry.Get(hero.uid, !android);
             text.text = Describe(hero.name, android, state);
             if (button != null) button.gameObject.SetActive(!android && state.CanCultivate && state.RealmOrder == 0);
+            if (testButton != null) testButton.gameObject.SetActive(TestMode.Enabled && !android);
         }
 
         private static string Describe(string heroName, bool android, CultivationState state)

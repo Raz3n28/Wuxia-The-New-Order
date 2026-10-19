@@ -68,5 +68,8 @@
   "pill.qi": "Qi +{0}",
   "pill.qi_boost": "Absorção de Qi +{0}% por {1} h",
   "pill.break_bonus": "Chance de ruptura +{0}% por {1} h",
-  "pill.foundation_not_ready": "Ainda não está no auge do Refinamento de Qi: sem ruptura."
+  "pill.foundation_not_ready": "Ainda não está no auge do Refinamento de Qi: sem ruptura.",
+  "ui.test_kit_button": "Kit de teste",
+  "test.kit_given": "Kit de teste: pílulas e ingredientes no chão, Qi no auge do Refinamento de Qi.",
+  "test.no_root": "Kit de teste: itens no chão. Este colono não tem raiz espiritual e não pode cultivar."
 }

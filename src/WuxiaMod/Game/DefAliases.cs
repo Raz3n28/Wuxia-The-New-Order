@@ -50,6 +50,7 @@ namespace WuxiaMod.Game
             {
                 var bean = beans[i];
                 if (bean?.mod == null || bean.mod.packageId != ModEntry.HarmonyId || bean.ID == null) continue;
+                TestMode.ApplyFastWork(bean);
                 if (!dict.ContainsKey(bean.ID)) { dict[bean.ID] = bean; added++; }
                 if (!bean.ID.StartsWith(prefix, StringComparison.Ordinal)) continue;
                 string shortId = bean.ID.Substring(prefix.Length);

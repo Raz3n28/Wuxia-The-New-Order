@@ -41,6 +41,8 @@ As pílulas são remédios: clique com o botão direito no item para usar. As de
 - Bônus de atributo: velocidade, dano corpo a corpo, temperatura, fome, energia, dano recebido.
 - **Elixir do Estabelecimento da Fundação**: no nível 9 do Refinamento de Qi com o Qi cheio, tenta a ruptura para o Estabelecimento da Fundação (60% + bônus).
 
+**Modo de teste:** com `"testMode": true` no `config.json`, a aba Cultivo ganha o botão **Kit de teste**, que põe no chão 5 de cada pílula e 30 de cada ingrediente, desperta o colono e enche o Qi até o auge do Refinamento de Qi. As bancadas e receitas do mod também ficam quase instantâneas. Deixe `false` para jogar normalmente.
+
 Os números estão em `src/WuxiaMod/Game/PillEffects.cs`. As linhas do `def.xml` e os ícones da alquimia são gerados por `tools/gen_phase1.py` a partir dos arquivos do RimImmortal.
 
 ## Requisitos
