@@ -163,6 +163,9 @@ namespace WuxiaMod.Json
         public static int Int(this Dictionary<string, object> o, string key, int fallback = 0) =>
             o.TryGetValue(key, out var v) && v is double d ? (int)d : fallback;
 
+        public static long Long(this Dictionary<string, object> o, string key, long fallback = 0) =>
+            o.TryGetValue(key, out var v) && v is double d ? (long)d : fallback;
+
         public static float Float(this Dictionary<string, object> o, string key, float fallback = 0f) =>
             o.TryGetValue(key, out var v) && v is double d ? (float)d : fallback;
 

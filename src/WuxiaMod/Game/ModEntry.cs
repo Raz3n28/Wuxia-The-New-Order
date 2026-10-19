@@ -46,12 +46,16 @@ namespace WuxiaMod.Game
                     var cfg = (Dictionary<string, object>)MiniJson.Parse(File.ReadAllText(configPath));
                     language = cfg.Str("language", "auto");
                     VerboseLog = cfg.Bool("verboseLog");
+                    TestMode.Enabled = cfg.Bool("testMode");
                     Patches.MeditationPatch.QiPerHourRecreation = cfg.Float("qiPerHourRecreation", Patches.MeditationPatch.QiPerHourRecreation);
                     Patches.MeditationPatch.QiPerHourMeditation = cfg.Float("qiPerHourMeditation", Patches.MeditationPatch.QiPerHourMeditation);
                 }
 
                 Loc.LoadAll(Path.Combine(VersionDir, "Languages"));
-                Loc.SetLanguage(language == "auto" ? DetectLanguage() : language);
+                DefTexts.LoadPortuguese(Path.Combine(VersionDir, "Languages"));
+                // O botão de idioma da aba Cultivo grava a escolha em settings.json e ela vale mais que o config.json.
+                string chosen = LoadChosenLanguage();
+                Loc.SetLanguage(chosen ?? (language == "auto" ? DetectLanguage() : language));
                 SpiritRootDatabase.Load(Path.Combine(VersionDir, "Data"));
                 RealmDatabase.Load(Path.Combine(VersionDir, "Data"));
 
@@ -59,13 +63,51 @@ namespace WuxiaMod.Game
                 // não o carregamento do mod inteiro.
                 HarmonyPatcher.PatchAll(HarmonyId);
 
+                // Tarefas periódicas: IDs curtos das receitas, textos em inglês, bônus das pílulas.
+                WuxiaRuntime.Create();
+
                 Initialized = true;
-                ModLog.Info($"Pronto. Idioma: {Loc.Current}.");
+                ModLog.Info($"Pronto. Idioma: {Loc.Current}." + (TestMode.Enabled ? " MODO DE TESTE LIGADO." : ""));
             }
             catch (Exception ex)
             {
                 ModLog.Error(ex, "Falha ao iniciar o mod");
             }
+        }
+
+        private static string SettingsPath => Path.Combine(UserDir, "settings.json");
+
+        private static string LoadChosenLanguage()
+        {
+            try
+            {
+                if (!File.Exists(SettingsPath)) return null;
+                var settings = (Dictionary<string, object>)MiniJson.Parse(File.ReadAllText(SettingsPath));
+                return settings.Str("language");
+            }
+            catch (Exception ex)
+            {
+                ModLog.Error(ex, "Falha ao ler " + SettingsPath);
+                return null;
+            }
+        }
+
+        /// <summary>Troca o idioma do mod (botão na aba Cultivo) e grava a escolha.</summary>
+        public static void SetModLanguage(string code)
+        {
+            Loc.SetLanguage(code);
+            DefTexts.Invalidate();
+            DefAliases.Apply();
+            try
+            {
+                Directory.CreateDirectory(UserDir);
+                File.WriteAllText(SettingsPath, "{\n  \"language\": \"" + Loc.Current + "\"\n}\n");
+            }
+            catch (Exception ex)
+            {
+                ModLog.Error(ex, "Falha ao gravar " + SettingsPath);
+            }
+            ModLog.Info("Idioma do mod: " + Loc.Current + ".");
         }
 
         /// <summary>Plano B: procura a pasta v_common a partir da DLL (v_common/Assemblies/WuxiaMod.dll).</summary>

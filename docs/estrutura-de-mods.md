@@ -111,6 +111,15 @@ Tabelas que o Mech Expansion usa (e que vamos usar para pílulas, Fornalha e For
 | `MutiLanguage` | Sistema de idiomas do jogo |
 | `ChannelSteam.Instance.ugc` | Publicar no Workshop |
 
+## O que aprendemos fazendo a alquimia (Fase 1)
+
+- O jogo troca o ID de cada linha de mod para `packageId_ID` (96101 vira `pauloraz3n.wuxia_96101`). O `ProductID` de uma bancada aceita o ID completo, mas as receitas (`Materials`/`OutMaterial`, formato `tipo_ID_qtd`) não, porque o texto é separado por `_`. Por isso o `DefAliases` registra o ID curto no `ImplDef<T>.beansDict` de cada tabela, de tempos em tempos (o jogo pode recriar o dicionário).
+- Tipos usados nas receitas: 12 material, 13 comida, 29 remédio, 27 bancada, 1002 receita.
+- Usar um remédio (botão direito no item, tipo 29) termina em `LocalCoreHandle.Hero_Cure_LN`. A IA só usa sozinha remédios de SubType 0, 1 e 2; as pílulas de cultivo usam SubType 9.
+- Bônus de comida: `FWRoleBuff` tipo 9 que aponta para um `T_FoodDef` com `AdditionEffect` (`idDoEfeito_valor|...`, ids da tabela EffectEntries, 0.5 = +50%) e `AdditionTime` em horas.
+- Tempo: `UserBean.getInstance().getTime()` anda `WorldTimeTools.gameHour_to_mm(1)` = 60000 por hora de jogo.
+- Imagens: itens no chão são desenhados com 28 px; construções no tamanho real, cerca de 40 px por quadrado. Todas as imagens de mod vão para um atlas de 2048, então ícones de item ficam com 64x64.
+
 ## Compilar
 
 Os outros autores usam `csc.exe` do Windows (só C# 5) ou o .NET SDK. Este repositório usa o .NET SDK (`dotnet build`), que aceita C# moderno e gera DLL para .NET 4.7.1.

@@ -24,6 +24,12 @@ namespace WuxiaMod.Cultivation
         public float Qi;         // Qi acumulado no nível atual
         public int UnspentPoints;
 
+        // Bônus temporários de pílulas. Os prazos são em tempo de jogo (ms, UserBean.getTime()).
+        public float QiBoost;          // +fração no ganho de Qi (0.5 = +50%)
+        public long QiBoostUntil;
+        public float BreakBonus;       // +chance de ruptura (0.1 = +10%)
+        public long BreakBonusUntil;
+
         public SpiritRoot Root => SpiritRootDatabase.ById(RootId);
         public Realm Realm => RealmDatabase.ByOrder(RealmOrder);
         public bool CanCultivate => Root != null && Root.CanCultivate;
@@ -41,6 +47,22 @@ namespace WuxiaMod.Cultivation
                 float t = realm.SubLevels <= 1 ? 0f : (SubLevel - 1) / (float)realm.SubLevels;
                 return realm.StatMultiplier + (target - realm.StatMultiplier) * t;
             }
+        }
+
+        public float ActiveQiBoost(long now) => now < QiBoostUntil ? QiBoost : 0f;
+        public float ActiveBreakBonus(long now) => now < BreakBonusUntil ? BreakBonus : 0f;
+
+        /// <summary>Bônus de pílula: fica o maior valor e o prazo mais longo.</summary>
+        public void AddQiBoost(float value, long now, long durationMs)
+        {
+            QiBoost = Math.Max(ActiveQiBoost(now), value);
+            QiBoostUntil = Math.Max(QiBoostUntil, now + durationMs);
+        }
+
+        public void AddBreakBonus(float value, long now, long durationMs)
+        {
+            BreakBonus = Math.Max(ActiveBreakBonus(now), value);
+            BreakBonusUntil = Math.Max(BreakBonusUntil, now + durationMs);
         }
 
         /// <summary>Começa a cultivar: mortal com aptidão entra no Refinamento de Qi nível 1.</summary>

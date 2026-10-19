@@ -62,6 +62,12 @@ namespace WuxiaMod.Cultivation
                     sb.Append(",\"level\":").Append(s.SubLevel.ToString(CultureInfo.InvariantCulture));
                     sb.Append(",\"qi\":").Append(s.Qi.ToString("R", CultureInfo.InvariantCulture));
                     sb.Append(",\"points\":").Append(s.UnspentPoints.ToString(CultureInfo.InvariantCulture));
+                    if (s.QiBoostUntil > 0)
+                        sb.Append(",\"qiBoost\":").Append(s.QiBoost.ToString("R", CultureInfo.InvariantCulture))
+                          .Append(",\"qiBoostUntil\":").Append(s.QiBoostUntil.ToString(CultureInfo.InvariantCulture));
+                    if (s.BreakBonusUntil > 0)
+                        sb.Append(",\"breakBonus\":").Append(s.BreakBonus.ToString("R", CultureInfo.InvariantCulture))
+                          .Append(",\"breakBonusUntil\":").Append(s.BreakBonusUntil.ToString(CultureInfo.InvariantCulture));
                     sb.Append('}');
                 }
             }
@@ -90,6 +96,10 @@ namespace WuxiaMod.Cultivation
                         SubLevel = o.Int("level"),
                         Qi = o.Float("qi"),
                         UnspentPoints = o.Int("points"),
+                        QiBoost = o.Float("qiBoost"),
+                        QiBoostUntil = o.Long("qiBoostUntil"),
+                        BreakBonus = o.Float("breakBonus"),
+                        BreakBonusUntil = o.Long("breakBonusUntil"),
                     };
                     // Estágio que não existe mais nos dados (realms.json mudou): volta para o último que existe.
                     while (s.RealmOrder > 0 && s.Realm == null) s.RealmOrder--;

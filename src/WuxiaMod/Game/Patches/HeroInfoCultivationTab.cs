@@ -25,6 +25,10 @@ namespace WuxiaMod.Game.Patches
         private const string TabName = "TabWuxia";
         private const string ViewName = "WuxiaCultivationView";
         private const string AwakenButtonName = "AwakenButton";
+        private const string TestButtonName = "TestKitButton";
+        private const string LanguageButtonName = "LanguageButton";
+
+        private const float ButtonY = 40, ButtonWidth = 280, ButtonHeight = 54;
 
         private static readonly Color Gold = new Color(0.90f, 0.75f, 0.35f);
 
@@ -135,38 +139,76 @@ namespace WuxiaMod.Game.Patches
             textRect.SetParent(rect, false);
             textRect.anchorMin = Vector2.zero;
             textRect.anchorMax = Vector2.one;
-            // Topo abaixo da linha das abas.
-            textRect.offsetMin = new Vector2(60, 40);
+            // Topo abaixo da linha das abas; embaixo, para antes da linha de botões.
+            textRect.offsetMin = new Vector2(60, ButtonY + ButtonHeight + 20);
             textRect.offsetMax = new Vector2(-60, -130);
 
             var text = textGo.AddComponent<TextMeshProUGUI>();
             // Mesma fonte das abas, que já tem acentos e o estilo do jogo.
             var sample = dialog.transform.Find("TabPanel/Tab0")?.GetComponentInChildren<TextMeshProUGUI>(true);
             if (sample != null) text.font = sample.font;
-            text.fontSize = 30;
+            // Diminui sozinho se o texto não couber acima dos botões.
+            text.enableAutoSizing = true;
+            text.fontSizeMax = 24;
+            text.fontSizeMin = 14;
+            text.fontSize = 24;
             text.color = Color.white;
             text.enableWordWrapping = true;
             text.richText = true;
             text.alignment = TextAlignmentOptions.TopLeft;
             text.raycastTarget = false;
 
-            CreateAwakenButton(dialog, rect, text.font);
+            CreateButtons(dialog, rect, text.font);
 
             go.SetActive(false);
         }
 
-        /// <summary>Botão "Despertar cultivo", no canto de baixo da tela. Só ele recebe clique.</summary>
-        private static void CreateAwakenButton(Dialog_MainHeroInfo dialog, RectTransform parent, TMP_FontAsset font)
+        /// <summary>Botões no canto de baixo da tela. Só eles recebem clique.</summary>
+        private static void CreateButtons(Dialog_MainHeroInfo dialog, RectTransform parent, TMP_FontAsset font)
         {
-            var go = new GameObject(AwakenButtonName, typeof(RectTransform));
+            CreateButton(parent, font, AwakenButtonName, Loc.T("ui.awaken_button"), new Vector2(60, ButtonY),
+                new Color(0.45f, 0.33f, 0.10f, 0.95f), () => Awaken(dialog));
+            // Só com "testMode": true no config.json (veja TestMode).
+            CreateButton(parent, font, TestButtonName, Loc.T("ui.test_kit_button"), new Vector2(60 + ButtonWidth + 20, ButtonY),
+                new Color(0.20f, 0.35f, 0.55f, 0.95f), () => GiveTestKit(dialog));
+            // Idioma dos textos do mod (aba, itens, construções), seja qual for o idioma do jogo.
+            CreateButton(parent, font, LanguageButtonName, Loc.T("ui.language_button"), new Vector2(-60, ButtonY),
+                new Color(0.30f, 0.30f, 0.30f, 0.95f), () => ToggleLanguage(dialog), rightCorner: true);
+        }
+
+        private static void ToggleLanguage(Dialog_MainHeroInfo dialog)
+        {
+            ModEntry.SetModLanguage(Loc.Current == Loc.Portuguese ? Loc.English : Loc.Portuguese);
+            var tab = FindChild(dialog.transform, "TabPanel/" + TabName);
+            if (tab != null)
+                foreach (var label in tab.GetComponentsInChildren<TextMeshProUGUI>(true))
+                    label.text = Loc.T("ui.cultivation");
+            var view = FindChild(dialog.transform, ViewName);
+            SetButtonText(view, AwakenButtonName, Loc.T("ui.awaken_button"));
+            SetButtonText(view, TestButtonName, Loc.T("ui.test_kit_button"));
+            SetButtonText(view, LanguageButtonName, Loc.T("ui.language_button"));
+            Refresh(dialog);
+        }
+
+        private static void SetButtonText(Transform view, string name, string text)
+        {
+            var label = view?.Find(name + "/Label")?.GetComponent<TextMeshProUGUI>();
+            if (label != null) label.text = text;
+        }
+
+        private static void CreateButton(RectTransform parent, TMP_FontAsset font, string name, string text,
+            Vector2 position, Color color, Action onClick, bool rightCorner = false)
+        {
+            var go = new GameObject(name, typeof(RectTransform));
             var rect = (RectTransform)go.transform;
             rect.SetParent(parent, false);
-            rect.anchorMin = rect.anchorMax = rect.pivot = Vector2.zero;
-            rect.anchoredPosition = new Vector2(60, 60);
-            rect.sizeDelta = new Vector2(360, 70);
+            // Canto de baixo à esquerda, ou à direita (position.x negativo conta a partir da borda direita).
+            rect.anchorMin = rect.anchorMax = rect.pivot = rightCorner ? new Vector2(1, 0) : Vector2.zero;
+            rect.anchoredPosition = position;
+            rect.sizeDelta = new Vector2(ButtonWidth, ButtonHeight);
 
             var image = go.AddComponent<Image>();
-            image.color = new Color(0.45f, 0.33f, 0.10f, 0.95f);
+            image.color = color;
             var button = go.AddComponent<Button>();
             button.targetGraphic = image;
             var colors = button.colors;
@@ -182,18 +224,26 @@ namespace WuxiaMod.Game.Patches
             labelRect.offsetMin = labelRect.offsetMax = Vector2.zero;
             var label = labelGo.AddComponent<TextMeshProUGUI>();
             if (font != null) label.font = font;
-            label.fontSize = 28;
+            label.fontSize = 22;
             label.color = Color.white;
             label.alignment = TextAlignmentOptions.Center;
             label.raycastTarget = false;
-            label.text = Loc.T("ui.awaken_button");
+            label.text = text;
 
             button.onClick.AddListener(() =>
             {
-                try { Awaken(dialog); }
-                catch (Exception ex) { ModLog.Error(ex, "despertar cultivo"); }
+                try { onClick(); }
+                catch (Exception ex) { ModLog.Error(ex, "botão " + name); }
             });
             go.SetActive(false);
+        }
+
+        private static void GiveTestKit(Dialog_MainHeroInfo dialog)
+        {
+            var hero = Traverse.Create(dialog).Field("heroBean").GetValue<FWHeroBean>();
+            if (hero == null || IsAndroid(hero)) return;
+            TestMode.GiveKit(hero);
+            Refresh(dialog);
         }
 
         private static void Awaken(Dialog_MainHeroInfo dialog)
@@ -239,12 +289,16 @@ namespace WuxiaMod.Game.Patches
             var view = FindChild(dialog.transform, ViewName);
             var text = view?.Find("Text")?.GetComponent<TextMeshProUGUI>();
             var button = view?.Find(AwakenButtonName);
+            var testButton = view?.Find(TestButtonName);
+            var languageButton = view?.Find(LanguageButtonName);
+            if (languageButton != null) languageButton.gameObject.SetActive(true);
             var hero = Traverse.Create(dialog).Field("heroBean").GetValue<FWHeroBean>();
             if (text == null) return;
             if (hero == null)
             {
                 text.text = "";
                 if (button != null) button.gameObject.SetActive(false);
+                if (testButton != null) testButton.gameObject.SetActive(false);
                 return;
             }
 
@@ -252,13 +306,14 @@ namespace WuxiaMod.Game.Patches
             var state = CultivationRegistry.Get(hero.uid, !android);
             text.text = Describe(hero.name, android, state);
             if (button != null) button.gameObject.SetActive(!android && state.CanCultivate && state.RealmOrder == 0);
+            if (testButton != null) testButton.gameObject.SetActive(TestMode.Enabled && !android);
         }
 
         private static string Describe(string heroName, bool android, CultivationState state)
         {
             string gold = ColorUtility.ToHtmlStringRGB(Gold);
             var sb = new StringBuilder();
-            sb.AppendLine($"<size=42><color=#{gold}>{Loc.T("ui.cultivation")}</color></size>  <color=#AAAAAA>{heroName}</color>");
+            sb.AppendLine($"<size=140%><color=#{gold}>{Loc.T("ui.cultivation")}</color></size>  <color=#AAAAAA>{heroName}</color>");
             sb.AppendLine();
 
             if (android)
@@ -269,7 +324,7 @@ namespace WuxiaMod.Game.Patches
 
             var root = state.Root;
             sb.AppendLine($"<color=#{gold}>{Loc.T("ui.spirit_root")}:</color> {(root != null ? Loc.T(root.NameKey) : "?")}");
-            if (root != null && root.CanCultivate) sb.AppendLine($"<color=#BBBBBB><size=24>{Loc.T(root.DescKey)}</size></color>");
+            if (root != null && root.CanCultivate) sb.AppendLine($"<color=#BBBBBB><size=80%>{Loc.T(root.DescKey)}</size></color>");
             sb.AppendLine();
 
             var realm = state.Realm;
@@ -281,14 +336,29 @@ namespace WuxiaMod.Game.Patches
             else
             {
                 sb.AppendLine($"<color=#{gold}>{Loc.T("ui.realm")}:</color> {Loc.T(realm.NameKey)}  {Loc.T("ui.level", state.SubLevel, realm.SubLevels)}");
-                sb.AppendLine($"<color=#BBBBBB><size=24>{Loc.T(realm.DescKey)}</size></color>");
+                sb.AppendLine($"<color=#BBBBBB><size=80%>{Loc.T(realm.DescKey)}</size></color>");
                 sb.AppendLine($"<color=#{gold}>{Loc.T("ui.qi")}:</color> {state.Qi:0} / {realm.QiPerLevel:0}");
                 sb.AppendLine(Loc.T("ui.points", state.UnspentPoints));
-                sb.AppendLine($"<color=#BBBBBB><size=24>{Loc.T("ui.meditation_hint")}</size></color>");
+                AppendPillBonuses(sb, state);
+                sb.AppendLine($"<color=#BBBBBB><size=80%>{Loc.T("ui.meditation_hint")}</size></color>");
             }
             sb.AppendLine();
-            sb.AppendLine($"<color=#888888><size=22>{Loc.T("ui.coming_soon")}</size></color>");
+            sb.AppendLine($"<color=#888888><size=70%>{Loc.T("ui.coming_soon")}</size></color>");
             return sb.ToString();
+        }
+
+        private static void AppendPillBonuses(StringBuilder sb, CultivationState state)
+        {
+            long now = UserBean.getInstance().getTime();
+            double hour = WorldTimeTools.gameHour_to_mm(1f);
+            float qiBoost = state.ActiveQiBoost(now);
+            if (qiBoost > 0f)
+                sb.AppendLine($"<color=#88DD88>{Loc.T("ui.qi_boost", (qiBoost * 100f).ToString("0"), Math.Ceiling((state.QiBoostUntil - now) / hour))}</color>");
+            float breakBonus = state.ActiveBreakBonus(now);
+            if (breakBonus > 0f)
+                sb.AppendLine($"<color=#88DD88>{Loc.T("ui.break_bonus", (breakBonus * 100f).ToString("0"), Math.Ceiling((state.BreakBonusUntil - now) / hour))}</color>");
+            if (state.ReadyForBreakthrough && state.RealmOrder == 1)
+                sb.AppendLine($"<color=#FFCC66>{Loc.T("ui.foundation_ready")}</color>");
         }
 
         private static Transform FindChild(Transform root, string path) => root == null ? null : root.Find(path) ?? FindDeep(root, path);
