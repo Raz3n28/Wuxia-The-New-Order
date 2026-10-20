@@ -19,8 +19,6 @@ Brings Wuxia/Xianxia cultivation to Order: The New Dawn. Your colonists can awak
 [h2]Planned[/h2]
 Breakthroughs between realms, weapons and armor, forging, sects and new enemies.
 
-Inspired by RimImmortal (RimWorld), with the author's permission.
-
 Found a bug? Leave a comment with a screenshot. It helps a lot!
 
 If you want to help keep the mod going, any support is welcome:
