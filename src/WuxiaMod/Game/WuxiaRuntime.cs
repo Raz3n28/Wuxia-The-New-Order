@@ -22,6 +22,9 @@ namespace WuxiaMod.Game
 
         private void Update()
         {
+            try { WorkshopPublisher.Tick(); }
+            catch (Exception ex) { ModLog.Error(ex, "publicacao na Workshop"); }
+
             if (Time.unscaledTime < _next) return;
             _next = Time.unscaledTime + Interval;
             try
@@ -33,6 +36,12 @@ namespace WuxiaMod.Game
                 // Não enche o log: mostra os primeiros erros e depois só a cada 60.
                 if (_errors++ < 3 || _errors % 60 == 0) ModLog.Error(ex, "registro das definições do mod");
             }
+        }
+
+        private void OnGUI()
+        {
+            try { WorkshopPublisher.Draw(); }
+            catch { }
         }
     }
 }

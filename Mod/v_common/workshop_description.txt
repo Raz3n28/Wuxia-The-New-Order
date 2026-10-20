@@ -1,0 +1,25 @@
+[h1]Wuxia: The New Dawn [ALPHA / UNDER CONSTRUCTION][/h1]
+
+[b]⚠️ Work in progress. Only download it if you want to test the little that exists so far.[/b]
+Right now it is for testing only: expect bugs, things will change, and saves made with it may not work in future versions.
+
+[b]⏸️ Development is currently paused.[/b] The mod is made with the help of Claude (AI), and I am waiting for my weekly limit to reset before continuing. My programming knowledge is limited, so updates depend on that.
+
+Brings Wuxia/Xianxia cultivation to Order: The New Dawn. Your colonists can awaken, gather Qi and walk the path to immortality.
+
+[h2]What you can test now[/h2]
+[list]
+[*][b]Cultivation tab[/b] on the colonist sheet: realm, level and Qi.
+[*][b]Meditation Cushion[/b]: colonists gain Qi while meditating in their free time.
+[*][b]Alchemy[/b]: Small Cauldron, Taiyi Cauldron and Elixir Workbench, with pills, materials and recipes.
+[*]Mod texts in [b]English or Portuguese[/b], chosen with a button on the Cultivation tab.
+[*][b]Test mode[/b] is on: a "Test kit" button on the Cultivation tab gives pills and materials, and the mod's buildings are built instantly.
+[/list]
+
+[h2]Planned[/h2]
+Breakthroughs between realms, weapons and armor, forging, sects and new enemies.
+
+Found a bug? Leave a comment with a screenshot. It helps a lot!
+
+If you want to help keep the mod going, any support is welcome:
+[url=https://ko-fi.com/pauloraz3n]ko-fi.com/pauloraz3n[/url]
