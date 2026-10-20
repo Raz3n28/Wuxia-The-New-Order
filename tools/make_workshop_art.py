@@ -84,7 +84,8 @@ def make_preview(src, out, size=(1280, 720)):
     gold_text(im, (W // 2, int(H * 0.70)), "WUXIA", font(["LiberationSerif-Bold.ttf", "DejaVuSerif-Bold.ttf"], 150))
     gold_text(im, (W // 2, int(H * 0.82)), "THE NEW DAWN", font(["LiberationSerif-Bold.ttf", "DejaVuSerif-Bold.ttf"], 58))
     banner(im, (W // 2, int(H * 0.93)), "ALPHA  ·  UNDER CONSTRUCTION", font(["LiberationSans-Bold.ttf", "DejaVuSans-Bold.ttf"], 30))
-    im.convert("RGB").save(out)
+    # A Steam pede a capa com menos de 1 MB: monta em 1280x720 e salva em 1024x576.
+    im.convert("RGB").resize((1024, 576), Image.LANCZOS).save(out, optimize=True)
 
 
 def make_icon(src, out, size=512):
