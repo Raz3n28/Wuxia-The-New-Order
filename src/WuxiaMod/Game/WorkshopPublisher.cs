@@ -20,6 +20,9 @@ namespace WuxiaMod.Game
     internal static class WorkshopPublisher
     {
         private const string Flag = "-wuxiapublicar";
+        // Só troca a capa (preview.png) de um item que já existe. Usado pelo "Atualizar capa.bat".
+        private const string PreviewFlag = "-wuxiacapa";
+        private static bool _previewOnly;
         public const string StatusFile = "status_publicacao.txt";
         public const string ResultFile = "resultado_publicacao.txt";
         public const string IdFile = "workshop_item_id.txt";
@@ -68,7 +71,11 @@ namespace WuxiaMod.Game
                 try
                 {
                     foreach (var arg in Environment.GetCommandLineArgs())
-                        if (arg != null && arg.ToLowerInvariant() == Flag) _armed = 1;
+                    {
+                        var a = arg?.ToLowerInvariant();
+                        if (a == Flag) _armed = 1;
+                        else if (a == PreviewFlag) { _armed = 1; _previewOnly = true; }
+                    }
                 }
                 catch { }
             }
@@ -111,7 +118,13 @@ namespace WuxiaMod.Game
             try
             {
                 ulong id = ReadId();
-                if (id != 0)
+                if (_previewOnly)
+                {
+                    if (id == 0) Report("FALHOU: o mod ainda nao foi publicado (rode o Publicar.bat primeiro).", false);
+                    else SendPreviewOnly(id, folder);
+                    if (_result != 0) Finish();
+                }
+                else if (id != 0)
                 {
                     Step("Steam pronta. Atualizando o item " + id);
                     Send(ugc, id, false);
@@ -221,6 +234,30 @@ namespace WuxiaMod.Game
             _state = "Enviando para a Steam...";
             _sendStart = _lastChange = Time.realtimeSinceStartup;
             var call = SteamUGC.SubmitItemUpdate(handle, "Atualizacao do mod");
+            _submitResult = CallResult<SubmitItemUpdateResult_t>.Create(OnSubmitted);
+            _submitResult.Set(call);
+        }
+
+        private static void SendPreviewOnly(ulong id, string folder)
+        {
+            _itemId = id;
+            var preview = Path.Combine(Path.Combine(folder, "Manifest"), "preview.png");
+            Step("Trocando SO a capa do item " + id + " (" + Mb((ulong)new FileInfo(preview).Length) + ")");
+            var handle = SteamUGC.StartItemUpdate(SteamUtils.GetAppID(), new PublishedFileId_t(id));
+            if (handle == UGCUpdateHandle_t.Invalid)
+            {
+                Report("FALHOU: a Steam nao aceitou iniciar a atualizacao do item " + id + ".", false);
+                return;
+            }
+            if (!SteamUGC.SetItemPreview(handle, preview))
+            {
+                Report("FALHOU: a Steam nao aceitou a imagem: " + preview, false);
+                return;
+            }
+            _directHandle = handle;
+            _state = "Enviando a capa para a Steam...";
+            _sendStart = _lastChange = Time.realtimeSinceStartup;
+            var call = SteamUGC.SubmitItemUpdate(handle, "Capa nova");
             _submitResult = CallResult<SubmitItemUpdateResult_t>.Create(OnSubmitted);
             _submitResult.Set(call);
         }
