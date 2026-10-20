@@ -1,4 +1,4 @@
-# Wuxia: Cultivo Estelar (Order: The New Dawn)
+# Wuxia: The New Dawn (Order: The New Dawn)
 
 Mod de cultivo Wuxia/Xianxia para **Order: The New Dawn** (Steam 3080070). No Windows a pasta do jogo se chama `Outer Space`.
 
