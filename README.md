@@ -59,6 +59,14 @@ Os números estão em `src/WuxiaMod/Game/PillEffects.cs`. As linhas do `def.xml`
 4. No jogo, ative o **Wuxia** no gerenciador de mods e reinicie.
 5. O log do mod fica em `%USERPROFILE%\AppData\LocalLow\CatStudio\Outer Space\Wuxia The New Dawn\Logs\wuxia.log` (o da sessão anterior em `wuxia-prev.log`). Avisos e erros também aparecem no `Player.log` com a tag `[Wuxia]`.
 
+### Publicar na Workshop
+
+Com o jogo fechado e o Wuxia ativado no menu Mods, rode `Publicar.bat`. Ele abre o jogo pela Steam com `-wuxiapublicar` e o próprio mod faz o envio (`WorkshopPublisher.cs`), mostrando o andamento num painel no jogo e na janela do .bat.
+
+- Na primeira vez o item é criado **privado**, com o título do `manifest.xml`, a descrição de `Mod/v_common/workshop_description.txt` e a capa `preview.png`. Deixe público na página da Workshop depois de conferir.
+- Nas próximas vezes ele envia só os arquivos; título, descrição e capa ficam como estão na Steam (edite pela página).
+- O ID do item fica em `Wuxia The New Dawn\workshop_item_id.txt`. Apagar esse arquivo faz o próximo envio criar um item novo.
+
 Tudo o que o mod gerar no seu PC fica na pasta `Wuxia The New Dawn`. O cultivo de cada save fica em `Saves\<nome do save>.json`; o arquivo de save do jogo não é alterado, então o save abre normalmente sem o mod.
 
 ## Idioma
