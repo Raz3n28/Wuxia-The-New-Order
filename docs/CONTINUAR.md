@@ -19,6 +19,22 @@ Leia este arquivo, depois `README.md`, `docs/estrutura-de-mods.md`, `docs/conver
 - `claude/project-thread-lv3pty` (PR #2, rascunho, em cima do PR #1): correções dos testes da Fase 1. É a branch que o Paulo está testando.
 - `testMode` está LIGADO no `config.json` (kit de teste e construção instantânea). Desligar antes de publicar no Workshop.
 
+## Ciclo automático (desde 29/10/2026)
+
+O Paulo só abre o jogo e testa. O resto o Claude faz sozinho pela conexão com o PC dele
+(pastas liberadas: jogo, Workshop 3080070 e `LocalLow\CatStudio\Outer Space`):
+
+1. Stage das DLLs do jogo (`Outer Space_Data\Managed\*.dll` usadas no `.csproj`, incluindo
+   `com.rlabrecque.steamworks.net.dll`) e do `0Harmony.dll` (Workshop 3803065949). Refazer quando o jogo atualizar.
+2. `tools/claude_build.sh --list` compila e monta a pasta do mod em `/mnt/project-files/build/WuxiaMod`,
+   imprimindo cada arquivo e o destino em `...\Outer Space\mods\WuxiaMod`.
+3. `device_commit_files` (force) grava esses arquivos direto em `mods\WuxiaMod` (gravar em Program Files funciona).
+   O jogo precisa estar fechado para trocar a DLL.
+4. Depois que o Paulo jogar: ler `Wuxia The New Dawn\Logs\wuxia.log` e `Player.log` (erros do Unity/Harmony)
+   em `LocalLow\CatStudio\Outer Space` e corrigir sem esperar ele mandar print.
+
+Plano B no PC dele: `Testar.bat` (compila, instala e abre o jogo de uma vez).
+
 ## Compilar sem o PC do Paulo
 
 Precisa das DLLs da pasta `Outer Space_Data\Managed` do jogo e do `0Harmony.dll` do Workshop (mod 3803065949).
