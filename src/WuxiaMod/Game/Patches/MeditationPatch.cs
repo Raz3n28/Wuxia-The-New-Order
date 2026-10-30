@@ -113,7 +113,7 @@ namespace WuxiaMod.Game.Patches
         }
 
         /// <summary>ID curto (9601...) se a construção é nossa, senão null.</summary>
-        private static string OurId(BaseDef def)
+        internal static string OurId(BaseDef def)
         {
             if (def?.mod == null || def.mod.packageId != ModEntry.HarmonyId || def.ID == null) return null;
             int i = def.ID.LastIndexOf('_');

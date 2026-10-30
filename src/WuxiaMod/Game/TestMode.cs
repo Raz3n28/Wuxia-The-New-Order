@@ -40,13 +40,7 @@ namespace WuxiaMod.Game
                 return;
             }
 
-            DefAliases.Apply();
-            int given = 0;
-            for (int id = FirstPill; id <= LastPill; id++) given += Put(hero, 29, id, PillCount);
-            for (int id = FirstIngredient; id <= LastIngredient; id++) given += Put(hero, 12, id, IngredientCount);
-            foreach (var kv in BuildingMaterials()) given += Put(hero, kv.Key.Item1, kv.Key.Item2, kv.Value);
-            for (int id = FirstWeapon; id <= LastWeapon; id += 10) given += Put(hero, 18, id, 1);
-            for (int id = FirstCloth; id <= LastCloth; id += 10) given += Put(hero, 17, id, 1);
+            int given = DropAllItems(hero);
 
             var state = CultivationRegistry.Get(heroBean.uid, true);
             string message;
@@ -69,6 +63,26 @@ namespace WuxiaMod.Game
             }
             GUI_RoleInfo.showRoleInfo(hero, message);
             ModLog.Info($"Kit de teste para {heroBean.name}: {given} pilhas de itens; estágio {state.RealmOrder} ({state.Realm?.Id}).");
+        }
+
+        /// <summary>Põe no chão, ao lado do colono, um pouco de cada item do mod (aba Dev da janela Wuxia).</summary>
+        public static int DropAllItems(BaseHero hero)
+        {
+            DefAliases.Apply();
+            int given = 0;
+            for (int id = FirstPill; id <= LastPill; id++) given += Put(hero, 29, id, PillCount);
+            for (int id = FirstIngredient; id <= LastIngredient; id++) given += Put(hero, 12, id, IngredientCount);
+            foreach (var kv in BuildingMaterials()) given += Put(hero, kv.Key.Item1, kv.Key.Item2, kv.Value);
+            for (int id = FirstWeapon; id <= LastWeapon; id += 10) given += Put(hero, 18, id, 1);
+            for (int id = FirstCloth; id <= LastCloth; id += 10) given += Put(hero, 17, id, 1);
+            return given;
+        }
+
+        /// <summary>Um item só (lista de itens da aba Dev). Pílulas 5, materiais 30, o resto 1.</summary>
+        public static bool DropOne(BaseHero hero, BaseDef def)
+        {
+            int count = def.Type == 29 ? PillCount : def.Type == 12 ? IngredientCount : 1;
+            return Put(hero, def.Type, def.ID, count) > 0;
         }
 
         private static int Put(BaseHero hero, int type, int shortId, int count) =>

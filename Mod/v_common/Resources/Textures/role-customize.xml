@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModXmlSpine xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<skins>
+		<ModSpineSkin Name="wuxia_fire_dragon_helmet" SkinType="helmet">
+			<PartItem Name="head_helmet_f" Texture="spine_wuxia\fire_dragon_helmet_helmet_f.png" />
+			<PartItem Name="head_helmet_3" Texture="spine_wuxia\fire_dragon_helmet_helmet_3.png" />
+			<PartItem Name="head_helmet_s" Texture="spine_wuxia\fire_dragon_helmet_helmet_s.png" />
+			<PartItem Name="head_helmet_9" Texture="spine_wuxia\fire_dragon_helmet_helmet_9.png" />
+			<PartItem Name="head_helmet_b" Texture="spine_wuxia\fire_dragon_helmet_helmet_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_viper_helmet" SkinType="helmet">
+			<PartItem Name="head_helmet_f" Texture="spine_wuxia\viper_helmet_helmet_f.png" />
+			<PartItem Name="head_helmet_3" Texture="spine_wuxia\viper_helmet_helmet_3.png" />
+			<PartItem Name="head_helmet_s" Texture="spine_wuxia\viper_helmet_helmet_s.png" />
+			<PartItem Name="head_helmet_9" Texture="spine_wuxia\viper_helmet_helmet_9.png" />
+			<PartItem Name="head_helmet_b" Texture="spine_wuxia\viper_helmet_helmet_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_fire_dragon_armor_m" SkinType="top">
+			<PartItem Name="top_body_f" Texture="spine_wuxia\fire_dragon_armor_male_body_f.png" />
+			<PartItem Name="top_leftUpperArm_f" Texture="spine_wuxia\fire_dragon_armor_male_leftUpperArm_f.png" />
+			<PartItem Name="top_leftForeArm_f" Texture="spine_wuxia\fire_dragon_armor_male_leftForeArm_f.png" />
+			<PartItem Name="top_leftHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_f" Texture="spine_wuxia\fire_dragon_armor_male_rightUpperArm_f.png" />
+			<PartItem Name="top_rightForeArm_f" Texture="spine_wuxia\fire_dragon_armor_male_rightForeArm_f.png" />
+			<PartItem Name="top_rightHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_f" Texture="spine_wuxia\fire_dragon_armor_male_leftHem_f.png" />
+			<PartItem Name="top_midHem_f" Texture="spine_wuxia\fire_dragon_armor_male_midHem_f.png" />
+			<PartItem Name="top_rightHem_f" Texture="spine_wuxia\fire_dragon_armor_male_rightHem_f.png" />
+			<PartItem Name="top_body_3" Texture="spine_wuxia\fire_dragon_armor_male_body_3.png" />
+			<PartItem Name="top_leftUpperArm_3" Texture="spine_wuxia\fire_dragon_armor_male_leftUpperArm_3.png" />
+			<PartItem Name="top_leftForeArm_3" Texture="spine_wuxia\fire_dragon_armor_male_leftForeArm_3.png" />
+			<PartItem Name="top_leftHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_3" Texture="spine_wuxia\fire_dragon_armor_male_rightUpperArm_3.png" />
+			<PartItem Name="top_rightForeArm_3" Texture="spine_wuxia\fire_dragon_armor_male_rightForeArm_3.png" />
+			<PartItem Name="top_rightHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_3" Texture="spine_wuxia\fire_dragon_armor_male_leftHem_3.png" />
+			<PartItem Name="top_midHem_3" Texture="spine_wuxia\fire_dragon_armor_male_midHem_3.png" />
+			<PartItem Name="top_rightHem_3" Texture="spine_wuxia\fire_dragon_armor_male_rightHem_3.png" />
+			<PartItem Name="top_body_s" Texture="spine_wuxia\fire_dragon_armor_male_body_s.png" />
+			<PartItem Name="top_leftUpperArm_s" Texture="spine_wuxia\fire_dragon_armor_male_leftUpperArm_s.png" />
+			<PartItem Name="top_leftForeArm_s" Texture="spine_wuxia\fire_dragon_armor_male_leftForeArm_s.png" />
+			<PartItem Name="top_leftHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_s" Texture="spine_wuxia\fire_dragon_armor_male_leftUpperArm_s.png" />
+			<PartItem Name="top_rightForeArm_s" Texture="spine_wuxia\fire_dragon_armor_male_leftForeArm_s.png" />
+			<PartItem Name="top_rightHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_s" Texture="spine_wuxia\fire_dragon_armor_male_leftHem_s.png" />
+			<PartItem Name="top_rightHem_s" Texture="spine_wuxia\fire_dragon_armor_male_rightHem_s.png" />
+			<PartItem Name="top_body_9" Texture="spine_wuxia\fire_dragon_armor_male_body_9.png" />
+			<PartItem Name="top_leftUpperArm_9" Texture="spine_wuxia\fire_dragon_armor_male_leftUpperArm_9.png" />
+			<PartItem Name="top_leftForeArm_9" Texture="spine_wuxia\fire_dragon_armor_male_leftForeArm_9.png" />
+			<PartItem Name="top_leftHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_9" Texture="spine_wuxia\fire_dragon_armor_male_rightUpperArm_9.png" />
+			<PartItem Name="top_rightForeArm_9" Texture="spine_wuxia\fire_dragon_armor_male_rightForeArm_9.png" />
+			<PartItem Name="top_rightHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_9" Texture="spine_wuxia\fire_dragon_armor_male_midHem_9.png" />
+			<PartItem Name="top_body_b" Texture="spine_wuxia\fire_dragon_armor_male_body_b.png" />
+			<PartItem Name="top_leftUpperArm_b" Texture="spine_wuxia\fire_dragon_armor_male_leftUpperArm_b.png" />
+			<PartItem Name="top_leftForeArm_b" Texture="spine_wuxia\fire_dragon_armor_male_leftForeArm_b.png" />
+			<PartItem Name="top_leftHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_b" Texture="spine_wuxia\fire_dragon_armor_male_rightUpperArm_b.png" />
+			<PartItem Name="top_rightForeArm_b" Texture="spine_wuxia\fire_dragon_armor_male_rightForeArm_b.png" />
+			<PartItem Name="top_rightHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_b" Texture="spine_wuxia\fire_dragon_armor_male_midHem_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_fire_dragon_armor_w" SkinType="top">
+			<PartItem Name="top_body_f" Texture="spine_wuxia\fire_dragon_armor_female_body_f.png" />
+			<PartItem Name="top_leftUpperArm_f" Texture="spine_wuxia\fire_dragon_armor_female_leftUpperArm_f.png" />
+			<PartItem Name="top_leftForeArm_f" Texture="spine_wuxia\fire_dragon_armor_female_leftForeArm_f.png" />
+			<PartItem Name="top_leftHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_f" Texture="spine_wuxia\fire_dragon_armor_female_rightUpperArm_f.png" />
+			<PartItem Name="top_rightForeArm_f" Texture="spine_wuxia\fire_dragon_armor_female_rightForeArm_f.png" />
+			<PartItem Name="top_rightHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_f" Texture="spine_wuxia\fire_dragon_armor_female_leftHem_f.png" />
+			<PartItem Name="top_midHem_f" Texture="spine_wuxia\fire_dragon_armor_female_midHem_f.png" />
+			<PartItem Name="top_rightHem_f" Texture="spine_wuxia\fire_dragon_armor_female_rightHem_f.png" />
+			<PartItem Name="top_body_3" Texture="spine_wuxia\fire_dragon_armor_female_body_3.png" />
+			<PartItem Name="top_leftUpperArm_3" Texture="spine_wuxia\fire_dragon_armor_female_leftUpperArm_3.png" />
+			<PartItem Name="top_leftForeArm_3" Texture="spine_wuxia\fire_dragon_armor_female_leftForeArm_3.png" />
+			<PartItem Name="top_leftHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_3" Texture="spine_wuxia\fire_dragon_armor_female_rightUpperArm_3.png" />
+			<PartItem Name="top_rightForeArm_3" Texture="spine_wuxia\fire_dragon_armor_female_rightForeArm_3.png" />
+			<PartItem Name="top_rightHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_3" Texture="spine_wuxia\fire_dragon_armor_female_leftHem_3.png" />
+			<PartItem Name="top_midHem_3" Texture="spine_wuxia\fire_dragon_armor_female_midHem_3.png" />
+			<PartItem Name="top_rightHem_3" Texture="spine_wuxia\fire_dragon_armor_female_rightHem_3.png" />
+			<PartItem Name="top_body_s" Texture="spine_wuxia\fire_dragon_armor_female_body_s.png" />
+			<PartItem Name="top_leftUpperArm_s" Texture="spine_wuxia\fire_dragon_armor_female_leftUpperArm_s.png" />
+			<PartItem Name="top_leftForeArm_s" Texture="spine_wuxia\fire_dragon_armor_female_leftForeArm_s.png" />
+			<PartItem Name="top_leftHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_s" Texture="spine_wuxia\fire_dragon_armor_female_leftUpperArm_s.png" />
+			<PartItem Name="top_rightForeArm_s" Texture="spine_wuxia\fire_dragon_armor_female_leftForeArm_s.png" />
+			<PartItem Name="top_rightHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_s" Texture="spine_wuxia\fire_dragon_armor_female_leftHem_s.png" />
+			<PartItem Name="top_rightHem_s" Texture="spine_wuxia\fire_dragon_armor_female_rightHem_s.png" />
+			<PartItem Name="top_body_9" Texture="spine_wuxia\fire_dragon_armor_female_body_9.png" />
+			<PartItem Name="top_leftUpperArm_9" Texture="spine_wuxia\fire_dragon_armor_female_leftUpperArm_9.png" />
+			<PartItem Name="top_leftForeArm_9" Texture="spine_wuxia\fire_dragon_armor_female_leftForeArm_9.png" />
+			<PartItem Name="top_leftHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_9" Texture="spine_wuxia\fire_dragon_armor_female_rightUpperArm_9.png" />
+			<PartItem Name="top_rightForeArm_9" Texture="spine_wuxia\fire_dragon_armor_female_rightForeArm_9.png" />
+			<PartItem Name="top_rightHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_9" Texture="spine_wuxia\fire_dragon_armor_female_midHem_9.png" />
+			<PartItem Name="top_body_b" Texture="spine_wuxia\fire_dragon_armor_female_body_b.png" />
+			<PartItem Name="top_leftUpperArm_b" Texture="spine_wuxia\fire_dragon_armor_female_leftUpperArm_b.png" />
+			<PartItem Name="top_leftForeArm_b" Texture="spine_wuxia\fire_dragon_armor_female_leftForeArm_b.png" />
+			<PartItem Name="top_leftHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_b" Texture="spine_wuxia\fire_dragon_armor_female_rightUpperArm_b.png" />
+			<PartItem Name="top_rightForeArm_b" Texture="spine_wuxia\fire_dragon_armor_female_rightForeArm_b.png" />
+			<PartItem Name="top_rightHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_b" Texture="spine_wuxia\fire_dragon_armor_female_midHem_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_viper_armor_m" SkinType="top">
+			<PartItem Name="top_body_f" Texture="spine_wuxia\viper_armor_male_body_f.png" />
+			<PartItem Name="top_leftUpperArm_f" Texture="spine_wuxia\viper_armor_male_leftUpperArm_f.png" />
+			<PartItem Name="top_leftForeArm_f" Texture="spine_wuxia\viper_armor_male_leftForeArm_f.png" />
+			<PartItem Name="top_leftHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_f" Texture="spine_wuxia\viper_armor_male_rightUpperArm_f.png" />
+			<PartItem Name="top_rightForeArm_f" Texture="spine_wuxia\viper_armor_male_rightForeArm_f.png" />
+			<PartItem Name="top_rightHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_f" Texture="spine_wuxia\viper_armor_male_leftHem_f.png" />
+			<PartItem Name="top_midHem_f" Texture="spine_wuxia\viper_armor_male_midHem_f.png" />
+			<PartItem Name="top_rightHem_f" Texture="spine_wuxia\viper_armor_male_rightHem_f.png" />
+			<PartItem Name="top_body_3" Texture="spine_wuxia\viper_armor_male_body_3.png" />
+			<PartItem Name="top_leftUpperArm_3" Texture="spine_wuxia\viper_armor_male_leftUpperArm_3.png" />
+			<PartItem Name="top_leftForeArm_3" Texture="spine_wuxia\viper_armor_male_leftForeArm_3.png" />
+			<PartItem Name="top_leftHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_3" Texture="spine_wuxia\viper_armor_male_rightUpperArm_3.png" />
+			<PartItem Name="top_rightForeArm_3" Texture="spine_wuxia\viper_armor_male_rightForeArm_3.png" />
+			<PartItem Name="top_rightHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_3" Texture="spine_wuxia\viper_armor_male_leftHem_3.png" />
+			<PartItem Name="top_midHem_3" Texture="spine_wuxia\viper_armor_male_midHem_3.png" />
+			<PartItem Name="top_rightHem_3" Texture="spine_wuxia\viper_armor_male_rightHem_3.png" />
+			<PartItem Name="top_body_s" Texture="spine_wuxia\viper_armor_male_body_s.png" />
+			<PartItem Name="top_leftUpperArm_s" Texture="spine_wuxia\viper_armor_male_leftUpperArm_s.png" />
+			<PartItem Name="top_leftForeArm_s" Texture="spine_wuxia\viper_armor_male_leftForeArm_s.png" />
+			<PartItem Name="top_leftHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_s" Texture="spine_wuxia\viper_armor_male_leftUpperArm_s.png" />
+			<PartItem Name="top_rightForeArm_s" Texture="spine_wuxia\viper_armor_male_leftForeArm_s.png" />
+			<PartItem Name="top_rightHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_s" Texture="spine_wuxia\viper_armor_male_leftHem_s.png" />
+			<PartItem Name="top_rightHem_s" Texture="spine_wuxia\viper_armor_male_rightHem_s.png" />
+			<PartItem Name="top_body_9" Texture="spine_wuxia\viper_armor_male_body_9.png" />
+			<PartItem Name="top_leftUpperArm_9" Texture="spine_wuxia\viper_armor_male_leftUpperArm_9.png" />
+			<PartItem Name="top_leftForeArm_9" Texture="spine_wuxia\viper_armor_male_leftForeArm_9.png" />
+			<PartItem Name="top_leftHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_9" Texture="spine_wuxia\viper_armor_male_rightUpperArm_9.png" />
+			<PartItem Name="top_rightForeArm_9" Texture="spine_wuxia\viper_armor_male_rightForeArm_9.png" />
+			<PartItem Name="top_rightHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_9" Texture="spine_wuxia\viper_armor_male_midHem_9.png" />
+			<PartItem Name="top_body_b" Texture="spine_wuxia\viper_armor_male_body_b.png" />
+			<PartItem Name="top_leftUpperArm_b" Texture="spine_wuxia\viper_armor_male_leftUpperArm_b.png" />
+			<PartItem Name="top_leftForeArm_b" Texture="spine_wuxia\viper_armor_male_leftForeArm_b.png" />
+			<PartItem Name="top_leftHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_b" Texture="spine_wuxia\viper_armor_male_rightUpperArm_b.png" />
+			<PartItem Name="top_rightForeArm_b" Texture="spine_wuxia\viper_armor_male_rightForeArm_b.png" />
+			<PartItem Name="top_rightHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_b" Texture="spine_wuxia\viper_armor_male_midHem_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_viper_armor_w" SkinType="top">
+			<PartItem Name="top_body_f" Texture="spine_wuxia\viper_armor_female_body_f.png" />
+			<PartItem Name="top_leftUpperArm_f" Texture="spine_wuxia\viper_armor_female_leftUpperArm_f.png" />
+			<PartItem Name="top_leftForeArm_f" Texture="spine_wuxia\viper_armor_female_leftForeArm_f.png" />
+			<PartItem Name="top_leftHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_f" Texture="spine_wuxia\viper_armor_female_rightUpperArm_f.png" />
+			<PartItem Name="top_rightForeArm_f" Texture="spine_wuxia\viper_armor_female_rightForeArm_f.png" />
+			<PartItem Name="top_rightHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_f" Texture="spine_wuxia\viper_armor_female_leftHem_f.png" />
+			<PartItem Name="top_midHem_f" Texture="spine_wuxia\viper_armor_female_midHem_f.png" />
+			<PartItem Name="top_rightHem_f" Texture="spine_wuxia\viper_armor_female_rightHem_f.png" />
+			<PartItem Name="top_body_3" Texture="spine_wuxia\viper_armor_female_body_3.png" />
+			<PartItem Name="top_leftUpperArm_3" Texture="spine_wuxia\viper_armor_female_leftUpperArm_3.png" />
+			<PartItem Name="top_leftForeArm_3" Texture="spine_wuxia\viper_armor_female_leftForeArm_3.png" />
+			<PartItem Name="top_leftHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_3" Texture="spine_wuxia\viper_armor_female_rightUpperArm_3.png" />
+			<PartItem Name="top_rightForeArm_3" Texture="spine_wuxia\viper_armor_female_rightForeArm_3.png" />
+			<PartItem Name="top_rightHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_3" Texture="spine_wuxia\viper_armor_female_leftHem_3.png" />
+			<PartItem Name="top_midHem_3" Texture="spine_wuxia\viper_armor_female_midHem_3.png" />
+			<PartItem Name="top_rightHem_3" Texture="spine_wuxia\viper_armor_female_rightHem_3.png" />
+			<PartItem Name="top_body_s" Texture="spine_wuxia\viper_armor_female_body_s.png" />
+			<PartItem Name="top_leftUpperArm_s" Texture="spine_wuxia\viper_armor_female_leftUpperArm_s.png" />
+			<PartItem Name="top_leftForeArm_s" Texture="spine_wuxia\viper_armor_female_leftForeArm_s.png" />
+			<PartItem Name="top_leftHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_s" Texture="spine_wuxia\viper_armor_female_leftUpperArm_s.png" />
+			<PartItem Name="top_rightForeArm_s" Texture="spine_wuxia\viper_armor_female_leftForeArm_s.png" />
+			<PartItem Name="top_rightHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_s" Texture="spine_wuxia\viper_armor_female_leftHem_s.png" />
+			<PartItem Name="top_rightHem_s" Texture="spine_wuxia\viper_armor_female_rightHem_s.png" />
+			<PartItem Name="top_body_9" Texture="spine_wuxia\viper_armor_female_body_9.png" />
+			<PartItem Name="top_leftUpperArm_9" Texture="spine_wuxia\viper_armor_female_leftUpperArm_9.png" />
+			<PartItem Name="top_leftForeArm_9" Texture="spine_wuxia\viper_armor_female_leftForeArm_9.png" />
+			<PartItem Name="top_leftHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_9" Texture="spine_wuxia\viper_armor_female_rightUpperArm_9.png" />
+			<PartItem Name="top_rightForeArm_9" Texture="spine_wuxia\viper_armor_female_rightForeArm_9.png" />
+			<PartItem Name="top_rightHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_9" Texture="spine_wuxia\viper_armor_female_midHem_9.png" />
+			<PartItem Name="top_body_b" Texture="spine_wuxia\viper_armor_female_body_b.png" />
+			<PartItem Name="top_leftUpperArm_b" Texture="spine_wuxia\viper_armor_female_leftUpperArm_b.png" />
+			<PartItem Name="top_leftForeArm_b" Texture="spine_wuxia\viper_armor_female_leftForeArm_b.png" />
+			<PartItem Name="top_leftHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_b" Texture="spine_wuxia\viper_armor_female_rightUpperArm_b.png" />
+			<PartItem Name="top_rightForeArm_b" Texture="spine_wuxia\viper_armor_female_rightForeArm_b.png" />
+			<PartItem Name="top_rightHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_b" Texture="spine_wuxia\viper_armor_female_midHem_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_ancient_soldier_helmet" SkinType="helmet">
+			<PartItem Name="head_helmet_f" Texture="spine_wuxia\ancient_soldier_helmet_helmet_f.png" />
+			<PartItem Name="head_helmet_3" Texture="spine_wuxia\ancient_soldier_helmet_helmet_3.png" />
+			<PartItem Name="head_helmet_s" Texture="spine_wuxia\ancient_soldier_helmet_helmet_s.png" />
+			<PartItem Name="head_helmet_9" Texture="spine_wuxia\ancient_soldier_helmet_helmet_9.png" />
+			<PartItem Name="head_helmet_b" Texture="spine_wuxia\ancient_soldier_helmet_helmet_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_ancient_officer_helmet" SkinType="helmet">
+			<PartItem Name="head_helmet_f" Texture="spine_wuxia\ancient_officer_helmet_helmet_f.png" />
+			<PartItem Name="head_helmet_3" Texture="spine_wuxia\ancient_officer_helmet_helmet_3.png" />
+			<PartItem Name="head_helmet_s" Texture="spine_wuxia\ancient_officer_helmet_helmet_s.png" />
+			<PartItem Name="head_helmet_9" Texture="spine_wuxia\ancient_officer_helmet_helmet_9.png" />
+			<PartItem Name="head_helmet_b" Texture="spine_wuxia\ancient_officer_helmet_helmet_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_ancient_sorcerer_mask" SkinType="helmet">
+			<PartItem Name="head_helmet_f" Texture="spine_wuxia\ancient_sorcerer_mask_helmet_f.png" />
+			<PartItem Name="head_helmet_3" Texture="spine_wuxia\ancient_sorcerer_mask_helmet_3.png" />
+			<PartItem Name="head_helmet_s" Texture="spine_wuxia\ancient_sorcerer_mask_helmet_s.png" />
+			<PartItem Name="head_helmet_9" Texture="spine_wuxia\ancient_sorcerer_mask_helmet_9.png" />
+			<PartItem Name="head_helmet_b" Texture="spine_wuxia\ancient_sorcerer_mask_helmet_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_jade_headband" SkinType="helmet">
+			<PartItem Name="head_helmet_f" Texture="spine_wuxia\jade_headband_helmet_f.png" />
+			<PartItem Name="head_helmet_3" Texture="spine_wuxia\jade_headband_helmet_3.png" />
+			<PartItem Name="head_helmet_s" Texture="spine_wuxia\jade_headband_helmet_s.png" />
+			<PartItem Name="head_helmet_9" Texture="spine_wuxia\jade_headband_helmet_9.png" />
+			<PartItem Name="head_helmet_b" Texture="spine_wuxia\jade_headband_helmet_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_forge_goggles" SkinType="helmet">
+			<PartItem Name="head_helmet_f" Texture="spine_wuxia\forge_goggles_helmet_f.png" />
+			<PartItem Name="head_helmet_3" Texture="spine_wuxia\forge_goggles_helmet_3.png" />
+			<PartItem Name="head_helmet_s" Texture="spine_wuxia\forge_goggles_helmet_s.png" />
+			<PartItem Name="head_helmet_9" Texture="spine_wuxia\forge_goggles_helmet_9.png" />
+			<PartItem Name="head_helmet_b" Texture="spine_wuxia\forge_goggles_helmet_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_wuqu_hat" SkinType="helmet">
+			<PartItem Name="head_helmet_f" Texture="spine_wuxia\wuqu_hat_helmet_f.png" />
+			<PartItem Name="head_helmet_3" Texture="spine_wuxia\wuqu_hat_helmet_3.png" />
+			<PartItem Name="head_helmet_s" Texture="spine_wuxia\wuqu_hat_helmet_s.png" />
+			<PartItem Name="head_helmet_9" Texture="spine_wuxia\wuqu_hat_helmet_9.png" />
+			<PartItem Name="head_helmet_b" Texture="spine_wuxia\wuqu_hat_helmet_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_gilded_helmet" SkinType="helmet">
+			<PartItem Name="head_helmet_f" Texture="spine_wuxia\gilded_helmet_helmet_f.png" />
+			<PartItem Name="head_helmet_3" Texture="spine_wuxia\gilded_helmet_helmet_3.png" />
+			<PartItem Name="head_helmet_s" Texture="spine_wuxia\gilded_helmet_helmet_s.png" />
+			<PartItem Name="head_helmet_9" Texture="spine_wuxia\gilded_helmet_helmet_9.png" />
+			<PartItem Name="head_helmet_b" Texture="spine_wuxia\gilded_helmet_helmet_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_gilded_helmet_mask" SkinType="helmet">
+			<PartItem Name="head_helmet_f" Texture="spine_wuxia\gilded_helmet_mask_helmet_f.png" />
+			<PartItem Name="head_helmet_3" Texture="spine_wuxia\gilded_helmet_mask_helmet_3.png" />
+			<PartItem Name="head_helmet_s" Texture="spine_wuxia\gilded_helmet_mask_helmet_s.png" />
+			<PartItem Name="head_helmet_9" Texture="spine_wuxia\gilded_helmet_mask_helmet_9.png" />
+			<PartItem Name="head_helmet_b" Texture="spine_wuxia\gilded_helmet_mask_helmet_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_tiger_helmet" SkinType="helmet">
+			<PartItem Name="head_helmet_f" Texture="spine_wuxia\tiger_helmet_helmet_f.png" />
+			<PartItem Name="head_helmet_3" Texture="spine_wuxia\tiger_helmet_helmet_3.png" />
+			<PartItem Name="head_helmet_s" Texture="spine_wuxia\tiger_helmet_helmet_s.png" />
+			<PartItem Name="head_helmet_9" Texture="spine_wuxia\tiger_helmet_helmet_9.png" />
+			<PartItem Name="head_helmet_b" Texture="spine_wuxia\tiger_helmet_helmet_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_iron_cloak_m" SkinType="top">
+			<PartItem Name="top_body_f" Texture="spine_wuxia\iron_cloak_male_body_f.png" />
+			<PartItem Name="top_leftUpperArm_f" Texture="spine_wuxia\iron_cloak_male_leftUpperArm_f.png" />
+			<PartItem Name="top_leftForeArm_f" Texture="spine_wuxia\iron_cloak_male_leftForeArm_f.png" />
+			<PartItem Name="top_leftHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_f" Texture="spine_wuxia\iron_cloak_male_rightUpperArm_f.png" />
+			<PartItem Name="top_rightForeArm_f" Texture="spine_wuxia\iron_cloak_male_rightForeArm_f.png" />
+			<PartItem Name="top_rightHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_f" Texture="spine_wuxia\iron_cloak_male_leftHem_f.png" />
+			<PartItem Name="top_midHem_f" Texture="spine_wuxia\iron_cloak_male_midHem_f.png" />
+			<PartItem Name="top_rightHem_f" Texture="spine_wuxia\iron_cloak_male_rightHem_f.png" />
+			<PartItem Name="top_body_3" Texture="spine_wuxia\iron_cloak_male_body_3.png" />
+			<PartItem Name="top_leftUpperArm_3" Texture="spine_wuxia\iron_cloak_male_leftUpperArm_3.png" />
+			<PartItem Name="top_leftForeArm_3" Texture="spine_wuxia\iron_cloak_male_leftForeArm_3.png" />
+			<PartItem Name="top_leftHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_3" Texture="spine_wuxia\iron_cloak_male_rightUpperArm_3.png" />
+			<PartItem Name="top_rightForeArm_3" Texture="spine_wuxia\iron_cloak_male_rightForeArm_3.png" />
+			<PartItem Name="top_rightHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_3" Texture="spine_wuxia\iron_cloak_male_leftHem_3.png" />
+			<PartItem Name="top_midHem_3" Texture="spine_wuxia\iron_cloak_male_midHem_3.png" />
+			<PartItem Name="top_rightHem_3" Texture="spine_wuxia\iron_cloak_male_rightHem_3.png" />
+			<PartItem Name="top_body_s" Texture="spine_wuxia\iron_cloak_male_body_s.png" />
+			<PartItem Name="top_leftUpperArm_s" Texture="spine_wuxia\iron_cloak_male_leftUpperArm_s.png" />
+			<PartItem Name="top_leftForeArm_s" Texture="spine_wuxia\iron_cloak_male_leftForeArm_s.png" />
+			<PartItem Name="top_leftHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_s" Texture="spine_wuxia\iron_cloak_male_leftUpperArm_s.png" />
+			<PartItem Name="top_rightForeArm_s" Texture="spine_wuxia\iron_cloak_male_leftForeArm_s.png" />
+			<PartItem Name="top_rightHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_s" Texture="spine_wuxia\iron_cloak_male_leftHem_s.png" />
+			<PartItem Name="top_rightHem_s" Texture="spine_wuxia\iron_cloak_male_rightHem_s.png" />
+			<PartItem Name="top_body_9" Texture="spine_wuxia\iron_cloak_male_body_9.png" />
+			<PartItem Name="top_leftUpperArm_9" Texture="spine_wuxia\iron_cloak_male_leftUpperArm_9.png" />
+			<PartItem Name="top_leftForeArm_9" Texture="spine_wuxia\iron_cloak_male_leftForeArm_9.png" />
+			<PartItem Name="top_leftHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_9" Texture="spine_wuxia\iron_cloak_male_rightUpperArm_9.png" />
+			<PartItem Name="top_rightForeArm_9" Texture="spine_wuxia\iron_cloak_male_rightForeArm_9.png" />
+			<PartItem Name="top_rightHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_9" Texture="spine_wuxia\iron_cloak_male_midHem_9.png" />
+			<PartItem Name="top_body_b" Texture="spine_wuxia\iron_cloak_male_body_b.png" />
+			<PartItem Name="top_leftUpperArm_b" Texture="spine_wuxia\iron_cloak_male_leftUpperArm_b.png" />
+			<PartItem Name="top_leftForeArm_b" Texture="spine_wuxia\iron_cloak_male_leftForeArm_b.png" />
+			<PartItem Name="top_leftHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_b" Texture="spine_wuxia\iron_cloak_male_rightUpperArm_b.png" />
+			<PartItem Name="top_rightForeArm_b" Texture="spine_wuxia\iron_cloak_male_rightForeArm_b.png" />
+			<PartItem Name="top_rightHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_b" Texture="spine_wuxia\iron_cloak_male_midHem_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_iron_cloak_w" SkinType="top">
+			<PartItem Name="top_body_f" Texture="spine_wuxia\iron_cloak_female_body_f.png" />
+			<PartItem Name="top_leftUpperArm_f" Texture="spine_wuxia\iron_cloak_female_leftUpperArm_f.png" />
+			<PartItem Name="top_leftForeArm_f" Texture="spine_wuxia\iron_cloak_female_leftForeArm_f.png" />
+			<PartItem Name="top_leftHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_f" Texture="spine_wuxia\iron_cloak_female_rightUpperArm_f.png" />
+			<PartItem Name="top_rightForeArm_f" Texture="spine_wuxia\iron_cloak_female_rightForeArm_f.png" />
+			<PartItem Name="top_rightHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_f" Texture="spine_wuxia\iron_cloak_female_leftHem_f.png" />
+			<PartItem Name="top_midHem_f" Texture="spine_wuxia\iron_cloak_female_midHem_f.png" />
+			<PartItem Name="top_rightHem_f" Texture="spine_wuxia\iron_cloak_female_rightHem_f.png" />
+			<PartItem Name="top_body_3" Texture="spine_wuxia\iron_cloak_female_body_3.png" />
+			<PartItem Name="top_leftUpperArm_3" Texture="spine_wuxia\iron_cloak_female_leftUpperArm_3.png" />
+			<PartItem Name="top_leftForeArm_3" Texture="spine_wuxia\iron_cloak_female_leftForeArm_3.png" />
+			<PartItem Name="top_leftHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_3" Texture="spine_wuxia\iron_cloak_female_rightUpperArm_3.png" />
+			<PartItem Name="top_rightForeArm_3" Texture="spine_wuxia\iron_cloak_female_rightForeArm_3.png" />
+			<PartItem Name="top_rightHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_3" Texture="spine_wuxia\iron_cloak_female_leftHem_3.png" />
+			<PartItem Name="top_midHem_3" Texture="spine_wuxia\iron_cloak_female_midHem_3.png" />
+			<PartItem Name="top_rightHem_3" Texture="spine_wuxia\iron_cloak_female_rightHem_3.png" />
+			<PartItem Name="top_body_s" Texture="spine_wuxia\iron_cloak_female_body_s.png" />
+			<PartItem Name="top_leftUpperArm_s" Texture="spine_wuxia\iron_cloak_female_leftUpperArm_s.png" />
+			<PartItem Name="top_leftForeArm_s" Texture="spine_wuxia\iron_cloak_female_leftForeArm_s.png" />
+			<PartItem Name="top_leftHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_s" Texture="spine_wuxia\iron_cloak_female_leftUpperArm_s.png" />
+			<PartItem Name="top_rightForeArm_s" Texture="spine_wuxia\iron_cloak_female_leftForeArm_s.png" />
+			<PartItem Name="top_rightHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_s" Texture="spine_wuxia\iron_cloak_female_leftHem_s.png" />
+			<PartItem Name="top_rightHem_s" Texture="spine_wuxia\iron_cloak_female_rightHem_s.png" />
+			<PartItem Name="top_body_9" Texture="spine_wuxia\iron_cloak_female_body_9.png" />
+			<PartItem Name="top_leftUpperArm_9" Texture="spine_wuxia\iron_cloak_female_leftUpperArm_9.png" />
+			<PartItem Name="top_leftForeArm_9" Texture="spine_wuxia\iron_cloak_female_leftForeArm_9.png" />
+			<PartItem Name="top_leftHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_9" Texture="spine_wuxia\iron_cloak_female_rightUpperArm_9.png" />
+			<PartItem Name="top_rightForeArm_9" Texture="spine_wuxia\iron_cloak_female_rightForeArm_9.png" />
+			<PartItem Name="top_rightHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_9" Texture="spine_wuxia\iron_cloak_female_midHem_9.png" />
+			<PartItem Name="top_body_b" Texture="spine_wuxia\iron_cloak_female_body_b.png" />
+			<PartItem Name="top_leftUpperArm_b" Texture="spine_wuxia\iron_cloak_female_leftUpperArm_b.png" />
+			<PartItem Name="top_leftForeArm_b" Texture="spine_wuxia\iron_cloak_female_leftForeArm_b.png" />
+			<PartItem Name="top_leftHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_b" Texture="spine_wuxia\iron_cloak_female_rightUpperArm_b.png" />
+			<PartItem Name="top_rightForeArm_b" Texture="spine_wuxia\iron_cloak_female_rightForeArm_b.png" />
+			<PartItem Name="top_rightHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_b" Texture="spine_wuxia\iron_cloak_female_midHem_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_bagua_robe_m" SkinType="top">
+			<PartItem Name="top_body_f" Texture="spine_wuxia\bagua_robe_male_body_f.png" />
+			<PartItem Name="top_leftUpperArm_f" Texture="spine_wuxia\bagua_robe_male_leftUpperArm_f.png" />
+			<PartItem Name="top_leftForeArm_f" Texture="spine_wuxia\bagua_robe_male_leftForeArm_f.png" />
+			<PartItem Name="top_leftHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_f" Texture="spine_wuxia\bagua_robe_male_rightUpperArm_f.png" />
+			<PartItem Name="top_rightForeArm_f" Texture="spine_wuxia\bagua_robe_male_rightForeArm_f.png" />
+			<PartItem Name="top_rightHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_f" Texture="spine_wuxia\bagua_robe_male_leftHem_f.png" />
+			<PartItem Name="top_midHem_f" Texture="spine_wuxia\bagua_robe_male_midHem_f.png" />
+			<PartItem Name="top_rightHem_f" Texture="spine_wuxia\bagua_robe_male_rightHem_f.png" />
+			<PartItem Name="top_body_3" Texture="spine_wuxia\bagua_robe_male_body_3.png" />
+			<PartItem Name="top_leftUpperArm_3" Texture="spine_wuxia\bagua_robe_male_leftUpperArm_3.png" />
+			<PartItem Name="top_leftForeArm_3" Texture="spine_wuxia\bagua_robe_male_leftForeArm_3.png" />
+			<PartItem Name="top_leftHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_3" Texture="spine_wuxia\bagua_robe_male_rightUpperArm_3.png" />
+			<PartItem Name="top_rightForeArm_3" Texture="spine_wuxia\bagua_robe_male_rightForeArm_3.png" />
+			<PartItem Name="top_rightHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_3" Texture="spine_wuxia\bagua_robe_male_leftHem_3.png" />
+			<PartItem Name="top_midHem_3" Texture="spine_wuxia\bagua_robe_male_midHem_3.png" />
+			<PartItem Name="top_rightHem_3" Texture="spine_wuxia\bagua_robe_male_rightHem_3.png" />
+			<PartItem Name="top_body_s" Texture="spine_wuxia\bagua_robe_male_body_s.png" />
+			<PartItem Name="top_leftUpperArm_s" Texture="spine_wuxia\bagua_robe_male_leftUpperArm_s.png" />
+			<PartItem Name="top_leftForeArm_s" Texture="spine_wuxia\bagua_robe_male_leftForeArm_s.png" />
+			<PartItem Name="top_leftHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_s" Texture="spine_wuxia\bagua_robe_male_leftUpperArm_s.png" />
+			<PartItem Name="top_rightForeArm_s" Texture="spine_wuxia\bagua_robe_male_leftForeArm_s.png" />
+			<PartItem Name="top_rightHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_s" Texture="spine_wuxia\bagua_robe_male_leftHem_s.png" />
+			<PartItem Name="top_rightHem_s" Texture="spine_wuxia\bagua_robe_male_rightHem_s.png" />
+			<PartItem Name="top_body_9" Texture="spine_wuxia\bagua_robe_male_body_9.png" />
+			<PartItem Name="top_leftUpperArm_9" Texture="spine_wuxia\bagua_robe_male_leftUpperArm_9.png" />
+			<PartItem Name="top_leftForeArm_9" Texture="spine_wuxia\bagua_robe_male_leftForeArm_9.png" />
+			<PartItem Name="top_leftHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_9" Texture="spine_wuxia\bagua_robe_male_rightUpperArm_9.png" />
+			<PartItem Name="top_rightForeArm_9" Texture="spine_wuxia\bagua_robe_male_rightForeArm_9.png" />
+			<PartItem Name="top_rightHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_9" Texture="spine_wuxia\bagua_robe_male_midHem_9.png" />
+			<PartItem Name="top_body_b" Texture="spine_wuxia\bagua_robe_male_body_b.png" />
+			<PartItem Name="top_leftUpperArm_b" Texture="spine_wuxia\bagua_robe_male_leftUpperArm_b.png" />
+			<PartItem Name="top_leftForeArm_b" Texture="spine_wuxia\bagua_robe_male_leftForeArm_b.png" />
+			<PartItem Name="top_leftHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_b" Texture="spine_wuxia\bagua_robe_male_rightUpperArm_b.png" />
+			<PartItem Name="top_rightForeArm_b" Texture="spine_wuxia\bagua_robe_male_rightForeArm_b.png" />
+			<PartItem Name="top_rightHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_b" Texture="spine_wuxia\bagua_robe_male_midHem_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_bagua_robe_w" SkinType="top">
+			<PartItem Name="top_body_f" Texture="spine_wuxia\bagua_robe_female_body_f.png" />
+			<PartItem Name="top_leftUpperArm_f" Texture="spine_wuxia\bagua_robe_female_leftUpperArm_f.png" />
+			<PartItem Name="top_leftForeArm_f" Texture="spine_wuxia\bagua_robe_female_leftForeArm_f.png" />
+			<PartItem Name="top_leftHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_f" Texture="spine_wuxia\bagua_robe_female_rightUpperArm_f.png" />
+			<PartItem Name="top_rightForeArm_f" Texture="spine_wuxia\bagua_robe_female_rightForeArm_f.png" />
+			<PartItem Name="top_rightHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_f" Texture="spine_wuxia\bagua_robe_female_leftHem_f.png" />
+			<PartItem Name="top_midHem_f" Texture="spine_wuxia\bagua_robe_female_midHem_f.png" />
+			<PartItem Name="top_rightHem_f" Texture="spine_wuxia\bagua_robe_female_rightHem_f.png" />
+			<PartItem Name="top_body_3" Texture="spine_wuxia\bagua_robe_female_body_3.png" />
+			<PartItem Name="top_leftUpperArm_3" Texture="spine_wuxia\bagua_robe_female_leftUpperArm_3.png" />
+			<PartItem Name="top_leftForeArm_3" Texture="spine_wuxia\bagua_robe_female_leftForeArm_3.png" />
+			<PartItem Name="top_leftHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_3" Texture="spine_wuxia\bagua_robe_female_rightUpperArm_3.png" />
+			<PartItem Name="top_rightForeArm_3" Texture="spine_wuxia\bagua_robe_female_rightForeArm_3.png" />
+			<PartItem Name="top_rightHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_3" Texture="spine_wuxia\bagua_robe_female_leftHem_3.png" />
+			<PartItem Name="top_midHem_3" Texture="spine_wuxia\bagua_robe_female_midHem_3.png" />
+			<PartItem Name="top_rightHem_3" Texture="spine_wuxia\bagua_robe_female_rightHem_3.png" />
+			<PartItem Name="top_body_s" Texture="spine_wuxia\bagua_robe_female_body_s.png" />
+			<PartItem Name="top_leftUpperArm_s" Texture="spine_wuxia\bagua_robe_female_leftUpperArm_s.png" />
+			<PartItem Name="top_leftForeArm_s" Texture="spine_wuxia\bagua_robe_female_leftForeArm_s.png" />
+			<PartItem Name="top_leftHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_s" Texture="spine_wuxia\bagua_robe_female_leftUpperArm_s.png" />
+			<PartItem Name="top_rightForeArm_s" Texture="spine_wuxia\bagua_robe_female_leftForeArm_s.png" />
+			<PartItem Name="top_rightHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_s" Texture="spine_wuxia\bagua_robe_female_leftHem_s.png" />
+			<PartItem Name="top_rightHem_s" Texture="spine_wuxia\bagua_robe_female_rightHem_s.png" />
+			<PartItem Name="top_body_9" Texture="spine_wuxia\bagua_robe_female_body_9.png" />
+			<PartItem Name="top_leftUpperArm_9" Texture="spine_wuxia\bagua_robe_female_leftUpperArm_9.png" />
+			<PartItem Name="top_leftForeArm_9" Texture="spine_wuxia\bagua_robe_female_leftForeArm_9.png" />
+			<PartItem Name="top_leftHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_9" Texture="spine_wuxia\bagua_robe_female_rightUpperArm_9.png" />
+			<PartItem Name="top_rightForeArm_9" Texture="spine_wuxia\bagua_robe_female_rightForeArm_9.png" />
+			<PartItem Name="top_rightHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_9" Texture="spine_wuxia\bagua_robe_female_midHem_9.png" />
+			<PartItem Name="top_body_b" Texture="spine_wuxia\bagua_robe_female_body_b.png" />
+			<PartItem Name="top_leftUpperArm_b" Texture="spine_wuxia\bagua_robe_female_leftUpperArm_b.png" />
+			<PartItem Name="top_leftForeArm_b" Texture="spine_wuxia\bagua_robe_female_leftForeArm_b.png" />
+			<PartItem Name="top_leftHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_b" Texture="spine_wuxia\bagua_robe_female_rightUpperArm_b.png" />
+			<PartItem Name="top_rightForeArm_b" Texture="spine_wuxia\bagua_robe_female_rightForeArm_b.png" />
+			<PartItem Name="top_rightHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_b" Texture="spine_wuxia\bagua_robe_female_midHem_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_ancient_armor_m" SkinType="top">
+			<PartItem Name="top_body_f" Texture="spine_wuxia\ancient_armor_male_body_f.png" />
+			<PartItem Name="top_leftUpperArm_f" Texture="spine_wuxia\ancient_armor_male_leftUpperArm_f.png" />
+			<PartItem Name="top_leftForeArm_f" Texture="spine_wuxia\ancient_armor_male_leftForeArm_f.png" />
+			<PartItem Name="top_leftHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_f" Texture="spine_wuxia\ancient_armor_male_rightUpperArm_f.png" />
+			<PartItem Name="top_rightForeArm_f" Texture="spine_wuxia\ancient_armor_male_rightForeArm_f.png" />
+			<PartItem Name="top_rightHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_f" Texture="spine_wuxia\ancient_armor_male_leftHem_f.png" />
+			<PartItem Name="top_midHem_f" Texture="spine_wuxia\ancient_armor_male_midHem_f.png" />
+			<PartItem Name="top_rightHem_f" Texture="spine_wuxia\ancient_armor_male_rightHem_f.png" />
+			<PartItem Name="top_body_3" Texture="spine_wuxia\ancient_armor_male_body_3.png" />
+			<PartItem Name="top_leftUpperArm_3" Texture="spine_wuxia\ancient_armor_male_leftUpperArm_3.png" />
+			<PartItem Name="top_leftForeArm_3" Texture="spine_wuxia\ancient_armor_male_leftForeArm_3.png" />
+			<PartItem Name="top_leftHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_3" Texture="spine_wuxia\ancient_armor_male_rightUpperArm_3.png" />
+			<PartItem Name="top_rightForeArm_3" Texture="spine_wuxia\ancient_armor_male_rightForeArm_3.png" />
+			<PartItem Name="top_rightHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_3" Texture="spine_wuxia\ancient_armor_male_leftHem_3.png" />
+			<PartItem Name="top_midHem_3" Texture="spine_wuxia\ancient_armor_male_midHem_3.png" />
+			<PartItem Name="top_rightHem_3" Texture="spine_wuxia\ancient_armor_male_rightHem_3.png" />
+			<PartItem Name="top_body_s" Texture="spine_wuxia\ancient_armor_male_body_s.png" />
+			<PartItem Name="top_leftUpperArm_s" Texture="spine_wuxia\ancient_armor_male_leftUpperArm_s.png" />
+			<PartItem Name="top_leftForeArm_s" Texture="spine_wuxia\ancient_armor_male_leftForeArm_s.png" />
+			<PartItem Name="top_leftHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_s" Texture="spine_wuxia\ancient_armor_male_leftUpperArm_s.png" />
+			<PartItem Name="top_rightForeArm_s" Texture="spine_wuxia\ancient_armor_male_leftForeArm_s.png" />
+			<PartItem Name="top_rightHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_s" Texture="spine_wuxia\ancient_armor_male_leftHem_s.png" />
+			<PartItem Name="top_rightHem_s" Texture="spine_wuxia\ancient_armor_male_rightHem_s.png" />
+			<PartItem Name="top_body_9" Texture="spine_wuxia\ancient_armor_male_body_9.png" />
+			<PartItem Name="top_leftUpperArm_9" Texture="spine_wuxia\ancient_armor_male_leftUpperArm_9.png" />
+			<PartItem Name="top_leftForeArm_9" Texture="spine_wuxia\ancient_armor_male_leftForeArm_9.png" />
+			<PartItem Name="top_leftHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_9" Texture="spine_wuxia\ancient_armor_male_rightUpperArm_9.png" />
+			<PartItem Name="top_rightForeArm_9" Texture="spine_wuxia\ancient_armor_male_rightForeArm_9.png" />
+			<PartItem Name="top_rightHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_9" Texture="spine_wuxia\ancient_armor_male_midHem_9.png" />
+			<PartItem Name="top_body_b" Texture="spine_wuxia\ancient_armor_male_body_b.png" />
+			<PartItem Name="top_leftUpperArm_b" Texture="spine_wuxia\ancient_armor_male_leftUpperArm_b.png" />
+			<PartItem Name="top_leftForeArm_b" Texture="spine_wuxia\ancient_armor_male_leftForeArm_b.png" />
+			<PartItem Name="top_leftHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_b" Texture="spine_wuxia\ancient_armor_male_rightUpperArm_b.png" />
+			<PartItem Name="top_rightForeArm_b" Texture="spine_wuxia\ancient_armor_male_rightForeArm_b.png" />
+			<PartItem Name="top_rightHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_b" Texture="spine_wuxia\ancient_armor_male_midHem_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_ancient_armor_w" SkinType="top">
+			<PartItem Name="top_body_f" Texture="spine_wuxia\ancient_armor_female_body_f.png" />
+			<PartItem Name="top_leftUpperArm_f" Texture="spine_wuxia\ancient_armor_female_leftUpperArm_f.png" />
+			<PartItem Name="top_leftForeArm_f" Texture="spine_wuxia\ancient_armor_female_leftForeArm_f.png" />
+			<PartItem Name="top_leftHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_f" Texture="spine_wuxia\ancient_armor_female_rightUpperArm_f.png" />
+			<PartItem Name="top_rightForeArm_f" Texture="spine_wuxia\ancient_armor_female_rightForeArm_f.png" />
+			<PartItem Name="top_rightHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_f" Texture="spine_wuxia\ancient_armor_female_leftHem_f.png" />
+			<PartItem Name="top_midHem_f" Texture="spine_wuxia\ancient_armor_female_midHem_f.png" />
+			<PartItem Name="top_rightHem_f" Texture="spine_wuxia\ancient_armor_female_rightHem_f.png" />
+			<PartItem Name="top_body_3" Texture="spine_wuxia\ancient_armor_female_body_3.png" />
+			<PartItem Name="top_leftUpperArm_3" Texture="spine_wuxia\ancient_armor_female_leftUpperArm_3.png" />
+			<PartItem Name="top_leftForeArm_3" Texture="spine_wuxia\ancient_armor_female_leftForeArm_3.png" />
+			<PartItem Name="top_leftHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_3" Texture="spine_wuxia\ancient_armor_female_rightUpperArm_3.png" />
+			<PartItem Name="top_rightForeArm_3" Texture="spine_wuxia\ancient_armor_female_rightForeArm_3.png" />
+			<PartItem Name="top_rightHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_3" Texture="spine_wuxia\ancient_armor_female_leftHem_3.png" />
+			<PartItem Name="top_midHem_3" Texture="spine_wuxia\ancient_armor_female_midHem_3.png" />
+			<PartItem Name="top_rightHem_3" Texture="spine_wuxia\ancient_armor_female_rightHem_3.png" />
+			<PartItem Name="top_body_s" Texture="spine_wuxia\ancient_armor_female_body_s.png" />
+			<PartItem Name="top_leftUpperArm_s" Texture="spine_wuxia\ancient_armor_female_leftUpperArm_s.png" />
+			<PartItem Name="top_leftForeArm_s" Texture="spine_wuxia\ancient_armor_female_leftForeArm_s.png" />
+			<PartItem Name="top_leftHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_s" Texture="spine_wuxia\ancient_armor_female_leftUpperArm_s.png" />
+			<PartItem Name="top_rightForeArm_s" Texture="spine_wuxia\ancient_armor_female_leftForeArm_s.png" />
+			<PartItem Name="top_rightHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_s" Texture="spine_wuxia\ancient_armor_female_leftHem_s.png" />
+			<PartItem Name="top_rightHem_s" Texture="spine_wuxia\ancient_armor_female_rightHem_s.png" />
+			<PartItem Name="top_body_9" Texture="spine_wuxia\ancient_armor_female_body_9.png" />
+			<PartItem Name="top_leftUpperArm_9" Texture="spine_wuxia\ancient_armor_female_leftUpperArm_9.png" />
+			<PartItem Name="top_leftForeArm_9" Texture="spine_wuxia\ancient_armor_female_leftForeArm_9.png" />
+			<PartItem Name="top_leftHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_9" Texture="spine_wuxia\ancient_armor_female_rightUpperArm_9.png" />
+			<PartItem Name="top_rightForeArm_9" Texture="spine_wuxia\ancient_armor_female_rightForeArm_9.png" />
+			<PartItem Name="top_rightHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_9" Texture="spine_wuxia\ancient_armor_female_midHem_9.png" />
+			<PartItem Name="top_body_b" Texture="spine_wuxia\ancient_armor_female_body_b.png" />
+			<PartItem Name="top_leftUpperArm_b" Texture="spine_wuxia\ancient_armor_female_leftUpperArm_b.png" />
+			<PartItem Name="top_leftForeArm_b" Texture="spine_wuxia\ancient_armor_female_leftForeArm_b.png" />
+			<PartItem Name="top_leftHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_b" Texture="spine_wuxia\ancient_armor_female_rightUpperArm_b.png" />
+			<PartItem Name="top_rightForeArm_b" Texture="spine_wuxia\ancient_armor_female_rightForeArm_b.png" />
+			<PartItem Name="top_rightHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_b" Texture="spine_wuxia\ancient_armor_female_midHem_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_gilded_armor_m" SkinType="top">
+			<PartItem Name="top_body_f" Texture="spine_wuxia\gilded_armor_male_body_f.png" />
+			<PartItem Name="top_leftUpperArm_f" Texture="spine_wuxia\gilded_armor_male_leftUpperArm_f.png" />
+			<PartItem Name="top_leftForeArm_f" Texture="spine_wuxia\gilded_armor_male_leftForeArm_f.png" />
+			<PartItem Name="top_leftHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_f" Texture="spine_wuxia\gilded_armor_male_rightUpperArm_f.png" />
+			<PartItem Name="top_rightForeArm_f" Texture="spine_wuxia\gilded_armor_male_rightForeArm_f.png" />
+			<PartItem Name="top_rightHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_f" Texture="spine_wuxia\gilded_armor_male_leftHem_f.png" />
+			<PartItem Name="top_midHem_f" Texture="spine_wuxia\gilded_armor_male_midHem_f.png" />
+			<PartItem Name="top_rightHem_f" Texture="spine_wuxia\gilded_armor_male_rightHem_f.png" />
+			<PartItem Name="top_body_3" Texture="spine_wuxia\gilded_armor_male_body_3.png" />
+			<PartItem Name="top_leftUpperArm_3" Texture="spine_wuxia\gilded_armor_male_leftUpperArm_3.png" />
+			<PartItem Name="top_leftForeArm_3" Texture="spine_wuxia\gilded_armor_male_leftForeArm_3.png" />
+			<PartItem Name="top_leftHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_3" Texture="spine_wuxia\gilded_armor_male_rightUpperArm_3.png" />
+			<PartItem Name="top_rightForeArm_3" Texture="spine_wuxia\gilded_armor_male_rightForeArm_3.png" />
+			<PartItem Name="top_rightHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_3" Texture="spine_wuxia\gilded_armor_male_leftHem_3.png" />
+			<PartItem Name="top_midHem_3" Texture="spine_wuxia\gilded_armor_male_midHem_3.png" />
+			<PartItem Name="top_rightHem_3" Texture="spine_wuxia\gilded_armor_male_rightHem_3.png" />
+			<PartItem Name="top_body_s" Texture="spine_wuxia\gilded_armor_male_body_s.png" />
+			<PartItem Name="top_leftUpperArm_s" Texture="spine_wuxia\gilded_armor_male_leftUpperArm_s.png" />
+			<PartItem Name="top_leftForeArm_s" Texture="spine_wuxia\gilded_armor_male_leftForeArm_s.png" />
+			<PartItem Name="top_leftHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_s" Texture="spine_wuxia\gilded_armor_male_leftUpperArm_s.png" />
+			<PartItem Name="top_rightForeArm_s" Texture="spine_wuxia\gilded_armor_male_leftForeArm_s.png" />
+			<PartItem Name="top_rightHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_s" Texture="spine_wuxia\gilded_armor_male_leftHem_s.png" />
+			<PartItem Name="top_rightHem_s" Texture="spine_wuxia\gilded_armor_male_rightHem_s.png" />
+			<PartItem Name="top_body_9" Texture="spine_wuxia\gilded_armor_male_body_9.png" />
+			<PartItem Name="top_leftUpperArm_9" Texture="spine_wuxia\gilded_armor_male_leftUpperArm_9.png" />
+			<PartItem Name="top_leftForeArm_9" Texture="spine_wuxia\gilded_armor_male_leftForeArm_9.png" />
+			<PartItem Name="top_leftHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_9" Texture="spine_wuxia\gilded_armor_male_rightUpperArm_9.png" />
+			<PartItem Name="top_rightForeArm_9" Texture="spine_wuxia\gilded_armor_male_rightForeArm_9.png" />
+			<PartItem Name="top_rightHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_9" Texture="spine_wuxia\gilded_armor_male_midHem_9.png" />
+			<PartItem Name="top_body_b" Texture="spine_wuxia\gilded_armor_male_body_b.png" />
+			<PartItem Name="top_leftUpperArm_b" Texture="spine_wuxia\gilded_armor_male_leftUpperArm_b.png" />
+			<PartItem Name="top_leftForeArm_b" Texture="spine_wuxia\gilded_armor_male_leftForeArm_b.png" />
+			<PartItem Name="top_leftHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_b" Texture="spine_wuxia\gilded_armor_male_rightUpperArm_b.png" />
+			<PartItem Name="top_rightForeArm_b" Texture="spine_wuxia\gilded_armor_male_rightForeArm_b.png" />
+			<PartItem Name="top_rightHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_b" Texture="spine_wuxia\gilded_armor_male_midHem_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_gilded_armor_w" SkinType="top">
+			<PartItem Name="top_body_f" Texture="spine_wuxia\gilded_armor_female_body_f.png" />
+			<PartItem Name="top_leftUpperArm_f" Texture="spine_wuxia\gilded_armor_female_leftUpperArm_f.png" />
+			<PartItem Name="top_leftForeArm_f" Texture="spine_wuxia\gilded_armor_female_leftForeArm_f.png" />
+			<PartItem Name="top_leftHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_f" Texture="spine_wuxia\gilded_armor_female_rightUpperArm_f.png" />
+			<PartItem Name="top_rightForeArm_f" Texture="spine_wuxia\gilded_armor_female_rightForeArm_f.png" />
+			<PartItem Name="top_rightHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_f" Texture="spine_wuxia\gilded_armor_female_leftHem_f.png" />
+			<PartItem Name="top_midHem_f" Texture="spine_wuxia\gilded_armor_female_midHem_f.png" />
+			<PartItem Name="top_rightHem_f" Texture="spine_wuxia\gilded_armor_female_rightHem_f.png" />
+			<PartItem Name="top_body_3" Texture="spine_wuxia\gilded_armor_female_body_3.png" />
+			<PartItem Name="top_leftUpperArm_3" Texture="spine_wuxia\gilded_armor_female_leftUpperArm_3.png" />
+			<PartItem Name="top_leftForeArm_3" Texture="spine_wuxia\gilded_armor_female_leftForeArm_3.png" />
+			<PartItem Name="top_leftHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_3" Texture="spine_wuxia\gilded_armor_female_rightUpperArm_3.png" />
+			<PartItem Name="top_rightForeArm_3" Texture="spine_wuxia\gilded_armor_female_rightForeArm_3.png" />
+			<PartItem Name="top_rightHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_3" Texture="spine_wuxia\gilded_armor_female_leftHem_3.png" />
+			<PartItem Name="top_midHem_3" Texture="spine_wuxia\gilded_armor_female_midHem_3.png" />
+			<PartItem Name="top_rightHem_3" Texture="spine_wuxia\gilded_armor_female_rightHem_3.png" />
+			<PartItem Name="top_body_s" Texture="spine_wuxia\gilded_armor_female_body_s.png" />
+			<PartItem Name="top_leftUpperArm_s" Texture="spine_wuxia\gilded_armor_female_leftUpperArm_s.png" />
+			<PartItem Name="top_leftForeArm_s" Texture="spine_wuxia\gilded_armor_female_leftForeArm_s.png" />
+			<PartItem Name="top_leftHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_s" Texture="spine_wuxia\gilded_armor_female_leftUpperArm_s.png" />
+			<PartItem Name="top_rightForeArm_s" Texture="spine_wuxia\gilded_armor_female_leftForeArm_s.png" />
+			<PartItem Name="top_rightHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_s" Texture="spine_wuxia\gilded_armor_female_leftHem_s.png" />
+			<PartItem Name="top_rightHem_s" Texture="spine_wuxia\gilded_armor_female_rightHem_s.png" />
+			<PartItem Name="top_body_9" Texture="spine_wuxia\gilded_armor_female_body_9.png" />
+			<PartItem Name="top_leftUpperArm_9" Texture="spine_wuxia\gilded_armor_female_leftUpperArm_9.png" />
+			<PartItem Name="top_leftForeArm_9" Texture="spine_wuxia\gilded_armor_female_leftForeArm_9.png" />
+			<PartItem Name="top_leftHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_9" Texture="spine_wuxia\gilded_armor_female_rightUpperArm_9.png" />
+			<PartItem Name="top_rightForeArm_9" Texture="spine_wuxia\gilded_armor_female_rightForeArm_9.png" />
+			<PartItem Name="top_rightHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_9" Texture="spine_wuxia\gilded_armor_female_midHem_9.png" />
+			<PartItem Name="top_body_b" Texture="spine_wuxia\gilded_armor_female_body_b.png" />
+			<PartItem Name="top_leftUpperArm_b" Texture="spine_wuxia\gilded_armor_female_leftUpperArm_b.png" />
+			<PartItem Name="top_leftForeArm_b" Texture="spine_wuxia\gilded_armor_female_leftForeArm_b.png" />
+			<PartItem Name="top_leftHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_b" Texture="spine_wuxia\gilded_armor_female_rightUpperArm_b.png" />
+			<PartItem Name="top_rightForeArm_b" Texture="spine_wuxia\gilded_armor_female_rightForeArm_b.png" />
+			<PartItem Name="top_rightHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_b" Texture="spine_wuxia\gilded_armor_female_midHem_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_tiger_armor_m" SkinType="top">
+			<PartItem Name="top_body_f" Texture="spine_wuxia\tiger_armor_male_body_f.png" />
+			<PartItem Name="top_leftUpperArm_f" Texture="spine_wuxia\tiger_armor_male_leftUpperArm_f.png" />
+			<PartItem Name="top_leftForeArm_f" Texture="spine_wuxia\tiger_armor_male_leftForeArm_f.png" />
+			<PartItem Name="top_leftHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_f" Texture="spine_wuxia\tiger_armor_male_rightUpperArm_f.png" />
+			<PartItem Name="top_rightForeArm_f" Texture="spine_wuxia\tiger_armor_male_rightForeArm_f.png" />
+			<PartItem Name="top_rightHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_f" Texture="spine_wuxia\tiger_armor_male_leftHem_f.png" />
+			<PartItem Name="top_midHem_f" Texture="spine_wuxia\tiger_armor_male_midHem_f.png" />
+			<PartItem Name="top_rightHem_f" Texture="spine_wuxia\tiger_armor_male_rightHem_f.png" />
+			<PartItem Name="top_body_3" Texture="spine_wuxia\tiger_armor_male_body_3.png" />
+			<PartItem Name="top_leftUpperArm_3" Texture="spine_wuxia\tiger_armor_male_leftUpperArm_3.png" />
+			<PartItem Name="top_leftForeArm_3" Texture="spine_wuxia\tiger_armor_male_leftForeArm_3.png" />
+			<PartItem Name="top_leftHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_3" Texture="spine_wuxia\tiger_armor_male_rightUpperArm_3.png" />
+			<PartItem Name="top_rightForeArm_3" Texture="spine_wuxia\tiger_armor_male_rightForeArm_3.png" />
+			<PartItem Name="top_rightHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_3" Texture="spine_wuxia\tiger_armor_male_leftHem_3.png" />
+			<PartItem Name="top_midHem_3" Texture="spine_wuxia\tiger_armor_male_midHem_3.png" />
+			<PartItem Name="top_rightHem_3" Texture="spine_wuxia\tiger_armor_male_rightHem_3.png" />
+			<PartItem Name="top_body_s" Texture="spine_wuxia\tiger_armor_male_body_s.png" />
+			<PartItem Name="top_leftUpperArm_s" Texture="spine_wuxia\tiger_armor_male_leftUpperArm_s.png" />
+			<PartItem Name="top_leftForeArm_s" Texture="spine_wuxia\tiger_armor_male_leftForeArm_s.png" />
+			<PartItem Name="top_leftHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_s" Texture="spine_wuxia\tiger_armor_male_leftUpperArm_s.png" />
+			<PartItem Name="top_rightForeArm_s" Texture="spine_wuxia\tiger_armor_male_leftForeArm_s.png" />
+			<PartItem Name="top_rightHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_s" Texture="spine_wuxia\tiger_armor_male_leftHem_s.png" />
+			<PartItem Name="top_rightHem_s" Texture="spine_wuxia\tiger_armor_male_rightHem_s.png" />
+			<PartItem Name="top_body_9" Texture="spine_wuxia\tiger_armor_male_body_9.png" />
+			<PartItem Name="top_leftUpperArm_9" Texture="spine_wuxia\tiger_armor_male_leftUpperArm_9.png" />
+			<PartItem Name="top_leftForeArm_9" Texture="spine_wuxia\tiger_armor_male_leftForeArm_9.png" />
+			<PartItem Name="top_leftHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_9" Texture="spine_wuxia\tiger_armor_male_rightUpperArm_9.png" />
+			<PartItem Name="top_rightForeArm_9" Texture="spine_wuxia\tiger_armor_male_rightForeArm_9.png" />
+			<PartItem Name="top_rightHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_9" Texture="spine_wuxia\tiger_armor_male_midHem_9.png" />
+			<PartItem Name="top_body_b" Texture="spine_wuxia\tiger_armor_male_body_b.png" />
+			<PartItem Name="top_leftUpperArm_b" Texture="spine_wuxia\tiger_armor_male_leftUpperArm_b.png" />
+			<PartItem Name="top_leftForeArm_b" Texture="spine_wuxia\tiger_armor_male_leftForeArm_b.png" />
+			<PartItem Name="top_leftHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_b" Texture="spine_wuxia\tiger_armor_male_rightUpperArm_b.png" />
+			<PartItem Name="top_rightForeArm_b" Texture="spine_wuxia\tiger_armor_male_rightForeArm_b.png" />
+			<PartItem Name="top_rightHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_b" Texture="spine_wuxia\tiger_armor_male_midHem_b.png" />
+		</ModSpineSkin>
+		<ModSpineSkin Name="wuxia_tiger_armor_w" SkinType="top">
+			<PartItem Name="top_body_f" Texture="spine_wuxia\tiger_armor_female_body_f.png" />
+			<PartItem Name="top_leftUpperArm_f" Texture="spine_wuxia\tiger_armor_female_leftUpperArm_f.png" />
+			<PartItem Name="top_leftForeArm_f" Texture="spine_wuxia\tiger_armor_female_leftForeArm_f.png" />
+			<PartItem Name="top_leftHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_f" Texture="spine_wuxia\tiger_armor_female_rightUpperArm_f.png" />
+			<PartItem Name="top_rightForeArm_f" Texture="spine_wuxia\tiger_armor_female_rightForeArm_f.png" />
+			<PartItem Name="top_rightHand_f" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_f" Texture="spine_wuxia\tiger_armor_female_leftHem_f.png" />
+			<PartItem Name="top_midHem_f" Texture="spine_wuxia\tiger_armor_female_midHem_f.png" />
+			<PartItem Name="top_rightHem_f" Texture="spine_wuxia\tiger_armor_female_rightHem_f.png" />
+			<PartItem Name="top_body_3" Texture="spine_wuxia\tiger_armor_female_body_3.png" />
+			<PartItem Name="top_leftUpperArm_3" Texture="spine_wuxia\tiger_armor_female_leftUpperArm_3.png" />
+			<PartItem Name="top_leftForeArm_3" Texture="spine_wuxia\tiger_armor_female_leftForeArm_3.png" />
+			<PartItem Name="top_leftHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_3" Texture="spine_wuxia\tiger_armor_female_rightUpperArm_3.png" />
+			<PartItem Name="top_rightForeArm_3" Texture="spine_wuxia\tiger_armor_female_rightForeArm_3.png" />
+			<PartItem Name="top_rightHand_3" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_3" Texture="spine_wuxia\tiger_armor_female_leftHem_3.png" />
+			<PartItem Name="top_midHem_3" Texture="spine_wuxia\tiger_armor_female_midHem_3.png" />
+			<PartItem Name="top_rightHem_3" Texture="spine_wuxia\tiger_armor_female_rightHem_3.png" />
+			<PartItem Name="top_body_s" Texture="spine_wuxia\tiger_armor_female_body_s.png" />
+			<PartItem Name="top_leftUpperArm_s" Texture="spine_wuxia\tiger_armor_female_leftUpperArm_s.png" />
+			<PartItem Name="top_leftForeArm_s" Texture="spine_wuxia\tiger_armor_female_leftForeArm_s.png" />
+			<PartItem Name="top_leftHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_s" Texture="spine_wuxia\tiger_armor_female_leftUpperArm_s.png" />
+			<PartItem Name="top_rightForeArm_s" Texture="spine_wuxia\tiger_armor_female_leftForeArm_s.png" />
+			<PartItem Name="top_rightHand_s" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_leftHem_s" Texture="spine_wuxia\tiger_armor_female_leftHem_s.png" />
+			<PartItem Name="top_rightHem_s" Texture="spine_wuxia\tiger_armor_female_rightHem_s.png" />
+			<PartItem Name="top_body_9" Texture="spine_wuxia\tiger_armor_female_body_9.png" />
+			<PartItem Name="top_leftUpperArm_9" Texture="spine_wuxia\tiger_armor_female_leftUpperArm_9.png" />
+			<PartItem Name="top_leftForeArm_9" Texture="spine_wuxia\tiger_armor_female_leftForeArm_9.png" />
+			<PartItem Name="top_leftHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_9" Texture="spine_wuxia\tiger_armor_female_rightUpperArm_9.png" />
+			<PartItem Name="top_rightForeArm_9" Texture="spine_wuxia\tiger_armor_female_rightForeArm_9.png" />
+			<PartItem Name="top_rightHand_9" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_9" Texture="spine_wuxia\tiger_armor_female_midHem_9.png" />
+			<PartItem Name="top_body_b" Texture="spine_wuxia\tiger_armor_female_body_b.png" />
+			<PartItem Name="top_leftUpperArm_b" Texture="spine_wuxia\tiger_armor_female_leftUpperArm_b.png" />
+			<PartItem Name="top_leftForeArm_b" Texture="spine_wuxia\tiger_armor_female_leftForeArm_b.png" />
+			<PartItem Name="top_leftHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_rightUpperArm_b" Texture="spine_wuxia\tiger_armor_female_rightUpperArm_b.png" />
+			<PartItem Name="top_rightForeArm_b" Texture="spine_wuxia\tiger_armor_female_rightForeArm_b.png" />
+			<PartItem Name="top_rightHand_b" Texture="spine_wuxia\empty.png" />
+			<PartItem Name="top_midHem_b" Texture="spine_wuxia\tiger_armor_female_midHem_b.png" />
+		</ModSpineSkin>
+	</skins>
+	<weapons>
+		<ModSpineWeapon Name="wuxia_ancient_fist" WeaponType="sword" Texture_B="spine_wuxia\ancient_fist_weapon_f.png" Texture_RB="spine_wuxia\ancient_fist_weapon_3.png" Texture_S="spine_wuxia\ancient_fist_weapon_3.png" Texture_RT="spine_wuxia\ancient_fist_weapon_3.png" Texture_T="spine_wuxia\ancient_fist_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_ancient_dagger" WeaponType="sword" Texture_B="spine_wuxia\ancient_dagger_weapon_f.png" Texture_RB="spine_wuxia\ancient_dagger_weapon_3.png" Texture_S="spine_wuxia\ancient_dagger_weapon_3.png" Texture_RT="spine_wuxia\ancient_dagger_weapon_3.png" Texture_T="spine_wuxia\ancient_dagger_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_ancient_blade" WeaponType="sword" Texture_B="spine_wuxia\ancient_blade_weapon_f.png" Texture_RB="spine_wuxia\ancient_blade_weapon_3.png" Texture_S="spine_wuxia\ancient_blade_weapon_3.png" Texture_RT="spine_wuxia\ancient_blade_weapon_3.png" Texture_T="spine_wuxia\ancient_blade_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_ancient_gun" WeaponType="gun" Texture_B="spine_wuxia\ancient_gun_weapon_f.png" Texture_RB="spine_wuxia\ancient_gun_weapon_3.png" Texture_S="spine_wuxia\ancient_gun_weapon_3.png" Texture_RT="spine_wuxia\ancient_gun_weapon_3.png" Texture_T="spine_wuxia\ancient_gun_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_chiyou_halberd" WeaponType="spear" Texture_B="spine_wuxia\chiyou_halberd_weapon_f.png" Texture_RB="spine_wuxia\chiyou_halberd_weapon_3.png" Texture_S="spine_wuxia\chiyou_halberd_weapon_3.png" Texture_RT="spine_wuxia\chiyou_halberd_weapon_3.png" Texture_T="spine_wuxia\chiyou_halberd_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_pojun_sword" WeaponType="sword" Texture_B="spine_wuxia\pojun_sword_weapon_f.png" Texture_RB="spine_wuxia\pojun_sword_weapon_3.png" Texture_S="spine_wuxia\pojun_sword_weapon_3.png" Texture_RT="spine_wuxia\pojun_sword_weapon_3.png" Texture_T="spine_wuxia\pojun_sword_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_immortal_slayer" WeaponType="sword" Texture_B="spine_wuxia\immortal_slayer_weapon_f.png" Texture_RB="spine_wuxia\immortal_slayer_weapon_3.png" Texture_S="spine_wuxia\immortal_slayer_weapon_3.png" Texture_RT="spine_wuxia\immortal_slayer_weapon_3.png" Texture_T="spine_wuxia\immortal_slayer_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_dragon_staff" WeaponType="spear" Texture_B="spine_wuxia\dragon_staff_weapon_f.png" Texture_RB="spine_wuxia\dragon_staff_weapon_3.png" Texture_S="spine_wuxia\dragon_staff_weapon_3.png" Texture_RT="spine_wuxia\dragon_staff_weapon_3.png" Texture_T="spine_wuxia\dragon_staff_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_pearl_umbrella" WeaponType="sword" Texture_B="spine_wuxia\pearl_umbrella_weapon_f.png" Texture_RB="spine_wuxia\pearl_umbrella_weapon_3.png" Texture_S="spine_wuxia\pearl_umbrella_weapon_3.png" Texture_RT="spine_wuxia\pearl_umbrella_weapon_3.png" Texture_T="spine_wuxia\pearl_umbrella_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_thunder_minigun" WeaponType="gun" Texture_B="spine_wuxia\thunder_minigun_weapon_f.png" Texture_RB="spine_wuxia\thunder_minigun_weapon_3.png" Texture_S="spine_wuxia\thunder_minigun_weapon_3.png" Texture_RT="spine_wuxia\thunder_minigun_weapon_3.png" Texture_T="spine_wuxia\thunder_minigun_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_frost_bow" WeaponType="gun" Texture_B="spine_wuxia\frost_bow_weapon_f.png" Texture_RB="spine_wuxia\frost_bow_weapon_3.png" Texture_S="spine_wuxia\frost_bow_weapon_3.png" Texture_RT="spine_wuxia\frost_bow_weapon_3.png" Texture_T="spine_wuxia\frost_bow_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_gilded_sword" WeaponType="sword" Texture_B="spine_wuxia\gilded_sword_weapon_f.png" Texture_RB="spine_wuxia\gilded_sword_weapon_3.png" Texture_S="spine_wuxia\gilded_sword_weapon_3.png" Texture_RT="spine_wuxia\gilded_sword_weapon_3.png" Texture_T="spine_wuxia\gilded_sword_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_gilded_axe" WeaponType="spear" Texture_B="spine_wuxia\gilded_axe_weapon_f.png" Texture_RB="spine_wuxia\gilded_axe_weapon_3.png" Texture_S="spine_wuxia\gilded_axe_weapon_3.png" Texture_RT="spine_wuxia\gilded_axe_weapon_3.png" Texture_T="spine_wuxia\gilded_axe_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_gilded_mace" WeaponType="sword" Texture_B="spine_wuxia\gilded_mace_weapon_f.png" Texture_RB="spine_wuxia\gilded_mace_weapon_3.png" Texture_S="spine_wuxia\gilded_mace_weapon_3.png" Texture_RT="spine_wuxia\gilded_mace_weapon_3.png" Texture_T="spine_wuxia\gilded_mace_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_gilded_trident" WeaponType="spear" Texture_B="spine_wuxia\gilded_trident_weapon_f.png" Texture_RB="spine_wuxia\gilded_trident_weapon_3.png" Texture_S="spine_wuxia\gilded_trident_weapon_3.png" Texture_RT="spine_wuxia\gilded_trident_weapon_3.png" Texture_T="spine_wuxia\gilded_trident_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_gilded_snake_spear" WeaponType="spear" Texture_B="spine_wuxia\gilded_snake_spear_weapon_f.png" Texture_RB="spine_wuxia\gilded_snake_spear_weapon_3.png" Texture_S="spine_wuxia\gilded_snake_spear_weapon_3.png" Texture_RT="spine_wuxia\gilded_snake_spear_weapon_3.png" Texture_T="spine_wuxia\gilded_snake_spear_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_bamboo_sword" WeaponType="sword" Texture_B="spine_wuxia\bamboo_sword_weapon_f.png" Texture_RB="spine_wuxia\bamboo_sword_weapon_3.png" Texture_S="spine_wuxia\bamboo_sword_weapon_3.png" Texture_RT="spine_wuxia\bamboo_sword_weapon_3.png" Texture_T="spine_wuxia\bamboo_sword_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_bamboo_blade" WeaponType="sword" Texture_B="spine_wuxia\bamboo_blade_weapon_f.png" Texture_RB="spine_wuxia\bamboo_blade_weapon_3.png" Texture_S="spine_wuxia\bamboo_blade_weapon_3.png" Texture_RT="spine_wuxia\bamboo_blade_weapon_3.png" Texture_T="spine_wuxia\bamboo_blade_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_bamboo_knives" WeaponType="thrown" Texture_B="spine_wuxia\bamboo_knives_weapon_f.png" Texture_RB="spine_wuxia\bamboo_knives_weapon_f.png" Texture_S="spine_wuxia\bamboo_knives_weapon_f.png" Texture_RT="spine_wuxia\bamboo_knives_weapon_f.png" Texture_T="spine_wuxia\bamboo_knives_weapon_f.png" />
+		<ModSpineWeapon Name="wuxia_bamboo_spear" WeaponType="spear" Texture_B="spine_wuxia\bamboo_spear_weapon_f.png" Texture_RB="spine_wuxia\bamboo_spear_weapon_3.png" Texture_S="spine_wuxia\bamboo_spear_weapon_3.png" Texture_RT="spine_wuxia\bamboo_spear_weapon_3.png" Texture_T="spine_wuxia\bamboo_spear_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_jumen_axe" WeaponType="spear" Texture_B="spine_wuxia\jumen_axe_weapon_f.png" Texture_RB="spine_wuxia\jumen_axe_weapon_3.png" Texture_S="spine_wuxia\jumen_axe_weapon_3.png" Texture_RT="spine_wuxia\jumen_axe_weapon_3.png" Texture_T="spine_wuxia\jumen_axe_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_poison_shuttle" WeaponType="sword" Texture_B="spine_wuxia\poison_shuttle_weapon_f.png" Texture_RB="spine_wuxia\poison_shuttle_weapon_3.png" Texture_S="spine_wuxia\poison_shuttle_weapon_3.png" Texture_RT="spine_wuxia\poison_shuttle_weapon_3.png" Texture_T="spine_wuxia\poison_shuttle_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_jade_hammer" WeaponType="sword" Texture_B="spine_wuxia\jade_hammer_weapon_f.png" Texture_RB="spine_wuxia\jade_hammer_weapon_3.png" Texture_S="spine_wuxia\jade_hammer_weapon_3.png" Texture_RT="spine_wuxia\jade_hammer_weapon_3.png" Texture_T="spine_wuxia\jade_hammer_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_wind_demon_blade" WeaponType="sword" Texture_B="spine_wuxia\wind_demon_blade_weapon_f.png" Texture_RB="spine_wuxia\wind_demon_blade_weapon_3.png" Texture_S="spine_wuxia\wind_demon_blade_weapon_3.png" Texture_RT="spine_wuxia\wind_demon_blade_weapon_3.png" Texture_T="spine_wuxia\wind_demon_blade_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_thunder_lance" WeaponType="spear" Texture_B="spine_wuxia\thunder_lance_weapon_f.png" Texture_RB="spine_wuxia\thunder_lance_weapon_3.png" Texture_S="spine_wuxia\thunder_lance_weapon_3.png" Texture_RT="spine_wuxia\thunder_lance_weapon_3.png" Texture_T="spine_wuxia\thunder_lance_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_rat_whisker_sword" WeaponType="sword" Texture_B="spine_wuxia\rat_whisker_sword_weapon_f.png" Texture_RB="spine_wuxia\rat_whisker_sword_weapon_3.png" Texture_S="spine_wuxia\rat_whisker_sword_weapon_3.png" Texture_RT="spine_wuxia\rat_whisker_sword_weapon_3.png" Texture_T="spine_wuxia\rat_whisker_sword_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_dragon_cannon" WeaponType="launcher" Texture_B="spine_wuxia\dragon_cannon_weapon_f.png" Texture_RB="spine_wuxia\dragon_cannon_weapon_3.png" Texture_S="spine_wuxia\dragon_cannon_weapon_3.png" Texture_RT="spine_wuxia\dragon_cannon_weapon_3.png" Texture_T="spine_wuxia\dragon_cannon_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_fly_grenade" WeaponType="thrown" Texture_B="spine_wuxia\fly_grenade_weapon_f.png" Texture_RB="spine_wuxia\fly_grenade_weapon_f.png" Texture_S="spine_wuxia\fly_grenade_weapon_f.png" Texture_RT="spine_wuxia\fly_grenade_weapon_f.png" Texture_T="spine_wuxia\fly_grenade_weapon_f.png" />
+		<ModSpineWeapon Name="wuxia_ghost_crossbow" WeaponType="gun" Texture_B="spine_wuxia\ghost_crossbow_weapon_f.png" Texture_RB="spine_wuxia\ghost_crossbow_weapon_3.png" Texture_S="spine_wuxia\ghost_crossbow_weapon_3.png" Texture_RT="spine_wuxia\ghost_crossbow_weapon_3.png" Texture_T="spine_wuxia\ghost_crossbow_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_iron_balls" WeaponType="thrown" Texture_B="spine_wuxia\iron_balls_weapon_f.png" Texture_RB="spine_wuxia\iron_balls_weapon_f.png" Texture_S="spine_wuxia\iron_balls_weapon_f.png" Texture_RT="spine_wuxia\iron_balls_weapon_f.png" Texture_T="spine_wuxia\iron_balls_weapon_f.png" />
+		<ModSpineWeapon Name="wuxia_bandage" WeaponType="sword" Texture_B="spine_wuxia\bandage_weapon_f.png" Texture_RB="spine_wuxia\bandage_weapon_3.png" Texture_S="spine_wuxia\bandage_weapon_3.png" Texture_RT="spine_wuxia\bandage_weapon_3.png" Texture_T="spine_wuxia\bandage_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_gloves" WeaponType="sword" Texture_B="spine_wuxia\gloves_weapon_f.png" Texture_RB="spine_wuxia\gloves_weapon_3.png" Texture_S="spine_wuxia\gloves_weapon_3.png" Texture_RT="spine_wuxia\gloves_weapon_3.png" Texture_T="spine_wuxia\gloves_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_mystic_sword" WeaponType="sword" Texture_B="spine_wuxia\mystic_sword_weapon_f.png" Texture_RB="spine_wuxia\mystic_sword_weapon_3.png" Texture_S="spine_wuxia\mystic_sword_weapon_3.png" Texture_RT="spine_wuxia\mystic_sword_weapon_3.png" Texture_T="spine_wuxia\mystic_sword_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_splitting_axe" WeaponType="spear" Texture_B="spine_wuxia\splitting_axe_weapon_f.png" Texture_RB="spine_wuxia\splitting_axe_weapon_3.png" Texture_S="spine_wuxia\splitting_axe_weapon_3.png" Texture_RT="spine_wuxia\splitting_axe_weapon_3.png" Texture_T="spine_wuxia\splitting_axe_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_wind_saber" WeaponType="sword" Texture_B="spine_wuxia\wind_saber_weapon_f.png" Texture_RB="spine_wuxia\wind_saber_weapon_3.png" Texture_S="spine_wuxia\wind_saber_weapon_3.png" Texture_RT="spine_wuxia\wind_saber_weapon_3.png" Texture_T="spine_wuxia\wind_saber_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_rock_mace" WeaponType="spear" Texture_B="spine_wuxia\rock_mace_weapon_f.png" Texture_RB="spine_wuxia\rock_mace_weapon_3.png" Texture_S="spine_wuxia\rock_mace_weapon_3.png" Texture_RT="spine_wuxia\rock_mace_weapon_3.png" Texture_T="spine_wuxia\rock_mace_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_heart_spear" WeaponType="spear" Texture_B="spine_wuxia\heart_spear_weapon_f.png" Texture_RB="spine_wuxia\heart_spear_weapon_3.png" Texture_S="spine_wuxia\heart_spear_weapon_3.png" Texture_RT="spine_wuxia\heart_spear_weapon_3.png" Texture_T="spine_wuxia\heart_spear_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_push_dagger" WeaponType="sword" Texture_B="spine_wuxia\push_dagger_weapon_f.png" Texture_RB="spine_wuxia\push_dagger_weapon_3.png" Texture_S="spine_wuxia\push_dagger_weapon_3.png" Texture_RT="spine_wuxia\push_dagger_weapon_3.png" Texture_T="spine_wuxia\push_dagger_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_harquebus" WeaponType="gun" Texture_B="spine_wuxia\harquebus_weapon_f.png" Texture_RB="spine_wuxia\harquebus_weapon_3.png" Texture_S="spine_wuxia\harquebus_weapon_3.png" Texture_RT="spine_wuxia\harquebus_weapon_3.png" Texture_T="spine_wuxia\harquebus_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_eagle_musket" WeaponType="gun" Texture_B="spine_wuxia\eagle_musket_weapon_f.png" Texture_RB="spine_wuxia\eagle_musket_weapon_3.png" Texture_S="spine_wuxia\eagle_musket_weapon_3.png" Texture_RT="spine_wuxia\eagle_musket_weapon_3.png" Texture_T="spine_wuxia\eagle_musket_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_locust_bow" WeaponType="gun" Texture_B="spine_wuxia\locust_bow_weapon_f.png" Texture_RB="spine_wuxia\locust_bow_weapon_3.png" Texture_S="spine_wuxia\locust_bow_weapon_3.png" Texture_RT="spine_wuxia\locust_bow_weapon_3.png" Texture_T="spine_wuxia\locust_bow_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_throwing_darts" WeaponType="thrown" Texture_B="spine_wuxia\throwing_darts_weapon_f.png" Texture_RB="spine_wuxia\throwing_darts_weapon_f.png" Texture_S="spine_wuxia\throwing_darts_weapon_f.png" Texture_RT="spine_wuxia\throwing_darts_weapon_f.png" Texture_T="spine_wuxia\throwing_darts_weapon_f.png" />
+		<ModSpineWeapon Name="wuxia_flail" WeaponType="spear" Texture_B="spine_wuxia\flail_weapon_f.png" Texture_RB="spine_wuxia\flail_weapon_3.png" Texture_S="spine_wuxia\flail_weapon_3.png" Texture_RT="spine_wuxia\flail_weapon_3.png" Texture_T="spine_wuxia\flail_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_t_stick" WeaponType="sword" Texture_B="spine_wuxia\t_stick_weapon_f.png" Texture_RB="spine_wuxia\t_stick_weapon_3.png" Texture_S="spine_wuxia\t_stick_weapon_3.png" Texture_RT="spine_wuxia\t_stick_weapon_3.png" Texture_T="spine_wuxia\t_stick_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_sword_breaker" WeaponType="spear" Texture_B="spine_wuxia\sword_breaker_weapon_f.png" Texture_RB="spine_wuxia\sword_breaker_weapon_3.png" Texture_S="spine_wuxia\sword_breaker_weapon_3.png" Texture_RT="spine_wuxia\sword_breaker_weapon_3.png" Texture_T="spine_wuxia\sword_breaker_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_hand_fork" WeaponType="sword" Texture_B="spine_wuxia\hand_fork_weapon_f.png" Texture_RB="spine_wuxia\hand_fork_weapon_3.png" Texture_S="spine_wuxia\hand_fork_weapon_3.png" Texture_RT="spine_wuxia\hand_fork_weapon_3.png" Texture_T="spine_wuxia\hand_fork_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_long_stick" WeaponType="spear" Texture_B="spine_wuxia\long_stick_weapon_f.png" Texture_RB="spine_wuxia\long_stick_weapon_3.png" Texture_S="spine_wuxia\long_stick_weapon_3.png" Texture_RT="spine_wuxia\long_stick_weapon_3.png" Texture_T="spine_wuxia\long_stick_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_short_dao" WeaponType="sword" Texture_B="spine_wuxia\short_dao_weapon_f.png" Texture_RB="spine_wuxia\short_dao_weapon_3.png" Texture_S="spine_wuxia\short_dao_weapon_3.png" Texture_RT="spine_wuxia\short_dao_weapon_3.png" Texture_T="spine_wuxia\short_dao_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_wood_chopper" WeaponType="spear" Texture_B="spine_wuxia\wood_chopper_weapon_f.png" Texture_RB="spine_wuxia\wood_chopper_weapon_3.png" Texture_S="spine_wuxia\wood_chopper_weapon_3.png" Texture_RT="spine_wuxia\wood_chopper_weapon_3.png" Texture_T="spine_wuxia\wood_chopper_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_ring_dao" WeaponType="sword" Texture_B="spine_wuxia\ring_dao_weapon_f.png" Texture_RB="spine_wuxia\ring_dao_weapon_3.png" Texture_S="spine_wuxia\ring_dao_weapon_3.png" Texture_RT="spine_wuxia\ring_dao_weapon_3.png" Texture_T="spine_wuxia\ring_dao_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_tang_dao" WeaponType="sword" Texture_B="spine_wuxia\tang_dao_weapon_f.png" Texture_RB="spine_wuxia\tang_dao_weapon_3.png" Texture_S="spine_wuxia\tang_dao_weapon_3.png" Texture_RT="spine_wuxia\tang_dao_weapon_3.png" Texture_T="spine_wuxia\tang_dao_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_yanling_dao" WeaponType="sword" Texture_B="spine_wuxia\yanling_dao_weapon_f.png" Texture_RB="spine_wuxia\yanling_dao_weapon_3.png" Texture_S="spine_wuxia\yanling_dao_weapon_3.png" Texture_RT="spine_wuxia\yanling_dao_weapon_3.png" Texture_T="spine_wuxia\yanling_dao_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_liuye_dao" WeaponType="sword" Texture_B="spine_wuxia\liuye_dao_weapon_f.png" Texture_RB="spine_wuxia\liuye_dao_weapon_3.png" Texture_S="spine_wuxia\liuye_dao_weapon_3.png" Texture_RT="spine_wuxia\liuye_dao_weapon_3.png" Texture_T="spine_wuxia\liuye_dao_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_miao_dao" WeaponType="sword" Texture_B="spine_wuxia\miao_dao_weapon_f.png" Texture_RB="spine_wuxia\miao_dao_weapon_3.png" Texture_S="spine_wuxia\miao_dao_weapon_3.png" Texture_RT="spine_wuxia\miao_dao_weapon_3.png" Texture_T="spine_wuxia\miao_dao_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_general_sword" WeaponType="sword" Texture_B="spine_wuxia\general_sword_weapon_f.png" Texture_RB="spine_wuxia\general_sword_weapon_3.png" Texture_S="spine_wuxia\general_sword_weapon_3.png" Texture_RT="spine_wuxia\general_sword_weapon_3.png" Texture_T="spine_wuxia\general_sword_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_hook_sword" WeaponType="sword" Texture_B="spine_wuxia\hook_sword_weapon_f.png" Texture_RB="spine_wuxia\hook_sword_weapon_3.png" Texture_S="spine_wuxia\hook_sword_weapon_3.png" Texture_RT="spine_wuxia\hook_sword_weapon_3.png" Texture_T="spine_wuxia\hook_sword_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_yue_axe" WeaponType="spear" Texture_B="spine_wuxia\yue_axe_weapon_f.png" Texture_RB="spine_wuxia\yue_axe_weapon_3.png" Texture_S="spine_wuxia\yue_axe_weapon_3.png" Texture_RT="spine_wuxia\yue_axe_weapon_3.png" Texture_T="spine_wuxia\yue_axe_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_zhanma_dao" WeaponType="spear" Texture_B="spine_wuxia\zhanma_dao_weapon_f.png" Texture_RB="spine_wuxia\zhanma_dao_weapon_3.png" Texture_S="spine_wuxia\zhanma_dao_weapon_3.png" Texture_RT="spine_wuxia\zhanma_dao_weapon_3.png" Texture_T="spine_wuxia\zhanma_dao_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_guan_dao" WeaponType="spear" Texture_B="spine_wuxia\guan_dao_weapon_f.png" Texture_RB="spine_wuxia\guan_dao_weapon_3.png" Texture_S="spine_wuxia\guan_dao_weapon_3.png" Texture_RT="spine_wuxia\guan_dao_weapon_3.png" Texture_T="spine_wuxia\guan_dao_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_halberd" WeaponType="spear" Texture_B="spine_wuxia\halberd_weapon_f.png" Texture_RB="spine_wuxia\halberd_weapon_3.png" Texture_S="spine_wuxia\halberd_weapon_3.png" Texture_RT="spine_wuxia\halberd_weapon_3.png" Texture_T="spine_wuxia\halberd_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_heavy_lance" WeaponType="spear" Texture_B="spine_wuxia\heavy_lance_weapon_f.png" Texture_RB="spine_wuxia\heavy_lance_weapon_3.png" Texture_S="spine_wuxia\heavy_lance_weapon_3.png" Texture_RT="spine_wuxia\heavy_lance_weapon_3.png" Texture_T="spine_wuxia\heavy_lance_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_red_tassel_spear" WeaponType="spear" Texture_B="spine_wuxia\red_tassel_spear_weapon_f.png" Texture_RB="spine_wuxia\red_tassel_spear_weapon_3.png" Texture_S="spine_wuxia\red_tassel_spear_weapon_3.png" Texture_RT="spine_wuxia\red_tassel_spear_weapon_3.png" Texture_T="spine_wuxia\red_tassel_spear_weapon_b.png" />
+		<ModSpineWeapon Name="wuxia_horn_fork" WeaponType="spear" Texture_B="spine_wuxia\horn_fork_weapon_f.png" Texture_RB="spine_wuxia\horn_fork_weapon_3.png" Texture_S="spine_wuxia\horn_fork_weapon_3.png" Texture_RT="spine_wuxia\horn_fork_weapon_3.png" Texture_T="spine_wuxia\horn_fork_weapon_b.png" />
+	</weapons>
+</ModXmlSpine>

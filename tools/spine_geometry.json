@@ -1,0 +1,872 @@
+{
+ "00azipifuman": {
+  "00_3/head 3|head 3": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -18.73,
+    67.88,
+    19.27,
+    107.88
+   ],
+   "center": [
+    0.28,
+    87.88
+   ],
+   "theta": 0.0,
+   "size": [
+    62.0,
+    64.0
+   ]
+  },
+  "00_9/head 9|head 9": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -16.52,
+    68.22,
+    21.48,
+    108.22
+   ],
+   "center": [
+    2.48,
+    88.22
+   ],
+   "theta": -0.01,
+   "size": [
+    62.0,
+    64.0
+   ]
+  },
+  "00_back/head b|head b": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -20.5,
+    68.11,
+    21.51,
+    108.11
+   ],
+   "center": [
+    0.5,
+    88.11
+   ],
+   "theta": 0.01,
+   "size": [
+    66.0,
+    64.0
+   ]
+  },
+  "00_front/head f|head f": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -21.07,
+    68.22,
+    20.93,
+    108.22
+   ],
+   "center": [
+    -0.07,
+    88.22
+   ],
+   "theta": 0.0,
+   "size": [
+    66.0,
+    64.0
+   ]
+  },
+  "00_side/head s|head s": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -16.56,
+    69.9,
+    19.45,
+    109.9
+   ],
+   "center": [
+    1.44,
+    89.9
+   ],
+   "theta": -0.01,
+   "size": [
+    60.0,
+    64.0
+   ]
+  }
+ },
+ "DG_TK_002_M": {
+  "00_3/casque 3|casque 3": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -32.9,
+    65.86,
+    33.1,
+    129.86
+   ],
+   "center": [
+    0.1,
+    94.86
+   ],
+   "theta": 0.0,
+   "size": [
+    86.0,
+    86.0
+   ]
+  },
+  "00_9/casque 9|casque 9": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -30.52,
+    64.22,
+    35.49,
+    130.24
+   ],
+   "center": [
+    4.48,
+    95.23
+   ],
+   "theta": -0.01,
+   "size": [
+    86.0,
+    86.0
+   ]
+  },
+  "00_back/casque b|casque b": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -32.5,
+    62.61,
+    33.51,
+    126.62
+   ],
+   "center": [
+    0.5,
+    91.61
+   ],
+   "theta": 0.01,
+   "size": [
+    86.0,
+    86.0
+   ]
+  },
+  "00_front/casque f|casque f": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -33.07,
+    66.39,
+    32.93,
+    130.39
+   ],
+   "center": [
+    -0.06,
+    95.39
+   ],
+   "theta": 0.0,
+   "size": [
+    86.0,
+    86.0
+   ]
+  },
+  "00_side/casque s|casque s": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -34.64,
+    67.82,
+    29.37,
+    129.83
+   ],
+   "center": [
+    -1.64,
+    96.82
+   ],
+   "theta": -0.01,
+   "size": [
+    82.0,
+    86.0
+   ]
+  }
+ },
+ "DG_KJ_000_M": {
+  "00_3/body 3|body 3": {
+   "type": "MeshAttachment",
+   "bbox": [
+    -30.11,
+    15.25,
+    27.76,
+    86.41
+   ]
+  },
+  "00_3/handl 3|handl 3": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -24.69,
+    23.57,
+    -12.69,
+    33.57
+   ],
+   "center": [
+    -18.69,
+    28.57
+   ],
+   "theta": 0.0,
+   "size": [
+    36.0,
+    34.0
+   ]
+  },
+  "00_3/handr 3|handr 3": {
+   "type": "RegionAttachment",
+   "bbox": [
+    15.22,
+    25.99,
+    27.22,
+    35.99
+   ],
+   "center": [
+    21.22,
+    30.99
+   ],
+   "theta": 0.0,
+   "size": [
+    36.0,
+    34.0
+   ]
+  },
+  "00_3/Left big arm 3|Left big arm 3": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -24.81,
+    44.04,
+    -10.81,
+    70.04
+   ],
+   "center": [
+    -17.81,
+    57.04
+   ],
+   "theta": 0.0,
+   "size": [
+    38.0,
+    50.0
+   ]
+  },
+  "00_3/left lower arm 3|left lower arm 3": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -26.69,
+    31.59,
+    -10.69,
+    51.59
+   ],
+   "center": [
+    -18.69,
+    41.59
+   ],
+   "theta": 0.0,
+   "size": [
+    40.0,
+    44.0
+   ]
+  },
+  "00_3/Right big arm 3|Right big arm 3": {
+   "type": "RegionAttachment",
+   "bbox": [
+    9.25,
+    47.84,
+    25.25,
+    73.84
+   ],
+   "center": [
+    17.25,
+    60.85
+   ],
+   "theta": 0.0,
+   "size": [
+    40.0,
+    50.0
+   ]
+  },
+  "00_3/Right lower arm 3|Right lower arm 3": {
+   "type": "RegionAttachment",
+   "bbox": [
+    11.17,
+    30.02,
+    29.17,
+    56.02
+   ],
+   "center": [
+    20.18,
+    43.02
+   ],
+   "theta": 0.0,
+   "size": [
+    42.0,
+    50.0
+   ]
+  },
+  "00_3/skirtl 3|skirtl 3": {
+   "type": "MeshAttachment",
+   "bbox": [
+    -31.74,
+    0.98,
+    5.15,
+    47.34
+   ]
+  },
+  "00_3/skirtm 3|skirtm 3": {
+   "type": "MeshAttachment",
+   "bbox": [
+    -14.09,
+    5.04,
+    21.81,
+    46.25
+   ]
+  },
+  "00_3/skirtr 3|skirtr 3": {
+   "type": "MeshAttachment",
+   "bbox": [
+    -0.25,
+    5.45,
+    34.02,
+    45.32
+   ]
+  },
+  "00_9/body 9|body 9": {
+   "type": "MeshAttachment",
+   "bbox": [
+    -20.3,
+    20.34,
+    28.78,
+    82.69
+   ]
+  },
+  "00_9/handr 3|handr 3": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -22.49,
+    28.24,
+    -12.49,
+    38.24
+   ],
+   "center": [
+    -17.48,
+    33.24
+   ],
+   "theta": -0.01,
+   "size": [
+    34.0,
+    34.0
+   ]
+  },
+  "00_9/handr 9|handr 9": {
+   "type": "RegionAttachment",
+   "bbox": [
+    17.36,
+    22.36,
+    29.36,
+    34.36
+   ],
+   "center": [
+    23.36,
+    28.36
+   ],
+   "theta": -0.01,
+   "size": [
+    36.0,
+    36.0
+   ]
+  },
+  "00_9/Left big arm 9|Left big arm 9": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -20.44,
+    48.06,
+    -6.44,
+    74.06
+   ],
+   "center": [
+    -13.44,
+    61.06
+   ],
+   "theta": -0.01,
+   "size": [
+    38.0,
+    50.0
+   ]
+  },
+  "00_9/left lower arm 9|left lower arm 9": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -24.49,
+    34.02,
+    -8.49,
+    60.02
+   ],
+   "center": [
+    -16.48,
+    47.02
+   ],
+   "theta": -0.01,
+   "size": [
+    40.0,
+    50.0
+   ]
+  },
+  "00_9/Right big arm 9|Right big arm 9": {
+   "type": "RegionAttachment",
+   "bbox": [
+    13.53,
+    46.39,
+    29.54,
+    68.39
+   ],
+   "center": [
+    21.54,
+    57.4
+   ],
+   "theta": -0.01,
+   "size": [
+    40.0,
+    46.0
+   ]
+  },
+  "00_9/Right lower arm 9|Right lower arm 9": {
+   "type": "RegionAttachment",
+   "bbox": [
+    15.36,
+    32.34,
+    31.36,
+    54.35
+   ],
+   "center": [
+    23.36,
+    43.34
+   ],
+   "theta": -0.01,
+   "size": [
+    40.0,
+    46.0
+   ]
+  },
+  "00_9/skirt 9|skirt 9": {
+   "type": "MeshAttachment",
+   "bbox": [
+    -21.36,
+    5.05,
+    31.03,
+    49.47
+   ]
+  },
+  "00_back/body b|body b": {
+   "type": "MeshAttachment",
+   "bbox": [
+    -23.74,
+    18.87,
+    25.28,
+    80.43
+   ]
+  },
+  "00_back/body b2|body b": {
+   "type": "MeshAttachment",
+   "bbox": [
+    -23.74,
+    21.49,
+    24.24,
+    80.25
+   ]
+  },
+  "00_back/handl b|handl b": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -26.49,
+    26.29,
+    -14.49,
+    38.3
+   ],
+   "center": [
+    -20.49,
+    32.3
+   ],
+   "theta": 0.01,
+   "size": [
+    36.0,
+    36.0
+   ]
+  },
+  "00_back/handr b|handr b": {
+   "type": "RegionAttachment",
+   "bbox": [
+    15.51,
+    25.95,
+    27.51,
+    37.96
+   ],
+   "center": [
+    21.51,
+    31.96
+   ],
+   "theta": 0.01,
+   "size": [
+    36.0,
+    36.0
+   ]
+  },
+  "00_back/Left big arm b|Left big arm b": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -28.54,
+    44.29,
+    -10.53,
+    70.29
+   ],
+   "center": [
+    -19.53,
+    57.29
+   ],
+   "theta": 0.01,
+   "size": [
+    42.0,
+    50.0
+   ]
+  },
+  "00_back/left lower arm b|left lower arm b": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -28.5,
+    36.3,
+    -12.5,
+    52.3
+   ],
+   "center": [
+    -20.5,
+    44.3
+   ],
+   "theta": 0.01,
+   "size": [
+    40.0,
+    40.0
+   ]
+  },
+  "00_back/Right big arm b|Right big arm b": {
+   "type": "RegionAttachment",
+   "bbox": [
+    11.51,
+    43.97,
+    29.51,
+    69.98
+   ],
+   "center": [
+    20.51,
+    56.97
+   ],
+   "theta": 0.01,
+   "size": [
+    42.0,
+    50.0
+   ]
+  },
+  "00_back/Right lower arm b|Right lower arm b": {
+   "type": "RegionAttachment",
+   "bbox": [
+    13.54,
+    35.93,
+    29.54,
+    51.93
+   ],
+   "center": [
+    21.54,
+    43.93
+   ],
+   "theta": 0.01,
+   "size": [
+    40.0,
+    40.0
+   ]
+  },
+  "00_back/skirt b|skirt b": {
+   "type": "MeshAttachment",
+   "bbox": [
+    -27.54,
+    0.99,
+    28.35,
+    48.17
+   ]
+  },
+  "00_front/body f|body f": {
+   "type": "MeshAttachment",
+   "bbox": [
+    -21.12,
+    20.25,
+    25.13,
+    77.37
+   ]
+  },
+  "00_front/Handl f|Handl f": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -27.02,
+    26.49,
+    -15.02,
+    36.49
+   ],
+   "center": [
+    -21.02,
+    31.48
+   ],
+   "theta": 0.0,
+   "size": [
+    36.0,
+    34.0
+   ]
+  },
+  "00_front/handr f|handr f": {
+   "type": "RegionAttachment",
+   "bbox": [
+    14.86,
+    25.99,
+    26.86,
+    35.99
+   ],
+   "center": [
+    20.86,
+    30.99
+   ],
+   "theta": 0.01,
+   "size": [
+    36.0,
+    34.0
+   ]
+  },
+  "00_front/Left big arm f|Left big arm f": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -27.01,
+    42.38,
+    -13.01,
+    72.38
+   ],
+   "center": [
+    -20.0,
+    57.38
+   ],
+   "theta": 0.0,
+   "size": [
+    38.0,
+    54.0
+   ]
+  },
+  "00_front/left lower arm f|left lower arm f": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -29.01,
+    34.34,
+    -13.01,
+    50.34
+   ],
+   "center": [
+    -21.0,
+    42.33
+   ],
+   "theta": 0.0,
+   "size": [
+    40.0,
+    40.0
+   ]
+  },
+  "00_front/Right big arm f|Right big arm f": {
+   "type": "RegionAttachment",
+   "bbox": [
+    12.9,
+    42.34,
+    26.9,
+    72.34
+   ],
+   "center": [
+    19.9,
+    57.33
+   ],
+   "theta": 0.0,
+   "size": [
+    38.0,
+    54.0
+   ]
+  },
+  "00_front/Right lower arm f|Right lower arm f": {
+   "type": "RegionAttachment",
+   "bbox": [
+    12.87,
+    32.3,
+    28.87,
+    48.3
+   ],
+   "center": [
+    20.87,
+    40.3
+   ],
+   "theta": 0.01,
+   "size": [
+    40.0,
+    40.0
+   ]
+  },
+  "00_front/skirtl f|skirtl f": {
+   "type": "MeshAttachment",
+   "bbox": [
+    -37.0,
+    2.52,
+    3.37,
+    52.44
+   ]
+  },
+  "00_front/skirtm f|skirtm f": {
+   "type": "MeshAttachment",
+   "bbox": [
+    -18.19,
+    2.39,
+    16.17,
+    51.66
+   ]
+  },
+  "00_front/skirtr f|skirtr f": {
+   "type": "MeshAttachment",
+   "bbox": [
+    -2.12,
+    3.27,
+    36.51,
+    43.0
+   ]
+  },
+  "00_side/body s|body s": {
+   "type": "MeshAttachment",
+   "bbox": [
+    -20.09,
+    24.13,
+    24.34,
+    78.64
+   ]
+  },
+  "00_side/handl s|handl s": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -6.61,
+    22.01,
+    7.39,
+    36.01
+   ],
+   "center": [
+    0.4,
+    29.01
+   ],
+   "theta": -0.01,
+   "size": [
+    38.0,
+    38.0
+   ]
+  },
+  "00_side/handr s|handr s": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -4.2,
+    24.72,
+    9.81,
+    38.72
+   ],
+   "center": [
+    2.8,
+    31.72
+   ],
+   "theta": -0.01,
+   "size": [
+    38.0,
+    38.0
+   ]
+  },
+  "00_side/Left big arm s|Left big arm s": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -10.66,
+    31.97,
+    9.35,
+    61.97
+   ],
+   "center": [
+    -0.65,
+    46.97
+   ],
+   "theta": -0.01,
+   "size": [
+    44.0,
+    54.0
+   ]
+  },
+  "00_side/left lower arm s|left lower arm s": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -10.71,
+    30.0,
+    9.29,
+    50.0
+   ],
+   "center": [
+    -0.71,
+    39.99
+   ],
+   "theta": -0.01,
+   "size": [
+    44.0,
+    44.0
+   ]
+  },
+  "00_side/Right big arm s|Right big arm s": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -8.23,
+    36.56,
+    11.78,
+    66.56
+   ],
+   "center": [
+    1.78,
+    51.55
+   ],
+   "theta": -0.01,
+   "size": [
+    44.0,
+    54.0
+   ]
+  },
+  "00_side/Right lower arm s|Right lower arm s": {
+   "type": "RegionAttachment",
+   "bbox": [
+    -8.22,
+    32.55,
+    11.78,
+    52.56
+   ],
+   "center": [
+    1.78,
+    42.56
+   ],
+   "theta": -0.01,
+   "size": [
+    44.0,
+    44.0
+   ]
+  },
+  "00_side/skirt s|skirt s": {
+   "type": "MeshAttachment",
+   "bbox": [
+    -28.55,
+    3.43,
+    20.05,
+    50.51
+   ]
+  },
+  "00_side/skritr s|skritr s": {
+   "type": "MeshAttachment",
+   "bbox": [
+    0.03,
+    3.38,
+    32.56,
+    48.7
+   ]
+  }
+ }
+}

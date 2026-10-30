@@ -79,5 +79,19 @@
   "ui.deviation_left": "Qi Deviation: cannot cultivate, slower and hungrier ({0} h left).",
   "ui.need_platform": "A built Breakthrough Platform is needed to attempt the breakthrough.",
   "ui.break_button": "Try breakthrough",
-  "pill.break_not_ready": "Not at the peak of {0} yet: no breakthrough."
+  "pill.break_not_ready": "Not at the peak of {0} yet: no breakthrough.",
+  "ui.build_tab": "Wuxia",
+  "ui.window.hint": "F9 opens and closes this window",
+  "ui.window.no_hero": "No colonist on the map.",
+  "ui.window.android": "Android",
+  "ui.window.open_button": "Wuxia window (F9)",
+  "dev.drop_all": "Drop all items",
+  "dev.fill": "Fill cultivation",
+  "dev.break_now": "Break through now",
+  "dev.drop_break_item": "Drop breakthrough item",
+  "dev.no_break_item": "This realm needs no item to break through.",
+  "dev.dropped": "{0} item stacks dropped.",
+  "dev.items": "All mod items",
+  "dev.drop": "Drop",
+  "dev.no_root": "This colonist has no spirit root and cannot cultivate."
 }
