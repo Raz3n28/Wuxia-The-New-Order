@@ -38,6 +38,7 @@ namespace WuxiaMod.Game
                     ? versionDir
                     : FindVersionDir();
                 ModLog.Info("Iniciando a partir de " + VersionDir);
+                SpinePack.Unpack(VersionDir);
 
                 string language = "auto";
                 var configPath = Path.Combine(VersionDir, "config.json");
@@ -50,8 +51,6 @@ namespace WuxiaMod.Game
                     Patches.MeditationPatch.QiPerHourRecreation = cfg.Float("qiPerHourRecreation", Patches.MeditationPatch.QiPerHourRecreation);
                     Patches.MeditationPatch.QiPerHourMeditation = cfg.Float("qiPerHourMeditation", Patches.MeditationPatch.QiPerHourMeditation);
                     Patches.MeditationPatch.QiPerHourPlatform = cfg.Float("qiPerHourPlatform", Patches.MeditationPatch.QiPerHourPlatform);
-                    Patches.EquipSpritePatch.WeaponRotation = cfg.Float("weaponSpriteRotation", Patches.EquipSpritePatch.WeaponRotation);
-                    Patches.EquipSpritePatch.WeaponScale = cfg.Float("weaponSpriteScale", Patches.EquipSpritePatch.WeaponScale);
                     SpineDump.Auto = cfg.Bool("dumpSpine");
                 }
 

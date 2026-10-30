@@ -147,16 +147,17 @@ namespace WuxiaMod.Game
                 var tex = (region.page?.rendererObject as Material)?.mainTexture;
                 if (tex == null) return "";
                 var src = ReadableCopy(tex);
-                // u/v contam de cima para baixo; o Texture2D conta de baixo para cima.
+                // Depois do OptimizeSkin as regiões vêm do spine-unity (UVRectToAtlasRegion): v e v2
+                // já contam de baixo para cima como no Texture2D, sem inverter.
                 int px0 = Mathf.RoundToInt(Math.Min(region.u, region.u2) * tex.width);
                 int px1 = Mathf.RoundToInt(Math.Max(region.u, region.u2) * tex.width);
-                int py0 = Mathf.RoundToInt((1 - Math.Max(region.v, region.v2)) * tex.height);
-                int py1 = Mathf.RoundToInt((1 - Math.Min(region.v, region.v2)) * tex.height);
+                int py0 = Mathf.RoundToInt(Math.Min(region.v, region.v2) * tex.height);
+                int py1 = Mathf.RoundToInt(Math.Max(region.v, region.v2) * tex.height);
                 int w = Math.Max(1, px1 - px0), h = Math.Max(1, py1 - py0);
                 var outTex = new Texture2D(w, h, TextureFormat.RGBA32, false);
                 outTex.SetPixels(src.GetPixels(px0, py0, w, h));
                 outTex.Apply();
-                string file = Clean(skin + "__" + slot + "__" + name) + (region.rotate ? "__rot" : "") + ".png";
+                string file = Clean(skin + "__" + slot + "__" + name) + (region.degrees != 0 ? "__deg" + region.degrees : "") + ".png";
                 File.WriteAllBytes(Path.Combine(dir, file), outTex.EncodeToPNG());
                 UnityEngine.Object.Destroy(outTex);
                 return file;
