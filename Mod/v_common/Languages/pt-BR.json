@@ -79,5 +79,6 @@
   "ui.deviation_left": "Desvio de Qi: não cultiva, fica mais lento e com mais fome (faltam {0} h).",
   "ui.need_platform": "Precisa de uma Plataforma de Ruptura construída para tentar a ruptura.",
   "ui.break_button": "Tentar ruptura",
-  "pill.break_not_ready": "Ainda não está no auge de {0}: sem ruptura."
+  "pill.break_not_ready": "Ainda não está no auge de {0}: sem ruptura.",
+  "ui.build_tab": "Wuxia"
 }

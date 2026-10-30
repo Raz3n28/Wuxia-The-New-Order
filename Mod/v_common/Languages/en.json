@@ -79,5 +79,6 @@
   "ui.deviation_left": "Qi Deviation: cannot cultivate, slower and hungrier ({0} h left).",
   "ui.need_platform": "A built Breakthrough Platform is needed to attempt the breakthrough.",
   "ui.break_button": "Try breakthrough",
-  "pill.break_not_ready": "Not at the peak of {0} yet: no breakthrough."
+  "pill.break_not_ready": "Not at the peak of {0} yet: no breakthrough.",
+  "ui.build_tab": "Wuxia"
 }

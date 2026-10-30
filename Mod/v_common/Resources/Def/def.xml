@@ -29,6 +29,7 @@
       <Item Name="RawIcon">wuxia_meditation_cushion.png</Item>
       <Item Name="Width">1</Item>
       <Item Name="Height">1</Item>
+      <Item Name="PersonPassable">1</Item>
     </ModDefRow>
     <ModDefRow Name="LanguageDef">
       <Item Name="Key">id_修炼蒲团</Item>
@@ -54,6 +55,7 @@
       <Item Name="Reinstall">0</Item>
       <Item Name="Uninstall">-1</Item>
       <Item Name="Show_value2">修炼</Item>
+      <Item Name="PersonPassable">1</Item>
     </ModDefRow>
     <ModDefRow Name="LanguageDef">
       <Item Name="Key">id_聚灵台</Item>
@@ -76,6 +78,7 @@
       <Item Name="Reinstall">0</Item>
       <Item Name="Uninstall">-1</Item>
       <Item Name="Show_value2">修炼</Item>
+      <Item Name="PersonPassable">1</Item>
     </ModDefRow>
     <ModDefRow Name="LanguageDef">
       <Item Name="Key">id_突破台</Item>
