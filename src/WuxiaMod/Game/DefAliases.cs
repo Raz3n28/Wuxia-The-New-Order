@@ -32,6 +32,8 @@ namespace WuxiaMod.Game
             added += Register<T_MedicineDef>();
             added += Register<F_ProductListDef>();
             added += Register<F_ManufactureDef>();
+            added += Register<T_WeaponDef>();
+            added += Register<T_ClothDef>();
             ApplyTexts<F_Entertainment>();
             ApplyTexts<F_DecroDef>();
             FixSortIds<F_ManufactureDef>();

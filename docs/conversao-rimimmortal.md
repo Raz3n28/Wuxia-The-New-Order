@@ -92,3 +92,12 @@ Ideologia e memes, estilos de ideologia, narradores (storytellers), cenários, b
 - Itens de ruptura: Elixir da Fundação (96017), Qi Yang Puro (96018) e Oráculo Imortal (96019, feito com 6 Fragmentos 96116). Jade Líquido (96115) é material.
 - Construções: Plataforma de Cultivo (9602), Plataforma de Ruptura (9603) e Rocha Espiritual (9604, decoração, +50% de Qi em 15 casas).
 - Não convertido ainda: o pilar de trovão, os traços e as tribulações do Core.
+
+## Fase 3: armas e armaduras do Forge e do Weapon Pack (feito)
+
+- Gerador: `tools/gen_phase3.py`, dados em `tools/phase3_ri.py`. Cada arma copia as 4 qualidades de uma arma do jogo (`DependID` = ID da qualidade), troca dano, alcance, peso, preço, ícone e ganha `ClassID` próprio. Cada armadura copia um elmo ou armadura do jogo; chapéu e manto (20110, 20140) só têm 1 qualidade.
+- Modelos: adaga 10810, espada 90910, lança 11010, alabarda 21010, maça 11110, martelo 91110, machado 91130, mosquete/arco 10610, besta/arcabuz 10310, metralhadora 40410, granada e armas de arremesso 10710, canhão 90720. O visual na mão é o do modelo.
+- Corpo a corpo: dano por golpe = 60 x (maior poder do RimWorld)^0,6 x intervalo do modelo. Distância: dano do projétil x 4 (mosquete), x 2 por virote (besta), alcance x 1,15 (máximo 60). Armadura: Defend = ArmorRating_Sharp x 35 (x 25 nos elmos). Qualidades: x 1, 1,05, 1,17, 1,4.
+- Ingredientes: aço /10 → 钢材, plastaço /5 → 钛锭, ouro /5, prata /5 → cobre, jade /10 → pedra espiritual, componentes 1:1, talismã → Fogo Espiritual, material "stuff" metálico /4 → ferro.
+- Forjas: Forja de Armas Espirituais 96904 (tudo de 3º e 2º grau e as armas mortais) e Forja da Alma Divina 96905 (1º grau e o que usa núcleo espiritual ou relíquia).
+- Ficou de fora: próteses e órgãos (`T_BodyPartsDef`), talismãs, a espada de luz, o pacote do boneco mecânico, torres e móveis antigos, e as habilidades especiais das armas (atordoar, veneno, raio).
