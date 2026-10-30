@@ -53,12 +53,13 @@ namespace WuxiaMod.Game.Patches
                 var weapon = __instance.getWeapon();
                 if (!IsOurs(weapon)) return;
                 var t = Traverse.Create(__instance);
+                var renderer = t.Field("spinePlayer").GetValue<SpinePlayer>()?.skeletonAnimation;
                 foreach (var name in WeaponSlots)
                 {
                     var slot = t.Field(name).GetValue<Slot>();
                     if (!(slot?.Attachment is RegionAttachment original)) continue;
                     var clone = WeaponClone(original, weapon);
-                    if (clone != null) slot.Attachment = clone;
+                    if (clone != null && Register(renderer, clone)) slot.Attachment = clone;
                 }
             }
             catch (Exception ex) { Fail(ex, "imagem da arma na mão"); }
@@ -95,7 +96,8 @@ namespace WuxiaMod.Game.Patches
                 var cloths = __instance.getCloths();
                 if (cloths == null) return;
                 var spine = Traverse.Create(__instance).Field("spinePlayer").GetValue<SpinePlayer>();
-                var skeleton = spine?.skeletonAnimation?.Skeleton;
+                var renderer = spine?.skeletonAnimation;
+                var skeleton = renderer?.Skeleton;
                 if (skeleton?.Skin == null) return;
                 int sex = __instance.hero.heroBean.sex;
                 foreach (var equip in cloths)
@@ -105,59 +107,85 @@ namespace WuxiaMod.Game.Patches
                     foreach (var skinName in def.clothSkin.getClothSkin(sex))
                     {
                         var skin = skeleton.Data.FindSkin(skinName);
-                        if (skin != null) ReplaceCloth(skeleton, skin, def);
+                        if (skin != null) ReplaceCloth(renderer, skeleton, skin, def);
                     }
                 }
             }
             catch (Exception ex) { Fail(ex, "imagem da roupa no personagem"); }
         }
 
-        private static void ReplaceCloth(Skeleton skeleton, Skin skin, BaseDef def)
+        private static void ReplaceCloth(Spine.Unity.SkeletonRenderer renderer, Skeleton skeleton, Skin skin, BaseDef def)
         {
             var entries = new List<Skin.SkinEntry>(skin.Attachments);
             float biggest = 0;
-            foreach (var e in entries)
-                if (e.Attachment is RegionAttachment r) biggest = Math.Max(biggest, Area(r));
+            foreach (var e in entries) biggest = Math.Max(biggest, Area(e.Attachment));
 
             bool log = LoggedCloth.Add(def.ID + "|" + skin.Name);
             if (log) ModLog.Info($"Roupa {def.ID} ({def.RawIcon}), skin {skin.Name}: {entries.Count} peças");
 
             foreach (var e in entries)
             {
-                string slotName = skeleton.Slots.Items[e.SlotIndex].Data.Name;
-                if (!(e.Attachment is RegionAttachment original))
-                {
-                    if (log) ModLog.Info($"  {slotName}/{e.Name}: {e.Attachment?.GetType().Name} (sem troca)");
-                    continue;
-                }
-                bool big = Area(original) >= biggest * 0.5f;
-                if (log) ModLog.Info($"  {slotName}/{e.Name}: {original.Width:0.##}x{original.Height:0.##} rot {original.Rotation:0} {(big ? "-> nossa imagem" : "-> some")}");
-                skeleton.Skin.SetAttachment(e.SlotIndex, e.Name, big ? ClothClone(original, def) : null);
+                // Só as peças grandes (tronco, capacete) viram a nossa imagem; as pequenas
+                // (mãos, braços, detalhes) ficam as do jogo.
+                bool big = biggest > 0 && Area(e.Attachment) >= biggest * 0.5f;
+                if (log) ModLog.Info($"  {skeleton.Slots.Items[e.SlotIndex].Data.Name}/{e.Name}: {e.Attachment?.GetType().Name} {Area(e.Attachment):0} {(big ? "-> nossa imagem" : "-> do jogo")}");
+                if (!big) continue;
+                var clone = ClothClone(e.Attachment, def);
+                if (clone != null && Register(renderer, clone)) skeleton.Skin.SetAttachment(e.SlotIndex, e.Name, clone);
             }
         }
 
-        private static float Area(RegionAttachment r) => Math.Abs(r.Width * r.Height);
-
-        private static Attachment ClothClone(RegionAttachment original, BaseDef def)
+        /// <summary>Tamanho da peça em pixels do atlas (região ou malha).</summary>
+        private static float Area(Attachment a)
         {
-            var key = ((Attachment)original, def.ID);
+            var region = (a as IHasRendererObject)?.RendererObject as AtlasRegion;
+            return region == null ? 0f : Math.Abs((float)region.width * region.height);
+        }
+
+        private static Attachment ClothClone(Attachment original, BaseDef def)
+        {
+            var key = (original, def.ID);
             if (Clones.TryGetValue(key, out var cached)) return cached;
             var region = Region(original, def);
-            // Do tamanho da peça do jogo (useOriginalRegionSize).
+            // Do tamanho da peça do jogo (useOriginalRegionSize); malha vira malha ligada
+            // com a nossa imagem esticada sobre ela.
             var clone = region == null ? null : original.GetRemappedClone(region, true, true);
             return Clones[key] = clone;
         }
 
         // ---------- comum ----------
 
-        /// <summary>Região de atlas com o PNG do item, no mesmo material (shader) do personagem.</summary>
-        private static AtlasRegion Region(RegionAttachment original, BaseDef def)
+        private static readonly Dictionary<(string, int), AtlasRegion> Regions = new Dictionary<(string, int), AtlasRegion>();
+
+        /// <summary>Região de atlas com o PNG do item, num material copiado do personagem.</summary>
+        private static AtlasRegion Region(Attachment original, BaseDef def)
         {
             var tex = Texture(def);
-            var material = ((original.RendererObject as AtlasRegion)?.page?.rendererObject) as Material;
+            var material = (((original as IHasRendererObject)?.RendererObject as AtlasRegion)?.page?.rendererObject) as Material;
             if (tex == null || material == null) return null;
+            var key = (def.RawIcon, material.GetInstanceID());
+            if (Regions.TryGetValue(key, out var region)) return region;
             // O shader do Spine espera alfa pré-multiplicado.
-            return tex.ToAtlasRegionPMAClone(material);
+            return Regions[key] = tex.ToAtlasRegionPMAClone(material);
+        }
+
+        /// <summary>
+        /// O SkeletonRenderer do jogo é modificado: em replanceShareMaterials ele troca cada
+        /// material pelo da lista loaderData.materials com a mesma textura, e se não acha fica
+        /// null (a peça some). Por isso a primeira versão deixava arma e roupa invisíveis.
+        /// Aqui pomos o material da nossa imagem nessa lista.
+        /// </summary>
+        private static bool Register(Spine.Unity.SkeletonRenderer renderer, Attachment clone)
+        {
+            var material = (((clone as IHasRendererObject)?.RendererObject as AtlasRegion)?.page?.rendererObject) as Material;
+            if (renderer == null || material == null) return false;
+            var data = Traverse.Create(renderer).Field("loaderData").GetValue<Spine.Unity.SpineLoaderData>();
+            if (data == null) return true; // sem loaderData o renderer usa os materiais como vêm
+            foreach (var m in data.materials)
+                if (m != null && m.mainTexture == material.mainTexture) return true;
+            var list = new List<Material>(data.materials) { material };
+            data.materials = list.ToArray();
+            return true;
         }
 
         private static Texture2D Texture(BaseDef def)
