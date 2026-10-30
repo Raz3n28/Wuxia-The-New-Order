@@ -4,20 +4,17 @@ using WuxiaMod.Json;
 
 namespace WuxiaMod.Cultivation
 {
-    /// <summary>Um estágio de cultivo (Refinamento de Qi, Núcleo Dourado...), lido de realms.json.</summary>
+    /// <summary>Um estágio de cultivo (Broto Espiritual, Condensação de Qi...), lido de realms.json.</summary>
     public sealed class Realm
     {
         public string Id;
-        public int Order;            // 1..12
-        public string Tier;          // initial, intermediate, advanced, immortal
-        public int SubLevels;        // quantos níveis dentro do estágio
-        public float QiPerLevel;     // Qi para subir um nível dentro do estágio
-        public float StatMultiplier; // bônus de atributos no nível 1 do estágio
-        public int LifespanYears;    // expectativa de vida extra ao chegar no estágio
-        public int PointsPerLevel;   // pontos de cultivo por nível (árvore e passivas)
-        public string BreakthroughItem; // item exigido para romper para este estágio (null = nenhum)
-        public float BreakthroughChance; // chance base de sucesso da ruptura (0..1)
-        public bool Tribulation;     // ruptura dispara a Tribulação Celestial
+        public int Order;            // 1..11 (1 = Broto Espiritual)
+        public float MaxQi;          // reserva de Qi do estágio
+        public float Exp;            // progresso necessário para poder romper
+        public float BreakthroughChance; // chance base de SAIR deste estágio (0..1)
+        public string BreakthroughItem;  // item exigido para sair deste estágio (ID curto, null = nenhum)
+        public int Points;           // pontos de cultivo ao entrar no estágio
+        public string Effects;       // efeitos do jogo enquanto está no estágio ("id_valor|...")
 
         public string NameKey => "realm." + Id + ".name";
         public string DescKey => "realm." + Id + ".desc";
@@ -40,22 +37,19 @@ namespace WuxiaMod.Cultivation
                 {
                     Id = o.Str("id"),
                     Order = o.Int("order"),
-                    Tier = o.Str("tier"),
-                    SubLevels = o.Int("subLevels", 1),
-                    QiPerLevel = o.Float("qiPerLevel", 100f),
-                    StatMultiplier = o.Float("statMultiplier", 1f),
-                    LifespanYears = o.Int("lifespanYears"),
-                    PointsPerLevel = o.Int("pointsPerLevel", 1),
-                    BreakthroughItem = o.Str("breakthroughItem"),
+                    MaxQi = o.Float("maxQi", 100f),
+                    Exp = o.Float("exp", 1000f),
                     BreakthroughChance = o.Float("breakthroughChance", 1f),
-                    Tribulation = o.Bool("tribulation"),
+                    BreakthroughItem = o.Str("breakthroughItem"),
+                    Points = o.Int("points", 1),
+                    Effects = o.Str("effects") ?? "",
                 });
             }
             Realms.Sort((a, b) => a.Order.CompareTo(b.Order));
             ModLog.Info($"{Realms.Count} estágios de cultivo carregados.");
         }
 
-        /// <summary>Estágio pela ordem (1 = Refinamento de Qi). Null se não existir.</summary>
+        /// <summary>Estágio pela ordem (1 = Broto Espiritual). Null se não existir.</summary>
         public static Realm ByOrder(int order) =>
             order >= 1 && order <= Realms.Count ? Realms[order - 1] : null;
     }

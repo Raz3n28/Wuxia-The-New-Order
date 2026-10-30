@@ -3,5 +3,6 @@
   "verboseLog": false,
   "testMode": true,
   "qiPerHourRecreation": 3,
-  "qiPerHourMeditation": 15
+  "qiPerHourMeditation": 15,
+  "qiPerHourPlatform": 25
 }

@@ -86,6 +86,15 @@ MATS = [
      "一种具有奇妙药效的木属性动物药材，来自长寿而聪颖的玃如。",
      "A wood-aspected animal ingredient with remarkable effects, from the long-lived and clever Jueru.",
      150, "Item/Resource/RawMedical/RI_Resource_PiloseAntler.png"),
+    # Fase 2: materiais da ruptura e das construções de cultivo
+    ("liquid_jade", 96115, "柔玉", "Liquid Jade",
+     "一种能吸收天地灵气的奇妙矿物，形似非牛顿流体。建造聚灵台、灵岩和炼制纯阳真气都要用到它。",
+     "A wondrous mineral that absorbs the Qi of heaven and earth, like a non-Newtonian fluid. Needed for the Cultivation Platform, the Spiritual Rock and Pure Yang Qi.",
+     180, "Item/Resource/RI_Resource_LiquidJade/b.png"),
+    ("oracle_fragment", 96116, "仙人手谕碎片", "Oracle Fragment",
+     "一枚仙人手谕残片，玉石质地。集齐六枚碎片，就能在制药工作台上拼成完整的仙人手谕。",
+     "A fragment of an Immortal Oracle, made of jade. Six fragments can be put together into a complete Immortal Oracle at the Elixir Workbench.",
+     1500, "Item/Resource/RI_Resource_OracleFragment/a.png"),
 ]
 
 # ---------------------------------------------------------------- pílulas
@@ -157,9 +166,18 @@ PILLS = [
      "A first-grade elixir that hugely raises Qi absorption (+150%) for 10 days.",
      3800, 9, 0, 1, 0, "灵气吸收+150%", "Qi absorption +150%", 240, "Item/Drugs/Elixir/RI_Drug_FiveTreasuresElixir.png"),
     ("tongxuan", 96017, "【一品】通玄筑基丹", "[1st Grade] Foundation Establishment Elixir",
-     "一品丹药，凝气境突破至筑基境的必备之物。凝气圆满时服用会立即尝试突破；否则24小时内灵气吸收+25%。",
-     "A first-grade elixir required to break through from Qi Condensation to Foundation Establishment. Taken at the peak of Qi Condensation it attempts the breakthrough at once; otherwise Qi absorption +25% for 24 hours.",
+     "一品丹药，凝气境突破至固基境的必备之物，突破成功率+10%。凝气圆满时服用会立即尝试突破；否则24小时内灵气吸收+25%。",
+     "A first-grade elixir required to break through from Qi Condensation to Foundation, with +10% breakthrough chance. Taken at the peak of Qi Condensation it attempts the breakthrough at once; otherwise Qi absorption +25% for 24 hours.",
      3000, 9, 0, 1, 0, "筑基突破", "Foundation breakthrough", 24, "Item/Drugs/Elixir/RI_Drug_FoundationBuildingElixir.png"),
+    # Fase 2: itens exigidos para romper o 化神 e o 合体
+    ("chunyang", 96018, "纯阳真气", "Pure Yang Qi",
+     "集天地精华而生的特殊灵气。化神境圆满时服用，会立即尝试突破至元婴境；否则获得100点灵气。",
+     "A special Qi born from the essence of heaven and earth. Taken at the peak of Spirit Transformation it attempts the breakthrough to Nascent Soul at once; otherwise it grants 100 Qi.",
+     8000, 9, 0, 1, 0, "元婴突破", "Nascent Soul breakthrough", 0, "Item/Resource/RI_Resource_PureYangSpiritualenergy.png"),
+    ("oracle", 96019, "仙人手谕", "Immortal Oracle",
+     "仙人抚我顶，结发受长生。合体境圆满时参悟，会立即尝试突破至地仙境；否则获得200点灵气。",
+     "An immortal touched my head and granted me long life. Studied at the peak of Body Integration it attempts the breakthrough to Terrestrial Immortal at once; otherwise it grants 200 Qi.",
+     15000, 9, 0, 1, 0, "地仙突破", "Terrestrial Immortal breakthrough", 0, "Item/Resource/RI_Resource_Oracle.png"),
 ]
 
 MAT_ID = {k: i for k, i, *_ in MATS}
@@ -214,6 +232,11 @@ RECIPES = [
     (96547, "taiyi", "xiuluo", 1, 33, [("gold_sand", 15), ("dragon_shoot", 5), ("spirit_fire", 1), ("pilose_antler", 2), ("drug_base", 1)], None, None),
     (96548, "taiyi", "tianling", 1, 33, [("dusky_mushroom", 5), ("gold_sand", 15), ("spirit_fire", 1), ("jungou_bezoar", 2), ("drug_base", 1)], None, None),
     (96549, "taiyi", "tongxuan", 1, 33, [("snow_lotus", 3), ("lingzhi", 3), ("lantern_berries", 3), ("drug_base", 1)], None, None),
+    # Fase 2: materiais e itens de ruptura
+    (96515, "bench", "liquid_jade", 1, 19, [("silicon", 5), ("spirit_stone", 3)], None, None),
+    (96516, "bench", "oracle", 1, 33, [("oracle_fragment", 6)], None, None),
+    (96550, "taiyi", "chunyang", 1, 48, [("liquid_jade", 5), ("spirit_stone", 30), ("spirit_fire", 1), ("lingzhi", 5)], None, None),
+    (96551, "taiyi", "oracle_fragment", 1, 33, [("liquid_jade", 3), ("spirit_stone", 20), ("gold", 2), ("spirit_fire", 1)], None, None),
 ]
 
 # ---------------------------------------------------------------- XML
@@ -330,12 +353,18 @@ def bronze(img):
 
 for key, *_rest, tex in [(m[0], m[-1]) for m in MATS]:
     pass
-for m in MATS:
-    fit(Image.open(os.path.join(RITEX, m[-1])), 64, 64).save(os.path.join(TEX_OUT, f"wuxia_{m[0]}.png"), optimize=True)
-for p in PILLS:
-    fit(Image.open(os.path.join(RITEX, p[-1])), 64, 64).save(os.path.join(TEX_OUT, f"wuxia_pill_{p[0]}.png"), optimize=True)
+# Imagem que não está na pasta do RimImmortal (só parte dela foi copiada): mantém a que já existe.
+def icon(src, dst):
+    src = os.path.join(RITEX, src)
+    if os.path.exists(src):
+        fit(Image.open(src), 64, 64).save(os.path.join(TEX_OUT, dst), optimize=True)
+    elif not os.path.exists(os.path.join(TEX_OUT, dst)):
+        raise SystemExit(f"falta a imagem {src}")
+
+for m in MATS: icon(m[-1], f"wuxia_{m[0]}.png")
+for p in PILLS: icon(p[-1], f"wuxia_pill_{p[0]}.png")
 for key, bid, cn, en, dcn, den, w, h, mats, tex, tint in BENCHES:
-    if not tex: continue
+    if not tex or not os.path.exists(os.path.join(RITEX, tex)): continue
     img = Image.open(os.path.join(RITEX, tex)).convert("RGBA")
     if tint: img = bronze(img)
     img = fit(img, 40 * w, 40 * h)

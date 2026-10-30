@@ -38,7 +38,7 @@ namespace WuxiaMod.Game.Patches
         {
             foreach (var def in ModIconCombine.additions)
             {
-                if (!(def is F_ManufactureDef) && !(def is F_Entertainment)) continue;
+                if (!(def is F_ManufactureDef) && !(def is F_Entertainment) && !(def is F_DecroDef)) continue;
                 if (def.mod?.packageId != ModEntry.HarmonyId || def.RawIcon == null) continue;
                 try
                 {

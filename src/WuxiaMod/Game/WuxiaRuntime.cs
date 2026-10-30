@@ -5,13 +5,16 @@ namespace WuxiaMod.Game
 {
     /// <summary>
     /// Objeto que vive o jogo todo (DontDestroyOnLoad) e roda tarefas periódicas,
-    /// como manter os IDs curtos das nossas definições registrados (DefAliases).
+    /// como manter os IDs curtos das nossas definições registrados (DefAliases)
+    /// e os bônus de estágio de cada colono (RealmBuffs).
     /// </summary>
     internal sealed class WuxiaRuntime : MonoBehaviour
     {
         private const float Interval = 1f;
         private float _next;
         private int _errors;
+        private int _ticks;
+        private const int RealmSyncEvery = 5; // bônus de estágio: a cada 5 s
 
         public static void Create()
         {
@@ -30,6 +33,7 @@ namespace WuxiaMod.Game
             try
             {
                 DefAliases.Apply();
+                if (++_ticks % RealmSyncEvery == 0) RealmBuffs.SyncAll();
             }
             catch (Exception ex)
             {

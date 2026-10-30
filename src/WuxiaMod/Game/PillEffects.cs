@@ -28,7 +28,8 @@ namespace WuxiaMod.Game
             public string Effects;      // AdditionEffect da comida escondida ("id_valor|...")
             public float Hunger;        // saciedade na hora
             public float Energy;        // energia na hora
-            public bool Foundation;     // tenta a ruptura para o Estabelecimento da Fundação
+            public int BreakFor;        // item de ruptura: tenta romper quando está no auge deste estágio
+            public float ItemBonus;     // +chance da ruptura feita com este item
         }
 
         // Chave = ID curto da pílula no def.xml.
@@ -50,7 +51,10 @@ namespace WuxiaMod.Game
             ["96014"] = new Pill { Key = "shengji", Effects = "70_2", Hours = 12 },
             ["96015"] = new Pill { Key = "xiuluo", Effects = "2010_1|2020_0.5|0_-0.5", Hours = 24 },
             ["96016"] = new Pill { Key = "tianling", QiBoost = 1.5f, Hours = 240 },
-            ["96017"] = new Pill { Key = "tongxuan", Foundation = true, QiBoost = 0.25f, Hours = 24 },
+            // Itens de ruptura (realms.json, breakthroughItem): Condensação de Qi, Transformação do Espírito, Fusão do Corpo.
+            ["96017"] = new Pill { Key = "tongxuan", BreakFor = 2, ItemBonus = 0.10f, QiBoost = 0.25f, Hours = 24 },
+            ["96018"] = new Pill { Key = "chunyang", BreakFor = 7, Qi = 100 },
+            ["96019"] = new Pill { Key = "oracle", BreakFor = 10, Qi = 200 },
         };
 
         /// <summary>ID da comida escondida de cada pílula (fica no save dentro do bônus do personagem).</summary>
@@ -61,36 +65,43 @@ namespace WuxiaMod.Game
 
         private static readonly Dictionary<string, T_FoodDef> BuffFoods = new Dictionary<string, T_FoodDef>();
 
-        /// <summary>Cria (uma vez) e registra as comidas escondidas. Retorna quantas entraram no dicionário agora.</summary>
+        /// <summary>Cria (uma vez) e registra as comidas escondidas das pílulas e dos estágios. Retorna quantas entraram no dicionário agora.</summary>
         public static int RegisterBuffFoods()
         {
-            var dict = ImplDef<T_FoodDef>.beansDict;
-            if (dict == null) return 0;
+            if (ImplDef<T_FoodDef>.beansDict == null) return 0;
             int added = 0;
             foreach (var pair in Pills)
             {
                 var p = pair.Value;
                 if (string.IsNullOrEmpty(p.Effects)) continue;
-                string id = BuffFoodId(p);
-                if (!BuffFoods.TryGetValue(id, out var food))
-                {
-                    food = ImplDef<T_FoodDef>.getTemplateDef(FoodTemplateId);
-                    if (food == null) return added;
-                    food.ID = id;
-                    var pill = ImplDef<T_MedicineDef>.getDataID(pair.Key);
-                    food.Name = pill?.getName() ?? id;
-                    food.AdditionEffect = p.Effects;
-                    food.AdditionTime = (int)Math.Ceiling(p.Hours);
-                    food.additionEffs = AdditionEffectData.parseList(p.Effects);
-                    BuffFoods[id] = food;
-                }
-                if (dict.TryGetValue(id, out var existing) && ReferenceEquals(existing, food)) continue;
-                dict[id] = food;
-                added++;
+                var pill = ImplDef<T_MedicineDef>.getDataID(pair.Key);
+                if (RegisterHiddenFood(BuffFoodId(p), pill?.getName(), p.Effects, (int)Math.Ceiling(p.Hours))) added++;
             }
+            added += RealmBuffs.Register();
             // Bônus que vieram do save antes de as comidas existirem: recalcula.
             if (added > 0) RefreshFoodBuffs();
             return added;
+        }
+
+        /// <summary>Cria (uma vez) uma comida escondida e põe no dicionário do jogo. True se entrou agora.</summary>
+        public static bool RegisterHiddenFood(string id, string name, string effects, int hours)
+        {
+            var dict = ImplDef<T_FoodDef>.beansDict;
+            if (dict == null) return false;
+            if (!BuffFoods.TryGetValue(id, out var food))
+            {
+                food = ImplDef<T_FoodDef>.getTemplateDef(FoodTemplateId);
+                if (food == null) return false;
+                food.ID = id;
+                food.Name = name ?? id;
+                food.AdditionEffect = effects;
+                food.AdditionTime = hours;
+                food.additionEffs = AdditionEffectData.parseList(effects);
+                BuffFoods[id] = food;
+            }
+            if (dict.TryGetValue(id, out var existing) && ReferenceEquals(existing, food)) return false;
+            dict[id] = food;
+            return true;
         }
 
         private static void RefreshFoodBuffs()
@@ -130,7 +141,7 @@ namespace WuxiaMod.Game
                 LocalCoreHandle.Hero_BuffAdd_LN(target, buff);
             }
 
-            bool cultivationPill = p.Qi > 0 || p.QiBoost > 0 || p.BreakBonus > 0 || p.Foundation;
+            bool cultivationPill = p.Qi > 0 || p.QiBoost > 0 || p.BreakBonus > 0 || p.BreakFor > 0;
             if (cultivationPill)
             {
                 var state = hero.isAndroid() ? null : CultivationRegistry.Get(hero.uid, true);
@@ -139,29 +150,19 @@ namespace WuxiaMod.Game
                     // Mortal ou androide: a pílula não faz efeito de cultivo.
                     messages.Add(Loc.T("pill.no_cultivation"));
                 }
-                else if (p.Foundation && state.RealmOrder == 1 && state.ReadyForBreakthrough)
+                else if (p.BreakFor > 0 && state.RealmOrder == p.BreakFor && state.ReadyForBreakthrough)
                 {
-                    var from = state.Realm;
-                    float bonus = state.ActiveBreakBonus(now);
-                    var result = state.TryBreakthrough(true, bonus, new Random());
-                    if (result == BreakthroughResult.Success)
-                    {
-                        messages.Add(Loc.T("ui.breakthrough.success", hero.name, Loc.T(state.Realm.NameKey)));
-                        ModLog.Info($"{hero.name} rompeu de {from.Id} para {state.Realm.Id} com a pílula (bônus {bonus:P0}).");
-                    }
-                    else
-                    {
-                        messages.Add(Loc.T("ui.breakthrough.failed", hero.name));
-                        ModLog.Info($"{hero.name} falhou a ruptura com a pílula ({result}).");
-                    }
+                    // A própria mensagem da ruptura aparece acima do colono.
+                    Breakthrough.Attempt(target, state, true, p.ItemBonus, "item " + shortId);
+                    return;
                 }
                 else
                 {
                     if (p.Qi > 0)
                     {
-                        int levels = state.AddQi(p.Qi);
+                        bool ready = state.AddQi(p.Qi);
                         messages.Add(Loc.T("pill.qi", p.Qi.ToString("0")));
-                        if (levels > 0) ModLog.Info($"{hero.name} subiu para o nível {state.SubLevel} com uma pílula.");
+                        if (ready) messages.Add(Loc.T("ui.ready", hero.name));
                     }
                     if (p.QiBoost > 0)
                     {
@@ -173,8 +174,8 @@ namespace WuxiaMod.Game
                         state.AddBreakBonus(p.BreakBonus, now, duration);
                         messages.Add(Loc.T("pill.break_bonus", (p.BreakBonus * 100).ToString("0"), p.Hours.ToString("0")));
                     }
-                    if (p.Foundation && state.RealmOrder == 1)
-                        messages.Add(Loc.T("pill.foundation_not_ready"));
+                    if (p.BreakFor > 0)
+                        messages.Add(Loc.T("pill.break_not_ready", Loc.T(RealmDatabase.ByOrder(p.BreakFor)?.NameKey ?? "")));
                 }
             }
 
