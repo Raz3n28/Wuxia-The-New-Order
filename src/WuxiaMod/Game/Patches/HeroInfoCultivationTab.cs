@@ -26,6 +26,7 @@ namespace WuxiaMod.Game.Patches
         private const string ViewName = "WuxiaCultivationView";
         private const string AwakenButtonName = "AwakenButton";
         private const string TestButtonName = "TestKitButton";
+        private const string BreakButtonName = "BreakthroughButton";
         private const string LanguageButtonName = "LanguageButton";
 
         private const float ButtonY = 40, ButtonWidth = 280, ButtonHeight = 54;
@@ -168,6 +169,9 @@ namespace WuxiaMod.Game.Patches
         {
             CreateButton(parent, font, AwakenButtonName, Loc.T("ui.awaken_button"), new Vector2(60, ButtonY),
                 new Color(0.45f, 0.33f, 0.10f, 0.95f), () => Awaken(dialog));
+            // Mesmo lugar do "Despertar": aparece depois de despertar.
+            CreateButton(parent, font, BreakButtonName, Loc.T("ui.break_button"), new Vector2(60, ButtonY),
+                new Color(0.55f, 0.20f, 0.15f, 0.95f), () => TryBreakthrough(dialog));
             // Só com "testMode": true no config.json (veja TestMode).
             CreateButton(parent, font, TestButtonName, Loc.T("ui.test_kit_button"), new Vector2(60 + ButtonWidth + 20, ButtonY),
                 new Color(0.20f, 0.35f, 0.55f, 0.95f), () => GiveTestKit(dialog));
@@ -186,6 +190,7 @@ namespace WuxiaMod.Game.Patches
             var view = FindChild(dialog.transform, ViewName);
             SetButtonText(view, AwakenButtonName, Loc.T("ui.awaken_button"));
             SetButtonText(view, TestButtonName, Loc.T("ui.test_kit_button"));
+            SetButtonText(view, BreakButtonName, Loc.T("ui.break_button"));
             SetButtonText(view, LanguageButtonName, Loc.T("ui.language_button"));
             Refresh(dialog);
         }
@@ -256,6 +261,26 @@ namespace WuxiaMod.Game.Patches
             Refresh(dialog);
         }
 
+        /// <summary>
+        /// Ruptura pelo botão: precisa de uma Plataforma de Ruptura (9603) pronta no mapa.
+        /// Estágios que pedem item rompem só usando o item (botão direito nele).
+        /// </summary>
+        private static void TryBreakthrough(Dialog_MainHeroInfo dialog)
+        {
+            var heroBean = Traverse.Create(dialog).Field("heroBean").GetValue<FWHeroBean>();
+            if (heroBean == null || IsAndroid(heroBean)) return;
+            var hero = MapManager.getInstance()?.heroManager?.getHeroByUID(heroBean.uid);
+            if (hero == null) return;
+            var state = CultivationRegistry.Get(heroBean.uid, true);
+            if (state.Realm == null) return;
+            var platforms = MapManager.getInstance().buildManager?.getBuildTypeID(11, ModEntry.HarmonyId + "_" + MeditationPatch.BreakPlatformId);
+            if (platforms == null || !platforms.Exists(b => b != null && b.isPutdown()))
+                GUI_RoleInfo.showRoleInfo(hero, Loc.T("ui.need_platform"));
+            else
+                Breakthrough.Attempt(hero, state, false, Breakthrough.PlatformBonus, "botão");
+            Refresh(dialog);
+        }
+
         private static bool IsAndroid(FWHeroBean hero)
         {
             try { return hero.isAndroid(); } catch { return false; }
@@ -290,6 +315,7 @@ namespace WuxiaMod.Game.Patches
             var text = view?.Find("Text")?.GetComponent<TextMeshProUGUI>();
             var button = view?.Find(AwakenButtonName);
             var testButton = view?.Find(TestButtonName);
+            var breakButton = view?.Find(BreakButtonName);
             var languageButton = view?.Find(LanguageButtonName);
             if (languageButton != null) languageButton.gameObject.SetActive(true);
             var hero = Traverse.Create(dialog).Field("heroBean").GetValue<FWHeroBean>();
@@ -299,6 +325,7 @@ namespace WuxiaMod.Game.Patches
                 text.text = "";
                 if (button != null) button.gameObject.SetActive(false);
                 if (testButton != null) testButton.gameObject.SetActive(false);
+                if (breakButton != null) breakButton.gameObject.SetActive(false);
                 return;
             }
 
@@ -307,6 +334,7 @@ namespace WuxiaMod.Game.Patches
             text.text = Describe(hero.name, android, state);
             if (button != null) button.gameObject.SetActive(!android && state.CanCultivate && state.RealmOrder == 0);
             if (testButton != null) testButton.gameObject.SetActive(TestMode.Enabled && !android);
+            if (breakButton != null) breakButton.gameObject.SetActive(!android && state.Realm != null && !state.AtPeakRealm);
         }
 
         private static string Describe(string heroName, bool android, CultivationState state)
@@ -335,10 +363,11 @@ namespace WuxiaMod.Game.Patches
             }
             else
             {
-                sb.AppendLine($"<color=#{gold}>{Loc.T("ui.realm")}:</color> {Loc.T(realm.NameKey)}  {Loc.T("ui.level", state.SubLevel, realm.SubLevels)}");
+                sb.AppendLine($"<color=#{gold}>{Loc.T("ui.realm")}:</color> {Loc.T(realm.NameKey)}  <color=#AAAAAA>({realm.Order}/{RealmDatabase.All.Count})</color>");
                 sb.AppendLine($"<color=#BBBBBB><size=80%>{Loc.T(realm.DescKey)}</size></color>");
-                sb.AppendLine($"<color=#{gold}>{Loc.T("ui.qi")}:</color> {state.Qi:0} / {realm.QiPerLevel:0}");
+                sb.AppendLine($"<color=#{gold}>{Loc.T("ui.qi")}:</color> {state.Qi:0} / {realm.MaxQi:0}    <color=#{gold}>{Loc.T("ui.progress")}:</color> {state.Progress:0} / {realm.Exp:0}");
                 sb.AppendLine(Loc.T("ui.points", state.UnspentPoints));
+                AppendBreakthrough(sb, state);
                 AppendPillBonuses(sb, state);
                 sb.AppendLine($"<color=#BBBBBB><size=80%>{Loc.T("ui.meditation_hint")}</size></color>");
             }
@@ -357,8 +386,26 @@ namespace WuxiaMod.Game.Patches
             float breakBonus = state.ActiveBreakBonus(now);
             if (breakBonus > 0f)
                 sb.AppendLine($"<color=#88DD88>{Loc.T("ui.break_bonus", (breakBonus * 100f).ToString("0"), Math.Ceiling((state.BreakBonusUntil - now) / hour))}</color>");
-            if (state.ReadyForBreakthrough && state.RealmOrder == 1)
-                sb.AppendLine($"<color=#FFCC66>{Loc.T("ui.foundation_ready")}</color>");
+        }
+
+        private static void AppendBreakthrough(StringBuilder sb, CultivationState state)
+        {
+            var realm = state.Realm;
+            long now = UserBean.getInstance().getTime();
+            double hour = WorldTimeTools.gameHour_to_mm(1f);
+            if (state.InDeviation(now))
+                sb.AppendLine($"<color=#FF7766>{Loc.T("ui.deviation_left", Math.Ceiling((state.DeviationUntil - now) / hour))}</color>");
+            if (state.AtPeakRealm)
+            {
+                sb.AppendLine($"<color=#FFCC66>{Loc.T("ui.breakthrough.at_peak")}</color>");
+                return;
+            }
+            float chance = state.BreakthroughChance(state.ActiveBreakBonus(now));
+            string line = Loc.T("ui.break_chance", (chance * 100f).ToString("0"), Loc.T(state.NextRealm.NameKey));
+            if (realm.BreakthroughItem != null) line += "  " + Loc.T("ui.breakthrough.missing_item", Breakthrough.ItemName(realm.BreakthroughItem));
+            sb.AppendLine(line);
+            if (state.ReadyForBreakthrough)
+                sb.AppendLine($"<color=#FFCC66>{Loc.T(realm.BreakthroughItem != null ? "ui.ready_item" : "ui.ready_platform")}</color>");
         }
 
         private static Transform FindChild(Transform root, string path) => root == null ? null : root.Find(path) ?? FindDeep(root, path);

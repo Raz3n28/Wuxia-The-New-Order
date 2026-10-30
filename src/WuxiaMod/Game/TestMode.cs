@@ -9,8 +9,8 @@ namespace WuxiaMod.Game
     /// <summary>
     /// Modo de teste: ligado com "testMode": true no config.json (desligado por padrão).
     /// - Botão "Kit de teste" na aba Cultivo: põe no chão, ao lado do personagem, todas as
-    ///   pílulas e ingredientes do mod, desperta o cultivo e enche o Qi até o auge do
-    ///   Refinamento de Qi (pronto para a ruptura com o Elixir da Fundação).
+    ///   pílulas e ingredientes do mod, desperta o cultivo e enche o Qi e o progresso do
+    ///   estágio atual (pronto para romper; clicar de novo depois de romper enche o próximo).
     ///   O kit também traz os materiais para construir uma de cada construção do mod.
     /// - As bancadas e receitas do mod ficam com trabalho 1 (quase instantâneas).
     /// - As construções do mod ficam prontas assim que são colocadas (veja InstantBuildPatch).
@@ -24,8 +24,8 @@ namespace WuxiaMod.Game
         private const int FastWorkload = 1;
 
         // Faixas de ID do def.xml (veja tools/gen_phase1.py).
-        private const int FirstPill = 96001, LastPill = 96017;
-        private const int FirstIngredient = 96101, LastIngredient = 96114;
+        private const int FirstPill = 96001, LastPill = 96019;
+        private const int FirstIngredient = 96101, LastIngredient = 96116;
 
         public static void GiveKit(FWHeroBean heroBean)
         {
@@ -52,15 +52,17 @@ namespace WuxiaMod.Game
             {
                 state.Awaken();
                 var realm = state.Realm;
-                if (state.RealmOrder == 1 && realm != null)
+                if (realm != null)
                 {
-                    state.SubLevel = realm.SubLevels;
-                    state.Qi = realm.QiPerLevel;
+                    state.Qi = realm.MaxQi;
+                    state.Progress = realm.Exp;
+                    state.DeviationUntil = 0;
+                    RealmBuffs.Sync(hero, state);
                 }
                 message = Loc.T("test.kit_given");
             }
             GUI_RoleInfo.showRoleInfo(hero, message);
-            ModLog.Info($"Kit de teste para {heroBean.name}: {given} pilhas de itens; estágio {state.RealmOrder}, nível {state.SubLevel}.");
+            ModLog.Info($"Kit de teste para {heroBean.name}: {given} pilhas de itens; estágio {state.RealmOrder} ({state.Realm?.Id}).");
         }
 
         private static int Put(BaseHero hero, int type, int shortId, int count) =>
@@ -83,13 +85,14 @@ namespace WuxiaMod.Game
 
         /// <summary>
         /// Soma os materiais (campo Materials, "tipo_ID_qtd|...") de todas as construções do mod:
-        /// caldeirões, bancada e almofada de meditação.
+        /// caldeirões, bancada, almofada, plataformas e rocha espiritual.
         /// </summary>
         private static Dictionary<(int, string), int> BuildingMaterials()
         {
             var total = new Dictionary<(int, string), int>();
             AddMaterials<F_ManufactureDef>(total);
             AddMaterials<F_Entertainment>(total);
+            AddMaterials<F_DecroDef>(total);
             return total;
         }
 

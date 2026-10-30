@@ -14,7 +14,7 @@ namespace WuxiaMod.Cultivation
     /// </summary>
     public static class CultivationRegistry
     {
-        private const int FormatVersion = 1;
+        private const int FormatVersion = 2; // 2: estágios do RimImmortal (qi + progress)
 
         private static readonly object Lock = new object();
         private static readonly Dictionary<long, CultivationState> States = new Dictionary<long, CultivationState>();
@@ -42,7 +42,7 @@ namespace WuxiaMod.Cultivation
 
         /// <summary>
         /// Grava todos os personagens. Exemplo:
-        /// {"version":1,"heroes":{"123":{"root":"fire","realm":1,"level":2,"qi":15.5,"points":1}}}
+        /// {"version":2,"heroes":{"123":{"root":"fire","realm":2,"qi":70,"progress":300,"points":2}}}
         /// </summary>
         public static string ToJson()
         {
@@ -59,8 +59,8 @@ namespace WuxiaMod.Cultivation
                     sb.Append("\n\"").Append(pair.Key.ToString(CultureInfo.InvariantCulture)).Append("\":{");
                     sb.Append("\"root\":").Append(s.RootId == null ? "null" : "\"" + Escape(s.RootId) + "\"");
                     sb.Append(",\"realm\":").Append(s.RealmOrder.ToString(CultureInfo.InvariantCulture));
-                    sb.Append(",\"level\":").Append(s.SubLevel.ToString(CultureInfo.InvariantCulture));
                     sb.Append(",\"qi\":").Append(s.Qi.ToString("R", CultureInfo.InvariantCulture));
+                    sb.Append(",\"progress\":").Append(s.Progress.ToString("R", CultureInfo.InvariantCulture));
                     sb.Append(",\"points\":").Append(s.UnspentPoints.ToString(CultureInfo.InvariantCulture));
                     if (s.QiBoostUntil > 0)
                         sb.Append(",\"qiBoost\":").Append(s.QiBoost.ToString("R", CultureInfo.InvariantCulture))
@@ -68,6 +68,8 @@ namespace WuxiaMod.Cultivation
                     if (s.BreakBonusUntil > 0)
                         sb.Append(",\"breakBonus\":").Append(s.BreakBonus.ToString("R", CultureInfo.InvariantCulture))
                           .Append(",\"breakBonusUntil\":").Append(s.BreakBonusUntil.ToString(CultureInfo.InvariantCulture));
+                    if (s.DeviationUntil > 0)
+                        sb.Append(",\"deviationUntil\":").Append(s.DeviationUntil.ToString(CultureInfo.InvariantCulture));
                     sb.Append('}');
                 }
             }
@@ -80,6 +82,7 @@ namespace WuxiaMod.Cultivation
         {
             var root = MiniJson.Parse(json) as Dictionary<string, object>;
             if (root == null) throw new FormatException("save de cultivo não é um objeto JSON");
+            int version = root.Int("version", 1);
             var heroes = root.TryGetValue("heroes", out var h) ? h as Dictionary<string, object> : null;
 
             var loaded = new Dictionary<long, CultivationState>();
@@ -93,18 +96,29 @@ namespace WuxiaMod.Cultivation
                     {
                         RootId = o.Str("root"),
                         RealmOrder = o.Int("realm"),
-                        SubLevel = o.Int("level"),
                         Qi = o.Float("qi"),
+                        Progress = o.Float("progress"),
                         UnspentPoints = o.Int("points"),
                         QiBoost = o.Float("qiBoost"),
                         QiBoostUntil = o.Long("qiBoostUntil"),
                         BreakBonus = o.Float("breakBonus"),
                         BreakBonusUntil = o.Long("breakBonusUntil"),
+                        DeviationUntil = o.Long("deviationUntil"),
                     };
+                    // Save da versão 1 (12 estágios inventados, com níveis): o 1º era o Refinamento de Qi,
+                    // que agora é o 2º (Condensação de Qi, depois do Broto Espiritual). Guarda o Qi.
+                    if (version < 2)
+                    {
+                        if (s.RealmOrder > 0) s.RealmOrder++;
+                        s.Progress = 0f;
+                    }
                     // Estágio que não existe mais nos dados (realms.json mudou): volta para o último que existe.
                     while (s.RealmOrder > 0 && s.Realm == null) s.RealmOrder--;
-                    if (s.Realm != null && s.SubLevel < 1) s.SubLevel = 1;
-                    if (s.Realm != null && s.SubLevel > s.Realm.SubLevels) s.SubLevel = s.Realm.SubLevels;
+                    if (s.Realm != null)
+                    {
+                        s.Qi = Math.Max(0f, Math.Min(s.Qi, s.Realm.MaxQi));
+                        s.Progress = Math.Max(0f, Math.Min(s.Progress, s.Realm.Exp));
+                    }
                     loaded[uid] = s;
                 }
             }

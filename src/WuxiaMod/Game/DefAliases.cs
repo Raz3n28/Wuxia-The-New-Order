@@ -33,7 +33,10 @@ namespace WuxiaMod.Game
             added += Register<F_ProductListDef>();
             added += Register<F_ManufactureDef>();
             ApplyTexts<F_Entertainment>();
-            FixSortIds();
+            ApplyTexts<F_DecroDef>();
+            FixSortIds<F_ManufactureDef>();
+            FixSortIds<F_Entertainment>();
+            FixSortIds<F_DecroDef>();
             added += RegisterLanguage();
             added += PillEffects.RegisterBuffFoods();
             if (added > 0 && (!_logged || ModEntry.VerboseLog))
@@ -81,9 +84,9 @@ namespace WuxiaMod.Game
         /// podem sair em ordens diferentes (o Caldeirão Pequeno aparecia com a imagem do Taiyi).
         /// Damos a cada uma um SortId único, depois de todas as bancadas do jogo.
         /// </summary>
-        private static void FixSortIds()
+        private static void FixSortIds<T>() where T : BaseDef
         {
-            var beans = ImplDef<F_ManufactureDef>.beans;
+            var beans = ImplDef<T>.beans;
             if (beans == null) return;
             bool pending = false;
             int max = int.MinValue;
@@ -91,20 +94,23 @@ namespace WuxiaMod.Game
             {
                 if (bean == null) continue;
                 if (bean.mod?.packageId == ModEntry.HarmonyId) { if (!Sorted.Contains(bean)) pending = true; }
-                else if (bean.SortId > max) max = bean.SortId;
+                else if (bean.getSortId() > max) max = bean.getSortId();
             }
             if (!pending) return;
-            // Ordem fixa pelo ID: Caldeirão Pequeno, Taiyi, Bancada de Elixires.
+            // Cada tabela declara o próprio campo SortId (public new int SortId).
+            var field = HarmonyLib.AccessTools.Field(typeof(T), "SortId");
+            if (field == null) return;
+            // Ordem fixa pelo ID: Caldeirão Pequeno, Taiyi, Bancada de Elixires; almofada, plataformas.
             var ours = beans.FindAll(b => b?.mod?.packageId == ModEntry.HarmonyId);
             ours.Sort((a, b) => string.CompareOrdinal(a.ID, b.ID));
             foreach (var bean in ours)
             {
-                bean.SortId = ++max;
+                field.SetValue(bean, ++max);
                 Sorted.Add(bean);
             }
         }
 
-        /// <summary>Só os textos, para tabelas que não precisam do ID curto (a almofada de meditação).</summary>
+        /// <summary>Só os textos, para tabelas que não precisam do ID curto (almofada, plataformas, rocha).</summary>
         private static void ApplyTexts<T>() where T : BaseDef
         {
             var beans = ImplDef<T>.beans;

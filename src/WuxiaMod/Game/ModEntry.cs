@@ -49,6 +49,7 @@ namespace WuxiaMod.Game
                     TestMode.Enabled = cfg.Bool("testMode");
                     Patches.MeditationPatch.QiPerHourRecreation = cfg.Float("qiPerHourRecreation", Patches.MeditationPatch.QiPerHourRecreation);
                     Patches.MeditationPatch.QiPerHourMeditation = cfg.Float("qiPerHourMeditation", Patches.MeditationPatch.QiPerHourMeditation);
+                    Patches.MeditationPatch.QiPerHourPlatform = cfg.Float("qiPerHourPlatform", Patches.MeditationPatch.QiPerHourPlatform);
                 }
 
                 Loc.LoadAll(Path.Combine(VersionDir, "Languages"));

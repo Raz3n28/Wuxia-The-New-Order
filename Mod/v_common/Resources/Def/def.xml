@@ -41,6 +41,81 @@
       <Item Name="EN">A cushion for seated meditation. Awakened cultivators who meditate here absorb Qi much faster than with any other recreation.</Item>
     </ModDefRow>
 
+    <!-- Fase 2: construções de cultivo do RimImmortal. Plataformas = lazer (cópia da mesa de blocos, ID 0); a rocha = decoração (cópia da 石碑, ID 36).
+         Imagens com 40 px por casa (2x2 = 80 px). Efeito no WuxiaMod.dll (MeditationPatch). Sem caixa ao desmontar (Uninstall -1). -->
+    <ModDefRow Name="F_Entertainment" DependID="0">
+      <Item Name="ID">9602</Item>
+      <Item Name="Name">聚灵台</Item>
+      <Item Name="Desc">聚集天地灵气的石台。已经觉醒修炼的人在这里打坐，吸收灵气的速度比蒲团更快。</Item>
+      <Item Name="RawIcon">wuxia_cultivation_platform.png</Item>
+      <Item Name="Width">2</Item>
+      <Item Name="Height">2</Item>
+      <Item Name="Materials">12_96115_5|12_96111_10|12_6_60</Item>
+      <Item Name="Reinstall">0</Item>
+      <Item Name="Uninstall">-1</Item>
+      <Item Name="Show_value2">修炼</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_聚灵台</Item>
+      <Item Name="CN">聚灵台</Item>
+      <Item Name="EN">Cultivation Platform</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_聚集天地灵气的石台。已经觉醒修炼的人在这里打坐，吸收灵气的速度比蒲团更快。</Item>
+      <Item Name="CN">聚集天地灵气的石台。已经觉醒修炼的人在这里打坐，吸收灵气的速度比蒲团更快。</Item>
+      <Item Name="EN">A stone platform that gathers the Qi of heaven and earth. Awakened cultivators who meditate here absorb Qi even faster than on a cushion.</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_Entertainment" DependID="0">
+      <Item Name="ID">9603</Item>
+      <Item Name="Name">突破台</Item>
+      <Item Name="Desc">为突破境界而建的石台。灵气和进度都已圆满的修炼者在这里打坐半小时，就会尝试突破（成功率+5%）。需要物品才能突破的境界，要用对应的物品。</Item>
+      <Item Name="RawIcon">wuxia_breakthrough_platform.png</Item>
+      <Item Name="Width">2</Item>
+      <Item Name="Height">2</Item>
+      <Item Name="Materials">12_96111_20|12_23_5|12_6_80</Item>
+      <Item Name="Reinstall">0</Item>
+      <Item Name="Uninstall">-1</Item>
+      <Item Name="Show_value2">修炼</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_突破台</Item>
+      <Item Name="CN">突破台</Item>
+      <Item Name="EN">Breakthrough Platform</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_为突破境界而建的石台。灵气和进度都已圆满的修炼者在这里打坐半小时，就会尝试突破（成功率+5%）。需要物品才能突破的境界，要用对应的物品。</Item>
+      <Item Name="CN">为突破境界而建的石台。灵气和进度都已圆满的修炼者在这里打坐半小时，就会尝试突破（成功率+5%）。需要物品才能突破的境界，要用对应的物品。</Item>
+      <Item Name="EN">A stone platform built for breakthroughs. A cultivator with full Qi and progress who meditates here for half an hour attempts the breakthrough (+5% chance). Realms that need an item break through only with that item.</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_DecroDef" DependID="36">
+      <Item Name="ID">9604</Item>
+      <Item Name="Name">灵岩</Item>
+      <Item Name="Desc">蕴含灵气的岩石。15格内在修炼建筑上打坐的人吸收灵气+50%（不叠加）。</Item>
+      <Item Name="RawIcon">wuxia_spirit_rock.png</Item>
+      <Item Name="Width">2</Item>
+      <Item Name="Height">2</Item>
+      <Item Name="Materials">12_96115_10|12_96111_15|12_5_40</Item>
+      <Item Name="Reinstall">0</Item>
+      <Item Name="Uninstall">-1</Item>
+      <Item Name="Beauty">10</Item>
+      <Item Name="Show_value2">10</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_灵岩</Item>
+      <Item Name="CN">灵岩</Item>
+      <Item Name="EN">Spiritual Rock</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_蕴含灵气的岩石。15格内在修炼建筑上打坐的人吸收灵气+50%（不叠加）。</Item>
+      <Item Name="CN">蕴含灵气的岩石。15格内在修炼建筑上打坐的人吸收灵气+50%（不叠加）。</Item>
+      <Item Name="EN">A rock full of Qi. Cultivators meditating on a cultivation building within 15 cells absorb Qi +50% (does not stack).</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_修炼</Item>
+      <Item Name="CN">修炼</Item>
+      <Item Name="EN">Cultivation</Item>
+    </ModDefRow>
+
     <!-- ===================== Fase 1: alquimia (gerado por tools/gen_phase1.py) ===================== -->
     <!-- Bancadas: cópias da 药品加工台 (B_Manufacture 51, sem energia). ProductID usa o ID completo das nossas receitas. -->
     <ModDefRow Name="F_ManufactureDef" DependID="51">
@@ -63,7 +138,7 @@
       <Item Name="Height">3</Item>
       <Item Name="Mark">7</Item>
       <Item Name="Materials">12_15_80|12_6_30|12_23_1</Item>
-      <Item Name="ProductID">pauloraz3n.wuxia_96531|pauloraz3n.wuxia_96532|pauloraz3n.wuxia_96533|pauloraz3n.wuxia_96534|pauloraz3n.wuxia_96535|pauloraz3n.wuxia_96536|pauloraz3n.wuxia_96541|pauloraz3n.wuxia_96542|pauloraz3n.wuxia_96543|pauloraz3n.wuxia_96544|pauloraz3n.wuxia_96545|pauloraz3n.wuxia_96546|pauloraz3n.wuxia_96547|pauloraz3n.wuxia_96548|pauloraz3n.wuxia_96549</Item>
+      <Item Name="ProductID">pauloraz3n.wuxia_96531|pauloraz3n.wuxia_96532|pauloraz3n.wuxia_96533|pauloraz3n.wuxia_96534|pauloraz3n.wuxia_96535|pauloraz3n.wuxia_96536|pauloraz3n.wuxia_96541|pauloraz3n.wuxia_96542|pauloraz3n.wuxia_96543|pauloraz3n.wuxia_96544|pauloraz3n.wuxia_96545|pauloraz3n.wuxia_96546|pauloraz3n.wuxia_96547|pauloraz3n.wuxia_96548|pauloraz3n.wuxia_96549|pauloraz3n.wuxia_96550|pauloraz3n.wuxia_96551</Item>
     </ModDefRow>
     <ModDefRow Name="F_ManufactureDef" DependID="51">
       <Item Name="ID">96903</Item>
@@ -73,7 +148,7 @@
       <Item Name="Height">1</Item>
       <Item Name="Mark">4</Item>
       <Item Name="Materials">12_15_30|12_87_20</Item>
-      <Item Name="ProductID">pauloraz3n.wuxia_96501|pauloraz3n.wuxia_96502|pauloraz3n.wuxia_96503|pauloraz3n.wuxia_96504|pauloraz3n.wuxia_96505|pauloraz3n.wuxia_96506|pauloraz3n.wuxia_96507|pauloraz3n.wuxia_96508|pauloraz3n.wuxia_96509|pauloraz3n.wuxia_96510|pauloraz3n.wuxia_96511|pauloraz3n.wuxia_96512|pauloraz3n.wuxia_96513|pauloraz3n.wuxia_96514|pauloraz3n.wuxia_96521|pauloraz3n.wuxia_96522|pauloraz3n.wuxia_96523</Item>
+      <Item Name="ProductID">pauloraz3n.wuxia_96501|pauloraz3n.wuxia_96502|pauloraz3n.wuxia_96503|pauloraz3n.wuxia_96504|pauloraz3n.wuxia_96505|pauloraz3n.wuxia_96506|pauloraz3n.wuxia_96507|pauloraz3n.wuxia_96508|pauloraz3n.wuxia_96509|pauloraz3n.wuxia_96510|pauloraz3n.wuxia_96511|pauloraz3n.wuxia_96512|pauloraz3n.wuxia_96513|pauloraz3n.wuxia_96514|pauloraz3n.wuxia_96521|pauloraz3n.wuxia_96522|pauloraz3n.wuxia_96523|pauloraz3n.wuxia_96515|pauloraz3n.wuxia_96516</Item>
     </ModDefRow>
 
     <!-- Materiais: cópias do 再生组织 (T_Material 92). -->
@@ -216,6 +291,26 @@
       <Item Name="Price">150</Item>
       <Item Name="D_value2">150</Item>
       <Item Name="RawIcon">wuxia_pilose_antler.png</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MaterialDef" DependID="92">
+      <Item Name="ID">96115</Item>
+      <Item Name="Name">柔玉</Item>
+      <Item Name="Feature">药材</Item>
+      <Item Name="Desc">一种能吸收天地灵气的奇妙矿物，形似非牛顿流体。建造聚灵台、灵岩和炼制纯阳真气都要用到它。</Item>
+      <Item Name="Obtain">制药工作台</Item>
+      <Item Name="Price">180</Item>
+      <Item Name="D_value2">180</Item>
+      <Item Name="RawIcon">wuxia_liquid_jade.png</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MaterialDef" DependID="92">
+      <Item Name="ID">96116</Item>
+      <Item Name="Name">仙人手谕碎片</Item>
+      <Item Name="Feature">药材</Item>
+      <Item Name="Desc">一枚仙人手谕残片，玉石质地。集齐六枚碎片，就能在制药工作台上拼成完整的仙人手谕。</Item>
+      <Item Name="Obtain">制药工作台</Item>
+      <Item Name="Price">1500</Item>
+      <Item Name="D_value2">1500</Item>
+      <Item Name="RawIcon">wuxia_oracle_fragment.png</Item>
     </ModDefRow>
 
     <!-- Pílulas: cópias do 治疗叶片 (T_Medicine 0). SubType 1/2 = cura que a IA usa sozinha;
@@ -576,7 +671,7 @@
       <Item Name="ID">96017</Item>
       <Item Name="SubType">9</Item>
       <Item Name="Name">【一品】通玄筑基丹</Item>
-      <Item Name="Desc">一品丹药，凝气境突破至筑基境的必备之物。凝气圆满时服用会立即尝试突破；否则24小时内灵气吸收+25%。</Item>
+      <Item Name="Desc">一品丹药，凝气境突破至固基境的必备之物，突破成功率+10%。凝气圆满时服用会立即尝试突破；否则24小时内灵气吸收+25%。</Item>
       <Item Name="Price">3000</Item>
       <Item Name="D_value1">3000</Item>
       <Item Name="Weight">0.1</Item>
@@ -593,6 +688,50 @@
       <Item Name="Show_value4">筑基突破</Item>
       <Item Name="Show_value5">修炼丹药</Item>
       <Item Name="D_value3">24小时</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96018</Item>
+      <Item Name="SubType">9</Item>
+      <Item Name="Name">纯阳真气</Item>
+      <Item Name="Desc">集天地精华而生的特殊灵气。化神境圆满时服用，会立即尝试突破至元婴境；否则获得100点灵气。</Item>
+      <Item Name="Price">8000</Item>
+      <Item Name="D_value1">8000</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">0</Item>
+      <Item Name="RecoverTime">1</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">0</Item>
+      <Item Name="RawIcon">wuxia_pill_chunyang.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">元婴突破</Item>
+      <Item Name="Show_value5">修炼丹药</Item>
+      <Item Name="D_value3">立即</Item>
+    </ModDefRow>
+    <ModDefRow Name="T_MedicineDef" DependID="0">
+      <Item Name="ID">96019</Item>
+      <Item Name="SubType">9</Item>
+      <Item Name="Name">仙人手谕</Item>
+      <Item Name="Desc">仙人抚我顶，结发受长生。合体境圆满时参悟，会立即尝试突破至地仙境；否则获得200点灵气。</Item>
+      <Item Name="Price">15000</Item>
+      <Item Name="D_value1">15000</Item>
+      <Item Name="Weight">0.1</Item>
+      <Item Name="D_value2">0.1</Item>
+      <Item Name="Rotten">-1</Item>
+      <Item Name="Recover_HP">0</Item>
+      <Item Name="RecoverTime">1</Item>
+      <Item Name="Recover_TemporaryHP">0</Item>
+      <Item Name="Recover_Immunity">0</Item>
+      <Item Name="RawIcon">wuxia_pill_oracle.png</Item>
+      <Item Name="Show_type2">null</Item>
+      <Item Name="Show_value2">null</Item>
+      <Item Name="Show_type4">丹药功效</Item>
+      <Item Name="Show_value4">地仙突破</Item>
+      <Item Name="Show_value5">修炼丹药</Item>
+      <Item Name="D_value3">立即</Item>
     </ModDefRow>
 
     <!-- Receitas. Materials/OutMaterial usam o ID curto (tipo_ID_qtd); o WuxiaMod.dll registra os IDs curtos. -->
@@ -1012,6 +1151,58 @@
       <Item Name="IsRandom">False</Item>
       <Item Name="Show_Toast">分类：丹药</Item>
     </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96515</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_13_5|12_96111_3</Item>
+      <Item Name="OutMaterial">12_96115_1</Item>
+      <Item Name="Workload">19</Item>
+      <Item Name="Name">柔玉</Item>
+      <Item Name="Desc">用硅矿石、灵石制作柔玉。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：材料</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96516</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_96116_6</Item>
+      <Item Name="OutMaterial">29_96019_1</Item>
+      <Item Name="Workload">33</Item>
+      <Item Name="Name">仙人手谕</Item>
+      <Item Name="Desc">用仙人手谕碎片炼制仙人手谕。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96550</Item>
+      <Item Name="SubType">3</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_96115_5|12_96111_30|12_96112_1|12_96104_5</Item>
+      <Item Name="OutMaterial">29_96018_1</Item>
+      <Item Name="Workload">48</Item>
+      <Item Name="Name">纯阳真气</Item>
+      <Item Name="Desc">用柔玉、灵石、丹魄真火、灵芝炼制纯阳真气。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：丹药</Item>
+    </ModDefRow>
+    <ModDefRow Name="F_ProductListDef" DependID="-1">
+      <Item Name="ID">96551</Item>
+      <Item Name="SubType">1</Item>
+      <Item Name="OverrideModuleId">-1</Item>
+      <Item Name="Materials">12_96115_3|12_96111_20|12_23_2|12_96112_1</Item>
+      <Item Name="OutMaterial">12_96116_1</Item>
+      <Item Name="Workload">33</Item>
+      <Item Name="Name">仙人手谕碎片</Item>
+      <Item Name="Desc">用柔玉、灵石、金锭、丹魄真火制作仙人手谕碎片。</Item>
+      <Item Name="Apply">True</Item>
+      <Item Name="IsRandom">False</Item>
+      <Item Name="Show_Toast">分类：材料</Item>
+    </ModDefRow>
 
     <!-- Textos em inglês da Fase 1 -->
     <ModDefRow Name="LanguageDef">
@@ -1188,6 +1379,26 @@
       <Item Name="Key">id_一种具有奇妙药效的木属性动物药材，来自长寿而聪颖的玃如。</Item>
       <Item Name="CN">一种具有奇妙药效的木属性动物药材，来自长寿而聪颖的玃如。</Item>
       <Item Name="EN">A wood-aspected animal ingredient with remarkable effects, from the long-lived and clever Jueru.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_柔玉</Item>
+      <Item Name="CN">柔玉</Item>
+      <Item Name="EN">Liquid Jade</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一种能吸收天地灵气的奇妙矿物，形似非牛顿流体。建造聚灵台、灵岩和炼制纯阳真气都要用到它。</Item>
+      <Item Name="CN">一种能吸收天地灵气的奇妙矿物，形似非牛顿流体。建造聚灵台、灵岩和炼制纯阳真气都要用到它。</Item>
+      <Item Name="EN">A wondrous mineral that absorbs the Qi of heaven and earth, like a non-Newtonian fluid. Needed for the Cultivation Platform, the Spiritual Rock and Pure Yang Qi.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_仙人手谕碎片</Item>
+      <Item Name="CN">仙人手谕碎片</Item>
+      <Item Name="EN">Oracle Fragment</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_一枚仙人手谕残片，玉石质地。集齐六枚碎片，就能在制药工作台上拼成完整的仙人手谕。</Item>
+      <Item Name="CN">一枚仙人手谕残片，玉石质地。集齐六枚碎片，就能在制药工作台上拼成完整的仙人手谕。</Item>
+      <Item Name="EN">A fragment of an Immortal Oracle, made of jade. Six fragments can be put together into a complete Immortal Oracle at the Elixir Workbench.</Item>
     </ModDefRow>
     <ModDefRow Name="LanguageDef">
       <Item Name="Key">id_修炼丹药</Item>
@@ -1505,14 +1716,44 @@
       <Item Name="EN">[1st Grade] Foundation Establishment Elixir</Item>
     </ModDefRow>
     <ModDefRow Name="LanguageDef">
-      <Item Name="Key">id_一品丹药，凝气境突破至筑基境的必备之物。凝气圆满时服用会立即尝试突破；否则24小时内灵气吸收+25%。</Item>
-      <Item Name="CN">一品丹药，凝气境突破至筑基境的必备之物。凝气圆满时服用会立即尝试突破；否则24小时内灵气吸收+25%。</Item>
-      <Item Name="EN">A first-grade elixir required to break through from Qi Condensation to Foundation Establishment. Taken at the peak of Qi Condensation it attempts the breakthrough at once; otherwise Qi absorption +25% for 24 hours.</Item>
+      <Item Name="Key">id_一品丹药，凝气境突破至固基境的必备之物，突破成功率+10%。凝气圆满时服用会立即尝试突破；否则24小时内灵气吸收+25%。</Item>
+      <Item Name="CN">一品丹药，凝气境突破至固基境的必备之物，突破成功率+10%。凝气圆满时服用会立即尝试突破；否则24小时内灵气吸收+25%。</Item>
+      <Item Name="EN">A first-grade elixir required to break through from Qi Condensation to Foundation, with +10% breakthrough chance. Taken at the peak of Qi Condensation it attempts the breakthrough at once; otherwise Qi absorption +25% for 24 hours.</Item>
     </ModDefRow>
     <ModDefRow Name="LanguageDef">
       <Item Name="Key">id_筑基突破</Item>
       <Item Name="CN">筑基突破</Item>
       <Item Name="EN">Foundation breakthrough</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_纯阳真气</Item>
+      <Item Name="CN">纯阳真气</Item>
+      <Item Name="EN">Pure Yang Qi</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_集天地精华而生的特殊灵气。化神境圆满时服用，会立即尝试突破至元婴境；否则获得100点灵气。</Item>
+      <Item Name="CN">集天地精华而生的特殊灵气。化神境圆满时服用，会立即尝试突破至元婴境；否则获得100点灵气。</Item>
+      <Item Name="EN">A special Qi born from the essence of heaven and earth. Taken at the peak of Spirit Transformation it attempts the breakthrough to Nascent Soul at once; otherwise it grants 100 Qi.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_元婴突破</Item>
+      <Item Name="CN">元婴突破</Item>
+      <Item Name="EN">Nascent Soul breakthrough</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_仙人手谕</Item>
+      <Item Name="CN">仙人手谕</Item>
+      <Item Name="EN">Immortal Oracle</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_仙人抚我顶，结发受长生。合体境圆满时参悟，会立即尝试突破至地仙境；否则获得200点灵气。</Item>
+      <Item Name="CN">仙人抚我顶，结发受长生。合体境圆满时参悟，会立即尝试突破至地仙境；否则获得200点灵气。</Item>
+      <Item Name="EN">An immortal touched my head and granted me long life. Studied at the peak of Body Integration it attempts the breakthrough to Terrestrial Immortal at once; otherwise it grants 200 Qi.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_地仙突破</Item>
+      <Item Name="CN">地仙突破</Item>
+      <Item Name="EN">Terrestrial Immortal breakthrough</Item>
     </ModDefRow>
     <ModDefRow Name="LanguageDef">
       <Item Name="Key">id_丹辅（土豆）</Item>
@@ -1688,6 +1929,26 @@
       <Item Name="Key">id_用雪莲、灵芝、提灯果、丹辅炼制【一品】通玄筑基丹。</Item>
       <Item Name="CN">用雪莲、灵芝、提灯果、丹辅炼制【一品】通玄筑基丹。</Item>
       <Item Name="EN">Refine [1st Grade] Foundation Establishment Elixir from Snow Lotus, Lingzhi, Lantern Berries, Pill Base.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用硅矿石、灵石制作柔玉。</Item>
+      <Item Name="CN">用硅矿石、灵石制作柔玉。</Item>
+      <Item Name="EN">Make Liquid Jade from silicon ore, Spirit Stone.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用仙人手谕碎片炼制仙人手谕。</Item>
+      <Item Name="CN">用仙人手谕碎片炼制仙人手谕。</Item>
+      <Item Name="EN">Refine Immortal Oracle from Oracle Fragment.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用柔玉、灵石、丹魄真火、灵芝炼制纯阳真气。</Item>
+      <Item Name="CN">用柔玉、灵石、丹魄真火、灵芝炼制纯阳真气。</Item>
+      <Item Name="EN">Refine Pure Yang Qi from Liquid Jade, Spirit Stone, Spirit Fire, Lingzhi.</Item>
+    </ModDefRow>
+    <ModDefRow Name="LanguageDef">
+      <Item Name="Key">id_用柔玉、灵石、金锭、丹魄真火制作仙人手谕碎片。</Item>
+      <Item Name="CN">用柔玉、灵石、金锭、丹魄真火制作仙人手谕碎片。</Item>
+      <Item Name="EN">Make Oracle Fragment from Liquid Jade, Spirit Stone, gold ingot, Spirit Fire.</Item>
     </ModDefRow>
     <!-- ===================== fim da Fase 1 ===================== -->
   </rows>

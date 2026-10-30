@@ -17,6 +17,7 @@ Leia este arquivo, depois `README.md`, `docs/estrutura-de-mods.md`, `docs/conver
 - `main`: base do mod (cultivo, Qi, almofada de meditação).
 - `claude/project-thread-sn2nn3` (PR #1, rascunho): Fase 1 = pílulas, materiais, receitas, Caldeirão Pequeno (96901), Caldeirão Taiyi (96902), Bancada de Elixires (96903). Gerado por `tools/gen_phase1.py`.
 - `claude/project-thread-lv3pty` (PR #2, rascunho, em cima do PR #1): correções dos testes da Fase 1. É a branch que o Paulo está testando.
+- `claude/project-thread-e4xo4h` (em cima do PR #5, branch `uy58dj`): Fase 2 = cultivo do RimImmortal Core (11 estágios, ruptura, Desvio de Qi, Plataforma de Cultivo 9602, Plataforma de Ruptura 9603, Rocha Espiritual 9604, itens 96018/96019/96115/96116). Instalada no PC do Paulo em 30/10/2026, falta testar.
 - `testMode` está LIGADO no `config.json` (kit de teste e construção instantânea). Desligar antes de publicar no Workshop.
 
 ## Ciclo automático (desde 29/10/2026)
@@ -61,7 +62,8 @@ Todos os itens abaixo já foram corrigidos no PR #2, mas o Paulo ainda não conf
 
 1. Paulo testa os itens 7 e 9.
 2. Com a Fase 1 aprovada: juntar PR #2 no PR #1 e o PR #1 na `main`.
-3. Fase 2 conforme `docs/conversao-rimimmortal.md`.
+3. Fase 2 feita (branch `e4xo4h`): Paulo testa o kit de teste, a ruptura na Plataforma de Ruptura e o Desvio de Qi.
+4. Fase 3 conforme `docs/conversao-rimimmortal.md`, mais os itens do mod Faction.
 
 ## Texto para colar no novo lugar
 

@@ -71,7 +71,7 @@ Ideologia e memes, estilos de ideologia, narradores (storytellers), cenários, b
 ## Ordem sugerida
 
 1. **Pílulas, materiais e receitas do Core**, com o Caldeirão e a Bancada de Elixires. Isso já dá alquimia funcionando e serve de teste para o script de conversão.
-2. **Números do cultivo do Core** no nosso sistema (Qi por estágio, chance de ruptura, Desvio de Qi), mais a Plataforma de Ruptura.
+2. **Números do cultivo do Core** no nosso sistema (Qi por estágio, chance de ruptura, Desvio de Qi), mais a Plataforma de Ruptura. *Feito em 30/10/2026: veja a seção Fase 2.*
 3. **Armas, armaduras e próteses** (Forge e Weapon Pack): muito conteúdo por pouco código.
 4. **Living e Farmcraft:** materiais, comidas, bancadas e plantas.
 5. **Furniture:** móveis e pisos.
@@ -83,3 +83,12 @@ Ideologia e memes, estilos de ideologia, narradores (storytellers), cenários, b
 - Se `T_MedicineDef`, `T_WeaponDef`, `T_ClothDef` e `Map_PlantDef` aceitam cópia com `DependID` como as bancadas aceitam.
 - O tamanho das imagens. No mapa a imagem aparece no tamanho real; a almofada de 128 px ocupou cerca de 3 quadrados.
 - Se cabelos e barbas novos funcionam pela tabela de aparência.
+
+## Fase 2: cultivo do Core (feito)
+
+- `Data/realms.json` tem os 11 estágios do `Qidef.xml`: reserva de Qi (`MaxEnergy`), progresso (`EXP`), chance e item para sair do estágio. Os bônus do `LevelBuff` de cada estágio viraram efeitos do jogo (`effects`, ids da EffectEntries) e entram como uma comida escondida (`RealmBuffs`).
+- O Qi enche a reserva primeiro e o que sobra vira progresso, como o `Pawn_EnergyTracker` do RimImmortal. Com os dois cheios dá para romper.
+- Falha na ruptura = Desvio de Qi (经脉错乱): perde a reserva, metade do progresso e fica 72 h sem cultivar, mais lento e com fome.
+- Itens de ruptura: Elixir da Fundação (96017), Qi Yang Puro (96018) e Oráculo Imortal (96019, feito com 6 Fragmentos 96116). Jade Líquido (96115) é material.
+- Construções: Plataforma de Cultivo (9602), Plataforma de Ruptura (9603) e Rocha Espiritual (9604, decoração, +50% de Qi em 15 casas).
+- Não convertido ainda: o pilar de trovão, os traços e as tribulações do Core.
