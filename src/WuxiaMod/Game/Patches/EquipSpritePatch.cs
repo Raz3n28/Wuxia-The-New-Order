@@ -166,7 +166,13 @@ namespace WuxiaMod.Game.Patches
             var key = (def.RawIcon, material.GetInstanceID());
             if (Regions.TryGetValue(key, out var region)) return region;
             // O shader do Spine espera alfa pré-multiplicado.
-            return Regions[key] = tex.ToAtlasRegionPMAClone(material);
+            region = tex.ToAtlasRegionPMAClone(material);
+            // ToAtlasRegion põe offset de meia imagem (pivô no canto): a imagem saía deslocada
+            // para cima e para a direita, e na malha da armadura só um canto aparecia.
+            region.offsetX = region.offsetY = 0;
+            region.originalWidth = region.width;
+            region.originalHeight = region.height;
+            return Regions[key] = region;
         }
 
         /// <summary>
