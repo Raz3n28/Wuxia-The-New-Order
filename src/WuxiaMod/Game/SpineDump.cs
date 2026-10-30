@@ -84,6 +84,12 @@ namespace WuxiaMod.Game
                 foreach (var b in def0.Bones)
                     bones.Append($"{b.Data.Name};{b.Parent?.Data.Name};{b.WorldX:0.##};{b.WorldY:0.##};{b.WorldRotationX:0.##};{b.WorldScaleX:0.###};{b.WorldScaleY:0.###}\n");
 
+                // Ordem de desenho (setup): índice do slot, para montar o boneco inteiro fora do jogo.
+                var slots = new StringBuilder("index;slot;bone\n");
+                foreach (var sl in sd.Slots)
+                    slots.Append($"{sl.Index};{sl.Name};{sl.BoneData.Name}\n");
+
+                File.WriteAllText(Path.Combine(dir, "slots.csv"), slots.ToString());
                 File.WriteAllText(Path.Combine(dir, "parts.csv"), csv.ToString());
                 File.WriteAllText(Path.Combine(dir, "partsdef.csv"), parts.ToString());
                 File.WriteAllText(Path.Combine(dir, "bones.csv"), bones.ToString());
