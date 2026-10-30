@@ -11,7 +11,8 @@ namespace WuxiaMod.Game
     /// - Botão "Kit de teste" na aba Cultivo: põe no chão, ao lado do personagem, todas as
     ///   pílulas e ingredientes do mod, desperta o cultivo e enche o Qi e o progresso do
     ///   estágio atual (pronto para romper; clicar de novo depois de romper enche o próximo).
-    ///   O kit também traz os materiais para construir uma de cada construção do mod.
+    ///   O kit também traz os materiais para construir uma de cada construção do mod
+    ///   e uma unidade (qualidade mais baixa) de cada arma e armadura da Fase 3.
     /// - As bancadas e receitas do mod ficam com trabalho 1 (quase instantâneas).
     /// - As construções do mod ficam prontas assim que são colocadas (veja InstantBuildPatch).
     /// </summary>
@@ -25,7 +26,10 @@ namespace WuxiaMod.Game
 
         // Faixas de ID do def.xml (veja tools/gen_phase1.py).
         private const int FirstPill = 96001, LastPill = 96019;
-        private const int FirstIngredient = 96101, LastIngredient = 96116;
+        private const int FirstIngredient = 96101, LastIngredient = 96122;
+        // Fase 3 (veja tools/gen_phase3.py): 4 qualidades por item, ID = base + qualidade-1.
+        private const int FirstWeapon = 97000, LastWeapon = 97620;
+        private const int FirstCloth = 98000, LastCloth = 98170;
 
         public static void GiveKit(FWHeroBean heroBean)
         {
@@ -41,6 +45,8 @@ namespace WuxiaMod.Game
             for (int id = FirstPill; id <= LastPill; id++) given += Put(hero, 29, id, PillCount);
             for (int id = FirstIngredient; id <= LastIngredient; id++) given += Put(hero, 12, id, IngredientCount);
             foreach (var kv in BuildingMaterials()) given += Put(hero, kv.Key.Item1, kv.Key.Item2, kv.Value);
+            for (int id = FirstWeapon; id <= LastWeapon; id += 10) given += Put(hero, 18, id, 1);
+            for (int id = FirstCloth; id <= LastCloth; id += 10) given += Put(hero, 17, id, 1);
 
             var state = CultivationRegistry.Get(heroBean.uid, true);
             string message;

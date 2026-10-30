@@ -97,8 +97,21 @@ src/WuxiaMod/
 docs/                     design e pesquisa
 ```
 
+### Armas e armaduras (Fase 3, convertidas do RimImmortal Forge e Weapon Pack)
+
+Duas forjas novas, na aba de produção:
+
+| Construção | Tamanho | Faz |
+|---|---|---|
+| Forja de Armas Espirituais (Spirit Tool Forge) | 3x1, a lenha | Armas mortais, armas e armaduras de 3º e 2º grau, Aço Geng, Bronze Solar, Componente de Núcleo de Tesouro, Bambu de Sangue de Jade |
+| Forja da Alma Divina (Divine Soul Forge) | 3x3, energia | Tesouros de 1º grau, equipamento dos cultivadores antigos, Núcleo da Alma Divina, Relíquia Antiga |
+
+São 63 armas (corpo a corpo, arcos, mosquetes, besta, metralhadora, canhão, granadas e armas de arremesso) e 18 armaduras, elmos e mantos, cada uma com as 4 qualidades do jogo (melhoráveis). Na mão e no corpo elas usam o visual da arma ou armadura mais parecida do jogo; o ícone é o do RimImmortal. As próteses ficaram para depois.
+
+As linhas do `def.xml`, os ícones e o português são gerados por `tools/gen_phase3.py` a partir dos dados em `tools/phase3_ri.py` (extraídos dos XML do RimImmortal). O kit de teste também põe no chão uma de cada arma e armadura.
+
 As DLLs do jogo nunca entram no repositório.
 
 ## Créditos
 
-Imagens, nomes, textos e receitas da alquimia vêm do **RimImmortal** (RimWorld, Workshop 3296476341), do mesmo autor, usados com permissão.
+Imagens, nomes, textos e receitas da alquimia vêm do **RimImmortal** (RimWorld, Workshop 3296476341), do mesmo autor, usados com permissão. As armas, armaduras e materiais de forja vêm do **RimImmortal Forge** (Workshop 3308873789) e do **RimImmortal Chinese Weapon Pack** (Workshop 3420195156), também com permissão.
