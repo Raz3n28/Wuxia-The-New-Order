@@ -10,8 +10,9 @@
 #   DG_KJ_000_M) e troca as peças listadas pela nossa imagem. A imagem fica centrada no
 #   lugar da peça original, 1 pixel = 1 unidade do boneco; nas malhas (tronco, barra) a
 #   imagem é esticada sobre a malha.
-# - Peça não listada continua com a arte do modelo: por isso listamos braços e mãos com uma
-#   imagem transparente (a armadura do RimImmortal é só o tronco).
+# - Peça não listada continua com a arte do modelo: por isso listamos todas. A armadura do
+#   RimImmortal é só o tronco: as mangas são o braço do modelo pintado com a cor da armadura
+#   e as mãos ficam transparentes.
 # - Direções: f frente, 3 diagonal para baixo, s lado, 9 diagonal para cima, b costas. O
 #   RimImmortal tem south, east e north.
 # - As imagens vão em Resources/Textures/spine_wuxia.pack; o mod separa em spine_wuxia/ ao iniciar.
@@ -150,6 +151,7 @@ def top(key, stem, sex):
     items = []
     for d in DIRS:
         art, box = load(os.path.join(WS, f"{stem}_{sex}_{TOP_SRC[d]}.png"))
+        color = main_color(Image.open(os.path.join(WS, f"{stem}_{sex}_south.png")).convert("RGBA"))
         parts = {k: part("DG_KJ_000_M", SLOT_DIR[d] + "/" + a, a) for k, a in TOP_KEYS[d].items()}
         # Área do tronco + barra; a arte encaixa pela largura, encostada nos ombros.
         mesh = [parts[k]["bbox"] for k in MESH_PARTS if k in parts]
@@ -165,9 +167,36 @@ def top(key, stem, sex):
                 b = parts[k]["bbox"]
                 png = render(world, b[0], b[1], b[2], b[3], MESH_PPU)
                 items.append((f"top_{k}_{d}", save(png, f"{key}_{sex.lower()}_{k}_{d}.png")))
+            elif k.endswith("Arm"):
+                items.append((f"top_{k}_{d}", save(sleeve(SLOT_DIR[d] + "/" + a, color), f"{key}_{sex.lower()}_{k}_{d}.png")))
             else:
                 items.append((f"top_{k}_{d}", transparent()))
     return items
+
+
+SLEEVES = os.path.join(TOOLS, "spine_sleeves")
+
+
+def main_color(art):
+    """Cor média da armadura, sem contorno nem brilho."""
+    px = [p[:3] for p in art.getdata() if p[3] > 200 and 50 < sum(p[:3]) / 3 < 220]
+    if not px:
+        return (128, 128, 128)
+    return tuple(sum(c[i] for c in px) // len(px) for i in range(3))
+
+
+def sleeve(slot, color):
+    """Manga: a arte do braço do modelo do jogo (tools/spine_sleeves) pintada com a cor da armadura."""
+    im = Image.open(os.path.join(SLEEVES, slot.replace("/", "_").replace(" ", "_") + ".png")).convert("RGBA")
+    lum = [sum(p[:3]) / 3 for p in im.getdata() if p[3] > 60]
+    top = max(lum) if lum else 255
+    out = []
+    for r, g, b, a in im.getdata():
+        f = (r + g + b) / 3 / top
+        k = 0.15 if f < 0.12 else 0.45 + 0.75 * f  # contorno escuro continua escuro
+        out.append((min(255, int(color[0] * k)), min(255, int(color[1] * k)), min(255, int(color[2] * k)), a))
+    im.putdata(out)
+    return im
 
 
 # ------------------------------------------------------------------ xml e def.xml
@@ -187,10 +216,12 @@ WEAPON_TYPE = {10810: "sword", 90910: "sword", 91110: "sword", 11010: "spear", 2
                91130: "spear", 11110: "spear", 10610: "gun", 10310: "gun", 40410: "gun",
                10710: "thrown", 90720: "launcher"}
 WEAPON_BOX = {  # tipo -> {direção: (largura, altura, ponta)}
-    "sword": {"f": (16, 60, "up"), "b": (16, 60, "up"), "s": (76, 24, "right"), "3": (76, 24, "right"), "9": (76, 24, "right")},
-    "spear": {"f": (14, 104, "up"), "b": (14, 104, "down"), "s": (104, 14, "right"), "3": (104, 14, "right"), "9": (104, 14, "right")},
-    "gun": {"f": (18, 56, "down"), "b": (18, 56, "up"), "s": (124, 44, "right"), "3": (124, 44, "right"), "9": (124, 44, "right")},
-    "launcher": {"f": (44, 124, "down"), "b": (44, 124, "up"), "s": (70, 42, "right"), "3": (70, 42, "right"), "9": (70, 42, "right")},
+    # De frente (f) a arma fica com a ponta para baixo e de costas (b) para cima, como nas armas do jogo.
+    # Armas de fogo: o anexo do jogo tem 124x44, mas a arte visível é só ~62x26 no centro.
+    "sword": {"f": (16, 60, "down"), "b": (16, 60, "up"), "s": (76, 24, "right"), "3": (76, 24, "right"), "9": (76, 24, "right")},
+    "spear": {"f": (14, 104, "down"), "b": (14, 104, "up"), "s": (104, 14, "right"), "3": (104, 14, "right"), "9": (104, 14, "right")},
+    "gun": {"f": (18, 56, "down"), "b": (18, 56, "up"), "s": (66, 28, "right"), "3": (66, 28, "right"), "9": (66, 28, "right")},
+    "launcher": {"f": (32, 66, "down"), "b": (32, 66, "up"), "s": (64, 38, "right"), "3": (64, 38, "right"), "9": (64, 38, "right")},
     "thrown": {d: (28, 20, "right") for d in "f3s9b"},
 }
 TEXTURE_ATTR = {"b": "Texture_T", "9": "Texture_RT", "s": "Texture_S", "3": "Texture_RB", "f": "Texture_B"}
