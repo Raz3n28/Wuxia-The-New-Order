@@ -25,6 +25,7 @@ namespace WuxiaMod.Game
 
         private void Update()
         {
+            WuxiaWindow.Update();
             try { WorkshopPublisher.Tick(); }
             catch (Exception ex) { ModLog.Error(ex, "publicacao na Workshop"); }
 
@@ -46,6 +47,8 @@ namespace WuxiaMod.Game
         {
             try { WorkshopPublisher.Draw(); }
             catch { }
+            try { WuxiaWindow.Draw(); }
+            catch (Exception ex) { ModLog.Error(ex, "janela Wuxia"); }
         }
     }
 }

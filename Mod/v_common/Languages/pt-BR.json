@@ -80,5 +80,18 @@
   "ui.need_platform": "Precisa de uma Plataforma de Ruptura construída para tentar a ruptura.",
   "ui.break_button": "Tentar ruptura",
   "pill.break_not_ready": "Ainda não está no auge de {0}: sem ruptura.",
-  "ui.build_tab": "Wuxia"
+  "ui.build_tab": "Wuxia",
+  "ui.window.hint": "F9 abre e fecha esta janela",
+  "ui.window.no_hero": "Nenhum colono no mapa.",
+  "ui.window.android": "Androide",
+  "ui.window.open_button": "Janela Wuxia (F9)",
+  "dev.drop_all": "Soltar todos os itens",
+  "dev.fill": "Encher o cultivo",
+  "dev.break_now": "Romper agora",
+  "dev.drop_break_item": "Soltar item de ruptura",
+  "dev.no_break_item": "Este estágio não precisa de item para romper.",
+  "dev.dropped": "{0} pilhas de itens no chão.",
+  "dev.items": "Todos os itens do mod",
+  "dev.drop": "Soltar",
+  "dev.no_root": "Este colono não tem raiz espiritual e não pode cultivar."
 }

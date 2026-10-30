@@ -172,9 +172,9 @@ namespace WuxiaMod.Game.Patches
             // Mesmo lugar do "Despertar": aparece depois de despertar.
             CreateButton(parent, font, BreakButtonName, Loc.T("ui.break_button"), new Vector2(60, ButtonY),
                 new Color(0.55f, 0.20f, 0.15f, 0.95f), () => TryBreakthrough(dialog));
-            // Só com "testMode": true no config.json (veja TestMode).
-            CreateButton(parent, font, TestButtonName, Loc.T("ui.test_kit_button"), new Vector2(60 + ButtonWidth + 20, ButtonY),
-                new Color(0.20f, 0.35f, 0.55f, 0.95f), () => GiveTestKit(dialog));
+            // Abre a janela própria do Wuxia (o Kit de teste virou a aba Dev de lá).
+            CreateButton(parent, font, TestButtonName, Loc.T("ui.window.open_button"), new Vector2(60 + ButtonWidth + 20, ButtonY),
+                new Color(0.20f, 0.35f, 0.55f, 0.95f), () => OpenWindow(dialog));
             // Idioma dos textos do mod (aba, itens, construções), seja qual for o idioma do jogo.
             CreateButton(parent, font, LanguageButtonName, Loc.T("ui.language_button"), new Vector2(-60, ButtonY),
                 new Color(0.30f, 0.30f, 0.30f, 0.95f), () => ToggleLanguage(dialog), rightCorner: true);
@@ -189,7 +189,7 @@ namespace WuxiaMod.Game.Patches
                     label.text = Loc.T("ui.cultivation");
             var view = FindChild(dialog.transform, ViewName);
             SetButtonText(view, AwakenButtonName, Loc.T("ui.awaken_button"));
-            SetButtonText(view, TestButtonName, Loc.T("ui.test_kit_button"));
+            SetButtonText(view, TestButtonName, Loc.T("ui.window.open_button"));
             SetButtonText(view, BreakButtonName, Loc.T("ui.break_button"));
             SetButtonText(view, LanguageButtonName, Loc.T("ui.language_button"));
             Refresh(dialog);
@@ -243,12 +243,10 @@ namespace WuxiaMod.Game.Patches
             go.SetActive(false);
         }
 
-        private static void GiveTestKit(Dialog_MainHeroInfo dialog)
+        private static void OpenWindow(Dialog_MainHeroInfo dialog)
         {
             var hero = Traverse.Create(dialog).Field("heroBean").GetValue<FWHeroBean>();
-            if (hero == null || IsAndroid(hero)) return;
-            TestMode.GiveKit(hero);
-            Refresh(dialog);
+            if (hero != null) WuxiaWindow.OpenFor(hero.uid);
         }
 
         private static void Awaken(Dialog_MainHeroInfo dialog)
@@ -333,7 +331,7 @@ namespace WuxiaMod.Game.Patches
             var state = CultivationRegistry.Get(hero.uid, !android);
             text.text = Describe(hero.name, android, state);
             if (button != null) button.gameObject.SetActive(!android && state.CanCultivate && state.RealmOrder == 0);
-            if (testButton != null) testButton.gameObject.SetActive(TestMode.Enabled && !android);
+            if (testButton != null) testButton.gameObject.SetActive(true);
             if (breakButton != null) breakButton.gameObject.SetActive(!android && state.Realm != null && !state.AtPeakRealm);
         }
 

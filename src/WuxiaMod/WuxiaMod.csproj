@@ -46,6 +46,7 @@
     <Reference Include="UnityEngine.AssetBundleModule"><HintPath>$(GameManagedDir)\UnityEngine.AssetBundleModule.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="com.rlabrecque.steamworks.net"><HintPath>$(GameManagedDir)\com.rlabrecque.steamworks.net.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="UnityEngine.InputLegacyModule"><HintPath>$(GameManagedDir)\UnityEngine.InputLegacyModule.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="Unity.InputSystem"><HintPath>$(GameManagedDir)\Unity.InputSystem.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="spine-unity"><HintPath>$(GameManagedDir)\spine-unity.dll</HintPath><Private>false</Private></Reference>
     <Reference Include="Unity.TextMeshPro"><HintPath>$(GameManagedDir)\Unity.TextMeshPro.dll</HintPath><Private>false</Private></Reference>
   </ItemGroup>
