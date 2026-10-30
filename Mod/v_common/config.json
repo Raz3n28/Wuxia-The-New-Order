@@ -4,5 +4,7 @@
   "testMode": true,
   "qiPerHourRecreation": 3,
   "qiPerHourMeditation": 15,
-  "qiPerHourPlatform": 25
+  "qiPerHourPlatform": 25,
+  "weaponSpriteRotation": -45,
+  "weaponSpriteScale": 1
 }

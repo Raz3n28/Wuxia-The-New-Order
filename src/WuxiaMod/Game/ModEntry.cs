@@ -50,6 +50,8 @@ namespace WuxiaMod.Game
                     Patches.MeditationPatch.QiPerHourRecreation = cfg.Float("qiPerHourRecreation", Patches.MeditationPatch.QiPerHourRecreation);
                     Patches.MeditationPatch.QiPerHourMeditation = cfg.Float("qiPerHourMeditation", Patches.MeditationPatch.QiPerHourMeditation);
                     Patches.MeditationPatch.QiPerHourPlatform = cfg.Float("qiPerHourPlatform", Patches.MeditationPatch.QiPerHourPlatform);
+                    Patches.EquipSpritePatch.WeaponRotation = cfg.Float("weaponSpriteRotation", Patches.EquipSpritePatch.WeaponRotation);
+                    Patches.EquipSpritePatch.WeaponScale = cfg.Float("weaponSpriteScale", Patches.EquipSpritePatch.WeaponScale);
                 }
 
                 Loc.LoadAll(Path.Combine(VersionDir, "Languages"));
