@@ -6,5 +6,6 @@
   "qiPerHourMeditation": 15,
   "qiPerHourPlatform": 25,
   "weaponSpriteRotation": -45,
-  "weaponSpriteScale": 1
+  "weaponSpriteScale": 1,
+  "dumpSpine": true
 }

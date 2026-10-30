@@ -52,6 +52,7 @@ namespace WuxiaMod.Game
                     Patches.MeditationPatch.QiPerHourPlatform = cfg.Float("qiPerHourPlatform", Patches.MeditationPatch.QiPerHourPlatform);
                     Patches.EquipSpritePatch.WeaponRotation = cfg.Float("weaponSpriteRotation", Patches.EquipSpritePatch.WeaponRotation);
                     Patches.EquipSpritePatch.WeaponScale = cfg.Float("weaponSpriteScale", Patches.EquipSpritePatch.WeaponScale);
+                    SpineDump.Auto = cfg.Bool("dumpSpine");
                 }
 
                 Loc.LoadAll(Path.Combine(VersionDir, "Languages"));
